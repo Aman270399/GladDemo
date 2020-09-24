@@ -78,7 +78,8 @@ DateBooking Date NOT NULL,
 TransactionId nvarchar(12) NOT NULL,
 TotalPrice numeric(10,2) NOT NULL,
 TotalPassenger int NOT NULL,
-Constraint Booking_PK PRIMARY KEY(BookingId)
+Constraint Booking_PK PRIMARY KEY(BookingId),
+Constraint Booking_User_FK FOREIGN KEY(UserEmailId) references User(UserEmailId)
 )
 
 drop table Booking
