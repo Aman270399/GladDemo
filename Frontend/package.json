@@ -23,9 +23,13 @@
     "@angular/router": "~10.0.14",
     "bootstrap": "^4.5.2",
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
     "jquery": "^3.5.1",
     "popper.js": "^1.16.1",
+>>>>>>> Stashed changes
+=======
+    "ngx-bootstrap": "^6.1.0",
 >>>>>>> Stashed changes
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
