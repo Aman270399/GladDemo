@@ -25,6 +25,7 @@ namespace Airlines_WebApp
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public System.DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
         public decimal MobileNumber { get; set; }
     
