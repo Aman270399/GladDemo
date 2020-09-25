@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AirportlistService } from 'src/app/services/airportlist.service';
-
 import {airportlist} from 'src/app/models/airportlist';
 
 import {NgForm} from '@angular/forms';

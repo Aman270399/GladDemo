@@ -1,11 +1,8 @@
-body {
-	background: #eeeeee;
-	font-family: 'Varela Round', sans-serif;
-}
 .navbar {
+    font-family: 'Varela Round', sans-serif;
 	color: #fff;
 	background: #926dde !important;
-	padding: 5px 16px;
+	padding: 16px 16px;
 	border-radius: 0;
 	border: none;
 	box-shadow: 0 0 4px rgba(0,0,0,.1);

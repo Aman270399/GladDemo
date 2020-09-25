@@ -14,6 +14,6 @@ export class AirportlistService {
   baseUrl : string="http://localhost:3000/users";
   constructor(private http:HttpClient) { }
   getAllUser(){
-    return this.http.get<airportlist[]>(this.baseUrl);
+    return this.http.get(this.baseUrl);
    }
 }
