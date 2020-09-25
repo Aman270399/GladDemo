@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
+
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AirportlistService } from 'src/app/services/airportlist.service';
 
 import {airportlist} from 'src/app/models/airportlist';
-=======
+
 import {NgForm} from '@angular/forms';
->>>>>>> Stashed changes
+
 
 @Component({
   selector: 'app-home',
@@ -36,13 +36,5 @@ export class HomeComponent implements OnInit {
     console.log(form);  
     }
 
-<<<<<<< Updated upstream
-   /*  textBoxDisabled = true;
-    toggle(){
-      this.textBoxDisabled = !this.textBoxDisabled;
-    }
- */
-=======
 
->>>>>>> Stashed changes
 }
