@@ -62,6 +62,7 @@ create table UserTable
     Title nvarchar(3) NOT NULL,
     FirstName nvarchar(50) NOT NULL,
     LastName  nvarchar(50) NOT NULL,
+	DateOfBirth Date NOT NULL,
 	Age int NOT NULL,
 	MobileNumber numeric(10) NOT NULL,
 	Constraint User_PK PRIMARY KEY(UserEmailId),
