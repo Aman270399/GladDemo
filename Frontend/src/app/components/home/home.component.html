@@ -1,1 +1,119 @@
-<p>home works!</p>
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
+                        <div class="form-group">
+                            <div class="form-checkbox">
+                                <label for="roundtrip">
+                                    <input type="radio" id="roundtrip" name="flight-type"  >
+                                    <span></span>Roundtrip
+                                </label>
+                           
+                                <label for="one-way">
+                                    <input type="radio" id="one-way" name="flight-type" >
+                                    <span></span>One way
+                                </label>		
+                            </div>
+                        </div>
+                        
+                       
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="form-label">Flying from</span>
+                                    <input class="form-control" type="text" placeholder="Fying from"  formControlName="source" required list="cities">
+                                    <datalist id="cities">
+                                         <option *ngFor="let city of cities">{{city}} </option>
+                                     </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <span class="form-label">Flying to</span>
+                                    <input class="form-control" type="text" placeholder="Fying To "  formControlName="destination" required list="cities">
+                                    <datalist id="cities">
+                                         <option *ngFor="let city of cities">{{city}} </option>
+                                     </datalist>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="form-label">Departing</span>
+                                    <input class="form-control" type="date" required   formControlName="departdate">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="form-label">Returning</span>
+                                    <input class="form-control" type="date"  required  formControlName="returndate">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="form-label">Adults (18+)</span>
+                                        <input class="form-control" type="text" placeholder="Number of adult passengers" required formControlName="adultpassengercount" list="count">
+                                        <datalist id="count">  
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        </datalist>
+                                    <span class="select-arrow"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="form-label">Children (3-17)</span>
+                                    <input class="form-control" type="text" placeholder="Number of adult passengers"  formControlName="childpassengercount" list="count">
+                                    <datalist id="count">  
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    </datalist>
+                                    <span class="select-arrow"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <span class="form-label">Infant(0-3)</span>
+                                    <input class="form-control" type="text" placeholder="Number of adult passengers"  formControlName="infantpassengercount" list="count">
+                                    <datalist id="count">  
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    </datalist>
+                                    <span class="select-arrow"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <span class="form-label">Travel class</span>
+                                    <select class="form-control">
+                                        <option>Economy class</option>
+                                        <option>Business class</option>
+                                        <option>First class</option>
+                                    </select>
+                                    <span class="select-arrow"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-btn">
+                                    <button class="submit-btn">Show flights</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
