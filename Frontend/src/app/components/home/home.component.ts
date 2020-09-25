@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< Updated upstream
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { AirportlistService } from 'src/app/services/airportlist.service';
 
 import {airportlist} from 'src/app/models/airportlist';
-=======
 import {NgForm} from '@angular/forms';
->>>>>>> Stashed changes
 
 @Component({
   selector: 'app-home',
@@ -17,7 +14,7 @@ export class HomeComponent implements OnInit {
   airports:airportlist[];
   SearchForm:FormGroup;
   cities:any=['Delhi','Mumbai'];
-  constructor(private formbulider: FormBuilder,private airportservice:AirportlistService) { }
+  constructor(private formbulider: FormBuilder) { }
 
   ngOnInit(): void {
     this.SearchForm = this.formbulider.group({    
@@ -29,20 +26,17 @@ export class HomeComponent implements OnInit {
       childpassengercount:[''],
       infantpassengercount:[''],
     }); 
-    this.airportservice.getAllUser()._subscribe<airportlist> (data=>{this.airports=data;});
+    //this.airportservice.getAllUser()._subscribe<airportlist> (data=>{this.airports=data;});
   }
   
   onSubmit(form){
     console.log(form);  
     }
 
-<<<<<<< Updated upstream
    /*  textBoxDisabled = true;
     toggle(){
       this.textBoxDisabled = !this.textBoxDisabled;
     }
  */
-=======
 
->>>>>>> Stashed changes
 }
