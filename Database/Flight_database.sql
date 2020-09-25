@@ -105,7 +105,7 @@ Constraint Ticket_PK PRIMARY KEY(TicketId,FlightId),
 Constraint Ticket_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
 Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId),
 Constraint Age_Pos CHECK(Age>-1),
-Constraint Title_C CHECK (Title LIKE 'Mr|Mrs'),
+Constraint Ticket_Title_C CHECK (Title LIKE 'Mr|Mrs'),
 Constraint Class_C CHECK (Class LIKE 'Economy|Business')
 )
 drop table Ticket;
