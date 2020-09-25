@@ -22,5 +22,20 @@ namespace Airlines_WebApp.Repository
             projectContext.UserTables.Add(newUser);
             projectContext.SaveChanges();
         }
+
+        public UserTable Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(UserTable dbEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(int entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
