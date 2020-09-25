@@ -11,7 +11,7 @@ export class AirportlistService {
       'Content-Type': 'application/json'
     })
   }
-  baseUrl : string="http://localhost:3000/users";
+  baseUrl : string;
   constructor(private http:HttpClient) { }
   getAllUser(){
     return this.http.get(this.baseUrl);
