@@ -10,6 +10,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { HttpClientModule } from '@angular/common/http';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     FooterComponent,
 
-    AdminloginComponent
+    AdminloginComponent,
+
+    UserloginComponent
 
   ],
   imports: [
