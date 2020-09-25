@@ -111,6 +111,9 @@ drop table Ticket;
 
 
 
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('101','CS airport','Mumbai','Maharashtra');
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('102','IG airport','Delhi','Delhi');
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('103','BP airport','Bhubaneswar','Odisha');
 
 
 
