@@ -367,7 +367,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="GladiatorProjectEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="GladiatorProjectEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Airports" EntityType="Self.Airport" />
           <EntitySet Name="Bookings" EntityType="Self.Booking" />
@@ -405,7 +405,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="GladiatorProjectModelStoreContainer" CdmEntityContainer="GladiatorProjectEntities">
+        <EntityContainerMapping StorageEntityContainer="GladiatorProjectModelStoreContainer" CdmEntityContainer="GladiatorProjectEntities1">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="GladiatorProjectModel.Admin">
               <MappingFragment StoreEntitySet="Admin">

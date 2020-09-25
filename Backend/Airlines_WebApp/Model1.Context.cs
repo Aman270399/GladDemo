@@ -13,10 +13,10 @@ namespace Airlines_WebApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GladiatorProjectEntities : DbContext
+    public partial class GladiatorProjectEntities1 : DbContext
     {
-        public GladiatorProjectEntities()
-            : base("name=GladiatorProjectEntities")
+        public GladiatorProjectEntities1()
+            : base("name=GladiatorProjectEntities1")
         {
         }
     
