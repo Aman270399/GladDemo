@@ -7,17 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Airlines_WebApp
+namespace Airlines_WebApp.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Admin
+    public partial class Ticket
     {
-        public string AdminEmailId { get; set; }
-        public string Password { get; set; }
+        public string TicketId { get; set; }
+        public string FlightId { get; set; }
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public int Age { get; set; }
+        public string SeatNo { get; set; }
+        public System.DateTime DateTravel { get; set; }
+        public string Class { get; set; }
+        public int Price { get; set; }
+        public string BookingId { get; set; }
+        public Nullable<System.DateTime> DateCancellation { get; set; }
+    
+        public virtual Booking Booking { get; set; }
+        public virtual Flight Flight { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Airlines_WebApp.Repository;
+﻿using Airlines_WebApp.Models;
+using Airlines_WebApp.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

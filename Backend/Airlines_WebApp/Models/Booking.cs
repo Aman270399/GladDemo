@@ -7,29 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Airlines_WebApp
+namespace Airlines_WebApp.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class UserTable
+    public partial class Booking
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserTable()
+        public Booking()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.Tickets = new HashSet<Ticket>();
         }
     
+        public string BookingId { get; set; }
         public string UserEmailId { get; set; }
-        public string Password { get; set; }
-        public string Title { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public System.DateTime DateOfBirth { get; set; }
-        public int Age { get; set; }
-        public decimal MobileNumber { get; set; }
+        public System.DateTime DateBooking { get; set; }
+        public string TransactionId { get; set; }
+        public decimal TotalPrice { get; set; }
+        public int TotalPassenger { get; set; }
+        public string BookStatus { get; set; }
     
+        public virtual UserTable UserTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }
