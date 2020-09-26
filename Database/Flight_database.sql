@@ -64,10 +64,11 @@ create table UserTable
     LastName  nvarchar(50) NOT NULL,
 	DateOfBirth Date NOT NULL,
 	Age int NOT NULL,
-	MobileNumber numeric(10,0) NOT NULL,
+	MobileNumber varchar(10) NOT NULL,
 	Constraint User_PK PRIMARY KEY(UserEmailId),
 	Constraint User_Email_C CHECK (UserEmailId LIKE '%_@__%.__%'),
-	Constraint Age_Ck CHECK(Age>=18)
+	Constraint Age_Ck CHECK(Age>=18),
+	Constraint phone_Ck CHECK (MobileNumber LIKE '[7-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
 )
 
 drop table UserTable;
@@ -117,8 +118,8 @@ INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('CCJ','NB
 
 delete from UserTable;
 
-INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,1234567890)
 
+INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,'7234567891')
 
 
 
