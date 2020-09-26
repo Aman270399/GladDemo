@@ -5,7 +5,6 @@ using System.Web;
 
 namespace Airlines_WebApp.Repository
 {
-    
     public class AdminAccRepo : IAdminAccRepo
     {
         public readonly GladiatorProjectEntities1 _projectContext1;
@@ -14,7 +13,7 @@ namespace Airlines_WebApp.Repository
             _projectContext1 = projectContext1;
         }
         public Admin VerifyAdminLogin(string email, string password)
-        {   
+        {
             Admin admin = null;
             try
             {
