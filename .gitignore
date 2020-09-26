@@ -95,3 +95,6 @@ Backend/Airlines_WebApp/Web.config
 Backend/.vs/Backend/v16/.suo
 Backend/Airlines_WebApp/obj/Debug/edmxResourcesToEmbed/Models/Model1.ssdl
 Backend/Airlines_WebApp/obj/Debug/edmxResourcesToEmbed/Models/Model1.csdl
+Backend/Airlines_WebApp/obj/Debug/TempPE/Models.Model1.Context.cs.dll
+Backend/Airlines_WebApp/obj/Debug/TempPE/Models.Model1.Designer.cs.dll
+Backend/Airlines_WebApp/obj/Debug/TempPE/Models.Model1.cs.dll
