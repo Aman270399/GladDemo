@@ -132,5 +132,5 @@ INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-202
 
 
 
-
+select * from Flight;
 
