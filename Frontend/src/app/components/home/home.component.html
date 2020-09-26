@@ -45,11 +45,6 @@
                                         
                                          <option *ngFor="let airport of airports">{{airport.CityName}} </option>
                                      </datalist>
-                                     <div *ngIf="submitted && SearchForm.controls.destination.errors">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.controls.destination.errors.required">
-                                            To is required.
-                                        </div>
-                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -59,11 +54,6 @@
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
                                     <input class="form-control" type="date" required   formControlName="departdate">
-                                    <div *ngIf="submitted && SearchForm.controls.departdate.errors">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.controls.departdate.errors.required">
-                                            Departdate is required.
-                                        </div>
-                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -72,7 +62,6 @@
                                     <input class="form-control" type="date" id="returndate"  required  formControlName="returndate">
                                 </div>
                             </div>
-                           
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <span class="form-label">Adults (18+)</span>
@@ -85,12 +74,6 @@
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
-                            <div *ngIf="submitted && SearchForm.controls.adultpassengercount.errors">
-                                <div class="alert alert-danger" *ngIf="SearchForm.controls.adultpassengercount.errors.required">
-                                    Minimum one adult is required for travel.
-                                </div>
-                             </div>
-                            
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <span class="form-label">Children (3-17)</span>

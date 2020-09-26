@@ -24,7 +24,9 @@
     <form class="form1" [formGroup]="loginForm" >
       <div align="center"><img src="../../../assets/images/AdminLogin.jpg" height="200px" width="200px" ></div>
       <input class="un " type="text" align="center" placeholder="Email"  formControlName="email">
+      <div *ngIf="submitted && loginForm.controls.email.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">Email is required.  </div>  </div>
       <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password">
+      <div *ngIf="submitted && loginForm.controls.password.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors.required">Password is required.  </div>  </div>
       <a type="submit" class="submit" align="center" (click)="doAdminLogin()" >Sign in</a>
       
     </form>      

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Airlines_WebApp
+namespace Airlines_WebApp.Models
 {
     using System;
     using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace Airlines_WebApp
         public string LastName { get; set; }
         public System.DateTime DateOfBirth { get; set; }
         public int Age { get; set; }
-        public decimal MobileNumber { get; set; }
+        public string MobileNumber { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Airlines_WebApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,7 +30,7 @@ namespace Airlines_WebApp.Repository
         }
 
         public IEnumerable<Airport> GetAll()
-        { 
+        {
             return projectContext.Airports.ToList();
         }
 

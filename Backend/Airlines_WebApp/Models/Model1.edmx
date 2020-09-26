@@ -10,7 +10,7 @@
             <PropertyRef Name="AdminEmailId" />
           </Key>
           <Property Name="AdminEmailId" Type="nvarchar" MaxLength="320" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -32,9 +32,9 @@
           <Property Name="UserEmailId" Type="nvarchar" MaxLength="320" Nullable="false" />
           <Property Name="DateBooking" Type="date" Nullable="false" />
           <Property Name="TransactionId" Type="nvarchar" MaxLength="12" Nullable="false" />
-          <Property Name="TotalPrice" Type="numeric" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TotalPrice" Type="numeric" Precision="12" Scale="2" Nullable="false" />
           <Property Name="TotalPassenger" Type="int" Nullable="false" />
-          <Property Name="BookStatus" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="BookStatus" Type="nvarchar" MaxLength="15" Nullable="false" />
         </EntityType>
         <EntityType Name="Flight">
           <Key>
@@ -46,8 +46,8 @@
           <Property Name="DepartTime" Type="time" Precision="0" Nullable="false" />
           <Property Name="ArrivalTime" Type="time" Precision="0" Nullable="false" />
           <Property Name="Duration" Type="time" Precision="0" Nullable="false" />
-          <Property Name="EconomyPrice" Type="numeric" Precision="6" Scale="2" Nullable="false" />
-          <Property Name="BusinessPrice" Type="numeric" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="EconomyPrice" Type="numeric" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="BusinessPrice" Type="numeric" Precision="8" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="FlightSchedule">
           <Key>
@@ -72,7 +72,7 @@
           <Property Name="SeatNo" Type="nvarchar" MaxLength="2" Nullable="false" />
           <Property Name="DateTravel" Type="date" Nullable="false" />
           <Property Name="Class" Type="nvarchar" MaxLength="15" Nullable="false" />
-          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="Price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
           <Property Name="BookingId" Type="varchar" MaxLength="6" Nullable="false" />
           <Property Name="DateCancellation" Type="date" />
         </EntityType>
@@ -81,13 +81,13 @@
             <PropertyRef Name="UserEmailId" />
           </Key>
           <Property Name="UserEmailId" Type="nvarchar" MaxLength="320" Nullable="false" />
-          <Property Name="Password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="DateOfBirth" Type="date" Nullable="false" />
           <Property Name="Age" Type="int" Nullable="false" />
-          <Property Name="MobileNumber" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MobileNumber" Type="varchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="Booking_User_FK">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
@@ -204,7 +204,7 @@
             <PropertyRef Name="AdminEmailId" />
           </Key>
           <Property Name="AdminEmailId" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -228,9 +228,9 @@
           <Property Name="UserEmailId" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateBooking" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TransactionId" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TotalPrice" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="12" Scale="2" Nullable="false" />
           <Property Name="TotalPassenger" Type="Int32" Nullable="false" />
-          <Property Name="BookStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BookStatus" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="UserTable" Relationship="Self.Booking_User_FK" FromRole="Booking" ToRole="UserTable" />
           <NavigationProperty Name="Tickets" Relationship="Self.Ticket_Booking_FK" FromRole="Booking" ToRole="Ticket" />
         </EntityType>
@@ -244,8 +244,8 @@
           <Property Name="DepartTime" Type="Time" Nullable="false" Precision="0" />
           <Property Name="ArrivalTime" Type="Time" Nullable="false" Precision="0" />
           <Property Name="Duration" Type="Time" Nullable="false" Precision="0" />
-          <Property Name="EconomyPrice" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
-          <Property Name="BusinessPrice" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
+          <Property Name="EconomyPrice" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="BusinessPrice" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
           <NavigationProperty Name="Airport" Relationship="Self.Flight_Destination_FK" FromRole="Flight" ToRole="Airport" />
           <NavigationProperty Name="Airport1" Relationship="Self.Flight_Source_FK" FromRole="Flight" ToRole="Airport" />
           <NavigationProperty Name="FlightSchedules" Relationship="Self.Schedule_Flight_FK" FromRole="Flight" ToRole="FlightSchedule" />
@@ -275,7 +275,7 @@
           <Property Name="SeatNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateTravel" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Class" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="BookingId" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="DateCancellation" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Booking" Relationship="Self.Ticket_Booking_FK" FromRole="Ticket" ToRole="Booking" />
@@ -286,13 +286,13 @@
             <PropertyRef Name="UserEmailId" />
           </Key>
           <Property Name="UserEmailId" Type="String" MaxLength="320" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Password" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Title" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Age" Type="Int32" Nullable="false" />
-          <Property Name="MobileNumber" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Bookings" Relationship="Self.Booking_User_FK" FromRole="UserTable" ToRole="Booking" />
         </EntityType>
         <Association Name="Flight_Destination_FK">

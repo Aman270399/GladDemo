@@ -17,7 +17,9 @@ export class AdminloginComponent implements OnInit {
    }
 
   ngOnInit(): void {}
+  submitted:any ;
     doAdminLogin() {
+      this.submitted = true;
       this.adminService.doAdminLogin(this.loginForm.value).subscribe(result => {
         console.log(this.loginForm.value);
         localStorage.setItem('adminData', JSON.stringify(result));
