@@ -19,16 +19,18 @@ export class UserloginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  submitted:any ;
   doLogin() {
+    this.submitted = true;
     this.userService.doLogin(this.loginForm.value).subscribe(result => {
-      console.log(result);
+      console.log(this.loginForm.value);
       localStorage.setItem('userData', JSON.stringify(result));
   
-      this.router.navigate(['/dbData']);
-      alert('Success');
+      //this.router.navigate(['/dbData']);
+      alert('Logged in as a User');
     }, (error) => {
       console.log(error);
-      alert("Unsuccessfull")
+      alert("Email Id or Password is wrong!!")
     });
     
   }

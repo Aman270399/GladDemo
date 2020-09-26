@@ -11,13 +11,21 @@
 <body>
   <div id="admin" class="section">
   <div class="main">
+    <nav class="navbar navbar-inverse">
+ 
+      <ul  class="nav nav-tabs" align="center">
+        <li style="margin-left : 60px"><a [routerLink]="['/userlogin']" class="nav-item ml-auto nav-link user-action"><b>User Login</b> </a></li>
+        
+        <li style="margin-right : 60px"><a [routerLink]="['/adminlogin']"  class="nav-item ml-auto nav-link user-action"><b>Admin Login</b></a></li>
+    </ul>
+    </nav>
     <p class="sign" align="center">Admin Login</p>
     
-    <form class="form1">
+    <form class="form1" [formGroup]="loginForm" >
       <div align="center"><img src="../../../assets/images/AdminLogin.jpg" height="200px" width="200px" ></div>
-      <input class="un " type="text" align="center" placeholder="Email">
-      <input class="pass" type="password" align="center" placeholder="Password">
-      <a class="submit" align="center">Sign in</a>
+      <input class="un " type="text" align="center" placeholder="Email"  formControlName="email">
+      <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password">
+      <a type="submit" class="submit" align="center" (click)="doAdminLogin()" >Sign in</a>
       
     </form>      
                 

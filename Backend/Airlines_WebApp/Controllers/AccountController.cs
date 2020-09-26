@@ -13,14 +13,14 @@ namespace Airlines_WebApp.Controllers
     public class AccountController : ApiController
     {
         private IAccountRepository _accountRepository;
-        //private IAdminAccRepo _adminAccRepo;
+        private IAdminAccRepo _adminAccRepo;
         public AccountController()
         {
             this._accountRepository = new AccountRepository(new GladiatorProjectEntities1());
-            //this._adminAccRepo = new AdminAccRepo(new GladiatorProjectEntities1());
+            this._adminAccRepo = new AdminAccRepo(new GladiatorProjectEntities1());
         }
         [HttpPost]
-        [Route("")]
+        [Route("userlogin")]
         public IHttpActionResult VerifyLogin(Login login)
         {
             UserTable user = null;
@@ -36,25 +36,25 @@ namespace Airlines_WebApp.Controllers
             }
             return Ok(user);
         }
-        //[HttpPost]
-        //[Route("adminlogin")] 
+        [HttpPost]
+        [Route("adminlogin")]
 
-        //public IHttpActionResult VerifyAdminLogin(Login login)
-        //{
-        //    Admin admin = null;
-        //    try
-        //    {
-        //        admin = _adminAccRepo.VerifyAdminLogin(login.Email, login.Password);
-        //        if (admin == null)
-        //            return NotFound();
-        //    }
-        //    catch(Exception e)
-        //    {
-        //        throw e;
-        //    }
-        //    return Ok(admin); 
+        public IHttpActionResult VerifyAdminLogin(Login login)
+        {
+            Admin admin = null;
+            try
+            {
+                admin = _adminAccRepo.VerifyAdminLogin(login.Email, login.Password);
+                if (admin == null)
+                    return NotFound();
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return Ok(admin);
 
-        //}
+        }
 
     }
 }
