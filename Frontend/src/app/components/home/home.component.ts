@@ -13,17 +13,14 @@ import {NgForm} from '@angular/forms';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  airports:any;
+  airports:airportlist[];
   SearchForm:FormGroup;
-  cities:any[];
+  cities:any=['Delhi','Mumbai'];
   data:any;
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService) { }
 
   ngOnInit(): void {
-    this.airportservice.getallairports().subscribe(data=>{
-      this.airports=data;
-      console.log(this.airports); });
-   
+    this.airportservice.getallairports().subscribe(data=>{console.log(data)});
     this.SearchForm = this.formbulider.group({    
       source: ['',Validators.required],    
       destination: ['',Validators.required],    
@@ -35,14 +32,8 @@ export class HomeComponent implements OnInit {
     }); 
     
   }
-  disabled:any;
-  EnableDisableTextBox() {
-    this.disabled=true;
-    }
-
-  submitted:any;
+  
   onSubmit(form){
-    this.submitted=true;
     console.log(form);  
     }
 
