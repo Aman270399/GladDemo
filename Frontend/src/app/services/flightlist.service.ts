@@ -15,4 +15,11 @@ constructor(private http:HttpClient) { }
 getallflights(){
   return this.http.get(this.baseUrl);
  }
+ Addflight(flights){
+   return this.http.post<flight>(this.baseUrl,JSON.stringify(flights),this.httpOptions);
+ }
+ deleteFlight(id){
+  return this.http.delete<flight>(this.baseUrl+"\\"+id,this.httpOptions);
+
+}
 }

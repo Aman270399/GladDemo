@@ -15,6 +15,9 @@ import { FlightSelectComponent } from './components/flight-select/flight-select.
 import { FlightListComponent } from './components/flight-select/flight-list/flight-list.component';
 import { TimeTransformPipe } from './pipes/time-transform.pipe';
 import { RegisterComponent } from './components/register/register.component';
+import { AddflightComponent } from './components/addflight/addflight.component';
+import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
+import { AdminviewComponent } from './components/adminview/adminview.component';
 
 
 
@@ -35,7 +38,10 @@ import { RegisterComponent } from './components/register/register.component';
     FlightListComponent,
 
     TimeTransformPipe,
-    RegisterComponent
+    RegisterComponent,
+    AddflightComponent,
+    DeleteflightComponent,
+    AdminviewComponent
   ],
   imports: [
     BrowserModule,
