@@ -16,7 +16,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUser= this.builder.group({
-      Title:["",Validators.required],
       FirstName:["",Validators.required],
       LastName:["",Validators.required],
       UserEmailId:["",[Validators.required,Validators.email]],
@@ -28,7 +27,7 @@ export class RegisterComponent implements OnInit {
       
     })
   }
-  onSubmit(form : any){
+  onSubmit(form : User){
     console.log(form);
   
     this.service.addUser(form).subscribe(data=>{

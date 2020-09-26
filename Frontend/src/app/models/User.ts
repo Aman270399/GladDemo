@@ -6,6 +6,6 @@ export class User{
     LastName: string;
     Age : Number;
     DateOFBirth: string;
-    MobileNumber :string;
+    MobileNumber : Number;
     }
     
