@@ -27,7 +27,7 @@ namespace Airlines_WebApp
         public int Age { get; set; }
         public decimal MobileNumber { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+       [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 }
