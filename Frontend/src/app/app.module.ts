@@ -11,6 +11,9 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { FlightSelectComponent } from './components/flight-select/flight-select.component';
+import { FlightListComponent } from './components/flight-select/flight-list/flight-list.component';
+import { TimeTransformPipe } from './pipes/time-transform.pipe';
 import { RegisterComponent } from './components/register/register.component';
 
 
@@ -27,6 +30,11 @@ import { RegisterComponent } from './components/register/register.component';
 
     UserloginComponent,
 
+    FlightSelectComponent,
+
+    FlightListComponent,
+
+    TimeTransformPipe,
     RegisterComponent
 
   ],
