@@ -212,6 +212,7 @@
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AdminAccRepo.cs" />
     <Compile Include="Repository\AirportRepository.cs" />
+    <Compile Include="Repository\FlightRepository.cs" />
     <Compile Include="Repository\IAccountRepository.cs" />
     <Compile Include="Repository\IAdminAccRepo.cs" />
     <Compile Include="Repository\IDataRepository.cs" />
