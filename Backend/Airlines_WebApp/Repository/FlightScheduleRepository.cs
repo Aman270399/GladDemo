@@ -5,30 +5,30 @@ using System.Web;
 
 namespace Airlines_WebApp.Repository
 {
-    public class FlightRepository : IDataRepository<Flight>
+    public class FlightScheduleRepository : IDataRepository<FlightSchedule>
     {
         public readonly GladiatorProjectEntities1 projectContext;
-        public FlightRepository(GladiatorProjectEntities1 projectDb)
+        public FlightScheduleRepository(GladiatorProjectEntities1 projectDb)
         {
             projectContext = projectDb;
         }
-        public IEnumerable<Flight> GetAll()
+        public IEnumerable<FlightSchedule> GetAll()
         {
-            return projectContext.Flights.ToList();
+            return projectContext.FlightSchedules.ToList();
             // throw new NotImplementedException();
         }
-        public void Add(Flight newFlight)
+        public void Add(FlightSchedule newFlightSchedule)
         {
-            projectContext.Flights.Add(newFlight);
+            projectContext.FlightSchedules.Add(newFlightSchedule);
             projectContext.SaveChanges();
         }
 
-        public Flight Get(int id)
+        public FlightSchedule Get(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Flight dbEntity)
+        public void Update(FlightSchedule dbEntity)
         {
             throw new NotImplementedException();
         }

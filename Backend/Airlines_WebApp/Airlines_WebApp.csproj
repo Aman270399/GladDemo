@@ -180,6 +180,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
+    <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -212,6 +213,7 @@
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AdminAccRepo.cs" />
     <Compile Include="Repository\AirportRepository.cs" />
+    <Compile Include="Repository\FlightRepository.cs" />
     <Compile Include="Repository\IAccountRepository.cs" />
     <Compile Include="Repository\IAdminAccRepo.cs" />
     <Compile Include="Repository\IDataRepository.cs" />
