@@ -64,7 +64,7 @@ create table UserTable
     LastName  nvarchar(50) NOT NULL,
 	DateOfBirth Date NOT NULL,
 	Age int NOT NULL,
-	MobileNumber numeric(10) NOT NULL,
+	MobileNumber numeric(10,0) NOT NULL,
 	Constraint User_PK PRIMARY KEY(UserEmailId),
 	Constraint User_Email_C CHECK (UserEmailId LIKE '%_@__%.__%'),
 	Constraint Age_Ck CHECK(Age>=18)
@@ -109,11 +109,15 @@ Constraint Age_Pos CHECK(Age>-1),
 drop table Ticket;
 
 alter table UserTable drop constraint Title_C
+delete from Airport
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BOM','CS airport','Mumbai','Maharashtra');
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('DEL','IG airport','Delhi','Delhi');
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BBI','BP airport','Bhubaneswar','Odisha');
+INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('CCJ','NB airport','Kolkata','West Bengal');
 
-INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('101','CS airport','Mumbai','Maharashtra');
-INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('102','IG airport','Delhi','Delhi');
-INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('103','BP airport','Bhubaneswar','Odisha');
+delete from UserTable;
 
+INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,1234567890)
 
 
 

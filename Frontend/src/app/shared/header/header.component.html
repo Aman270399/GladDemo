@@ -3,10 +3,10 @@
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <!-- Collection of nav links, forms, and other content for toggling -->
-        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">		
+        <!-- Collection of nav links, forms, and other content for toggling -->	
             <div class="navbar-nav ml-auto">
-                <div class="nav-item dropdown">
+                <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action"><b>Login/Signup</b></a>
+                <div class="nav-item dropdown"  *ngIf="false">
                     <a href="null" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"> Arhan Das<b class="caret"></b></a>
                     <div class="dropdown-menu">
                         <a href="null" class="dropdown-item"><i class="material-icons">person</i>Profile</a>
@@ -14,6 +14,5 @@
                         <a href="null" class="dropdown-item"><i class="material-icons">&#xE8AC;</i>Logout</a>
                     </div>
                 </div>
-            </div>
         </div>
 </nav>
