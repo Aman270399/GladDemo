@@ -36,13 +36,22 @@ export class HomeComponent implements OnInit {
     }); 
     
   }
-  returndatedisabled:boolean;
+  textBoxDisabled:boolean;
+  type:string;
+  disable(){
+   this. type="oneway";
+    this.textBoxDisabled = true;
+  }
+  enable(){
+    this.type="twoway"
+     this.textBoxDisabled = null;
+  }
 
   submitted:any;
   onSubmit(form){
     this.submitted=true;
     console.log(form);  
-    this.router.navigate(['flightselect',form.source,form.destination,form.departdate,form.returndate,form.adultpassengercount,form.childpassengercount,form.infantpassengercount],);
+    this.router.navigate(['flightselect',this.type,form.source,form.destination,form.departdate,form.returndate,form.adultpassengercount,form.childpassengercount,form.infantpassengercount],);
     }
 
 

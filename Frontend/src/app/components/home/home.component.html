@@ -7,12 +7,12 @@
                         <div class="form-group">
                             <div class="form-checkbox">
                                 <label for="roundtrip">
-                                    <input type="radio" id="roundtrip" name="flighttype" click="returndatedisabled = null"  >
+                                    <input type="radio" id="roundtrip" name="flighttype" click="enable()"  >
                                     <span></span>Roundtrip
                                 </label>
                            
                                 <label for="one-way">
-                                    <input type="radio" id="one-way" name="flighttype" (click)="returndatedisabled = true"   >
+                                    <input type="radio" id="one-way" name="flighttype" (click)="disable()"   >
                                     <span></span>One way
                                 </label>
                                 		
