@@ -2,6 +2,16 @@ body {
     background-color: #e4e8eb;
     font-family: 'Ubuntu', sans-serif;
 }
+.section {
+	position: relative;
+	height: 85vh;
+}
+#booking {
+	font-family: 'PT Sans', sans-serif;
+	background-image: url('../../../assets/images/background.jpg');
+	background-size: cover;
+	background-position: center;
+}
 
 .main {
     background-color: #FFFFFF;
