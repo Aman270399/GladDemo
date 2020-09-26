@@ -1,0 +1,18 @@
+
+<head>
+
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+    <title>Delete Flight</title>
+  </head>
+  <body>
+    <div class="main"> 
+        <p class="sign" align="center">Delete Flight</p>
+        <form class="form1" [formGroup]="Deleteflight"  > 
+            <input class="un " type="text" align="center" placeholder="FlightId"  formControlName="FlightId">
+            <a type="delete" class="delete" align="center" (click)="onSubmit(Deleteflight.value)" >Delete Flights</a>
+        </form>
+    </div>
+  </body>
+  
