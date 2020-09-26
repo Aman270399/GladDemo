@@ -15,10 +15,8 @@ namespace Airlines_WebApp
     public partial class UserTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserTable()
-        {
-            this.Bookings = new HashSet<Booking>();
-        }
+      
+      
     
         public string UserEmailId { get; set; }
         public string Password { get; set; }

@@ -8,5 +8,6 @@ namespace Airlines_WebApp.Repository
 {
     interface IAdminAccRepo
     {
+        Admin VerifyAdminLogin(string email, string password);
     }
 }

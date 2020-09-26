@@ -108,7 +108,7 @@ Constraint Age_Pos CHECK(Age>-1),
 )
 drop table Ticket;
 
-
+alter table UserTable drop constraint Title_C
 
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('101','CS airport','Mumbai','Maharashtra');
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('102','IG airport','Delhi','Delhi');
