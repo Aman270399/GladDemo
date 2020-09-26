@@ -11,7 +11,7 @@ const routes: Routes = [
   {path:"home",component:HomeComponent},
   {path:"adminLogin",component: AdminloginComponent },
   {path: "userlogin", component: UserloginComponent},
-  {path:"flightSelect",component:FlightSelectComponent}
+  {path:"flightSelect",component:FlightSelectComponent},
   {path: "register",component: RegisterComponent}
 ]
 
