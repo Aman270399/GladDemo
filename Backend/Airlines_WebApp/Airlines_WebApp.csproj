@@ -208,12 +208,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\JoinFlightSchedule.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AdminAccRepo.cs" />
     <Compile Include="Repository\AirportRepository.cs" />
     <Compile Include="Repository\FlightRepository.cs" />
+    <Compile Include="Repository\FlightScheduleRepository.cs" />
     <Compile Include="Repository\IAccountRepository.cs" />
     <Compile Include="Repository\IAdminAccRepo.cs" />
     <Compile Include="Repository\IDataRepository.cs" />

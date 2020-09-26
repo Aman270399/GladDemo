@@ -82,7 +82,7 @@
     <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="Age" Type="int" Nullable="false" />
-    <Property Name="MobileNumber" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+    <Property Name="MobileNumber" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="Booking_User_FK">
     <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
