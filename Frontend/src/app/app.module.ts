@@ -36,7 +36,6 @@ import { RegisterComponent } from './components/register/register.component';
 
     TimeTransformPipe,
     RegisterComponent
-
   ],
   imports: [
     BrowserModule,
