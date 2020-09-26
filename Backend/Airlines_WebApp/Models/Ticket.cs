@@ -23,7 +23,7 @@ namespace Airlines_WebApp.Models
         public string SeatNo { get; set; }
         public System.DateTime DateTravel { get; set; }
         public string Class { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public string BookingId { get; set; }
         public Nullable<System.DateTime> DateCancellation { get; set; }
     

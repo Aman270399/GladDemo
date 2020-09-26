@@ -17,7 +17,7 @@ namespace Airlines_WebApp.Controllers
             public FlightController()
             {
                 this.flightRepository = new FlightRepository(new GladiatorProjectEntities1());
-                this.flightScheduleRepository = new FlightScheduleRepository(new GladiatorProjectEntities1());
+                //this.flightScheduleRepository = new FlightScheduleRepository(new GladiatorProjectEntities1());
             }
             [HttpGet]
             [Route("GetAll")]
@@ -45,8 +45,8 @@ namespace Airlines_WebApp.Controllers
                 }
                 return Ok(flightObj);
             }
-        [HttpGet]
-        [Route("SearchFlight/{FlightFrom}/{FlightTo}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
+       /* [HttpGet]
+       [Route("SearchFlight/{FlightFrom}/{FlightTo}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
         public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate)
         {
             List<Flight> lflight=this.flightRepository.GetAll().ToList();
@@ -56,6 +56,6 @@ namespace Airlines_WebApp.Controllers
                         where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo
                         select new JoinFlightSchedule { GetFlight = f, GetSchedule = s };
             return Ok(query);
-        }
+        }*/
     }
 }
