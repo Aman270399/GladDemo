@@ -29,7 +29,7 @@ namespace Airlines_WebApp.Repository
         }
 
         public IEnumerable<Airport> GetAll()
-        {
+        { 
             return projectContext.Airports.ToList();
         }
 
