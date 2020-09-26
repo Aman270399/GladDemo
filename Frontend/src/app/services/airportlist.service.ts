@@ -11,9 +11,9 @@ export class AirportlistService {
       'Content-Type': 'application/json'
     })
   }
-  baseUrl : string;
+  baseUrl : string="https://localhost:44374/api/airport/GetAll";
   constructor(private http:HttpClient) { }
-  getAllUser(){
+  getallairports(){
     return this.http.get(this.baseUrl);
    }
 }
