@@ -4,7 +4,7 @@ use GladiatorProject
 create table Admin
 (
 AdminEmailId nvarchar(320) NOT NULL,
-Password nvarchar(20) NOT NULL,
+Password nvarchar(15) NOT NULL,
 Title nvarchar(3) NOT NULL,
 FirstName nvarchar(50) NOT NULL,
 LastName  nvarchar(50) NOT NULL,
@@ -31,8 +31,8 @@ DestinationId varchar(3) NOT NULL,
 DepartTime Time(0) NOT NULL,
 ArrivalTime Time(0) NOT NULL,
 Duration Time(0) NOT NULL,
-EconomyPrice numeric(6,2) NOT NULL,
-BusinessPrice numeric(6,2) NOT NULL,
+EconomyPrice numeric(8,2) NOT NULL,
+BusinessPrice numeric(8,2) NOT NULL,
 Constraint Flight_PK PRIMARY KEY(FlightId),
 Constraint Flight_Source_FK FOREIGN KEY(SourceId) references Airport(AirportId),
 Constraint Flight_Destination_FK FOREIGN KEY(DestinationId) references Airport(AirportId),
@@ -51,26 +51,21 @@ Constraint Schedule_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
 Constraint Seats_Pos CHECK(AvailableSeats>-1)
 )
 
-drop table FlightSchedule;
-drop table Flight;
-drop table Airport;
-
 create table UserTable
 (
     UserEmailId nvarchar(320),
-	Password nvarchar(20) NOT NULL,
+	Password nvarchar(15) NOT NULL,
     Title nvarchar(3) NOT NULL,
     FirstName nvarchar(50) NOT NULL,
     LastName  nvarchar(50) NOT NULL,
 	DateOfBirth Date NOT NULL,
 	Age int NOT NULL,
-	MobileNumber numeric(10,0) NOT NULL,
+	MobileNumber varchar(10) NOT NULL,
 	Constraint User_PK PRIMARY KEY(UserEmailId),
 	Constraint User_Email_C CHECK (UserEmailId LIKE '%_@__%.__%'),
-	Constraint Age_Ck CHECK(Age>=18)
+	Constraint Age_Ck CHECK(Age>=18),
+	Constraint phone_Ck CHECK (MobileNumber LIKE '[7-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]')
 )
-
-drop table UserTable;
 
 create table Booking
 (
@@ -78,14 +73,13 @@ BookingId varchar(6),
 UserEmailId nvarchar(320) NOT NULL,
 DateBooking Date NOT NULL,
 TransactionId nvarchar(12) NOT NULL,
-TotalPrice numeric(10,2) NOT NULL,
+TotalPrice numeric(12,2) NOT NULL,
 TotalPassenger int NOT NULL,
-BookStatus nvarchar(10) NOT NULL,
+BookStatus nvarchar(15) NOT NULL,
 Constraint Booking_PK PRIMARY KEY(BookingId),
 Constraint Booking_User_FK FOREIGN KEY(UserEmailId) references UserTable(UserEmailId)
 )
 
-drop table Booking
 
 create table Ticket
 (
@@ -98,7 +92,7 @@ Age int NOT NULL,
 SeatNo nvarchar(2) NOT NULL,
 DateTravel Date NOT NULL,
 Class nvarchar(15) NOT NULL,
-Price int NOT NULL,
+Price numeric(10,2) NOT NULL,
 BookingId varchar(6) NOT NULL,
 DateCancellation Date,
 Constraint Ticket_PK PRIMARY KEY(TicketId,FlightId),
@@ -106,10 +100,18 @@ Constraint Ticket_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
 Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId),
 Constraint Age_Pos CHECK(Age>-1),
 )
+
+drop table UserTable;
+drop table Booking
 drop table Ticket;
+drop table FlightSchedule;
+drop table Flight;
+drop table Airport;
+
 
 alter table UserTable drop constraint Title_C
 delete from Airport
+
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BOM','CS airport','Mumbai','Maharashtra');
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('DEL','IG airport','Delhi','Delhi');
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BBI','BP airport','Bhubaneswar','Odisha');
@@ -117,11 +119,18 @@ INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('CCJ','NB
 
 delete from UserTable;
 
-INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,1234567890)
+
+INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,'7234567891')
+
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA807','BOM','DEL','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA707','DEL','BOM','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
+
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',200);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',200);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA807',200);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA707',200);
 
 
 
-
-
-
+select * from Flight;
 

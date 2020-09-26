@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Airlines_WebApp
+namespace Airlines_WebApp.Models
 {
     using System;
     using System.Collections.Generic;

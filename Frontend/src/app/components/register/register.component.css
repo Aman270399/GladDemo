@@ -1,120 +1,29 @@
-*{box-sizing: border-box}
-/*Add padding to form-group*/
-.form-group{
-    padding: 16px;
-}
-/*style the form icons*/
-.icon{
-    padding: 10px;
-    background: dodgerblue;
-    color: white;
-    min-width:50px;
-    text-align:center;
-}
-.input-field{
-    width: 100;
-    padding: 10px;
-    outline: none;
-}
-.input-field:focus{
-    border: 2 px solid dodgerblue;
-}
-.btn{
-    background-color: dodgerblue;
-    color: white;
-    padding: 15px 20px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-}
-.btn:hover{
-    opacity: 1;
-}
-/*full-width input fields*/
-input[type=text],
-input[type=password]{
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #b1b1b1;
-}
-input[type=text]:focus,
-input[type=password]:focus{
-    background-color: #ddd;
-    outline: none;
-}
-input[type=number],
-input[type=Age]{
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #b1b1b1;
-}
-input[type=number]:focus,
-input[type=Age]:focus{
-    background-color: #ddd;
-    outline: none;
-}
-input[type=date],
-input[type=DateOfBirth]{
-    width: 100%;
-    padding: 15px;
-    margin: 5px 0 22px 0;
-    display: inline-block;
-    border: none;
-    background: #b1b1b1;
-}
-input[type=date]:focus,
-input[type=DateOfBirth]:focus{
-    background-color: #ddd;
-    outline: none;
-}
-/*set a style for the submit button*/
-.registerbtn{
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-}
-.registerbtn:hover{
-    opacity:1;
-}
-/*Add a blue text color to the links*/
-a{
-    color: dodgerblue;
-}
-/* body {
+body {
     background-color: #e4e8eb;
     font-family: 'Ubuntu', sans-serif;
+    background-image: url('../../../assets/images/background.jpg');
+    background-size: cover;
+	background-position: center;
 }
 
 .main {
     background-color: #FFFFFF;
     width: 400px;
-    height: 600px;
-    margin: 7em auto;
+    height: 780px;
+    margin: 0em auto;
     border-radius: 1.5em;
     box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
 }
 
-.btn-danger {
-    padding-top: 20px;
-    color: #277ea7;
+.sign {
+    padding-top: 40px;
+    color: #0d5170;
     font-family: 'Ubuntu', sans-serif;
     font-weight: bold;
     font-size: 23px;
 }
 
-.form-control {
+.un {
 width: 76%;
 color: rgb(38, 50, 56);
 font-weight: 700;
@@ -134,11 +43,11 @@ margin-bottom: 27px;
 font-family: 'Ubuntu', sans-serif;
 }
 
-form.form-group {
+form.form1 {
     padding-top: 40px;
 }
 
-.form-control {
+.pass {
         width: 76%;
 color: rgb(38, 50, 56);
 font-weight: 700;
@@ -168,7 +77,7 @@ font-family: 'Ubuntu', sans-serif;
   cursor: pointer;
     border-radius: 5em;
     color: #fff;
-    background: linear-gradient(to right, #2892d8, #75beee);
+    background: linear-gradient(to right, #1d608d, #7fc8f8);
     border: 0;
     padding-left: 40px;
     padding-right: 40px;
@@ -182,14 +91,19 @@ font-family: 'Ubuntu', sans-serif;
 
 .forgot {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
+    color: #7e5e22;
     padding-top: 15px;
 }
 
 a {
     text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
-    color: #E1BEE7;
+    color: #683055;
     text-decoration: none
+}
+.new {
+    text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+    color: #227e36;
+    padding-top: 15px;
 }
 
 @media (max-width: 600px) {
@@ -197,4 +111,4 @@ a {
         border-radius: 0px;
     }
     
-}  */
+} 
