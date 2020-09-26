@@ -39,6 +39,12 @@ Backend/.vs/Backend/v16/.suo
 Backend/.vs/Backend/v16/.suo
 Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.csprojAssemblyReference.cache
 Backend/Airlines_WebApp/Web.config
+*.config
+*.cache
+*.cache
+Backend/.vs/Backend/config/applicationhost.config
+Backend/.vs/Backend/v16/.suo
+Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.csprojAssemblyReference.cache
 Backend/.vs/Backend/config/applicationhost.config
 Backend/.vs/Backend/v16/.suo
 Backend/Airlines_WebApp/bin/Airlines_WebApp.dll
@@ -61,3 +67,5 @@ Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.csprojAssemblyReference.cache
 Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.dll
 Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.pdb
 Backend/Airlines_WebApp/Web.config
+Backend/Airlines_WebApp/Web.config
+Backend/.vs/Backend/v16/.suo
