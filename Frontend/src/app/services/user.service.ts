@@ -16,6 +16,6 @@ export class UserService {
   constructor(private http:HttpClient) { }
   baseUrl : string = "https://localhost:44374/api/users";
   addUser(user){
-    return this.http.post<User>(this.baseUrl,JSON.stringify(user),this.httpOptions);
+    return this.http.post<any>(this.baseUrl,JSON.stringify(user),this.httpOptions);
   }
 }
