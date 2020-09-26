@@ -2,13 +2,13 @@
 <form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
 
     <div class="form-group" >
-        <label for="firstName">First Name: </label>
-        <input type="text" class="form-control" formControlName="FirstName" id="firstName" />
+        <label for="FirstName">First Name: </label>
+        <input type="text" class="form-control" formControlName="FirstName" id="FirstName" />
 
     </div>
     <div class="form-group" >
-        <label for="lastName">Last Name: </label>
-        <input type="text" class="form-control" formControlName="LastName" id="lastName" />
+        <label for="LastName">Last Name: </label>
+        <input type="text" class="form-control" formControlName="LastName" id="LastName" />
 
     </div>
 
@@ -23,21 +23,26 @@
         <input type="text" class="form-control" formControlName="Email" id="email" />
 
     </div>
-
     <div class="form-group" >
-        <label for="mob">Mobile Number : </label>
-        <input type="number" class="form-control" formControlName="MobileNumber" id="mob" />
+        <label for="password">Password:</label>
+        <input type="text" class="form-control" formControlName="Password" id="Password" />
 
     </div>
 
     <div class="form-group" >
-        <label for="pass">Password : </label>
-        <input type="password" class="form-control" formControlName="Password" id="pass" />
+        <label for="MobileNumber">Mobile Number : </label>
+        <input type="number" class="form-control" formControlName="MobileNumber" id="MobileNumber" />
+
+    </div>
+
+    <div class="form-group" >
+        <label for="DateOfBirth">DateOfBirth : </label>
+        <input type="date" class="form-control" formControlName="DateOfBirth" id="DateOfBirth" />
 
     </div>
 
     <button class="btn btn-success" type="submit">Save</button> &nbsp;&nbsp;
-    <button class="btn btn-danger" type="reset">Cancel</button>
+    <!-- <button class="btn btn-danger" type="reset">Cancel</button> -->
     &nbsp;&nbsp;
-    <a class="btn btn-warning" [routerLink]="['/dbData']">Back to List</a>
+    <!-- <a class="btn btn-warning" [routerLink]="['/dbData']">Back to List</a> -->
 </form>
