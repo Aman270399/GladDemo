@@ -18,7 +18,10 @@ Backend/Airlines_WebApp/Web.config
 Backend/.vs/Backend/v16/.suo
 *.config
 Backend/.vs/Backend/v16/.suo
-*.config
+Backend/Airlines_WebApp/bin/Airlines_WebApp.dll
 *.pdb
+*.cache
+*.cache
 *.dll
+*.pdb
 *.config
