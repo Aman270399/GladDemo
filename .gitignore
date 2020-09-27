@@ -3,3 +3,6 @@ Backend/.vs
 Frontend/src/app/services/user.service.ts
 Backend/Airlines_WebApp/obj
 Backend/Airlines_WebApp/bin
+Backend/Airlines_WebApp/Web.config
+Backend/Airlines_WebApp/Web.Debug.config
+Backend/Airlines_WebApp/Web.Release.config
