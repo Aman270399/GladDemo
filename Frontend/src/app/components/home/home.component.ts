@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) { }
 
   ngOnInit(): void {
+    localStorage.clear();
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
       console.log(this.airports); });
@@ -27,10 +28,10 @@ export class HomeComponent implements OnInit {
       source: ['',Validators.required],    
       destination: ['' ,Validators.required],    
       departdate: ['',Validators.required],   
-      returndate: ['',Validators.required], 
+      returndate: [''], 
       adultpassengercount:['',Validators.required],
-      childpassengercount:['',Validators.required],
-      infantpassengercount:['',Validators.required],
+      childpassengercount:[''],
+      infantpassengercount:[''],
       seatclass:['',Validators.required],
     }); 
    
@@ -46,19 +47,18 @@ export class HomeComponent implements OnInit {
      this.textBoxDisabled = null;
   }
 
-  submitted:any;
+  submitted:any=true;
   onSubmit(form){
-    this.submitted=true;
     console.log(form.source);  
     localStorage.setItem('type',form.flighttype);
-    localStorage.setItem('source',form.source);
-    localStorage.setItem('destination',form.destination);
+    localStorage.setItem('source', form.source.substr(-4,3)); 
+    localStorage.setItem('destination',form.destination.substr(-4,3));
     localStorage.setItem('departdate',form.departdate);
     localStorage.setItem('returndate', form.returndate);
     localStorage.setItem('adultpassengercount',form.adultpassengercount);
     localStorage.setItem('childpassengercount',form.childpassengercount);
     localStorage.setItem('infantpassengercount',form.infantpassengercount);
-  
+    //console.log(this.SearchForm.valid);
    this.router.navigate(['flightSelect']);
     }
 
