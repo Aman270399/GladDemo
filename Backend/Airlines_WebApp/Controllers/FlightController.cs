@@ -26,14 +26,14 @@ namespace Airlines_WebApp.Controllers
                 return flightRepository.GetAll();
             }
             [HttpGet]
-            [Route("SearchFlight/{FlightFrom}/{FlightTo}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
-            public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate)
+            [Route("SearchFlight/{FlightFrom}/{FlightTo}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}/{PassengerCount}")]
+            public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate,int PassengerCount)
             {
                 List<Flight> lflight = flightRepository.GetAll().ToList();
                 List<FlightSchedule> lflightSchedule = flightScheduleRepository.GetAll().ToList();
             var query = (from s in lflightSchedule
                         join f in lflight on s.FlightId equals f.FlightId
-                        where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo
+                        where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo && (s.AvailableSeats-PassengerCount)>0
                         select new Flight
                         {
                             FlightId = f.FlightId,
