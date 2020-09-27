@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class FlightSelectComponent implements OnInit {
 
   constructor() { }
-
+  isRound:boolean;
   ngOnInit(): void {
+    this.isRound=localStorage.getItem("type")=="roundtrip"?true:false;
   }
- type:any=localStorage.getItem("type")=="roundtrip"?true:false;
 
 }
