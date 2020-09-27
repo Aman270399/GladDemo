@@ -1,6 +1,10 @@
-<p>register works!</p>
-<form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
 
+<form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
+    <div class="form-group" >
+        <label for="Title">Title: </label>
+        <input type="text" class="form-control" formControlName="Title" id="Title" />
+
+    </div>
     <div class="form-group" >
         <label for="FirstName">First Name: </label>
         <input type="text" class="form-control" formControlName="FirstName" id="FirstName" />
@@ -20,7 +24,7 @@
 
     <div class="form-group" >
         <label for="email">Email ID: </label>
-        <input type="text" class="form-control" formControlName="Email" id="email" />
+        <input type="text" class="form-control" formControlName="UserEmailId" id="email" />
 
     </div>
     <div class="form-group" >

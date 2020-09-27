@@ -5,6 +5,8 @@ import { FlightSelectComponent } from './components/flight-select/flight-select.
 import { HomeComponent } from './components/home/home.component';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AddflightComponent } from './components/addflight/addflight.component';
+import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
 
 const routes: Routes = [
   {path:"",component:HomeComponent},
@@ -12,7 +14,9 @@ const routes: Routes = [
   {path:"adminlogin",component: AdminloginComponent },
   {path: "userlogin", component: UserloginComponent},
   {path:"flightSelect",component:FlightSelectComponent},
-  {path: "register",component: RegisterComponent}
+  {path: "register",component: RegisterComponent},
+  {path: "addflight",component: AddflightComponent},
+  {path: "deleteflight",component: DeleteflightComponent}
 ]
 
 

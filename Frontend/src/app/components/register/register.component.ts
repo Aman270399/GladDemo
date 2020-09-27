@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUser= this.builder.group({
+      Title:["",Validators.required],
       FirstName:["",Validators.required],
       LastName:["",Validators.required],
       UserEmailId:["",[Validators.required,Validators.email]],
