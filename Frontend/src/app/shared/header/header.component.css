@@ -1,8 +1,8 @@
 .navbar {
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Varela Round', sans-serif;
 	color: #fff;
 	/* background: #926dde !important; */
-	height:10vh;
+	padding: 16px 16px;
 	border-radius: 0;
 	border: none;
 	box-shadow: 0 0 4px rgba(0,0,0,.1);
