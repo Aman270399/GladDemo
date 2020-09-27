@@ -31,10 +31,20 @@ namespace Airlines_WebApp.Controllers
             {
                 List<Flight> lflight = flightRepository.GetAll().ToList();
                 List<FlightSchedule> lflightSchedule = flightScheduleRepository.GetAll().ToList();
-                var query = from s in lflightSchedule
+            var query = (from s in lflightSchedule
                         join f in lflight on s.FlightId equals f.FlightId
                         where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo
-                        select new JoinFlightSchedule { GetFlight = f, GetSchedule = s };
+                        select new Flight
+                        {
+                            FlightId = f.FlightId,
+                            SourceId = f.SourceId,
+                            DestinationId = f.DestinationId,
+                            DepartTime = f.DepartTime,
+                            ArrivalTime = f.ArrivalTime,
+                            Duration = f.Duration,
+                            EconomyPrice = f.EconomyPrice,
+                            BusinessPrice = f.BusinessPrice
+                        }).ToList<Flight>();
                 return Ok(query);
             }
             [HttpGet]

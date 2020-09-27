@@ -12,7 +12,6 @@ import { AdminloginComponent } from './components/adminlogin/adminlogin.componen
 import { HttpClientModule } from '@angular/common/http';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { FlightSelectComponent } from './components/flight-select/flight-select.component';
-import { FlightListComponent } from './components/flight-select/flight-list/flight-list.component';
 import { TimeTransformPipe } from './pipes/time-transform.pipe';
 import { RegisterComponent } from './components/register/register.component';
 import { AddflightComponent } from './components/addflight/addflight.component';
@@ -25,18 +24,11 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
   declarations: [
     AppComponent,
     HomeComponent,
-
     HeaderComponent,
     FooterComponent,
-
     AdminloginComponent,
-
     UserloginComponent,
-
     FlightSelectComponent,
-
-    FlightListComponent,
-
     TimeTransformPipe,
     RegisterComponent,
     AddflightComponent,
@@ -52,10 +44,6 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
     AngularMaterialModule,
     FormsModule,
     BrowserAnimationsModule,
-
-   
-    
-
   ],
   providers: [],
   bootstrap: [AppComponent]
