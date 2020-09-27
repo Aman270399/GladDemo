@@ -72,6 +72,11 @@
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AgeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SourceId" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DestinationId" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartTime" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="ArrivalTime" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="Duration" Type="Time" Nullable="false" Precision="0" />
     <Property Name="SeatNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DateTravel" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Class" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
