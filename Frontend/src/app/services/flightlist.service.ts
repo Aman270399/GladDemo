@@ -13,7 +13,7 @@ export class FlightlistService {httpOptions = {
 baseUrl : string="https://localhost:44374/api/flights";
 constructor(private http:HttpClient) { }
 getallflights(){
-  return this.http.get(this.baseUrl);
+  return this.http.get(this.baseUrl+"/GetAll");
  }
  Addflight(flights){
    return this.http.post<flight>(this.baseUrl,JSON.stringify(flights),this.httpOptions);
