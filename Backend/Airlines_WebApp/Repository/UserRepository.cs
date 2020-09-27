@@ -24,7 +24,7 @@ namespace Airlines_WebApp.Repository
             projectContext.SaveChanges();
         }
 
-        public UserTable Get(int id)
+        public UserTable Get(string id)
         {
             throw new NotImplementedException();
         }
@@ -34,7 +34,7 @@ namespace Airlines_WebApp.Repository
             throw new NotImplementedException();
         }
 
-        public void Delete(int entity)
+        public void Delete(string entity)
         {
             throw new NotImplementedException();
         }
