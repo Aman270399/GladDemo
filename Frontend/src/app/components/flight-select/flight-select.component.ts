@@ -11,5 +11,6 @@ export class FlightSelectComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ type:any=localStorage.getItem("type")=="roundtrip"?true:false;
 
 }

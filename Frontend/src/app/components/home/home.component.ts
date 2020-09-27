@@ -33,12 +33,12 @@ export class HomeComponent implements OnInit {
       infantpassengercount:['',Validators.required],
       seatclass:['',Validators.required],
     }); 
-    
+   
   }
   textBoxDisabled:boolean;
   type:string;
   disable(){
-   this. type="oneway";
+   this.type="oneway";
     this.textBoxDisabled = true;
   }
   enable(){
@@ -49,8 +49,17 @@ export class HomeComponent implements OnInit {
   submitted:any;
   onSubmit(form){
     this.submitted=true;
-    console.log(form);  
-   // this.router.navigate(['flightselect',this.type,form.source,form.destination,form.departdate,form.returndate,form.adultpassengercount,form.childpassengercount,form.infantpassengercount],);
+    console.log(form.source);  
+    localStorage.setItem('type',form.flighttype);
+    localStorage.setItem('source',form.source);
+    localStorage.setItem('destination',form.destination);
+    localStorage.setItem('departdate',form.departdate);
+    localStorage.setItem('returndate', form.returndate);
+    localStorage.setItem('adultpassengercount',form.adultpassengercount);
+    localStorage.setItem('childpassengercount',form.childpassengercount);
+    localStorage.setItem('infantpassengercount',form.infantpassengercount);
+  
+   this.router.navigate(['flightSelect']);
     }
 
 

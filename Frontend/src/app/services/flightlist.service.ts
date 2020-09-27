@@ -16,7 +16,7 @@ getallflights(){
   return this.http.get(this.baseUrl+"/GetAll");
  }
  Addflight(flights){
-   return this.http.post<flight>(this.baseUrl,JSON.stringify(flights),this.httpOptions);
+   return this.http.post<any>(this.baseUrl,JSON.stringify(flights),this.httpOptions);
  }
  deleteFlight(id){
   return this.http.delete<flight>(this.baseUrl+"\\"+id,this.httpOptions);

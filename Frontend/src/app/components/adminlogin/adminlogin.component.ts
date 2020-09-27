@@ -24,7 +24,7 @@ export class AdminloginComponent implements OnInit {
         console.log(this.loginForm.value);
         localStorage.setItem('adminData', JSON.stringify(result));
     
-        //this.router.navigate(['/']);
+        this.router.navigate(['adminview']);
         alert('Logged in as Admin');
       }, (error) => {
         console.log(error);
