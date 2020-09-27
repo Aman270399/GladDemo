@@ -22,12 +22,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <input class="form-control" type="text" placeholder="Fying from" formControlName="source" required list="cities">
-                                    <datalist id="cities">
-                                         <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
-                                     </datalist>
-                                     
-                                     <div *ngIf="submitted && SearchForm.controls.source.errors">
+                                    <select class="form-control"  formControlName="source" >
+                                        <option value="" selected disabled hidden>Fying from</option>
+                                        <option *ngFor="let airport of airports">{{airport.CityName}}({{airport.AirportId}}) </option>
+                                    </select>
+                                    <div *ngIf="SearchForm.controls.source.errors">
                                         <div class="alert alert-danger" *ngIf="SearchForm.controls.source.errors.required">
                                             From is required.
                                         </div>
@@ -40,11 +39,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying to</span>
-                                    <input class="form-control" type="text" placeholder="Fying To "  formControlName="destination" required list="cities">
-                                    <datalist id="cities">
-                                        
-                                         <option *ngFor="let airport of airports">{{airport.CityName}} </option>
-                                     </datalist>
+                                    <select class="form-control"  formControlName="destination">
+                                        <option value="" selected disabled hidden>Fying To</option>
+                                        <option *ngFor="let airport of airports">{{airport.CityName}}({{airport.AirportId}}) </option>
+                                    </select>
+                                     <div *ngIf="SearchForm.controls.destination.errors">
+                                        <div class="alert alert-danger" *ngIf="SearchForm.controls.destination.errors.required">
+                                            From is required.
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -53,27 +56,40 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
-                                    <input class="form-control" type="date" required   formControlName="departdate">
+                                    <input class="form-control" type="date"  formControlName="departdate">
+                                    <div *ngIf="SearchForm.controls.departdate.errors">
+                                        <div class="alert alert-danger" *ngIf="SearchForm.controls.departdate.errors.required">
+                                            From is required.
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <span class="form-label">Returning</span>
-                                    <input class="form-control" type="date" id="returndate"  required  formControlName="returndate">
+                                    <input class="form-control" type="date" id="returndate" formControlName="returndate">
                                 </div>
                             </div>
+
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <span class="form-label">Adults (18+)</span>
-                                        <input class="form-control" type="text" placeholder="count" required formControlName="adultpassengercount" list="count">
+                                        <input class="form-control" type="text" placeholder="count" formControlName="adultpassengercount" list="count">
                                         <datalist id="count">  
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         </datalist>
                                     <span class="select-arrow"></span>
+                                    <div *ngIf="submitted && SearchForm.controls.adultpassengercount.errors">
+                                        <div class="alert alert-danger" *ngIf="SearchForm.controls.adultpassengercount.errors.required">
+                                            Minimum 1 adult is required.
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <span class="form-label">Children (3-17)</span>
@@ -104,16 +120,22 @@
                                 <div class="form-group">
                                     <span class="form-label">Travel class</span>
                                     <select class="form-control"  formControlName="seatclass" >
-                                        <option>Economy class</option>
+                                        <option value="" selected disabled hidden>Select class</option>
+                                        <option selected>Economy class</option>
                                         <option>Business class</option>
-                                        <option>First class</option>
                                     </select>
                                     <span class="select-arrow"></span>
+                                    <div *ngIf="submitted && SearchForm.controls.seatclass.errors">
+                                    <div class="alert alert-danger" *ngIf="SearchForm.controls.seatclass.errors.required">
+                                        Select class .
+                                    </div>
+                                </div>
                                 </div>
                             </div>
+
                             <div class="col-md-3">
                                 <div class="form-btn">
-                                    <button class="submit-btn" type="submit">Show flights</button>
+                                    <button class="submit-btn" type="submit" [disabled]='!SearchForm.valid'>Show flights</button>
                                 </div>
                             </div>
                         </div>
