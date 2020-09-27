@@ -47,7 +47,7 @@ DateFlight Date NOT NULL,
 FlightId nvarchar(5) ,
 AvailableSeats int NOT NULL,
 Constraint Schedule_PK PRIMARY KEY(DateFlight,FlightId),
-Constraint Schedule_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
+Constraint Schedule_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId) on delete cascade,
 Constraint Seats_Pos CHECK(AvailableSeats>-1)
 )
 
@@ -77,7 +77,7 @@ TotalPrice numeric(12,2) NOT NULL,
 TotalPassenger int NOT NULL,
 BookStatus nvarchar(15) NOT NULL,
 Constraint Booking_PK PRIMARY KEY(BookingId),
-Constraint Booking_User_FK FOREIGN KEY(UserEmailId) references UserTable(UserEmailId)
+Constraint Booking_User_FK FOREIGN KEY(UserEmailId) references UserTable(UserEmailId) on delete cascade
 )
 
 
@@ -88,7 +88,7 @@ FlightId nvarchar(5) NOT NULL,
 Title nvarchar(3) NOT NULL,
 FirstName nvarchar(50) NOT NULL,
 LastName  nvarchar(50) NOT NULL,
-Age int NOT NULL,
+AgeGroup nvarchar(10) NOT NULL,
 SeatNo nvarchar(2) NOT NULL,
 DateTravel Date NOT NULL,
 Class nvarchar(15) NOT NULL,
@@ -96,9 +96,7 @@ Price numeric(10,2) NOT NULL,
 BookingId varchar(6) NOT NULL,
 DateCancellation Date,
 Constraint Ticket_PK PRIMARY KEY(TicketId,FlightId),
-Constraint Ticket_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
-Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId),
-Constraint Age_Pos CHECK(Age>-1),
+Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId) on delete cascade,
 )
 
 drop table UserTable;
