@@ -1,8 +1,17 @@
 Backend/.vs
 ~$New Microsoft Excel Worksheet.xlsx
-Frontend/src/app/services/user.service.ts
+
 Backend/Airlines_WebApp/obj
 Backend/Airlines_WebApp/bin
 Backend/Airlines_WebApp/Web.config
 Backend/Airlines_WebApp/Web.Debug.config
 Backend/Airlines_WebApp/Web.Release.config
+Backend/Airlines_WebApp/bin/Airlines_WebApp.dll.config
+Backend/Airlines_WebApp/bin/Airlines_WebApp.pdb
+Backend/Airlines_WebApp/Models/Model1.Context.cs
+Backend/Airlines_WebApp/Models/Model1.Designer.cs
+Backend/Airlines_WebApp/Models/Model1.edmx
+Backend/Airlines_WebApp/Models/Model1.edmx.diagram
+Backend/Airlines_WebApp/Properties/Resources.Designer.cs
+Backend/Airlines_WebApp/Properties/Resources.resx
+

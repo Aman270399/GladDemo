@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   airports:any;
   SearchForm:FormGroup;
-  cities:any=['Delhi','Mumbai'];
   data:any;
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) { }
 
@@ -49,8 +48,9 @@ export class HomeComponent implements OnInit {
 
   submitted:any;
   onSubmit(form){
+    this.submitted=true;
     console.log(form);  
-    this.router.navigate(['flightselect',this.type,form.source,form.destination,form.departdate,form.returndate,form.adultpassengercount,form.childpassengercount,form.infantpassengercount],);
+   // this.router.navigate(['flightselect',this.type,form.source,form.destination,form.departdate,form.returndate,form.adultpassengercount,form.childpassengercount,form.infantpassengercount],);
     }
 
 
