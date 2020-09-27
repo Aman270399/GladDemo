@@ -45,7 +45,7 @@ namespace Airlines_WebApp.Controllers
                 }
                 return Ok(flightObj);
             }
-       /* [HttpGet]
+       [HttpGet]
        [Route("SearchFlight/{FlightFrom}/{FlightTo}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
         public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate)
         {
@@ -56,6 +56,6 @@ namespace Airlines_WebApp.Controllers
                         where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo
                         select new JoinFlightSchedule { GetFlight = f, GetSchedule = s };
             return Ok(query);
-        }*/
+        }
     }
 }
