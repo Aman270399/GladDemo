@@ -77,7 +77,12 @@
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="FirstName" ColumnName="FirstName" />
           <ScalarProperty Name="LastName" ColumnName="LastName" />
-          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="AgeGroup" ColumnName="AgeGroup" />
+          <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+          <ScalarProperty Name="DestinationId" ColumnName="DestinationId" />
+          <ScalarProperty Name="DepartTime" ColumnName="DepartTime" />
+          <ScalarProperty Name="ArrivalTime" ColumnName="ArrivalTime" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
           <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
           <ScalarProperty Name="DateTravel" ColumnName="DateTravel" />
           <ScalarProperty Name="Class" ColumnName="Class" />

@@ -50,7 +50,6 @@
     <NavigationProperty Name="Airport" Relationship="Self.Flight_Destination_FK" FromRole="Flight" ToRole="Airport" />
     <NavigationProperty Name="Airport1" Relationship="Self.Flight_Source_FK" FromRole="Flight" ToRole="Airport" />
     <NavigationProperty Name="FlightSchedules" Relationship="Self.Schedule_Flight_FK" FromRole="Flight" ToRole="FlightSchedule" />
-    <NavigationProperty Name="Tickets" Relationship="Self.Ticket_Flight_FK" FromRole="Flight" ToRole="Ticket" />
   </EntityType>
   <EntityType Name="FlightSchedule">
     <Key>
@@ -82,7 +81,12 @@
     <Property Name="Title" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Age" Type="Int32" Nullable="false" />
+    <Property Name="AgeGroup" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SourceId" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DestinationId" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DepartTime" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="ArrivalTime" Type="Time" Nullable="false" Precision="0" />
+    <Property Name="Duration" Type="Time" Nullable="false" Precision="0" />
     <Property Name="SeatNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="DateTravel" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="Class" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
@@ -90,7 +94,6 @@
     <Property Name="BookingId" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="DateCancellation" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Booking" Relationship="Self.Ticket_Booking_FK" FromRole="Ticket" ToRole="Booking" />
-    <NavigationProperty Name="Flight" Relationship="Self.Ticket_Flight_FK" FromRole="Ticket" ToRole="Flight" />
   </EntityType>
   <EntityType Name="UserTable">
     <Key>
@@ -131,7 +134,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Booking_User_FK">
-    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UserTable">
@@ -143,7 +148,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Ticket_Booking_FK">
-    <End Role="Booking" Type="Self.Booking" Multiplicity="1" />
+    <End Role="Booking" Type="Self.Booking" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Booking">
@@ -155,25 +162,15 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Schedule_Flight_FK">
-    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
+    <End Role="Flight" Type="Self.Flight" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="FlightSchedule" Type="Self.FlightSchedule" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Flight">
         <PropertyRef Name="FlightId" />
       </Principal>
       <Dependent Role="FlightSchedule">
-        <PropertyRef Name="FlightId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="Ticket_Flight_FK">
-    <End Role="Flight" Type="Self.Flight" Multiplicity="1" />
-    <End Role="Ticket" Type="Self.Ticket" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Flight">
-        <PropertyRef Name="FlightId" />
-      </Principal>
-      <Dependent Role="Ticket">
         <PropertyRef Name="FlightId" />
       </Dependent>
     </ReferentialConstraint>
@@ -206,10 +203,6 @@
     <AssociationSet Name="Schedule_Flight_FK" Association="Self.Schedule_Flight_FK">
       <End Role="Flight" EntitySet="Flights" />
       <End Role="FlightSchedule" EntitySet="FlightSchedules" />
-    </AssociationSet>
-    <AssociationSet Name="Ticket_Flight_FK" Association="Self.Ticket_Flight_FK">
-      <End Role="Flight" EntitySet="Flights" />
-      <End Role="Ticket" EntitySet="Tickets" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

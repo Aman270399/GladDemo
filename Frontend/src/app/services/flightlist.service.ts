@@ -12,14 +12,16 @@ export class FlightlistService {httpOptions = {
 }
 baseUrl : string="https://localhost:44374/api/flights";
 constructor(private http:HttpClient) { }
-getallflights(){
-  return this.http.get(this.baseUrl+"/GetAll");
+ getallflights(){
+  return this.http.get<flight[]>(this.baseUrl+"/GetAll");
  }
  Addflight(flights){
    return this.http.post<flight>(this.baseUrl,JSON.stringify(flights),this.httpOptions);
  }
  deleteFlight(id){
   return this.http.delete<flight>(this.baseUrl+"\\"+id,this.httpOptions);
-
-}
+ }
+ searchFlight(source,destination,departdate,passengercount){
+    return this.http.get<flight[]>(this.baseUrl+"/SearchFlight\\"+source+"\\"+destination+"\\"+departdate+"\\"+passengercount,this.httpOptions);
+ }
 }
