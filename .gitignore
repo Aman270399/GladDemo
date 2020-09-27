@@ -1,7 +1,5 @@
-
-Backend/.vs/Backend/config/applicationhost.config
-Backend/.vs/Backend/v16/.suo
-Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.csprojAssemblyReference.cache
+Backend/.vs
 ~$New Microsoft Excel Worksheet.xlsx
 Frontend/src/app/services/user.service.ts
 Backend/Airlines_WebApp/obj
+Backend/Airlines_WebApp/bin
