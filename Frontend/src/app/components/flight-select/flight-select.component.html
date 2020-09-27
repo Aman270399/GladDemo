@@ -2,8 +2,8 @@
         <div class="col">
             <app-flight-list></app-flight-list>
         </div>
-        <div class="col">
-         <app-flight-list *ngIf="type"></app-flight-list>
+        <div class="col" *ngIf="type">
+         <app-flight-list ></app-flight-list>
         </div>
     </div>
 <button mat-raised-button color="accent">Continue</button>
