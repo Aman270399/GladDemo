@@ -4,12 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="58dc149f6a374d8882f996ef91d4012e" Name="Diagram1">
+      <Diagram DiagramId="69165d121c824e12bbdffdada1e4ede1" Name="Diagram1">
         <EntityTypeShape EntityType="GladiatorProjectModel.Admin" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.Airport" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.Booking" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.Flight" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.FlightSchedule" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GladiatorProjectModel.sysdiagram" Width="1.5" PointX="5.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.Ticket" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.UserTable" Width="1.5" PointX="3.75" PointY="8.625" IsExpanded="true" />
         <AssociationConnector Association="GladiatorProjectModel.Flight_Destination_FK" ManuallyRouted="false" />
