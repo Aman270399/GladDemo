@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
@@ -5,8 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TimeTransformPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: string,time:string): string {
+    return time.slice(0,-3)
   }
-
 }

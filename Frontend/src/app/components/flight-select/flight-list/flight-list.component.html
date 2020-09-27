@@ -15,7 +15,7 @@
         <div class="row gutter-row">
         <div class="col gutter-col ">
             <div class="d-flex w-100 justify-content-between">
-                 <h5 class="mb-1"><b>{{flight.DepartTime}}-{{flight.ArrivalTime}}</b></h5>
+                 <h5 class="mb-1"><b>{{flight.DepartTime| timeTransform: flight.DepartTime}}-{{flight.ArrivalTime| timeTransform:flight.ArrivalTime}}</b></h5>
                  <h5 class="mb-1"><b>{{flight.FlightId}}</b></h5>
             </div>
             <small class="text-muted">{{flight.SourceId}}-{{flight.DestinationId}}</small>

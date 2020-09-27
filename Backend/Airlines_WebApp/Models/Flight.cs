@@ -18,7 +18,6 @@ namespace Airlines_WebApp.Models
         public Flight()
         {
             this.FlightSchedules = new HashSet<FlightSchedule>();
-            this.Tickets = new HashSet<Ticket>();
         }
     
         public string FlightId { get; set; }
@@ -34,7 +33,5 @@ namespace Airlines_WebApp.Models
         public virtual Airport Airport1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<FlightSchedule> FlightSchedules { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
     }
 }

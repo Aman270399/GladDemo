@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { flight } from 'src/app/models/flight';
+import { Router } from '@angular/router';
 import { FlightlistService } from 'src/app/services/flightlist.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { FlightlistService } from 'src/app/services/flightlist.service';
 })
 export class DeleteflightComponent implements OnInit {
   Deleteflight: FormGroup
-  constructor(private builder : FormBuilder, private service: FlightlistService) { }
+  constructor(private builder : FormBuilder, private service: FlightlistService,public route: Router) { }
 
   ngOnInit(): void {
     this.Deleteflight= this.builder.group({

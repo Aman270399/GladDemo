@@ -23,6 +23,26 @@ namespace Airlines_WebApp.Controllers
         {
             return dataRepository.GetAll();
         }
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult GetUser(string id)
+        {
+            UserTable userObj = null;
+            try
+            {
+                userObj = dataRepository.Get(id);
+                if (userObj == null)
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return Ok(userObj);
+        }
+
         //Post
         [HttpPost]
         [Route("")]

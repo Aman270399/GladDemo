@@ -10,7 +10,7 @@ import { DeleteflightComponent } from './components/deleteflight/deleteflight.co
 import { AdminviewComponent } from './components/adminview/adminview.component';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
+  {path:"",redirectTo: '/home', pathMatch: 'full'},
   {path:"home",component:HomeComponent},
   {path:"adminlogin",component: AdminloginComponent },
   {path: "userlogin", component: UserloginComponent},
@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: "register",component: RegisterComponent},
   {path: "addflight",component: AddflightComponent},
   {path: "deleteflight",component: DeleteflightComponent},
-  {path:"adminview",component:AdminviewComponent}
+  {path: "adminview", component: AdminviewComponent},
 ]
 
 

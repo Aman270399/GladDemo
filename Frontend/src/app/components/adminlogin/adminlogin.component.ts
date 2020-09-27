@@ -30,6 +30,7 @@ export class AdminloginComponent implements OnInit {
         console.log(error);
         alert("Email Id or Password is wrong!!")
       });
+      this.router.navigate(['adminview']);
   }
 
 }

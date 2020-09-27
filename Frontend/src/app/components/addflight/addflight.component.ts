@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { flight } from 'src/app/models/flight';
+import {Router} from '@angular/router';
 import { FlightlistService } from 'src/app/services/flightlist.service';
 
 @Component({
@@ -11,13 +12,13 @@ import { FlightlistService } from 'src/app/services/flightlist.service';
 export class AddflightComponent implements OnInit {
   addFlight: FormGroup
 
-  constructor(private builder : FormBuilder, private service: FlightlistService) { }
+  constructor(private builder : FormBuilder, private service: FlightlistService,public route:Router) { }
 
   ngOnInit(): void {
     this.addFlight= this.builder.group({
       FlightId:["",Validators.required],
       SourceId:["",Validators.required],
-      DestinationId:["",[Validators.required,Validators.email]],
+      DestinationId:["",[Validators.required]],
       DepartTime: ["",[Validators.required]],
       ArrivalTime : ["",[Validators.required]],
       Duration : ["",[Validators.required]],
@@ -27,7 +28,7 @@ export class AddflightComponent implements OnInit {
       
     })
   }
-  onSubmit(form :flight){
+  onSubmit(form :any){
     console.log(form);
   
     this.service.Addflight(form).subscribe(data=>{
