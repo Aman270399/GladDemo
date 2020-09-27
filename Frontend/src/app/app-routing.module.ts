@@ -9,7 +9,7 @@ import { AddflightComponent } from './components/addflight/addflight.component';
 import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
 
 const routes: Routes = [
-  {path:"",component:HomeComponent},
+  {path:"",redirectTo: '/home', pathMatch: 'full'},
   {path:"home",component:HomeComponent},
   {path:"adminlogin",component: AdminloginComponent },
   {path: "userlogin", component: UserloginComponent},

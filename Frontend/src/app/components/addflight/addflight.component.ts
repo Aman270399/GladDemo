@@ -17,7 +17,7 @@ export class AddflightComponent implements OnInit {
     this.addFlight= this.builder.group({
       FlightId:["",Validators.required],
       SourceId:["",Validators.required],
-      DestinationId:["",[Validators.required,Validators.email]],
+      DestinationId:["",[Validators.required]],
       DepartTime: ["",[Validators.required]],
       ArrivalTime : ["",[Validators.required]],
       Duration : ["",[Validators.required]],

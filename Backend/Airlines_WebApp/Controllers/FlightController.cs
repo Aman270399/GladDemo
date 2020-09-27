@@ -17,7 +17,7 @@ namespace Airlines_WebApp.Controllers
             public FlightController()
             {
                 this.flightRepository = new FlightRepository(new GladiatorProjectEntities1());
-                //this.flightScheduleRepository = new FlightScheduleRepository(new GladiatorProjectEntities1());
+                this.flightScheduleRepository = new FlightScheduleRepository(new GladiatorProjectEntities1());
             }
             [HttpGet]
             [Route("GetAll")]
