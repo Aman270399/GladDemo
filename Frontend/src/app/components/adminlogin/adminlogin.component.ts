@@ -18,33 +18,23 @@ export class AdminloginComponent implements OnInit {
     });
    }
    
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.adminService.Logout();
+  }
   submitted:any ;
     doAdminLogin() { 
       
       this.submitted = true;
       this.adminService.doAdminLogin(this.loginForm.value).subscribe(result => {
         console.log(this.loginForm.value);
-        sessionStorage.setItem('adminData',result.toString());
-        
-      
+        sessionStorage.setItem('userData',result.toString());
         //this.router.navigate(['/']);
         alert('Logged in as Admin');
-        this.router.navigate(['adminview']);
-        
-      
-        
+        this.router.navigate(['adminview']);  
       }, (error) => {
         console.log(error);
         alert("Email Id or Password is wrong!!")
-        
-        
       },
-   
-     
-      
       );
-    
   }
-
 }
