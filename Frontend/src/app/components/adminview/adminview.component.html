@@ -1,3 +1,27 @@
 <p>adminview works!</p>
 <button (click)="redirectaddflight()">Add Flight</button>
 <button (click)="redirectdeleteflight()">Delete Flight</button>
+<table>
+    <tr>
+        
+        <th>Flight Number</th>
+        <th>Flight From</th>
+        <th>Flight To</th>
+        <th> Departure Time</th>
+        <th> Arrival Time</th>
+        <th>Amount Adult Economy </th>
+        <th>Amount Adult Business </th>
+       <!-- <th> Departure Date</th>-->
+    </tr>
+    <tr *ngFor = "let flight of  flights">
+       <td>{{flight.FlightId}}</td>
+       <td>{{flight.SourceId}}</td>
+       <td>{{flight.DestinationId}}</td>
+       <td>{{flight.DepartTime}}</td>
+       <td>{{flight.ArrivalTime}}</td>
+       <td>{{flight.EconomyPrice}}</td>
+        <td>{{flight.BusinessPrice}}</td>
+        <!-- pipe for date format -->
+      <!--  <td>{{flight.DepartureDate | date:'mediumDate'}}</td>-->
+    </tr>
+</table>

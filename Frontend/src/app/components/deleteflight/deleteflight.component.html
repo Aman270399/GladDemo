@@ -10,7 +10,13 @@
     <div class="main"> 
         <p class="sign" align="center">Delete Flight</p>
         <form class="form1" [formGroup]="Deleteflight"  > 
-            <input class="un " type="text" align="center" placeholder="Flight Id"  formControlName="FlightId">
+
+          <label for="FlightId">Enter flight id:</label>
+          <select class="un"  formControlName="FlightId" align="center" >
+              <option value="" selected disabled hidden>Flight id</option>
+              <option *ngFor="let flight of flights " >{{flight.FlightId}}</option>
+          </select>
+            
             <div align="center">
             <button type="delete" class="delete"  (click)="onSubmit(Deleteflight.value)" >Delete Flight</button>&nbsp;
             <button type="submit" class="cancel"  (click)="this.route.navigate(['adminview'])" >Cancel</button>

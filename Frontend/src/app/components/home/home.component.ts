@@ -18,17 +18,17 @@ export class HomeComponent implements OnInit {
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) { }
 
   ngOnInit(): void {
-    localStorage.clear();
+   // localStorage.clear();
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
       console.log(this.airports); });
    
     this.SearchForm = this.formbulider.group({  
       flighttype:['',Validators.required], 
-      source: ['',Validators.required],    
-      destination: ['' ,Validators.required],    
-      departdate: ['',Validators.required],   
-      returndate: [''], 
+      source:['',Validators.required],    
+      destination:['' ,Validators.required],    
+      departdate:['',Validators.required],   
+      returndate:[''], 
       adultpassengercount:['',Validators.required],
       childpassengercount:[''],
       infantpassengercount:[''],

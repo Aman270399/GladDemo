@@ -11,9 +11,17 @@
         <p class="sign" align="center">Add Flight</p>
         
         <form class="form1" [formGroup]="addFlight"  > 
-            <input class="un " type="text" align="center" placeholder="Flight Id"  formControlName="FlightId">
-            <input class="un " type="text" align="center" placeholder="Source Id"  formControlName="SourceId">
-            <input class="un " type="text" align="center" placeholder="Destination Id"  formControlName="DestinationId">
+            <input class="un " type="text" align="center" placeholder="Flight Id"  formControlName="FlightId" label="FlightId">
+            <label for="source">Choose source id:</label>
+            <select class="un"  formControlName="SourceId" >
+                <option value="" selected disabled hidden>Fying from</option>
+                <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
+            </select>
+            <label for="DestinationId">Choose destination id:</label>
+            <select class="un"  formControlName="DestinationId" >
+                <option value="" selected disabled hidden>Fying To</option>
+                <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
+            </select>
             <input class="un " type="time" align="center" placeholder="Departure Time"  formControlName="DepartTime">
             <input class="un " type="time" align="center" placeholder=" Arrival Time"  formControlName="ArrivalTime">
             <input class="un " type="time" align="center" placeholder=" Duration"  formControlName="Duration">
