@@ -19,12 +19,12 @@ namespace Airlines_WebApp.Repository
             throw new NotImplementedException();
         }
 
-        public void Delete(int entity)
+        public void Delete(string entity)
         {
             throw new NotImplementedException();
         }
 
-        public Airport Get(int id)
+        public Airport Get(string id)
         {
             throw new NotImplementedException();
         }

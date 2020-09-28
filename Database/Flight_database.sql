@@ -47,7 +47,7 @@ DateFlight Date NOT NULL,
 FlightId nvarchar(5) ,
 AvailableSeats int NOT NULL,
 Constraint Schedule_PK PRIMARY KEY(DateFlight,FlightId),
-Constraint Schedule_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
+Constraint Schedule_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId) on delete cascade,
 Constraint Seats_Pos CHECK(AvailableSeats>-1)
 )
 
@@ -77,7 +77,7 @@ TotalPrice numeric(12,2) NOT NULL,
 TotalPassenger int NOT NULL,
 BookStatus nvarchar(15) NOT NULL,
 Constraint Booking_PK PRIMARY KEY(BookingId),
-Constraint Booking_User_FK FOREIGN KEY(UserEmailId) references UserTable(UserEmailId)
+Constraint Booking_User_FK FOREIGN KEY(UserEmailId) references UserTable(UserEmailId) on delete cascade
 )
 
 
@@ -88,7 +88,12 @@ FlightId nvarchar(5) NOT NULL,
 Title nvarchar(3) NOT NULL,
 FirstName nvarchar(50) NOT NULL,
 LastName  nvarchar(50) NOT NULL,
-Age int NOT NULL,
+AgeGroup nvarchar(10) NOT NULL,
+SourceId varchar(3) NOT NULL,
+DestinationId varchar(3) NOT NULL,
+DepartTime Time(0) NOT NULL,
+ArrivalTime Time(0) NOT NULL,
+Duration Time(0) NOT NULL,
 SeatNo nvarchar(2) NOT NULL,
 DateTravel Date NOT NULL,
 Class nvarchar(15) NOT NULL,
@@ -96,9 +101,7 @@ Price numeric(10,2) NOT NULL,
 BookingId varchar(6) NOT NULL,
 DateCancellation Date,
 Constraint Ticket_PK PRIMARY KEY(TicketId,FlightId),
-Constraint Ticket_Flight_FK FOREIGN KEY(FlightId) references Flight(FlightId),
-Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId),
-Constraint Age_Pos CHECK(Age>-1),
+Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId) on delete cascade,
 )
 
 drop table UserTable;
@@ -124,11 +127,14 @@ INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfB
 
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA807','BOM','DEL','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA707','DEL','BOM','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA607','BBI','CCJ','2:30:00','04:45:00','02:15:00',3489.00,14678.00);
 
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',200);
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',200);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA607',200);
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA807',200);
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA707',200);
+
 
 
 

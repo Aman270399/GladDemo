@@ -19,7 +19,12 @@ namespace Airlines_WebApp.Models
         public string Title { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int Age { get; set; }
+        public string AgeGroup { get; set; }
+        public string SourceId { get; set; }
+        public string DestinationId { get; set; }
+        public System.TimeSpan DepartTime { get; set; }
+        public System.TimeSpan ArrivalTime { get; set; }
+        public System.TimeSpan Duration { get; set; }
         public string SeatNo { get; set; }
         public System.DateTime DateTravel { get; set; }
         public string Class { get; set; }
@@ -28,6 +33,5 @@ namespace Airlines_WebApp.Models
         public Nullable<System.DateTime> DateCancellation { get; set; }
     
         public virtual Booking Booking { get; set; }
-        public virtual Flight Flight { get; set; }
     }
 }

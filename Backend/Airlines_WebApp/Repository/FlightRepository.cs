@@ -24,9 +24,27 @@ namespace Airlines_WebApp.Repository
             projectContext.SaveChanges();
         }
 
-        public Flight Get(int id)
+        public Flight Get(string id)
         {
-            throw new NotImplementedException();
+            Flight flight = null;
+            try
+            {
+                var flightFound = projectContext.Flights.Where(f => f.FlightId == id).SingleOrDefault();
+                if (flightFound != null)
+                {
+                    flight = flightFound;
+                }
+                else
+                {
+                    flight = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            return flight;
         }
 
         public void Update(Flight dbEntity)
@@ -34,9 +52,30 @@ namespace Airlines_WebApp.Repository
             throw new NotImplementedException();
         }
 
-        public void Delete(int entity)
+        public void Delete(string id)
         {
-            throw new NotImplementedException();
+
+            Flight flight = null;
+            try
+            {
+                var flightFound = projectContext.Flights.Where(f => f.FlightId == id).SingleOrDefault();
+                if (flightFound != null)
+                {
+                    flight = flightFound;
+                }
+                else
+                {
+                    flight = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            projectContext.Flights.Remove(flight);
+            projectContext.SaveChanges();
         }
+
     }
 }

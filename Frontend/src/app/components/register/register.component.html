@@ -1,52 +1,56 @@
-
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title >Register new User</title>
+  </head>
+  <body>
+    <div id="adduser" class="section">
+    <div class="main">  
+        <p class="sign" align="center">Register new User</p>
 <form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
-    <div class="form-group" >
-        <label for="Title">Title: </label>
-        <input type="text" class="form-control" formControlName="Title" id="Title" />
-
+    <div align="center" class="form-group" >
+        <label for="Title" >Title:    </label>     
+        <select class ="un" name="Title" id="Title" formControlName="Title">
+            <option  type="text"  value="Mr">Mr</option>
+            <option   type="text" value="Mrs">Mrs</option></select>
+        <!--<input class="un "  align="center"  type="text" formControlName="Title" id="Title"placeholder="Mr/Mrs" /> -->
     </div>
-    <div class="form-group" >
+    <div  align="center"  class="form-group" >
         <label for="FirstName">First Name: </label>
-        <input type="text" class="form-control" formControlName="FirstName" id="FirstName" />
-
+        <input class="un "  align="center"  type="text"  formControlName="FirstName" id="FirstName" placeholder="First Name" />
     </div>
-    <div class="form-group" >
+    <div  align="center" class="form-group" >
         <label for="LastName">Last Name: </label>
-        <input type="text" class="form-control" formControlName="LastName" id="LastName" />
-
+        <input class="un "  align="center"  type="text"  formControlName="LastName" id="LastName" placeholder="Last Name"/>
     </div>
-
-    <div class="form-group" >
-        <label for="Age">Age </label>
-        <input type="number" class="form-control" formControlName="Age" id="Age" />
-
+    <div  align="center" >
+        <label for="Age">Age :</label>
+        <input class="un "  align="center"  type="number"  formControlName="Age" id="Age" placeholder="Age in years" />
     </div>
-
-    <div class="form-group" >
+    <div  align="center"  class="form-group" >
         <label for="email">Email ID: </label>
-        <input type="text" class="form-control" formControlName="UserEmailId" id="email" />
-
+        <input class="un "  align="center"  type="text" formControlName="UserEmailId" id="email" placeholder="Email Id" />
     </div>
-    <div class="form-group" >
+    <div  align="center"  class="form-group" >
         <label for="password">Password:</label>
-        <input type="text" class="form-control" formControlName="Password" id="Password" />
-
+        <input class="un "  align="center" type="text"  formControlName="Password" id="Password"placeholder="password" />
     </div>
-
-    <div class="form-group" >
-        <label for="MobileNumber">Mobile Number : </label>
-        <input type="number" class="form-control" formControlName="MobileNumber" id="MobileNumber" />
-
+    <div  align="center"  class="form-group" >
+        <label for="MobileNumber"> Mobile Number : </label>
+        <input class="un "  align="center"  type="number"  formControlName="MobileNumber" id="MobileNumber" placeholder="Mobile Number"/>
     </div>
-
-    <div class="form-group" >
-        <label for="DateOfBirth">DateOfBirth : </label>
-        <input type="date" class="form-control" formControlName="DateOfBirth" id="DateOfBirth" />
-
+    <div  align="center"  class="form-group" >
+        <label for="DateOfBirth">Date Of Birth : </label>
+        <input class="un "  align="center" type="date"  formControlName="DateOfBirth" id="DateOfBirth" placeholder="Date of Birth" />
     </div>
-
-    <button class="btn btn-success" type="submit">Save</button> &nbsp;&nbsp;
-    <!-- <button class="btn btn-danger" type="reset">Cancel</button> -->
+   <div align="center">
+    <button  class="submit" type="submit">Register</button> &nbsp;&nbsp;
+    
     &nbsp;&nbsp;
-    <!-- <a class="btn btn-warning" [routerLink]="['/dbData']">Back to List</a> -->
+    <button type="submit" class="cancel" align="center" (click)="this.route.navigate(['userlogin'])" >Cancel</button>
+   </div>
+   
 </form>
+    </div>
+    </div>
+  </body>
