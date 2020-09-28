@@ -2,6 +2,9 @@
 
 <head>
   
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -23,11 +26,11 @@
     
     <form class="form1" [formGroup]="loginForm" >
       <div align="center"><img src="../../../assets/images/AdminLogin.jpg" height="200px" width="200px" ></div>
-      <input class="un "  align="center" type="text" placeholder="Email"  formControlName="email">
+      <input class="un "  align="center" type="text" placeholder="Email"  formControlName="email" name="email">
       <div *ngIf="submitted && loginForm.controls.email.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">Email is required.  </div>  </div>
-      <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password">
+      <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password" name="password">
       <div *ngIf="submitted && loginForm.controls.password.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors.required">Password is required.  </div>  </div>
-      <a type="submit" class="submit" align="center" (click)="doAdminLogin()" >Sign in</a>
+      <button type="submit" class="submit" align="center" (click)="doAdminLogin()" >Sign in</button>
       
     </form>      
                 

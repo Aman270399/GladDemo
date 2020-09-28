@@ -1,8 +1,5 @@
-Backend/.vs
-~$New Microsoft Excel Worksheet.xlsx
-
-Backend/Airlines_WebApp/obj
-Backend/Airlines_WebApp/bin
+Backend/.vs~$New Microsoft Excel Worksheet.xlsx
+Backend/Airlines_WebApp/objBackend/Airlines_WebApp/bin
 Backend/Airlines_WebApp/Web.config
 Backend/Airlines_WebApp/Web.Debug.config
 Backend/Airlines_WebApp/Web.Release.config

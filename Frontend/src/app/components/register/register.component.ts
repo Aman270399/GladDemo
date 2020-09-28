@@ -37,9 +37,12 @@ export class RegisterComponent implements OnInit {
       window.location.reload();
       alert("User Registered Successfully");
       
-      
-    })
-    this.route.navigate(["userlogin"]);
+      this.route.navigate(["userlogin"]);
+    },(error) => {
+      console.log(error);
+      alert("Please Enter valid details!!")
+    });
+    
     }
 
 }

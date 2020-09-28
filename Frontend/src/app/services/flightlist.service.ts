@@ -21,7 +21,7 @@ constructor(private http:HttpClient) { }
  deleteFlight(id){
   return this.http.delete<flight>(this.baseUrl+"\\"+id,this.httpOptions);
  }
- searchFlight(source,destination,departdate){
-    return this.http.get<flight[]>(this.baseUrl+"/SearchFlight\\"+source+"\\"+destination+"\\"+departdate,this.httpOptions);
+ searchFlight(source,destination,departdate,passengercount){
+    return this.http.get<flight[]>(this.baseUrl+"/SearchFlight\\"+source+"\\"+destination+"\\"+departdate+"\\"+passengercount,this.httpOptions);
  }
 }
