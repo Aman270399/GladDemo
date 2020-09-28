@@ -29,7 +29,7 @@ export class UserloginComponent implements OnInit {
     this.submitted = true;
     this.userService.doLogin(this.loginForm.value).subscribe(result => {
       console.log(this.loginForm.value);
-      sessionStorage.setItem('userName',result.FirstName);
+      this.userService.getLoggedInName.next(result.FirstName);
       sessionStorage.setItem('userData',result.toString());
       //this.router.navigate(['/dbData']);
       alert('Logged in as a User');

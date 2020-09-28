@@ -27,7 +27,7 @@ export class AdminloginComponent implements OnInit {
       this.submitted = true;
       this.adminService.doAdminLogin(this.loginForm.value).subscribe(result => {
         console.log(this.loginForm.value);
-        sessionStorage.setItem('userName',result.FirstName);
+        this.adminService.getLoggedInName.next(result.FirstName);
         sessionStorage.setItem('userData',result.toString());
         //this.router.navigate(['/']);
         alert('Logged in as Admin');
