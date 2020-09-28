@@ -14,6 +14,24 @@ export class AuthService {
     return this.http.post(this.API_URI+"/userlogin", data);
     
   }
+  isLoggedIn() {
+    if (sessionStorage.getItem('userData') || sessionStorage.getItem('adminData')) {
+      return true;
+    }
+    return false;
+  }
+  Logout()
+  {
+    if (sessionStorage.getItem('userData'))
+    {
+      sessionStorage.removeItem('userData');
+    }
+    if(sessionStorage.getItem('adminData'))
+    {
+      sessionStorage.removeItem('adminData');
+    }
+    
+  }
   doAdminLogin(data) {
     console.log(data);
     return this.http.post(this.API_URI+"/adminlogin", data);

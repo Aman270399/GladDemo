@@ -8,6 +8,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddflightComponent } from './components/addflight/addflight.component';
 import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
+import {AuthenticationGuard} from './authentication.guard'
+import {AuthenticationUserGuard} from './authentication-user.guard'
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 
 const routes: Routes = [
@@ -17,8 +19,8 @@ const routes: Routes = [
   {path: "userlogin", component: UserloginComponent},
   {path:"flightSelect",component:FlightSelectComponent},
   {path: "register",component: RegisterComponent},
-  {path: "addflight",component: AddflightComponent},
-  {path: "deleteflight",component: DeleteflightComponent},
+  {path: "addflight",component: AddflightComponent,canActivate:[AuthenticationGuard]},
+  {path: "deleteflight",component: DeleteflightComponent,canActivate:[AuthenticationGuard]},
   {path: "adminview", component: AdminviewComponent},
   {path: "passengerdetail",component:PassengerdetailsComponent},
 ]

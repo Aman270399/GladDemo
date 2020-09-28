@@ -1,15 +1,15 @@
- <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
         <a routerLink="home" class="navbar-brand">Flight Reservation System</a>  		
-        <!-- Collection of nav links, forms, and other content for toggling -->	
-            <div class="navbar-nav ml-auto">
-                <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action"><b>Login/Signup</b></a>
-                <div class="nav-item dropdown"  *ngIf="false">
-                    <a href="null" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"> Arhan Das<b class="caret"></b></a>
-                    <div class="dropdown-menu">
-                        <a href="null" class="dropdown-item"><i class="material-icons">person</i>Profile</a>
-                        <div class="divider dropdown-divider"></div>
-                        <a href="null" class="dropdown-item"><i class="material-icons">&#xE8AC;</i>Logout</a>
-                    </div>
+        <div class="navbar-nav ml-auto" >
+                <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action" *ngIf="!isLoggedIn"><b>Login/Signup</b></a>
+            <div class="profile dropdown" *ngIf="isLoggedIn">
+                <a href="null" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action" > Arhan Das<b class="caret"></b></a>
+                <div class="dropdown-menu">
+                    <a href="null" class="dropdown-item"><i class="material-icons">person</i>Profile</a>
+                    <div class="divider dropdown-divider"></div>
+                    <a href (click)="Logout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i>Logout</a>
                 </div>
+            </div>
         </div>
 </nav>

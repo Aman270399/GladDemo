@@ -61,16 +61,6 @@
     <Property Name="AvailableSeats" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Flight" Relationship="Self.Schedule_Flight_FK" FromRole="FlightSchedule" ToRole="Flight" />
   </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="Ticket">
     <Key>
       <PropertyRef Name="TicketId" />
@@ -181,7 +171,6 @@
     <EntitySet Name="Bookings" EntityType="Self.Booking" />
     <EntitySet Name="Flights" EntityType="Self.Flight" />
     <EntitySet Name="FlightSchedules" EntityType="Self.FlightSchedule" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <EntitySet Name="Tickets" EntityType="Self.Ticket" />
     <EntitySet Name="UserTables" EntityType="Self.UserTable" />
     <AssociationSet Name="Flight_Destination_FK" Association="Self.Flight_Destination_FK">

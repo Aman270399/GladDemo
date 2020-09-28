@@ -11,22 +11,28 @@
         <p class="sign" align="center">Add Flight</p>
         
         <form class="form1" [formGroup]="addFlight"  > 
-            <input class="un " type="text" align="center" placeholder="Flight Id"  formControlName="FlightId" label="FlightId">
-            <label for="source">Choose source id:</label>
+            <label style="margin-left: 1rem;" for="FlightId">Enter Flight ID:</label>
+            <input class="un " type="text" align="center" placeholder="Flight Id"  formControlName="FlightId" label="FlightId"><br>
+            <label style="margin-left: 1rem;" for="SourceId">Select Source id:</label>
             <select class="un"  formControlName="SourceId" >
                 <option value="" selected disabled hidden>Fying from</option>
                 <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
-            </select>
-            <label for="DestinationId">Choose destination id:</label>
+            </select><br>
+            <label style="margin-left: 1rem;"for="DestinationId">Select Destination id:</label>
             <select class="un"  formControlName="DestinationId" >
                 <option value="" selected disabled hidden>Fying To</option>
                 <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
-            </select>
-            <input class="un " type="time" align="center" placeholder="Departure Time"  formControlName="DepartTime">
-            <input class="un " type="time" align="center" placeholder=" Arrival Time"  formControlName="ArrivalTime">
-            <input class="un " type="time" align="center" placeholder=" Duration"  formControlName="Duration">
-            <input class="un " type="number" align="center" placeholder=" Economy seat Price"  formControlName="EconomyPrice">
-            <input class="un " type="number" align="center" placeholder=" Business seat Price"  formControlName="BusinessPrice">
+            </select><br>
+            <label style="margin-left: 1rem;" for="DepartTime">Departure Time:</label>
+            <input class="un " type="time" align="center" placeholder="Departure Time"  formControlName="DepartTime"><br>
+            <label style="margin-left: 1rem;" for="ArrivalTime">Arrival Time:</label>
+            <input class="un " type="time" align="center" placeholder=" Arrival Time"  formControlName="ArrivalTime"><br>
+            <label style="margin-left: 1rem;" for="Duration">Duration:</label>
+            <input class="un " type="time" align="center" placeholder=" Duration"  formControlName="Duration"><br>
+            <label style="margin-left: 1rem;" for="EconomyPrice">Economy Seat Price:</label>
+            <input class="un " type="number" align="center" placeholder=" Economy seat Price"  formControlName="EconomyPrice"><br>
+            <label style="margin-left: 1rem;" for="BusinessPrice">Business Seat Price:</label>
+            <input class="un " type="number" align="center" placeholder=" Business seat Price"  formControlName="BusinessPrice"><br>
 
         <!-- <div *ngIf="submitted && loginForm.controls.email.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">Email is required.  </div>  </div> -->
         <div align="center">

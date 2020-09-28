@@ -10,22 +10,24 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UserloginComponent implements OnInit {
   loginForm: FormGroup;
+  
   constructor(private formBuilder: FormBuilder,private userService: AuthService,private router: Router) {
     this.loginForm = this.formBuilder.group({
 			email: ['', [Validators.required]],
 			password: ['', [Validators.required]]
     });
    }
-
+   
+  
   ngOnInit(): void {
+    this.userService.Logout();
   }
   submitted:any ;
   doLogin() {
     this.submitted = true;
     this.userService.doLogin(this.loginForm.value).subscribe(result => {
       console.log(this.loginForm.value);
-      localStorage.setItem('userData', JSON.stringify(result));
-  
+      sessionStorage.setItem('userData', result.toString());
       //this.router.navigate(['/dbData']);
       alert('Logged in as a User');
     }, (error) => {
