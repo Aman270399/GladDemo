@@ -15,22 +15,19 @@ export class AuthService {
     
   }
   isLoggedIn() {
-    if (sessionStorage.getItem('userData') || sessionStorage.getItem('adminData')) {
+    if (sessionStorage.getItem('userData')) {
       return true;
     }
     return false;
   }
   Logout()
   {
-    if (sessionStorage.getItem('userData'))
-    {
+
       sessionStorage.removeItem('userData');
-    }
-    if(sessionStorage.getItem('adminData'))
-    {
-      sessionStorage.removeItem('adminData');
-    }
-    
+  }
+  getUserName()
+  {
+    return sessionStorage.getItem('userData');
   }
   doAdminLogin(data) {
     console.log(data);
