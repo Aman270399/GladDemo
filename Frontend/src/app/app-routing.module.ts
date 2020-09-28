@@ -11,6 +11,7 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
 import {AuthenticationGuard} from './authentication.guard'
 import {AuthenticationUserGuard} from './authentication-user.guard'
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
+import { SeatselectComponent } from './components/seatselect/seatselect.component';
 
 const routes: Routes = [
   {path:"",redirectTo: '/home', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: "deleteflight",component: DeleteflightComponent,canActivate:[AuthenticationGuard]},
   {path: "adminview", component: AdminviewComponent},
   {path: "passengerdetail",component:PassengerdetailsComponent},
+  {path: "seatselect", component: SeatselectComponent},
 ]
 
 

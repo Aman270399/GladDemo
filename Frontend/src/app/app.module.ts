@@ -18,6 +18,7 @@ import { AddflightComponent } from './components/addflight/addflight.component';
 import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
+import { SeatselectComponent } from './components/seatselect/seatselect.component';
 
 
 
@@ -35,7 +36,8 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
     AddflightComponent,
     DeleteflightComponent,
     AdminviewComponent,
-    PassengerdetailsComponent
+    PassengerdetailsComponent,
+    SeatselectComponent
   ],
   imports: [
     BrowserModule,
