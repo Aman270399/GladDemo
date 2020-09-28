@@ -15,7 +15,7 @@ export class AuthenticationGuard implements CanActivate {
         this.router.navigateByUrl("/adminlogin");  
         return false; 
     }  
-    return true;
+    return this.Auth.gettoken();;
   }
   
 }
