@@ -112,7 +112,7 @@ drop table Flight;
 drop table Airport;
 
 
-alter table UserTable drop constraint Title_C
+
 delete from Airport
 
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BOM','CS airport','Mumbai','Maharashtra');
