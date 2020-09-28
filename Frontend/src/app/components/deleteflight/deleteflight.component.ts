@@ -10,20 +10,26 @@ import { FlightlistService } from 'src/app/services/flightlist.service';
   styleUrls: ['./deleteflight.component.css']
 })
 export class DeleteflightComponent implements OnInit {
-  Deleteflight: FormGroup
-  constructor(private builder : FormBuilder, private service: FlightlistService,public route: Router) { }
+  Deleteflight: FormGroup;
+  flights:any;
+  constructor(private builder : FormBuilder,private service: FlightlistService,public route: Router) { }
 
   ngOnInit(): void {
+    this.service.getallflights().subscribe(data=>{
+      this.flights=data;
+     console.log(this.flights);
+     });
     this.Deleteflight= this.builder.group({
       FlightId:["",Validators.required]
     })
   }
   onSubmit(form :flight){
-    console.log(form);
-  this.service.deleteFlight(form).subscribe(data=>{
+    //console.log(form);
+  this.service.deleteFlight(form.FlightId).subscribe(data=>{
   console.log(data);
-  window.location.reload();
+  //window.location.reload();
       alert("Flight Deleted Successfully");
+      this.route.navigate(['adminview']);
 })
   }
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FlightlistService } from 'src/app/services/flightlist.service';
 
 @Component({
   selector: 'app-adminview',
@@ -7,10 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./adminview.component.css']
 })
 export class AdminviewComponent implements OnInit {
-
-  constructor(private route: Router) { }
+flights:any;
+  constructor(private route: Router, private service:FlightlistService) { }
 
   ngOnInit(): void {
+    this.service.getallflights().subscribe(data=>{
+      this.flights=data;
+     console.log(this.flights);
+     });
+
   }
   redirectaddflight(){
     this.route.navigate(['addflight'])
