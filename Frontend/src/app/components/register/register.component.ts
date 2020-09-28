@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit {
   
     this.service.addUser(form).subscribe(data=>{
       console.log(data)
-      window.location.reload();
+     
       alert("User Registered Successfully");
       
       this.route.navigate(["userlogin"]);
