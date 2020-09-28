@@ -11,11 +11,11 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  todayShort = new Date().toISOString().slice(0,10);
   addUser : FormGroup
   constructor(private builder : FormBuilder, private service:UserService,public route:Router) { }
-
   ngOnInit(): void {
+   
     this.addUser= this.builder.group({
       Title:["",Validators.required],
       FirstName:["",Validators.required],
@@ -25,13 +25,12 @@ export class RegisterComponent implements OnInit {
       MobileNumber : ["",[Validators.required]],
       Password : ["",[Validators.required]],
       DateOfBirth:["",[Validators.required]]
-
-      
     })
   }
+ 
   onSubmit(form : User){
     console.log(form);
-  
+    
     this.service.addUser(form).subscribe(data=>{
       console.log(data)
       window.location.reload();

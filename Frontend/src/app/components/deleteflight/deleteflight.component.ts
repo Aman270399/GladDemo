@@ -23,8 +23,8 @@ export class DeleteflightComponent implements OnInit {
       FlightId:["",Validators.required]
     })
   }
-  onSubmit(form :flight){
-    //console.log(form);
+  onSubmit(form :any){
+    console.log(form.FlightId);
   this.service.deleteFlight(form.FlightId).subscribe(data=>{
   console.log(data);
   //window.location.reload();

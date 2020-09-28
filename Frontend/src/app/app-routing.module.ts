@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddflightComponent } from './components/addflight/addflight.component';
 import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
+import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 
 const routes: Routes = [
   {path:"",redirectTo: '/home', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: "addflight",component: AddflightComponent},
   {path: "deleteflight",component: DeleteflightComponent},
   {path: "adminview", component: AdminviewComponent},
+  {path: "passengerdetail",component:PassengerdetailsComponent},
 ]
 
 

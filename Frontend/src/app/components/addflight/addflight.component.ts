@@ -33,7 +33,7 @@ export class AddflightComponent implements OnInit {
     })
   }
  onSubmit(form:any){
-   //console.log(form);
+   console.log(form.SourceId);
     this.service.Addflight(form).subscribe(data=>{
      // console.log(data);
       alert("Flight Added Successfully");

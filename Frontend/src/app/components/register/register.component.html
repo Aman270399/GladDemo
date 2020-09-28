@@ -41,7 +41,7 @@
     </div>
     <div  align="center"  class="form-group" >
         <label for="DateOfBirth">Date Of Birth : </label>
-        <input class="un "  align="center" type="date"  formControlName="DateOfBirth" id="DateOfBirth" placeholder="Date of Birth" />
+        <input class="un "  align="center" type="date"  formControlName="DateOfBirth"  [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth" />
     </div>
    <div align="center">
     <button  class="submit" type="submit">Register</button> &nbsp;&nbsp;
