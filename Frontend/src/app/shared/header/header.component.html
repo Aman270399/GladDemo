@@ -4,7 +4,7 @@
         <div class="navbar-nav ml-auto" >
                 <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action" *ngIf="!isLoggedIn"><b>Login/Signup</b></a>
             <div class="dropdown" *ngIf="isLoggedIn">
-                <a href data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action" ><b>Arhan</b><b class="caret"></b></a>
+                <a href data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><b>{{UserName}}</b><b class="caret"></b></a>
                 <div class="dropdown-menu dropdown-menu-right">
                     <a href class="dropdown-item"><i class="material-icons">person</i>Profile</a>
                     <div class="divider dropdown-divider"></div>
