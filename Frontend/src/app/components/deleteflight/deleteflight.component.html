@@ -11,10 +11,10 @@
         <p class="sign" align="center">Delete Flight</p>
         <form class="form1" [formGroup]="Deleteflight"  > 
 
-          <label for="FlightId">Enter flight id:</label>
+          <label style="margin-left: 1rem;" for="FlightId">Select Flight:</label>
           <select class="un"  formControlName="FlightId" align="center" >
               <option value="" selected disabled hidden>Flight id</option>
-              <option *ngFor="let flight of flights " >{{flight.FlightId}}</option>
+              <option *ngFor="let flight of flights" value="{{flight.FlightId}}">{{flight.FlightId}}({{flight.SourceId}}-{{flight.DestinationId}})</option>
           </select>
             
             <div align="center">
