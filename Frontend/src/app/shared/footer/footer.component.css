@@ -1,10 +1,7 @@
-.container-fluid
+
+#copyright
 {
     font-family: 'Ubuntu', sans-serif;
-	color: #fff;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height:5vh;
+    color: #fff;
+    padding-bottom:2px;
 }

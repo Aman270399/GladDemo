@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-//import { FormGroup } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
@@ -18,24 +17,27 @@ export class RegisterComponent implements OnInit {
    
     this.addUser= this.builder.group({
       Title:["",Validators.required],
-      FirstName:["",Validators.required],
-      LastName:["",Validators.required],
+      FirstName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
+      LastName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       UserEmailId:["",[Validators.required,Validators.email]],
       Age : ["",[Validators.required]],
-      MobileNumber : ["",[Validators.required]],
+      MobileNumber : ["",[Validators.required,Validators.pattern('[0-9]{10}')]],
       Password : ["",[Validators.required]],
-      DateOfBirth:["",[Validators.required]]
+      DateOfBirth:["",[Validators.required]],
+      confirmPass:["",[Validators.required]]
     })
   }
- 
+  // checkPasswords(group: FormGroup) { // here we have the 'passwords' group
+  // let pass = group.get('Password').value;
+  // let confirmPass = group.get('confirmPass').value;
+  // return pass === confirmPass ? null : { notSame: true }     
+  // }
   onSubmit(form : User){
     console.log(form);
     
     this.service.addUser(form).subscribe(data=>{
       console.log(data)
-      window.location.reload();
       alert("User Registered Successfully");
-      
       this.route.navigate(["userlogin"]);
     },(error) => {
       console.log(error);

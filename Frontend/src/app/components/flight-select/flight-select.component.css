@@ -1,6 +1,8 @@
 .container{
     padding-top: 5%;
     width: 100vh;
+    display:flex;
+    flex-direction: column;
 }
 .list-group{
     padding-top: 2rem;
@@ -13,4 +15,8 @@
 .subcol
 {
     text-align: center;
+}
+.continue
+{
+    width:10vh;
 }

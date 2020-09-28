@@ -3,54 +3,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title >Register new User</title>
   </head>
-  <body>
+<body>
     <div id="adduser" class="section">
-    <div class="main">  
-        <p class="sign" align="center">Register new User</p>
-<form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
-    <div align="center" class="form-group" >
-        <label for="Title" >Title:    </label>     
-        <select class ="un" name="Title" id="Title" formControlName="Title">
-            <option  type="text"  value="Mr">Mr</option>
-            <option   type="text" value="Mrs">Mrs</option></select>
-        <!--<input class="un "  align="center"  type="text" formControlName="Title" id="Title"placeholder="Mr/Mrs" /> -->
-    </div>
-    <div  align="center"  class="form-group" >
-        <label for="FirstName">First Name: </label>
-        <input class="un "  align="center"  type="text"  formControlName="FirstName" id="FirstName" placeholder="First Name" />
-    </div>
-    <div  align="center" class="form-group" >
-        <label for="LastName">Last Name: </label>
-        <input class="un "  align="center"  type="text"  formControlName="LastName" id="LastName" placeholder="Last Name"/>
-    </div>
-    <div  align="center" >
-        <label for="Age">Age :</label>
-        <input class="un "  align="center"  type="number"  formControlName="Age" id="Age" placeholder="Age in years" />
-    </div>
-    <div  align="center"  class="form-group" >
-        <label for="email">Email ID: </label>
-        <input class="un "  align="center"  type="text" formControlName="UserEmailId" id="email" placeholder="Email Id" />
-    </div>
-    <div  align="center"  class="form-group" >
-        <label for="password">Password:</label>
-        <input class="un "  align="center" type="text"  formControlName="Password" id="Password"placeholder="password" />
-    </div>
-    <div  align="center"  class="form-group" >
-        <label for="MobileNumber"> Mobile Number : </label>
-        <input class="un "  align="center"  type="number"  formControlName="MobileNumber" id="MobileNumber" placeholder="Mobile Number"/>
-    </div>
-    <div  align="center"  class="form-group" >
-        <label for="DateOfBirth">Date Of Birth : </label>
-        <input class="un "  align="center" type="date"  formControlName="DateOfBirth"  [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth" />
-    </div>
-   <div align="center">
-    <button  class="submit" type="submit">Register</button> &nbsp;&nbsp;
-    
-    &nbsp;&nbsp;
-    <button type="submit" class="cancel" align="center" (click)="this.route.navigate(['userlogin'])" >Cancel</button>
-   </div>
-   
-</form>
-    </div>
-    </div>
-  </body>
+        <div class="main ">  
+            <p class="sign" align="center">Register new User</p>
+            <form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
+                    <div align="center" class="form-group" >
+                        <label for="Title" >Title:    </label>     
+                        <select class ="un" name="Title" id="Title" formControlName="Title">
+                            <option  type="text"  value="Mr">Mr</option>
+                            <option   type="text" value="Mrs">Mrs</option></select>
+                        <!--<input class="un "  align="center"  type="text" formControlName="Title" id="Title"placeholder="Mr/Mrs" /> -->
+                    </div>
+                    <div  align="center"  class="form-group" >
+                        <label for="FirstName">First Name: </label>
+                        <input class="un "  align="center"  type="text" formControlName="FirstName" id="FirstName" placeholder="First Name" />
+                        <div *ngIf="addUser.get('FirstName').hasError('required')&& addUser.get('FirstName').touched" class="text-danger">
+                            First name is required
+                        </div> 
+                        <div *ngIf="addUser.get('FirstName').hasError('pattern')" class="text-danger">
+                            Please Enter only alphabets
+                        </div>
+                    </div>
+                    <div  align="center" class="form-group" >
+                        <label for="LastName">Last Name: </label>
+                        <input class="un "  align="center"  type="text"  formControlName="LastName" id="LastName" placeholder="Last Name"/>
+                        <div *ngIf="addUser.get('LastName').hasError('required')&& addUser.get('LastName').touched" class="text-danger">
+                            Last name is required
+                        </div> 
+                        <div *ngIf="addUser.get('LastName').hasError('pattern')" class="text-danger">
+                            Please Enter only alphabets
+                        </div>
+                    </div>
+                    <div  align="center" class="form-group">
+                        <label for="Age">Age :</label>
+                        <input class="un "  align="center"  type="number"  formControlName="Age" id="Age" placeholder="Age in years" />
+                    </div>
+                    <div  align="center"  class="form-group" >
+                        <label for="email">Email ID: </label>
+                        <input class="un "  align="center"  type="text" formControlName="UserEmailId" id="email" placeholder="Email Id" />
+                        <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('required')&& addUser.get('UserEmailId').touched">
+                             Email is required
+                        </div>
+                        <div class="text-danger" *ngIf="addUser.controls.UserEmailId.errors.email">
+                            Invalid Email
+                        </div>
+                    </div>
+                    <div  align="center"  class="form-group" >
+                        <label for="password">Password:</label>
+                        <input class="un "  align="center" type="password"  formControlName="Password" id="Password"placeholder="password" />
+                        <div *ngIf="addUser.get('Password').hasError('required')&& addUser.get('Password').touched" class="text-danger">
+                            Password is required
+                        </div> 
+                        <div *ngIf="addUser.get('Password').hasError('pattern')" class="text-danger">
+                            Please Enter correct Password
+                        </div>
+                    </div>
+                    <div  align="center"  class="form-group" >
+                        <label for="confirmPass">Confirm Password:</label>
+                        <input class="un "  align="center" type="password"  formControlName="confirmPass" id="confirmPass" placeholder="Confirm password" />
+                    </div>
+                    <div  align="center"  class="form-group" >
+                        <label for="MobileNumber"> Mobile Number : </label>
+                        <input class="un "  align="center"  type="number"  formControlName="MobileNumber" id="MobileNumber" placeholder="Mobile Number"/>
+                        <div *ngIf="addUser.get('MobileNumber').hasError('required')&& addUser.get('MobileNumber').touched" class="text-danger">
+                            Mobile Number is required
+                        </div> 
+                        <div *ngIf="addUser.get('MobileNumber').hasError('pattern')" class="text-danger">
+                            Please Enter 10 digits
+                        </div>
+                    </div>
+                    <div  align="center"  class="form-group" >
+                        <label for="DateOfBirth">Date Of Birth : </label>
+                        <input class="un "  align="center" type="date"  formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth" />
+                    </div>
+                    <div align="center">
+                        <button  class="submit" type="submit">Register</button> &nbsp;&nbsp; &nbsp;&nbsp;
+                        <button type="submit" class="cancel" align="center" (click)="this.route.navigate(['userlogin'])" >Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+</body>
