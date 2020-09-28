@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models/User';
-import {Admin} from '../models/Admin';
 import { Subject } from 'rxjs';
+import { User } from '../models/User';
+import { Admin} from '../models/Admin';
 
 @Injectable({
   providedIn: 'root'
@@ -13,22 +13,29 @@ export class AuthService {
   isAuthenticatedAdmin = false;
   public getLoggedInName = new Subject();
   constructor(private http: HttpClient) { }
-  
   doLogin(data) {
     console.log(data);
     return this.http.post<User>(this.API_URI+"/userlogin", data);
+    
   }
   isLoggedIn() {
-    if (sessionStorage.getItem('userData')) {
+    if (sessionStorage.getItem('userData') || sessionStorage.getItem('adminData')) {
       return true;
     }
     return false;
   }
   Logout()
   {
-        sessionStorage.removeItem('userData');
-        this.getLoggedInName.next('');
+    if (sessionStorage.getItem('userData'))
+    {
+      sessionStorage.removeItem('userData');
+    }
+    if(sessionStorage.getItem('adminData'))
+    {
+      sessionStorage.removeItem('adminData');
+    }
   }
+
   doAdminLogin(data) {
     console.log(data);
     return this.http.post<Admin>(this.API_URI+"/adminlogin", data);

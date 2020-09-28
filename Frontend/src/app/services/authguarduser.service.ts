@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthguardService {
+export class AuthguarduserService {
 
   constructor() { }
   gettoken(){  
-    return !!sessionStorage.getItem("adminData");  
+    return !!sessionStorage.getItem("userData");  
     }  
 }

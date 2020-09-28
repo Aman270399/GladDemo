@@ -11,11 +11,10 @@ export class AuthenticationGuard implements CanActivate {
 
   }
   canActivate(): boolean {  
-    if (this.Auth.gettoken()) {  
+    if (!this.Auth.gettoken()) {  
         this.router.navigateByUrl("/adminlogin");  
-        return false; 
     }  
-    return this.Auth.gettoken();;
+    return this.Auth.gettoken();
   }
   
 }
