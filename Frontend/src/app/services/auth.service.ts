@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { User } from '../models/User';
+import {Admin} from '../models/Admin';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +11,10 @@ export class AuthService {
   isAuthenticatedUser = false;
   isAuthenticatedAdmin = false;
   constructor(private http: HttpClient) { }
+  
   doLogin(data) {
     console.log(data);
-    return this.http.post(this.API_URI+"/userlogin", data);
+    return this.http.post<User>(this.API_URI+"/userlogin", data);
     
   }
   isLoggedIn() {
@@ -22,15 +25,11 @@ export class AuthService {
   }
   Logout()
   {
-
-      sessionStorage.removeItem('userData');
-  }
-  getUserName()
-  {
-    return sessionStorage.getItem('userData');
+        sessionStorage.removeItem('userData');
+        sessionStorage.removeItem('userName');
   }
   doAdminLogin(data) {
     console.log(data);
-    return this.http.post(this.API_URI+"/adminlogin", data);
+    return this.http.post<Admin>(this.API_URI+"/adminlogin", data);
   }
 }

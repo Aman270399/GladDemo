@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RouteConfigLoadEnd, Router } from '@angular/router';
+import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  UserName:string;
+  UserName:string
   constructor(private authService:AuthService,private router:Router) { }
   ngOnInit(){
+    this.UserName=sessionStorage.getItem('userName');
   }
   get isLoggedIn(){return this.authService.isLoggedIn()};
   Logout()
