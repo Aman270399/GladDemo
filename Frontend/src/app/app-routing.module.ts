@@ -10,6 +10,7 @@ import { DeleteflightComponent } from './components/deleteflight/deleteflight.co
 import { AdminviewComponent } from './components/adminview/adminview.component';
 import {AuthenticationGuard} from './authentication.guard'
 import {AuthenticationUserGuard} from './authentication-user.guard'
+import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 
 const routes: Routes = [
   {path:"",redirectTo: '/home', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: "addflight",component: AddflightComponent,canActivate:[AuthenticationGuard]},
   {path: "deleteflight",component: DeleteflightComponent,canActivate:[AuthenticationGuard]},
   {path: "adminview", component: AdminviewComponent},
+  {path: "passengerdetail",component:PassengerdetailsComponent},
 ]
 
 

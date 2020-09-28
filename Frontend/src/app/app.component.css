@@ -1,0 +1,12 @@
+.container-fluid
+{
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-image: url('../assets/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+html,body{
+    font-family: 'Ubuntu', sans-serif;
+    height: 100%;
+}

@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AddflightComponent } from './components/addflight/addflight.component';
 import { DeleteflightComponent } from './components/deleteflight/deleteflight.component';
 import { AdminviewComponent } from './components/adminview/adminview.component';
+import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 
 
 
@@ -33,7 +34,8 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
     RegisterComponent,
     AddflightComponent,
     DeleteflightComponent,
-    AdminviewComponent
+    AdminviewComponent,
+    PassengerdetailsComponent
   ],
   imports: [
     BrowserModule,

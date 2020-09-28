@@ -15,6 +15,12 @@ export class HomeComponent implements OnInit {
   airports:any;
   SearchForm:FormGroup;
   data:any;
+  departdate: any;
+  returndate: any;
+  today = new Date();
+  source: string;
+  destination: string;
+  todayShort = new Date().toISOString().slice(0,10);
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) { }
 
   ngOnInit(): void {
@@ -38,6 +44,7 @@ export class HomeComponent implements OnInit {
   }
   textBoxDisabled:boolean;
   type:string;
+ 
   disable(){
    this.type="oneway";
     this.textBoxDisabled = true;
@@ -51,8 +58,8 @@ export class HomeComponent implements OnInit {
   onSubmit(form){
     console.log(form.source);  
     localStorage.setItem('type',form.flighttype);
-    localStorage.setItem('source', form.source.substr(-4,3)); 
-    localStorage.setItem('destination',form.destination.substr(-4,3));
+    localStorage.setItem('source', form.source);
+    localStorage.setItem('destination',form.destination);
     localStorage.setItem('departdate',form.departdate);
     localStorage.setItem('returndate', form.returndate);
     localStorage.setItem('adultpassengercount',form.adultpassengercount);

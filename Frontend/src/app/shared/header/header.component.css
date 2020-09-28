@@ -2,7 +2,7 @@
     font-family: 'Varela Round', sans-serif;
 	color: #fff;
 	/* background: #926dde !important; */
-	height:10vh;
+	padding:20px 20px;
 	border-radius: 0;
 	border: none;
 	box-shadow: 0 0 4px rgba(0,0,0,.1);
@@ -17,7 +17,7 @@
 	color: #efe5ff;
 	padding-left: 0;
 	padding-right: 50px;
-	font-size: 24px;		
+	font-size: 30px;		
 }
 .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
 	color: #fff;
@@ -26,34 +26,7 @@
 	font-size: 25px;
 	margin-right: 5px;
 }
-/* .search-box {
-	position: relative;
-}	
-.search-box input {
-	padding-right: 35px;
-	min-height: 38px;
-	border: none;
-	background: #faf7fd;
-	border-radius: 3px !important;
-}
-.search-box input:focus {		
-	background: #fff;
-	box-shadow: none;
-}
-.search-box .input-group-addon {
-	min-width: 35px;
-	border: none;
-	background: transparent;
-	position: absolute;
-	right: 0;
-	z-index: 9;
-	padding: 10px 7px;
-	height: 100%;
-}
-.search-box i {
-	color: #a0a5b1;
-	font-size: 19px;
-} */
+
 .navbar .nav-item i {
 	font-size: 18px;
 }

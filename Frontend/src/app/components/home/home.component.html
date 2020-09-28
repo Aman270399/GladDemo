@@ -1,7 +1,6 @@
-<div id="booking" class="section">
-    <div class="section-center">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <div class="container">
-            <div class="row">
                 <div class="booking-form">
                     <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
                         <div class="form-group">
@@ -10,7 +9,6 @@
                                     <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype"   >
                                     <span></span>Roundtrip
                                 </label>
-                           
                                 <label for="one-way">
                                     <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype"  >
                                     <span></span>One way
@@ -22,9 +20,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <select class="form-control"  formControlName="source" >
+                                    <select class="form-control"  formControlName="source" [(ngModel)] = "source">
                                         <option value="" selected disabled hidden>Fying from</option>
-                                        <option *ngFor="let airport of airports">{{airport.CityName}}({{airport.AirportId}}) </option>
+                                        <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
                                     </select>
                                     <div *ngIf="SearchForm.controls.source.errors">
                                         <div class="alert alert-danger" *ngIf="SearchForm.controls.source.errors.required">
@@ -39,10 +37,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying to</span>
-                                    <select class="form-control"  formControlName="destination">
+                                    <select class="form-control"  formControlName="destination" [(ngModel)] = "destination">
                                         <option value="" selected disabled hidden>Fying To</option>
-                                        <option *ngFor="let airport of airports">{{airport.CityName}}({{airport.AirportId}}) </option>
-                                    </select>
+                                        <ng-container *ngFor="let airport of airports">
+                                            <option [value]="airport.AirportId" *ngIf="airport.AirportId != source" >
+                                              {{ airport.AirportId }}({{airport.CityName}})
+                                    
+                                            </option>
+                                        </ng-container>
+                                        </select>
                                      <div *ngIf="SearchForm.controls.destination.errors">
                                         <div class="alert alert-danger" *ngIf="SearchForm.controls.destination.errors.required">
                                             From is required.
@@ -56,7 +59,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
-                                    <input class="form-control" type="date"  formControlName="departdate">
+                                    <input class="form-control" type="date"   [min]="todayShort" formControlName="departdate"  [(ngModel)]="departdate">
                                     <div *ngIf="SearchForm.controls.departdate.errors">
                                         <div class="alert alert-danger" *ngIf="SearchForm.controls.departdate.errors.required">
                                             From is required.
@@ -68,7 +71,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <span class="form-label">Returning</span>
-                                    <input class="form-control" type="date" id="returndate" formControlName="returndate">
+                                    <input class="form-control" type="date" id="returndate" [min]="departdate" formControlName="returndate">
                                 </div>
                             </div>
 
@@ -142,6 +145,4 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
