@@ -18,7 +18,9 @@ export class AdminloginComponent implements OnInit {
     });
    }
    
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.adminService.Logout();
+  }
   submitted:any ;
     doAdminLogin() { 
       
