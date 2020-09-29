@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/models/User';
+import {Location} from '@angular/common';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -12,16 +13,18 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UserloginComponent implements OnInit {
   loginForm: FormGroup;
   user:User;
+  fromFlightSelect:boolean;
   
-  constructor(private formBuilder: FormBuilder,private userService: AuthService,private router: Router) {
-    this.loginForm = this.formBuilder.group({
-			email: ['', [Validators.required]],
-			password: ['', [Validators.required]]
-    });
+  constructor(private formBuilder: FormBuilder,private userService: AuthService,private router: Router,private route:ActivatedRoute,private location:Location) {
    }
    
   
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+			email: ['', [Validators.required]],
+			password: ['', [Validators.required]]
+    });
+    this.route.params.subscribe( params => this.fromFlightSelect=params['flightSelect']);
     this.userService.Logout();
   }
   submitted:any ;
@@ -31,7 +34,11 @@ export class UserloginComponent implements OnInit {
       console.log(this.loginForm.value);
       this.userService.getLoggedInName.next(result.FirstName);
       sessionStorage.setItem('userData',result.toString());
-      //this.router.navigate(['/dbData']);
+      if(this.fromFlightSelect)
+           this.router.navigate(['/passengerdetail']);
+      else 
+           this.location.back();
+      console.log(this.location.path());
       alert('Logged in as a User');
     }, (error) => {
       console.log(error);

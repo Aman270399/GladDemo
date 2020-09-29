@@ -24,7 +24,7 @@ namespace Airlines_WebApp.Controllers
             return dataRepository.GetAll();
         }
         [HttpGet]
-        [Route("{id}")]
+        [Route("")]
         public IHttpActionResult GetUser(string id)
         {
             UserTable userObj = null;
@@ -54,6 +54,10 @@ namespace Airlines_WebApp.Controllers
                 {
                     return BadRequest(ModelState);
                 }
+                if(userObj== dataRepository.Get(userObj.UserEmailId))
+                {
+                    return BadRequest("Email already exists");
+                }
 
                 dataRepository.Add(userObj);
             }
@@ -65,7 +69,7 @@ namespace Airlines_WebApp.Controllers
      
        }
         [HttpPut]
-        [Route("{id}")]
+        [Route("")]
         public IHttpActionResult UpdateUser(string id, [FromBody] UserTable userObj)
         {
             if (!ModelState.IsValid)
@@ -81,11 +85,6 @@ namespace Airlines_WebApp.Controllers
                 return BadRequest();
             }
 
-            //User user = dataRepository.Get(id);
-            //if (user == null)
-            //{
-            //    return NotFound();
-            //}
 
             dataRepository.Update(userObj);
 

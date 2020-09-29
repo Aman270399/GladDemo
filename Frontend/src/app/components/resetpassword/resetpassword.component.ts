@@ -75,11 +75,12 @@ onSubmit2(form){
 }
 
 onSubmit3(form){
-  //this.auth_service.getAccountById(this.currentUserId).subscribe(data => {
      console.log(form);
     this.user_service.getUserById(this.currentUserEmailId).subscribe(data => {
-      this.user_service.userUpdate(data,form).subscribe(data =>
+      data.Password=form.value.loginpwd;
+      this.user_service.changePassword(data).subscribe(data =>
         {
+          console.log(data);
         alert("Password changed successfully");
         this.router.navigate(['userlogin']);
       })

@@ -30,7 +30,7 @@ namespace Airlines_WebApp.Repository
             UserTable user = null;
             try
             {
-                var userFound = projectContext.UserTables.Where(u => u.UserEmailId == id ).SingleOrDefault();
+                var userFound = projectContext.UserTables.Where(u => u.UserEmailId == id).SingleOrDefault();
                 if (userFound != null)
                 {
                     user = userFound;
@@ -48,9 +48,9 @@ namespace Airlines_WebApp.Repository
             return user;
         }
 
-        public void Update(UserTable dbEntity)
+        public void Update(UserTable user)
         {
-            projectContext.Entry(dbEntity).State = EntityState.Modified;
+            projectContext.Entry(user).State = EntityState.Modified;
             projectContext.SaveChanges();
         }
 

@@ -24,10 +24,9 @@ export class DeleteflightComponent implements OnInit {
     })
   }
   onSubmit(form :any){
-    console.log(form.FlightId);
-  this.service.deleteFlight(form.FlightId).subscribe(data=>{
-  console.log(data);
-  //window.location.reload();
+      console.log(form.FlightId);
+      this.service.deleteFlight(form.FlightId).subscribe(data=>{
+      console.log(data);
       alert("Flight Deleted Successfully");
       this.route.navigate(['adminview']);
 })
