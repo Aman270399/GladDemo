@@ -5,11 +5,11 @@
                         <div class="form-group">
                             <div class="form-checkbox">
                                 <label for="roundtrip">
-                                    <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype"   >
+                                    <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype" (change)="EnableReturn()">
                                     <span></span>Roundtrip
                                 </label>
                                 <label for="one-way">
-                                    <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype"  >
+                                    <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype" (change)="DisableReturn()">
                                     <span></span>One way
                                 </label>
                                 
@@ -25,7 +25,7 @@
                                         <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
                                     </select>
                                     <div *ngIf="SearchForm.get('source').touched">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('source').hasError('required')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
                                             From is required.
                                         </div>
                                      </div>
@@ -46,7 +46,7 @@
                                         </ng-container>
                                         </select>
                                         <div *ngIf="SearchForm.get('destination').touched">
-                                            <div class="alert alert-danger" *ngIf="SearchForm.get('destination').hasError('required')">
+                                            <div class="alert text-danger" *ngIf="SearchForm.get('destination').hasError('required')">
                                                 Destination is required.
                                             </div>
                                          </div>
@@ -60,7 +60,7 @@
                                     <span class="form-label">Departing</span>
                                     <input class="form-control" type="date"   [min]="todayShort" formControlName="departdate">
                                     <div *ngIf="SearchForm.get('departdate').touched">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('departdate').hasError('required')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('departdate').hasError('required')">
                                             Departure Date is required.
                                         </div>
                                      </div>
@@ -85,10 +85,10 @@
                                         </datalist>
                                     <span class="select-arrow"></span>
                                     <div *ngIf="SearchForm.get('adultpassengercount').touched">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('required')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('required')">
                                             Minimum 1 adult is required.
                                         </div>
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('pattern')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('pattern')">
                                             Please enter a number
                                         </div>
                                      </div>
@@ -106,7 +106,7 @@
                                     </datalist>
                                     <span class="select-arrow"></span>
                                     <div *ngIf="SearchForm.get('childpassengercount').touched">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('childpassengercount').hasError('pattern')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('childpassengercount').hasError('pattern')">
                                             Please enter a number
                                         </div>
                                      </div>
@@ -123,7 +123,7 @@
                                     </datalist>
                                     <span class="select-arrow"></span>
                                     <div *ngIf="SearchForm.get('infantpassengercount').touched">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('infantpassengercount').hasError('pattern')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('infantpassengercount').hasError('pattern')">
                                             Please enter a number
                                         </div>
                                      </div>
@@ -141,7 +141,7 @@
                                     </select>
                                     <span class="select-arrow"></span>
                                     <div *ngIf="SearchForm.get('seatclass').touched">
-                                        <div class="alert alert-danger" *ngIf="SearchForm.get('seatclass').hasError('required')">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('seatclass').hasError('required')">
                                             Seat class is required.
                                         </div>
                                      </div>
