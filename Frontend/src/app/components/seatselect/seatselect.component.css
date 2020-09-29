@@ -84,7 +84,7 @@ ol {
   list-style: none;
   /* padding: 2px; */
   padding-bottom: 2px;
-  padding-left:15px;
+  padding-left:12px;
   margin: 0;
   justify-content: space-between;
 
@@ -100,8 +100,8 @@ ol {
 .seat {
   display: flex;
   flex: 0 0 14.8%;
-  padding: 5px;
-  width:42px ;
+  padding: 4px;
+  width:44px ;
   /* position: relative; */
 }
 .seat:nth-child(3) {

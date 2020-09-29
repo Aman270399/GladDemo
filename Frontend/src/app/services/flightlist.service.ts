@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 import {flight} from '../models/flight';
+import { FlightSchedule } from '../models/FlightSchedule';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,6 @@ constructor(private http:HttpClient) { }
  searchFlight(source,destination,departdate,passengercount){
     return this.http.get<flight[]>(this.baseUrl+"/SearchFlight\\"+source+"\\"+destination+"\\"+departdate+"\\"+passengercount,this.httpOptions);
  }
+ addflightschedule(fls){return this.http.post<any>(this.baseUrl+"/flightschedule",JSON.stringify(fls),this.httpOptions);
+}
 }
