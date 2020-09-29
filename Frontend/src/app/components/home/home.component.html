@@ -1,16 +1,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
         <div class="container">
                 <div class="booking-form">
                     <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
                         <div class="form-group">
                             <div class="form-checkbox">
                                 <label for="roundtrip">
-                                    <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype"   >
+                                    <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype" (change)="EnableReturn()">
                                     <span></span>Roundtrip
                                 </label>
                                 <label for="one-way">
-                                    <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype"  >
+                                    <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype" (change)="DisableReturn()">
                                     <span></span>One way
                                 </label>
                                 
@@ -21,15 +20,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <select class="form-control"  formControlName="source" [(ngModel)] = "source">
+                                    <select class="form-control"  formControlName="source">
                                         <option value="" selected disabled hidden>Fying from</option>
                                         <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
                                     </select>
-                                    <div *ngIf="SearchForm.get('source').hasError('required')&& SearchForm.get('source').touched" class="text-danger">
-                                        Source required
-                                    </div> 
-                                   
-   
+                                    <div *ngIf="SearchForm.get('source').touched">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
+                                            From is required.
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -37,19 +36,20 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying to</span>
-                                    <select class="form-control"  formControlName="destination" [(ngModel)] = "destination">
+                                    <select class="form-control"  formControlName="destination">
+                                        <option value="" selected disabled hidden>Fying To</option>
                                         <ng-container *ngFor="let airport of airports">
                                             <option value="" selected disabled hidden>Fying To</option>
                                             <option [value]="airport.AirportId" *ngIf="airport.AirportId != source" >
                                               {{ airport.AirportId }}({{airport.CityName}})
-                                    
                                             </option>
                                         </ng-container>
                                         </select>
-                                        <div *ngIf="SearchForm.get('destination').hasError('required')&& SearchForm.get('destination').touched" class="text-danger">
-                                            Destination required
-                                        </div> 
-                                     
+                                        <div *ngIf="SearchForm.get('destination').touched">
+                                            <div class="alert text-danger" *ngIf="SearchForm.get('destination').hasError('required')">
+                                                Destination is required.
+                                            </div>
+                                         </div>
                                 </div>
                             </div>
                         </div>
@@ -58,10 +58,12 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <span class="form-label">Departing</span>
-                                    <input class="form-control" type="date"   [min]="todayShort" formControlName="departdate"  [(ngModel)]="departdate">
-                                    <div *ngIf="SearchForm.get('departdate').hasError('required')&& SearchForm.get('departdate').touched" class="text-danger">
-                                        Travel Date required
-                                    </div> 
+                                    <input class="form-control" type="date"   [min]="todayShort" formControlName="departdate">
+                                    <div *ngIf="SearchForm.get('departdate').touched">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('departdate').hasError('required')">
+                                            Departure Date is required.
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
 
@@ -82,9 +84,14 @@
                                         <option>3</option>
                                         </datalist>
                                     <span class="select-arrow"></span>
-                                    <div *ngIf="SearchForm.get('adultpassengercount').hasError('required')&& SearchForm.get('adultpassengercount').touched" class="text-danger">
-                                        Minimum 1 Adult 
-                                    </div> 
+                                    <div *ngIf="SearchForm.get('adultpassengercount').touched">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('required')">
+                                            Minimum 1 adult is required.
+                                        </div>
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('pattern')">
+                                            Please enter a number
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
 
@@ -98,6 +105,11 @@
                                     <option>2</option>
                                     </datalist>
                                     <span class="select-arrow"></span>
+                                    <div *ngIf="SearchForm.get('childpassengercount').touched">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('childpassengercount').hasError('pattern')">
+                                            Please enter a number
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -110,6 +122,11 @@
                                     <option>2</option>
                                     </datalist>
                                     <span class="select-arrow"></span>
+                                    <div *ngIf="SearchForm.get('infantpassengercount').touched">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('infantpassengercount').hasError('pattern')">
+                                            Please enter a number
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
                         </div>
@@ -123,9 +140,11 @@
                                         <option>Business class</option>
                                     </select>
                                     <span class="select-arrow"></span>
-                                    <div *ngIf="SearchForm.get('seatclass').hasError('required')&& SearchForm.get('seatclass').touched" class="text-danger">
-                                        Select Class
-                                    </div> 
+                                    <div *ngIf="SearchForm.get('seatclass').touched">
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('seatclass').hasError('required')">
+                                            Seat class is required.
+                                        </div>
+                                     </div>
                                 </div>
                             </div>
 
@@ -138,4 +157,3 @@
                     </form>
                 </div>
             </div>
-

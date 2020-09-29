@@ -62,7 +62,36 @@ namespace Airlines_WebApp.Controllers
                 throw ex;
             }
             return Ok(userObj);
+     
+       }
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult UpdateUser(string id, [FromBody] UserTable userObj)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (userObj == null)
+            {
+                return BadRequest("User is null");
+            }
+            if (id != userObj.UserEmailId)
+            {
+                return BadRequest();
+            }
+
+            //User user = dataRepository.Get(id);
+            //if (user == null)
+            //{
+            //    return NotFound();
+            //}
+
+            dataRepository.Update(userObj);
+
+            return Ok(userObj);
         }
     }
+
    
 }

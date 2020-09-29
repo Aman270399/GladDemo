@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+//import * as moment from 'moment';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -20,7 +21,7 @@ export class RegisterComponent implements OnInit {
       FirstName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       LastName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       UserEmailId:["",[Validators.required,Validators.email]],
-      Age : ["",[Validators.required]],
+      Age : ["",[Validators.required,Validators.min(18)]],
       MobileNumber : ["",[Validators.required,Validators.pattern('[7-9][0-9]{9}')]],
       Password : ["",[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}'),Validators.minLength(8)]],
       DateOfBirth:["",[Validators.required]],
@@ -33,6 +34,7 @@ export class RegisterComponent implements OnInit {
   console.log(pass);
    return pass === confirmPass ? null : { notSame: true }     
   }
+
   onSubmit(form : User){
     console.log(form);
     

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Web.Http;
 
 namespace Airlines_WebApp.Controllers
@@ -54,6 +55,42 @@ namespace Airlines_WebApp.Controllers
             }
             return Ok(admin);
 
+
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("sendMail")]
+        public string PostSendGmail([FromBody] string user)
+        {
+            Random rnd = new Random();
+            int otp = rnd.Next(1000, 9999);
+
+            SmtpClient client = new SmtpClient();
+            client.DeliveryMethod = SmtpDeliveryMethod.Network;
+            client.EnableSsl = true;
+            client.Host = "smtp.gmail.com";
+            client.Port = 587;
+            // setup Smtp authentication
+            System.Net.NetworkCredential credentials =
+                new System.Net.NetworkCredential("gladiatorflight.noreply@gmail.com", "flight@123");
+            client.UseDefaultCredentials = false;
+            client.Credentials = credentials;
+            //can be obtained from your model
+            MailMessage msg = new MailMessage();
+            msg.From = new MailAddress("gladiatorflight.noreply@gmail.com");
+            msg.To.Add(new MailAddress(user));
+            msg.Subject = "OTP to reset your password";
+            msg.IsBodyHtml = true;
+            msg.Body = string.Format("<html><head></head><body><b>Dear user, Your OTP to reset password is:</b></body>"+otp);
+            try
+            {
+                client.Send(msg);
+                return otp.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "error:" + ex.ToString();
+            }
         }
 
     }

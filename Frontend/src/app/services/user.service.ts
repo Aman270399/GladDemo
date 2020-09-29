@@ -18,4 +18,21 @@ export class UserService {
   addUser(user){
     return this.http.post<any>(this.baseUrl,JSON.stringify(user),this.httpOptions);
   }
+  getUserById(id:string){
+    return this.http.get<User>(this.baseUrl+'/'+id,this.httpOptions);
+  }
+  userUpdate(user:User,data){
+    const newDetail={
+      "UserEmailId":user.UserEmailId,
+      "Password": data.loginpwd, 
+      "Title":user.Title,
+      "FirstName": user.FirstName,
+      "LastName": user.LastName,
+      "DateOFBirth":user.DateOFBirth,
+      "Age":user.Age,
+      "MobileNumber":user.MobileNumber
+      
+    }
+    return this.http.put(this.baseUrl+'/'+user.UserEmailId, JSON.stringify(newDetail),this.httpOptions);
+  }
 }
