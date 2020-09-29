@@ -16,15 +16,15 @@ export class UserloginComponent implements OnInit {
   fromFlightSelect:boolean;
   
   constructor(private formBuilder: FormBuilder,private userService: AuthService,private router: Router,private route:ActivatedRoute,private location:Location) {
+   }
+   
+  
+  ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
 			email: ['', [Validators.required]],
 			password: ['', [Validators.required]]
     });
     this.route.params.subscribe( params => this.fromFlightSelect=params['flightSelect']);
-   }
-   
-  
-  ngOnInit(): void {
     this.userService.Logout();
   }
   submitted:any ;

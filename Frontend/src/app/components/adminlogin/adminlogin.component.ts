@@ -11,14 +11,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AdminloginComponent implements OnInit { 
   loginForm: FormGroup; 
   
-  constructor(private formBuilder: FormBuilder,private router: Router,private adminService: AuthService) {
-		this.loginForm = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder,private router: Router,private adminService: AuthService) { }
+   
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
 			email: ['', [Validators.required]],
 			password: ['', [Validators.required]]
     });
-   }
-   
-  ngOnInit(): void {
     this.adminService.Logout();
   }
   submitted:any ;
