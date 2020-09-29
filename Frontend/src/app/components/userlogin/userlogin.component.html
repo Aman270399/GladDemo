@@ -20,7 +20,7 @@
         <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password">
         <div *ngIf="submitted && loginForm.controls.password.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors.required">Password is required.  </div>  </div>
         <a type="submit" class="submit" align="center" (click)="doLogin()" >Sign in</a>
-        <p class="forgot" align="center"><a href="#">Forgot Password?</a></p>
+        <p class="forgot" align="center"><a [routerLink]="['/resetpassword']">Forgot Password?</a></p>
         <p style="padding-bottom: 2rem;" align="center"><a  class="new"  [routerLink]="['/register']">New User?</a>  </p>
       </form>      
     </div>

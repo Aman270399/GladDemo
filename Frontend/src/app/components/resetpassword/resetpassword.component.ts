@@ -29,7 +29,7 @@ export class ResetpasswordComponent implements OnInit {
         otp: new FormControl('', [Validators.required, Validators.min(1000), Validators.max(9999), Validators.pattern("^[0-9]*$")])
       })
       this.setPwdForm = this.formBuilder.group({
-        loginpwd: new FormControl('', [Validators.required,Validators.pattern('(?=.[A-Za-z])(?=.[0-9])(?=.[$@$!#^~%?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{8,}')]), 
+        loginpwd: new FormControl('', [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}'),Validators.minLength(8)]), 
         confirmloginpwd: new FormControl('',Validators.required)}, { 
           validators: this.confirmedValidator('loginpwd', 'confirmloginpwd') 
       });
@@ -75,10 +75,12 @@ onSubmit2(form){
 }
 
 onSubmit3(form){
-  //this.auth_service.getAccountById(this.currentUserId).subscribe(data => {
+     console.log(form);
     this.user_service.getUserById(this.currentUserEmailId).subscribe(data => {
-      this.user_service.userUpdate(data,form.value).subscribe(data =>
+      data.Password=form.value.loginpwd;
+      this.user_service.changePassword(data).subscribe(data =>
         {
+          console.log(data);
         alert("Password changed successfully");
         this.router.navigate(['userlogin']);
       })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as moment from 'moment';
+//import * as moment from 'moment';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
       FirstName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       LastName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       UserEmailId:["",[Validators.required,Validators.email]],
-      Age : ["",[Validators.required]],
+      Age : ["",[Validators.required,Validators.min(18)]],
       MobileNumber : ["",[Validators.required,Validators.pattern('[7-9][0-9]{9}')]],
       Password : ["",[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}'),Validators.minLength(8)]],
       DateOfBirth:["",[Validators.required]],
@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
   let pass = group.get('Password').value;
   let confirmPass = group.get('confirmPass').value;
-  console.log(pass);
    return pass === confirmPass ? null : { notSame: true }     
   }
 
@@ -45,7 +44,10 @@ export class RegisterComponent implements OnInit {
       this.route.navigate(["userlogin"]);
     },(error) => {
       console.log(error);
-      alert("Please Enter valid details!!")
+      if(error=="Email already exists")
+       alert("Email already exists!!");
+      else
+       alert("Please Enter valid details!!");
     });
     
     }
