@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import * as moment from 'moment';
+//import * as moment from 'moment';
 import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 

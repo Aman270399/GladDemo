@@ -1,6 +1,7 @@
 ﻿using Airlines_WebApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -26,12 +27,31 @@ namespace Airlines_WebApp.Repository
 
         public UserTable Get(string id)
         {
-            throw new NotImplementedException();
+            UserTable user = null;
+            try
+            {
+                var userFound = projectContext.UserTables.Where(u => u.UserEmailId == id ).SingleOrDefault();
+                if (userFound != null)
+                {
+                    user = userFound;
+                }
+                else
+                {
+                    user = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            return user;
         }
 
         public void Update(UserTable dbEntity)
         {
-            throw new NotImplementedException();
+            projectContext.Entry(dbEntity).State = EntityState.Modified;
+            projectContext.SaveChanges();
         }
 
         public void Delete(string entity)
