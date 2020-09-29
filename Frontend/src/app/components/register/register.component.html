@@ -44,7 +44,7 @@
                         <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('required')&& addUser.get('UserEmailId').touched">
                              Email Id is required
                         </div>
-                        <div class="text-danger" *ngIf="addUser.controls.UserEmailId.errors.email">
+                        <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('email')">
                             Please enter correct email id
                         </div>
                     </div>
@@ -54,10 +54,10 @@
                         <div *ngIf="addUser.get('Password').hasError('required')&& addUser.get('Password').touched" class="text-danger">
                             Password is required
                         </div> 
-                        <div *ngIf="addUser.controls.Password.errors.minlength" class="text-danger">Password must be at least 8 characters</div>
                         <div *ngIf="addUser.get('Password').hasError('pattern')" class="text-danger">
                             Password must contain atleast one lower case alphabet, one upper case alphabet, one digit, one special character
                         </div>
+                        <div *ngIf="addUser.get('Password').hasError('minlength')" class="text-danger">Password must be at least 8 characters</div>
                     </div>
                     <div  align="center"  class="form-group" >
                         <label for="confirmPass">Confirm Password:</label>

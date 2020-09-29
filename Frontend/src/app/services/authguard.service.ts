@@ -7,6 +7,6 @@ export class AuthguardService {
 
   constructor() { }
   gettoken(){  
-    return !!sessionStorage.getItem("userData");  
+    return !!sessionStorage.getItem("adminData");  
     }  
 }
