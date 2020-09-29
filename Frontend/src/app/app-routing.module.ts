@@ -14,6 +14,7 @@ import {UnauthorizedGuard} from './authGuards/unauthorized.guard';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 import { SeatselectComponent } from './components/seatselect/seatselect.component';
 import {ResetpasswordComponent} from './components/resetpassword/resetpassword.component';
+import { UserviewComponent } from './components/userview/userview.component';
 
 const routes: Routes = [
   {path:"",redirectTo: '/home', pathMatch: 'full'},
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path: "adminview", component: AdminviewComponent},
   {path: "passengerdetail",component:PassengerdetailsComponent},
   {path: "seatselect", component: SeatselectComponent},
-  {path: "resetpassword", component: ResetpasswordComponent}
+  {path: "resetpassword", component: ResetpasswordComponent},
+  {path:"userview",component:UserviewComponent},
 ]
 
 
