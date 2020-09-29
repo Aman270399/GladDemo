@@ -30,3 +30,9 @@ Backend/Airlines_WebApp/Web.config
 Backend/Airlines_WebApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 *.cache
 *.config
+Backend/.vs/Backend/v16/.suo
+Backend/Airlines_WebApp/bin/Airlines_WebApp.dll
+Backend/Airlines_WebApp/bin/Airlines_WebApp.pdb
+Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.csprojAssemblyReference.cache
+Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.dll
+Backend/Airlines_WebApp/obj/Debug/Airlines_WebApp.pdb

@@ -48,9 +48,9 @@ namespace Airlines_WebApp.Repository
             return user;
         }
 
-        public void Update(UserTable dbEntity)
+        public void Update(UserTable user)
         {
-            projectContext.Entry(dbEntity).State = EntityState.Modified;
+            projectContext.Entry(user).State = EntityState.Modified;
             projectContext.SaveChanges();
         }
 
