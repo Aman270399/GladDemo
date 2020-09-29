@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { flight } from 'src/app/models/flight';
 import { FlightlistService } from 'src/app/services/flightlist.service';
 
@@ -15,7 +16,7 @@ export class FlightSelectComponent implements OnInit {
   Flights:flight[];
   passengercount:number;
   ReturnFlights:flight[];
-  constructor(private flightlistservice:FlightlistService) { }
+  constructor(private flightlistservice:FlightlistService,public router:Router) { }
   isReturn:boolean;
   ngOnInit(): void {
     this.source=localStorage.getItem('source');
