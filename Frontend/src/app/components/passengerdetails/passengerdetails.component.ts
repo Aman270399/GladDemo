@@ -21,16 +21,20 @@ dynamicForm: FormGroup;
     console.log(this.childpassengercount);
     console.log(this.adultpassengercount);
   }
-
+  public passengersData = [];
   createRange(number){
     var items: number[] = [];
     for(var i = 1; i <= number; i++){
        items.push(i);
+    this.passengersData.push(items[i]);
     }
+  console.log(this.passengersData)
     return items;
  
   }
-  onSubmit() {}
+  submit() {
+    console.log(this.passengersData)
+  }
   
 
     

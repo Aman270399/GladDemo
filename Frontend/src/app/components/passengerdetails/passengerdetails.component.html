@@ -1,22 +1,22 @@
 
 <div class="list-group">
     <div class="list-group-item">
-    <h3>Adult passenger list</h3>
+    <h3>Adult passenger list </h3>
 <div *ngFor="let passenger of createRange(this.adultpassengercount); let i=index">
 
   <h3>Adult passenger {{passenger}}</h3>
-<select type="text" placeholder="Title" label="Title">
+<select type="text" placeholder="Title" label="Title" name="Title">
     <option>Mr</option>
     <option>Mrs</option>
     <option>Miss</option>
 </select>&nbsp;&nbsp;
- <input type="text"  label ="First name" placeholder="FirstName" >&nbsp;&nbsp;
+ <input type="text"  label ="First name" placeholder="FirstName" name="">&nbsp;&nbsp;
  <input type="text" label="Last name"  placeholder="LastName">
  <br>
 </div>
 </div>
 <br>
-<div class="list-group-item">
+<div class="list-group-item" *ngIf="this.childpassengercount>0">
 <h3>Child passenger list</h3>
 <div *ngFor="let passenger of createRange(this.childpassengercount); let i=index">
     <h3>Child passenger {{passenger}}</h3>
@@ -28,9 +28,12 @@
      <input type="text" label="Last name"  placeholder="LastName"> 
 </div>
 </div>
+<div class="list-group-item" *ngIf="this.childpassengercount==0">
+    No child passengers
+</div>
 <br>
 <div class="list-group-item" *ngIf="this.infantpassengercount>0" >
-    <h3>Infant passenger list</h3>
+    <h3>Infant passenger list </h3>
     <div *ngFor="let passenger of createRange(this.infantpassengercount); let i=index" >
         
         <h3>Infant passenger {{passenger}}</h3>
@@ -42,8 +45,10 @@
          <input type="text" label="Last name"  placeholder="LastName">
          <br>    
     </div>
-
+</div>
+<div class="list-group-item" *ngIf="this.infantpassengercount==0">
+    No infant passengers
 </div>
 </div>
-<!--<button class="btn btn-primary mr-1">Buy Tickets</button>-->
+<button class="btn btn-primary mr-1" (click)="submit()">Buy Tickets</button>
 
