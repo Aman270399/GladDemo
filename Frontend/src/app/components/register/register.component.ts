@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
   checkPasswords(group: FormGroup) { // here we have the 'passwords' group
   let pass = group.get('Password').value;
   let confirmPass = group.get('confirmPass').value;
-  console.log(pass);
    return pass === confirmPass ? null : { notSame: true }     
   }
 
@@ -45,7 +44,10 @@ export class RegisterComponent implements OnInit {
       this.route.navigate(["userlogin"]);
     },(error) => {
       console.log(error);
-      alert("Please Enter valid details!!")
+      if(error=="Email already exists")
+       alert("Email already exists!!");
+      else
+       alert("Please Enter valid details!!");
     });
     
     }
