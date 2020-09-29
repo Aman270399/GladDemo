@@ -8,6 +8,7 @@ import { Admin} from '../models/Admin';
   providedIn: 'root'
 })
 export class AuthService {
+  
   API_URI = 'https://localhost:44374/api/accounts';
   isAuthenticatedUser = false;
   isAuthenticatedAdmin = false;
@@ -42,5 +43,8 @@ export class AuthService {
   }
   forgotUserPassword(email){
     return this.http.post<Number>(this.API_URI+'/sendMail/'+email,JSON.stringify(email))
+  }
+  otpverfiy(mobileno){
+    return this.http.post<Number>(this.API_URI+'/sendMsg/',JSON.stringify(mobileno))
   }
 }
