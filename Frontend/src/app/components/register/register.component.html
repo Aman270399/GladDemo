@@ -38,6 +38,12 @@
                         <label for="Age">Age :</label>
                         <input class="un "  align="center"  type="number"  formControlName="Age" id="Age" placeholder="Age in years" />
                     </div>
+                    <!-- <div *ngIf="addUser.get('Age').hasError('required')&& addUser.get('Age').touched" class="text-danger">
+                        Age required
+                    </div> 
+                    <div *ngIf="addUser.get('Age').hasError('value')" class="text-danger">
+                        Minimum age is 18
+                    </div>  -->
                     <div  align="center"  class="form-group" >
                         <label for="email">Email ID: </label>
                         <input class="un "  align="center"  type="text" formControlName="UserEmailId" id="email" placeholder="Email Id" />

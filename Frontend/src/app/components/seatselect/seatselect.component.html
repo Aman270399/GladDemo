@@ -1,4 +1,4 @@
-<div class = "main">
+<!-- <div class = "main">
 <div class="plane">
     <div class="cockpit">
       <h1>Please select your seat(s)</h1>
@@ -289,11 +289,58 @@
       </li>
     </ol>
     <br>
-    <!-- <div class="exit exit--back fuselage">
+    <div class="exit exit--back fuselage">
         <br>
     </div> -->
-    <div align="center">
+    <!-- <div align="center">
     <button style="margin-bottom: 2rem;" class="btn btn-success" routerLink="/payment">BOOK ME</button>
     </div>
   </div>
+</div> --> 
+
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h2>
+    Select Seats
+  </h2>
 </div>
+<div class="col-lg-12 seat-container">
+  <div  *ngFor="let seatrow of seatmap " >
+      <div class="col-12 pricing-label" *ngIf="seatChartConfig?.showRowWisePricing && seatrow.seatPricingInformation != ''">{{seatrow.seatPricingInformation}}</div>
+      <div class="seatrow container">
+          <div *ngIf="seatChartConfig?.showRowsLabel">
+              <div class="row-label" >  {{seatrow.seatRowLabel}} </div>
+          </div>
+          <div *ngFor="let seatobj of seatrow.seats">
+              <div class="seat-item seat-space" style="color:black ; background-color:white" *ngIf="seatobj.seatLabel == ''">  &nbsp; </div>
+              <div  placement="top"
+              [ngClass]="{ 'seat-item' : true , 'seat-available' : seatobj.status == 'available' ,'seat-booked' : seatobj.status == 'booked' ,'seat-unavailable' : seatobj.status == 'unavailable' }" 
+               (click)="selectSeat(seatobj)" *ngIf="(seatobj.status == 'available' || seatobj.status == 'booked' )&& seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
+               
+              <div placement="top"
+              [ngClass]="{ 'seat-item' : true , 'seat-unavailable' : true }" 
+              *ngIf="seatobj.status == 'unavailable' && seatobj.seatLabel != ''">{{seatobj.seatNo}}</div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- *ngIf="cart?.selectedSeats?.length > 0" -->
+<div  class="container">
+  <div class="col-lg-12 summary-bar">
+      <div class="col-lg-4" >
+              <div>
+                  <h5>Total Selected : {{ cart?.selectedSeats?.length }}</h5>
+                  <h5>Total Amount :&nbsp;&nbsp; {{cart.totalamount}} Rs</h5>
+              </div>
+      </div>
+      <div class="col-lg-8 selected-seats">
+          <h5 class="col-lg-12 no-padding">Selected Seats : </h5>
+          <span *ngFor="let seatLabel of cart.selectedSeats" class="badge badge-primary">{{seatLabel}}</span>
+      </div>
+  </div>
+  <div class="col-lg-12 book-area">
+    <button [disabled]="cart?.selectedSeats?.length == 0" type="button" routerLink="/payment"  (click)="seatinfo()" class="btn btn-primary" mdbWavesEffect>Book Now</button>
+  </div>
+</div>
+

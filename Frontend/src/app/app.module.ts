@@ -19,6 +19,7 @@ import { DeleteflightComponent } from './components/deleteflight/deleteflight.co
 import { AdminviewComponent } from './components/adminview/adminview.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 import { SeatselectComponent } from './components/seatselect/seatselect.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 
@@ -37,7 +38,8 @@ import { SeatselectComponent } from './components/seatselect/seatselect.componen
     DeleteflightComponent,
     AdminviewComponent,
     PassengerdetailsComponent,
-    SeatselectComponent
+    SeatselectComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,
