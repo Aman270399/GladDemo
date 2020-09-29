@@ -12,6 +12,7 @@
                                     <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype"  >
                                     <span></span>One way
                                 </label>
+                                
                                 		
                             </div>
                         </div>
@@ -38,6 +39,7 @@
                                     <select class="form-control"  formControlName="destination">
                                         <option value="" selected disabled hidden>Fying To</option>
                                         <ng-container *ngFor="let airport of airports">
+                                            <option value="" selected disabled hidden>Fying To</option>
                                             <option [value]="airport.AirportId" *ngIf="airport.AirportId != source" >
                                               {{ airport.AirportId }}({{airport.CityName}})
                                             </option>

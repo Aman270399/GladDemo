@@ -104,5 +104,24 @@ namespace Airlines_WebApp.Controllers
                 }
                 return Ok("Record is deleted ..!");
             }
+        [HttpPost]
+        [Route("flightschedule")]
+        public IHttpActionResult addFlightschedule([FromBody] FlightSchedule flightObj)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                flightScheduleRepository.Add(flightObj);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return Ok(flightObj);
         }
+    }
 }
