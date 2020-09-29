@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
       FirstName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       LastName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       UserEmailId:["",[Validators.required,Validators.email]],
-      Age : ["",[Validators.required]],
+      Age : ["",[Validators.required,Validators.min(18)]],
       MobileNumber : ["",[Validators.required,Validators.pattern('[7-9][0-9]{9}')]],
       Password : ["",[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}'),Validators.minLength(8)]],
       DateOfBirth:["",[Validators.required]],
