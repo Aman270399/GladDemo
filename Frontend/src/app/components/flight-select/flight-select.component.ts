@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { flight } from 'src/app/models/flight';
+import { AuthService } from 'src/app/services/auth.service';
 import { FlightlistService } from 'src/app/services/flightlist.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class FlightSelectComponent implements OnInit {
   Flights:flight[];
   passengercount:number;
   ReturnFlights:flight[];
-  constructor(private flightlistservice:FlightlistService,public router:Router) { }
+  constructor(private flightlistservice:FlightlistService,public router:Router,private authservice:AuthService) { }
   isReturn:boolean;
   ngOnInit(): void {
     this.source=localStorage.getItem('source');
@@ -36,5 +37,12 @@ export class FlightSelectComponent implements OnInit {
 
     }
   }
-
+  get isLoggedIn(){return this.authservice.isLoggedIn()};
+  continue()
+  {
+    if(this.isLoggedIn==false)
+       this.router.navigate(['/userlogin',{flightSelect:true}]);
+    else
+       this.router.navigate(['/passengerdetail']);
+  }
 }
