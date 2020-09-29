@@ -40,4 +40,7 @@ export class AuthService {
     console.log(data);
     return this.http.post<Admin>(this.API_URI+"/adminlogin", data);
   }
+  forgotUserPassword(email){
+    return this.http.post<Number>(this.API_URI+'/sendMail/'+email,JSON.stringify(email))
+  }
 }

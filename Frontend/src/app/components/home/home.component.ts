@@ -42,16 +42,12 @@ export class HomeComponent implements OnInit {
     }); 
    
   }
-  textBoxDisabled:boolean;
-  type:string;
- 
-  disable(){
-   this.type="oneway";
-    this.textBoxDisabled = true;
+  DisableReturn(){
+      this.SearchForm.controls['returndate'].disable();
   }
-  enable(){
-    this.type="twoway"
-     this.textBoxDisabled = null;
+  EnableReturn()
+  {
+    this.SearchForm.controls['returndate'].enable();
   }
 
   submitted:any=true;
