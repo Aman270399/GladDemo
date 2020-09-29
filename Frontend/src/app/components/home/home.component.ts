@@ -35,9 +35,9 @@ export class HomeComponent implements OnInit {
       destination:['' ,Validators.required],    
       departdate:['',Validators.required],   
       returndate:[''], 
-      adultpassengercount:['',Validators.required],
-      childpassengercount:[''],
-      infantpassengercount:[''],
+      adultpassengercount:['',[Validators.required,Validators.pattern("[0-9]+")]],
+      childpassengercount:['',Validators.pattern("[0-9]*")],
+      infantpassengercount:['',Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
    
