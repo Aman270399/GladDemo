@@ -16,6 +16,11 @@ export class BookingserviceService {
   bookingDetails(){
     let data={id:this.email};
     return this.http.get<any>(this.baseUrl,{params:data});
+  }
+    ticketDetails(bookid)
+    {
+      return this.http.get<any>(this.baseUrl+"/Get"+bookid);
+    }
   
-}
+
 }

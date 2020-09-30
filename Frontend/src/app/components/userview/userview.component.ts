@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {BookingserviceService} from '../../services/bookingservice.service'
@@ -22,7 +23,15 @@ export class UserviewComponent implements OnInit {
   ngOnInit(): void {
     
     this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)})
-  
+  }
+
+  tickets:any;
+  trial:any;
+  details(id){
+this.trial=id;
+
+//this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
+
   }
   
 }
