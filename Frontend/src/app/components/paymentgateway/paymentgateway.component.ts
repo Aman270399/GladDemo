@@ -66,10 +66,12 @@ export class PaymentgatewayComponent implements OnInit {
 
 
 onSubmit2(form){
+  this.makepayment = true;
   this.auth_service.otpverfiy(form.value.mobilenumber).subscribe(data => {
     this.requestSent = true;
     this.current = data;
-    this.makepayment = true;
+    console.log(data);
+    
 })
 }
 
@@ -81,8 +83,11 @@ onSubmit3(form){
       
       this.makepayment = true;
     }
-  }catch{
+    else{
     alert("Incorrect OTP");
+  }
+  }catch{
+    
   }
 }
 
