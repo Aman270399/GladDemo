@@ -15,6 +15,7 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
 import { SeatselectComponent } from './components/seatselect/seatselect.component';
 import {ResetpasswordComponent} from './components/resetpassword/resetpassword.component';
 import { UserviewComponent } from './components/userview/userview.component';
+import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 
 const routes: Routes = [
   {path:"",redirectTo: '/home', pathMatch: 'full'},
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: "seatselect", component: SeatselectComponent},
   {path: "resetpassword", component: ResetpasswordComponent},
   {path:"userview",component:UserviewComponent},
+  {path: "paymentgateway", component: PaymentgatewayComponent},
 ]
 
 

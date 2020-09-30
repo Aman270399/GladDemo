@@ -21,6 +21,7 @@ import { PassengerdetailsComponent } from './components/passengerdetails/passeng
 import { SeatselectComponent } from './components/seatselect/seatselect.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { UserviewComponent } from './components/userview/userview.component';
+import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 
 
 
@@ -41,7 +42,8 @@ import { UserviewComponent } from './components/userview/userview.component';
     PassengerdetailsComponent,
     SeatselectComponent,
     ResetpasswordComponent,
-    UserviewComponent
+    UserviewComponent,
+    PaymentgatewayComponent
   ],
   imports: [
     BrowserModule,

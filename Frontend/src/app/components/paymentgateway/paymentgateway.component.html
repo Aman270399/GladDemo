@@ -1,0 +1,52 @@
+<form [formGroup]="detailsForm" (ngSubmit)="onSubmit(detailsForm)" class="form-signin" *ngIf="!requestSent">
+    <div class="form-Group">
+        <select label="cardtype" formControlName = "card">
+            <option *ngFor="let cards of card">{{cards}}</option>
+        </select>
+        <select label="banktype" formControlName = "bank">
+            <option *ngFor="let banks of bank">{{banks}}</option>
+        </select>
+    </div>
+    <button class="btn btn-success" type="submit" >Proceed</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+     <button class="btn btn-primary" routerLink="/"> Back</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-danger" type="reset"> Cancel</button>
+</form>
+<form [formGroup]="carddetailsForm" (ngSubmit)="onSubmit2(carddetailsForm)" class="form-signin" *ngIf="requestSent && !makepayment" >
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter Card Number"  formControlName="cardNumber" #cardNumber >
+        <input type="text" class="form-control" placeholder="Enter Card CVV"  formControlName="cardCvv" #cardCvv >
+        <input type="text" class="form-control" placeholder="Enter Card Holder Name"  formControlName="cardHolderName" #cardHolderName >
+        <input type="text" class="form-control" placeholder="Enter Card Holder Mobile Number"  formControlName="mobilenumber" #mobilenumber >
+        
+
+    </div>
+    <button class="btn btn-success" type="submit" >Get OTP</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+     <button class="btn btn-primary" routerLink="/"> Back</button>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-danger" type="reset"> Cancel</button>
+    
+</form>
+<form [formGroup]="OtpForm" (ngSubmit)="onSubmit3(OtpForm)" class="form-signin" *ngIf="makepayment" >
+    <div class="form-group">
+        <label for="otp" class="font-weight-bold">
+            Enter OTP:
+        </label>
+        <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+        <div *ngIf="f3.otp.touched && f3.otp.invalid" class="alert alert-danger">
+            <div *ngIf="f3.otp.errors.required">OTP is required.</div>
+            <div *ngIf="f3.otp.errors.minlength">OTP should be of 4 digits.</div>
+            <div *ngIf="f3.otp.errors.maxlength">OTP should be of 4 digits.</div>
+            <div *ngIf="f3.otp.errors.pattern">Enter only numbers.</div>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="!OtpForm.valid">Proceed</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+    <button class="btn btn-primary" routerLink="/"> Back</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-danger" type="reset"> Cancel</button>
+
+</form>
+        
