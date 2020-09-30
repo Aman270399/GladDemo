@@ -71,8 +71,11 @@ onSubmit3(form){
       
       this.makepayment = true;
     }
-  }catch{
+    else{
     alert("Incorrect OTP");
+  }
+  }catch{
+    
   }
 }
 

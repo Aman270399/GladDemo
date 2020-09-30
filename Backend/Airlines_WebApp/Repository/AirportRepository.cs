@@ -34,6 +34,11 @@ namespace Airlines_WebApp.Repository
             return projectContext.Airports.ToList();
         }
 
+        public IEnumerable<Airport> GetbookingbyID(string id)
+        {
+            throw new NotImplementedException();
+        }
+
         public void Update(Airport dbEntity)
         {
             throw new NotImplementedException();
