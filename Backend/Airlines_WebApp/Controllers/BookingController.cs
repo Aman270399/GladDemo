@@ -8,8 +8,7 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace Airlines_WebApp.Controllers
-{ 
-    [RoutePrefix("api/booking")]
+{
     public class BookingController : ApiController
     {
         IDataRepository<Booking> dataRepository;
@@ -20,22 +19,37 @@ namespace Airlines_WebApp.Controllers
         [HttpGet]
         [Route("")]
         public IHttpActionResult GetUser(string id)
-        {
-            IEnumerable<Booking> booking = null;
-            try
-            {
-                booking = dataRepository.GetbookingbyID(id);
-                if (booking == null)
-                {
-                    return NotFound();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return Ok(booking);
-        }
 
+        {
+
+            IEnumerable<Booking> booking = null;
+
+            try
+
+            {
+
+                booking = dataRepository.GetbookingbyID(id);
+
+                if (booking == null)
+
+                {
+
+                    return NotFound();
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+            return Ok(booking);
+
+        }
     }
 }

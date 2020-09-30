@@ -6,7 +6,8 @@ using System.Web;
 
 namespace Airlines_WebApp.Repository
 {
-    public class BookingRepository : IDataRepository<Booking>
+
+    public class BookingRepository:IDataRepository<Booking>
     {
         public readonly GladiatorProjectEntities1 projectContext2;
         public BookingRepository(GladiatorProjectEntities1 projectDb)

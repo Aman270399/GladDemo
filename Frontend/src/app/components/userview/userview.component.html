@@ -1,34 +1,45 @@
-
 <div class="container-fluid" p-3 my-3 bg-dark>
     <div class="main">		
         <h3><b>Booking History</b></h3>       
         <div class="table-responsive">      
               <table style="color: rgb(243, 242, 225);" id="mytable" class="table table-bordred table-striped">
+                 <div *ngFor=" let booking of bookings">
+                      <tr>
+                       <td>Booking Id:<br> {{booking.BookingId}}</td>
+                        <td>Date of Booking:<br>{{booking.DateBooking|date}}</td>
+                         <td>Transaction ID:<br> {{booking.TransactionId}}</td>
+                         <td>Total Price:<br> {{booking.TotalPrice|currency:'INR'}}</td>
+                          <td>Number of Seats:<br> {{booking.TotalPassenger}}</td>
+                          <td>Status:<br> {{booking.BookStatus}}</td>
+                          <td><p data-placement="top" data-toggle="tooltip" title="Details">
+                          <button class="btn btn-primary btn-xs" data-title="Details" data-toggle="modal" data-target="#details" (click)="details(booking.BookingId)">
+                           <span class="glyphicon glyphicon-pencil">Details and Cancellation</span> </button></p></td>
+                         </tr>
+                        
 
-    <div *ngFor=" let booking of bookings">
-    <tr>
-    <td>Booking Id:<br> {{booking.BookingId}}</td>
-    <td>Date of Booking:<br>{{booking.DateBooking|date}}</td>
-    <td>Transaction ID:<br> {{booking.TransactionId}}</td>
-    <td>Total Price:<br> {{booking.TotalPrice|currency:'INR'}}</td>
-    <td>Number of Seats:<br> {{booking.TotalPassenger}}</td>
-    <td>Status:<br> {{booking.BookStatus}}</td>
-    <td><p data-placement="top" data-toggle="tooltip" title="Details">
-          <button class="btn btn-primary btn-xs" data-title="Details" data-toggle="modal" data-target="#details" (click)="details(booking.BookingId)">
-                <span class="glyphicon glyphicon-pencil">Details and Cancellation</span>
-            </button></p>
-      </td>
-    </tr>
-<table *ngIf="trial===booking.BookingId">
-      <td>Booking Id:<br> {{booking.BookingId}}</td>
-    <td>Date of Booking:<br>{{booking.DateBooking|date}}</td>
-</table>
-    </div>  
+                         <div *ngFor= let ticket of tickets">
+                              <table *ngIf="trial===booking.BookingId">
+                                    <tr>
+                                  <td>Name:<br>{{ticket.Title}}{{ticket.FirstNmae}}{{LastName}}</td>
+                                   <td>Passenger type:<br>{{ticket.AgeGroup}}</td>
+                                    <td>Source Id:<br>{{ticket.SourceId}}</td>
+                                    <td>Destination Id:<br>{{ticket.DestinationId}}</td>
+                                    <td>Arrival time:<br>{{ticket.ArrivalTime}}</td>
+                                    <td>Depart time:<br>{{ticket.DepartTime}}</td>
+                                    <td>Seat no:<br>{{ticket.SeatNo}}</td>
+                                    <td>Travel Date:<br>{{ticket.DateTravel}}</td>
+                                    <td>Price:<br>{{ticket.Price}}</td>
+                                    <td>BookingId:<br>{{ticket.BookingId}}</td>
+                                    <td>Class:<br>{{ticket.Class}}</td>
+                                    </tr>
+                              </table>    
+                  </div>  
               </table>
-        </div>
-        </div> 
-  </div>
+           </div>
+      </div> 
+</div>
   
+
   
 
 

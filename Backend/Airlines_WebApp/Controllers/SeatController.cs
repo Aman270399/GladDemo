@@ -10,7 +10,7 @@ namespace Airlines_WebApp.Controllers
     [RoutePrefix("api/seats")]
     public class SeatController : ApiController
     {
-        [HttpGet]
+       /* [HttpGet]
         [Route("seatStatus/{FlightId}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
         public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate, int PassengerCount)
         {
@@ -29,8 +29,8 @@ namespace Airlines_WebApp.Controllers
                              Duration = f.Duration,
                              EconomyPrice = f.EconomyPrice,
                              BusinessPrice = f.BusinessPrice
-                         }).ToList<Flight>();
-            return Ok(query);
+                         }).ToList<Flight>();*/
+           // return Ok();
         }
     }
-}
+

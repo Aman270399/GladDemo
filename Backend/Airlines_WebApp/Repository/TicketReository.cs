@@ -8,54 +8,86 @@ namespace Airlines_WebApp.Repository
 {
     public class TicketRepository : IDataRepository<Ticket>
     {
-        public readonly GladiatorProjectEntities1 projectContext;
+        public readonly GladiatorProjectEntities1 projectContext3;
         public TicketRepository(GladiatorProjectEntities1 projectDb)
         {
-            projectContext = projectDb;
+            projectContext3 = projectDb;
         }
-        public IEnumerable<Ticket> GetAll()
-        {
-            return projectContext.Tickets.ToList();
-            // throw new NotImplementedException();
-        }
-        public void Add(Ticket newTicekt)
-        {
-            projectContext.UserTables.Add(newTicket);
-            projectContext.SaveChanges();
-        }
-
-        public UserTable Get(string id)
-        {
-            UserTable user = null;
-            try
-            {
-                var userFound = projectContext.UserTables.Where(u => u.UserEmailId == id).SingleOrDefault();
-                if (userFound != null)
-                {
-                    user = userFound;
-                }
-                else
-                {
-                    user = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-            return user;
-        }
-
-        public void Update(UserTable user)
-        {
-            projectContext.Entry(user).State = EntityState.Modified;
-            projectContext.SaveChanges();
-        }
-
-        public void Delete(string entity)
+        public void Add(Ticket entity)
         {
             throw new NotImplementedException();
         }
+        public void Delete(string id)
+        {
+            throw new NotImplementedException();
+
+        }
+
+        public Ticket Get(string id)
+
+        {
+
+            throw new NotImplementedException();
+
+        }
+
+        public IEnumerable<Ticket> GetAll()
+
+        {
+
+            throw new NotImplementedException();
+
+        }
+
+        public IEnumerable<Ticket> GetbookingbyID(string id)
+
+        {
+
+            IEnumerable<Ticket> ticket = null;
+
+            try
+
+            {
+
+                var bookingFound = projectContext3.Tickets.Where(f => f.BookingId == id);
+
+                if (bookingFound != null)
+
+                {
+
+                    ticket = bookingFound.ToList();
+
+                }
+
+                else
+
+                {
+
+                    ticket = null;
+
+                }
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+            return ticket;
+
+        }
+
+        public void Update(Ticket dbEntity)
+
+        {
+
+            throw new NotImplementedException();
+
+        }
+
     }
 }

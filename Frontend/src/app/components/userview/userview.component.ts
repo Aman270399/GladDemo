@@ -21,17 +21,16 @@ export class UserviewComponent implements OnInit {
   constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) { }
 
   ngOnInit(): void {
-    
     this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)})
   }
 
   tickets:any;
   trial:any;
-  details(id){
+
+  details(id)
+  {
 this.trial=id;
-
-//this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
-
+this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
   }
   
 }
