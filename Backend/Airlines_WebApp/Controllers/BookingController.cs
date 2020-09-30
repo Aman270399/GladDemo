@@ -23,10 +23,6 @@ namespace Airlines_WebApp.Controllers
         [Route("")]
         public IHttpActionResult GetBooking(string id)
         {
-           
-           
-        
-
             List<Booking> lBooking = dataRepository.GetAll().ToList();
             var query = (from b in lBooking
                         where b.UserEmailId == id
@@ -46,10 +42,6 @@ namespace Airlines_WebApp.Controllers
         [Route("tickets/{id}")]
         public IHttpActionResult Gettickets(string id)
         {
-           
-
-
-
             List<Ticket> ticket = ticketRepo.GetAll().ToList();
             var query = (from b in ticket
                          where b.BookingId == id
@@ -75,6 +67,28 @@ namespace Airlines_WebApp.Controllers
                       }).ToList();
             return Ok(query);
         }
+        [HttpPut]
+        [Route("cancelticket/{id1}/{id2}")]
+        public IHttpActionResult updatetickets(string id1,string id2,[FromBody] Ticket ticket)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (ticket == null)
+            {
+                return BadRequest("User is null");
+            }
+            if (id1 != ticket.TicketId && id2 !=ticket.FlightId)
+            {
+                return BadRequest();
+            }
 
-    }  
+
+            ticketRepo.Update(ticket);
+
+            return Ok(ticket);
+        }
+
+    }
 }

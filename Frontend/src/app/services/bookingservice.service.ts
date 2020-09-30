@@ -21,6 +21,11 @@ export class BookingserviceService {
     {
       return this.http.get<any>(this.baseUrl+"/tickets/"+bookid);
     }
+    deleteticket(ticket){
+     let id1=ticket.TicketId;
+     let id2=ticket.FlightId;
+      return this.http.put<any>(this.baseUrl+"/cancelticket/"+id1+"/"+id2,JSON.stringify(ticket),this.httpOptions);
+    }
   
 
 }

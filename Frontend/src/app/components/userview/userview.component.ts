@@ -21,21 +21,34 @@ export class UserviewComponent implements OnInit {
     myDate = new Date();
   constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) {}
     
-
+  todayShort = new Date().toISOString().slice(0,10);
+  presenttime=new Date().getTime();
   ngOnInit(): void {
     this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)});
-    
+
+    console.log(this.todayShort);
   }
   tickets:any;  //to store subscribed values
   trial:any;  //to store booking id of a user
   check: boolean =false;  //to put condition to display details
  status:any="confirmed";
+
   details(id)
   {
      this.trial=id;
-     this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
-      this.check=!this.check;
-      console.log(this.tickets.DateTravel);
+     this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;console.log(this.tickets.DateTravel>this.todayShort);})
+      this.check=!this.check;     
+  }
+  tickter:any;
+  idpass(tickets){
+    this.tickter=tickets;
+    console.log(this.tickter);
+  }
+  ondelete(ticket){
+    ticket.DateCancellation=this.todayShort;
+    console.log(ticket);
+    this.bookingdetail.deleteticket(ticket).subscribe(data=>{console.log(data)})
+    
   }
   
 }
