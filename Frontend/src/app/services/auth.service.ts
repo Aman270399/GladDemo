@@ -21,8 +21,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
   doLogin(data) {
     console.log(data);
-    return this.http.post<User>(this.API_URI+"/userlogin", data);
-    
+    return this.http.post<User>(this.API_URI+"/userlogin", data);  
   }
   isLoggedIn() {
     if (sessionStorage.getItem('userData') || sessionStorage.getItem('adminData')) {
