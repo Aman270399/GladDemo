@@ -14,28 +14,33 @@ namespace Airlines_WebApp.Controllers
     {
         IDataRepository<Ticket> ticketRepository;
         ISeatRepository<Seat> seatRepository;
+        public SeatController()
+        {
+            this.ticketRepository = new TicketRepository(new GladiatorProjectEntities1());
+            this.seatRepository = new SeatRepository(new GladiatorProjectEntities1());
+        }
         [HttpGet]
         [Route("seatStatus/{FlightId}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
-        public IHttpActionResult SearchFlight(string FlightId, DateTime DepartureDate)
+        public IHttpActionResult getSeats(string FlightId, DateTime DepartureDate)
         {
             List<Ticket> lticket = ticketRepository.GetAll().ToList();
             List<Seat> lseat = seatRepository.GetAll().ToList();
             var bookedSeats = (from t in lticket
-                               where t.FlightId == FlightId && t.DateTravel == DepartureDate
+                               where t.FlightId == FlightId && t.DateTravel == DepartureDate && t.DateCancellation==null
                                select new
                                {
                                    SeatNo = t.SeatNo,
-                                   status = "Booked",
-                                   Class = t.Class,
+                                   status = "booked",
+                                   @class = t.Class
                                }).ToList();
             var query = (from s in lseat
                          join t in bookedSeats on s.SeatNo equals t.SeatNo into seatDetails
                          from sd in seatDetails.DefaultIfEmpty()
                          select new
                          {
-                             SeatNo = sd.SeatNo,
-                             status = sd.status,
-                             Class = sd.Class
+                             SeatNo = s.SeatNo,
+                             status = sd?.status ?? "available",
+                             @class = s.@class
                          }).ToList();
             return Ok(query);
         }

@@ -7,38 +7,12 @@
     <ul>
       <li>Available:<img src='../../../assets/images/seats.jpg'></li>
       <li>Booked:&nbsp;&nbsp;<img src="src/app/assets/bookedseat.jpg"> </li>
-    </ul>
-
-
-    <div *ngFor="let seat of seats; let i = index">
-      <div *ngIf="i==8||i==24">
-        <br />
-        <div class="row"></div>
-      </div>
-      <div *ngIf="i==16">
-        <div class="row"></div>
-        <br />
-        <br />
-      </div>
-
-      <div (click)="selectSeat(seat.seatNo)" [ngClass]="seat.status">
-        {{seat.seatNo}}
-      </div>
-    </div>
-
-    <br />
-    <br />
-    <br />
-    <br />
-    
-</div>
-<button mat-raised-button color="accent" (click)="onClick1()">Go to Passenger Details</button>
-</div> -->
+    </ul>-->
 <div class="main">
   <h2 class="panel-header">Seat Selection</h2>
   <div class="wrapper">
     <div *ngFor="let seat of seats; let i = index">
-      <button style="outline:0;" (click)="selectSeat(seat.seatNo)" [ngClass]="seat.status">
+      <button style="outline:0;" (click)="selectSeat(seat.SeatNo)" [ngClass]="seat.status">
         {{seat.SeatNo}}
       </button>
     </div>

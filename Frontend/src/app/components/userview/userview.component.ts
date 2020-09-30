@@ -28,7 +28,7 @@ export class UserviewComponent implements OnInit {
   tickets:any;
   trial:any;
   details(id){
-this.trial=id;
+  this.trial=id;
 
 //this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
 

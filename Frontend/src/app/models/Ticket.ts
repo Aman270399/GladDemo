@@ -1,0 +1,19 @@
+export class Ticket{
+    TicketId:string;
+    FlightId:string;
+    Title:String;
+    FirstName:string;
+    LastName:string
+    AgeGroup:string;
+    SourceId:String;
+    DestinationId:string;
+    DepartTime:string;
+    ArrivalTime:string;
+    Duration:string;
+    SeatNo:string;
+    DateTravel:Date;
+    Class:string;
+    Price:number;
+    BookingId:string;
+    DateCancellation:Date;   
+}

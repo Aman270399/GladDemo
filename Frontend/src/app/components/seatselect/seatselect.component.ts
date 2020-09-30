@@ -16,38 +16,38 @@ export class SeatselectComponent implements OnInit {
   departDate: string;
 
   ngOnInit() {
-    // console.log(this.flightId);
-    // console.log(this.departDate);
-    // this.flightId =JSON.parse(sessionStorage.getItem("flight")).FlightId;
-    // console.log(this.flightId);
-    // this.departDate =localStorage.getItem('departdate');
-    // console.log(this.departDate);
-    // this.getSeatsFromService();
+    console.log(this.flightId);
+    console.log(this.departDate);
+    this.flightId =(JSON.parse(sessionStorage.getItem("flight"))).FlightId;
+    console.log(this.flightId);
+    this.departDate =localStorage.getItem('departdate');
+    console.log(this.departDate);
+    this.getSeatsFromService();
   }
 
-  // getSeatsFromService() {
-  //   this._seatService.getSeats(this.flightId, this.departDate).subscribe((res: any) => {
-  //     this.seats = res;
-  //     console.log(this.seats);
-  //   });
-  // }
+  getSeatsFromService() {
+    this._seatService.getSeats(this.flightId, this.departDate).subscribe((res: any) => {
+    this.seats = res;
+    console.log(this.seats);
+    });
+  }
 
   seatnum: string[] = [];
 
-  selectSeat(SeatNo: string) {  
-    let index = this.seatnum.indexOf(SeatNo);
+  selectSeat(seatNo: string) {  
+    let index = this.seatnum.indexOf(seatNo);
     if (index === -1) {
-      //alert('You Selected : ' + seatNo)
-      this.seatnum.push(SeatNo);
+      alert('You Selected : ' + seatNo)
+      this.seatnum.push(seatNo);
       this.seats.forEach((item) => {
-        if (item.SeatNo === SeatNo) {
+        if (item.SeatNo == seatNo) {
           item.status = "myselection";
         }
       });
     }else{
       this.seatnum.splice(index,1);
       this.seats.forEach((item) => {
-        if (item.SeatNo === SeatNo) {
+        if (item.SeatNo === seatNo) {
           item.status = "available";
         }
       });
