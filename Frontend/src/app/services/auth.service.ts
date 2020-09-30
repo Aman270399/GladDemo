@@ -21,8 +21,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
   doLogin(data) {
     console.log(data);
-    return this.http.post<User>(this.API_URI+"/userlogin", data);
-    
+    return this.http.post<User>(this.API_URI+"/userlogin", data);  
   }
   isLoggedIn() {
     if (sessionStorage.getItem('userData') || sessionStorage.getItem('adminData')) {
@@ -48,5 +47,8 @@ export class AuthService {
   }
   forgotUserPassword(email){
     return this.http.post<any>(this.API_URI+"/sendMail",JSON.stringify(email),this.httpOptions)
+  }
+  otpverfiy(mobileno){
+    return this.http.post<Number>(this.API_URI+'/sendMsg/',JSON.stringify(mobileno))
   }
 }

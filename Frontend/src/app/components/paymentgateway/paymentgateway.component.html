@@ -1,0 +1,6 @@
+<form [formGroup]="detailsForm">
+    <select label="cardtype" formControlName = "card">
+        <option *ngFor="let cards of card">{{cards}}</option>
+    </select>
+</form>
+        
