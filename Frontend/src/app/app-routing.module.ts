@@ -14,6 +14,7 @@ import {UnauthorizedGuard} from './authGuards/unauthorized.guard';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 import { SeatselectComponent } from './components/seatselect/seatselect.component';
 import {ResetpasswordComponent} from './components/resetpassword/resetpassword.component';
+import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: "passengerdetail",component:PassengerdetailsComponent},
   {path: "seatselect", component: SeatselectComponent},
   {path: "resetpassword", component: ResetpasswordComponent},
-  {path: "paymentgateway", component: PaymentgatewayComponent}
+  {path:"userview",component:UserviewComponent},
+  {path: "paymentgateway", component: PaymentgatewayComponent},
 ]
 
 

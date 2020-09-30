@@ -38,5 +38,10 @@ namespace Airlines_WebApp.Repository
         {
             throw new NotImplementedException();
         }
+
+        public IEnumerable<FlightSchedule> GetbookingbyID(string id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -20,6 +20,7 @@ export class PaymentgatewayComponent implements OnInit {
   cardCvv: any;
   current: Number;
   getdetailsform: any;
+  makepayment:boolean=false;
   
   
   constructor(private formBuilder: FormBuilder ,private auth_service: AuthService) {
@@ -58,15 +59,19 @@ export class PaymentgatewayComponent implements OnInit {
   }
   onSubmit(form)
 {
+  this.requestSent = true;
   
   
 }
 
 
 onSubmit2(form){
+  this.makepayment = true;
   this.auth_service.otpverfiy(form.value.mobilenumber).subscribe(data => {
     this.requestSent = true;
     this.current = data;
+    console.log(data);
+    
 })
 }
 
@@ -76,10 +81,13 @@ onSubmit3(form){
 
       alert("Payment Successfull!");
       
-      
+      this.makepayment = true;
     }
-  }catch{
+    else{
     alert("Incorrect OTP");
+  }
+  }catch{
+    
   }
 }
 
