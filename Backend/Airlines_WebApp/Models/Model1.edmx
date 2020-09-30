@@ -58,6 +58,14 @@
           <Property Name="FlightId" Type="nvarchar" MaxLength="5" Nullable="false" />
           <Property Name="AvailableSeats" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Seat">
+          <Key>
+            <PropertyRef Name="SeatId" />
+          </Key>
+          <Property Name="SeatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="seatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="class" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Ticket">
           <Key>
             <PropertyRef Name="TicketId" />
@@ -166,6 +174,7 @@
           <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Flight" EntityType="Self.Flight" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FlightSchedule" EntityType="Self.FlightSchedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seat" EntityType="Self.Seat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="Booking_User_FK" Association="Self.Booking_User_FK">
@@ -254,6 +263,14 @@
           <Property Name="FlightId" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="AvailableSeats" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Flight" Relationship="Self.Schedule_Flight_FK" FromRole="FlightSchedule" ToRole="Flight" />
+        </EntityType>
+        <EntityType Name="Seat">
+          <Key>
+            <PropertyRef Name="SeatId" />
+          </Key>
+          <Property Name="SeatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="seatNo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="class" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Ticket">
           <Key>
@@ -365,6 +382,7 @@
           <EntitySet Name="Bookings" EntityType="Self.Booking" />
           <EntitySet Name="Flights" EntityType="Self.Flight" />
           <EntitySet Name="FlightSchedules" EntityType="Self.FlightSchedule" />
+          <EntitySet Name="Seats" EntityType="Self.Seat" />
           <EntitySet Name="Tickets" EntityType="Self.Ticket" />
           <EntitySet Name="UserTables" EntityType="Self.UserTable" />
           <AssociationSet Name="Flight_Destination_FK" Association="Self.Flight_Destination_FK">
@@ -448,6 +466,15 @@
                 <ScalarProperty Name="DateFlight" ColumnName="DateFlight" />
                 <ScalarProperty Name="FlightId" ColumnName="FlightId" />
                 <ScalarProperty Name="AvailableSeats" ColumnName="AvailableSeats" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seats">
+            <EntityTypeMapping TypeName="GladiatorProjectModel.Seat">
+              <MappingFragment StoreEntitySet="Seat">
+                <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+                <ScalarProperty Name="seatNo" ColumnName="seatNo" />
+                <ScalarProperty Name="class" ColumnName="class" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
