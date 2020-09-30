@@ -32,8 +32,9 @@ export class UserloginComponent implements OnInit {
     this.submitted = true;
     this.userService.doLogin(this.loginForm.value).subscribe(result => {
       console.log(this.loginForm.value);
-      this.userService.getLoggedInName.next(result.FirstName);
+      // this.userService.getLoggedInName.next(result.FirstName);
       sessionStorage.setItem('userData',result.toString());
+      sessionStorage.setItem('username',result.FirstName+" "+result.LastName);
       sessionStorage.setItem('useremail',result.UserEmailId.toString());
       if(this.fromFlightSelect)
            this.router.navigate(['/passengerdetail']);

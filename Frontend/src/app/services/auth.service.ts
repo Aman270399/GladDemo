@@ -18,9 +18,12 @@ export class AuthService {
   isAuthenticatedUser = false;
   isAuthenticatedAdmin = false;
   public getLoggedInName = new Subject();
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    // this.getLoggedInName.next(sessionStorage.getItem('username'));
+  }
   doLogin(data) {
     console.log(data);
+    this.getLoggedInName.next(sessionStorage.getItem('username'));
     return this.http.post<User>(this.API_URI+"/userlogin", data);  
   }
   isLoggedIn() {

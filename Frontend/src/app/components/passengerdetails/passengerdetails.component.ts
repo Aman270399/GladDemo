@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import{Ticket} from 'src/app/models/Ticket';
 import{ Passenger} from 'src/app/models/Passenger';
 @Component({
   selector: 'app-passengerdetails',
@@ -7,14 +8,13 @@ import{ Passenger} from 'src/app/models/Passenger';
   styleUrls: ['./passengerdetails.component.css']
 })
 export class PassengerdetailsComponent implements OnInit {
-adultpassengercount:number;
-childpassengercount:number;
-infantpassengercount:number;
-passengerForm: FormGroup;
-childForm:FormGroup;
-infantForm:FormGroup;
-
-    submitted = false;
+  adultpassengercount:number;
+  childpassengercount:number;
+  infantpassengercount:number;
+  passengerForm: FormGroup;
+  childForm:FormGroup;
+  infantForm:FormGroup;
+  submitted = false;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void
@@ -81,15 +81,13 @@ infantForm:FormGroup;
   submit(){
     //console.log(this.dynamicForm.value.tickets);
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.passengerForm.controls.adultForm.value, null, 4));
-console.log(JSON.stringify(this.passengerForm.controls.adultForm.value));
-console.log(JSON.stringify(this.passengerForm.controls.childForm.value));
-console.log(JSON.stringify(this.passengerForm.controls.infantForm.value));
+   console.log(JSON.stringify(this.passengerForm.controls.adultForm.value));
+   console.log(JSON.stringify(this.passengerForm.controls.childForm.value));
+   console.log(JSON.stringify(this.passengerForm.controls.infantForm.value));
 
    localStorage.setItem('adultpassengers',JSON.stringify(this.passengerForm.controls.adultForm.value.adulttickets));
    localStorage.setItem('childpassengers',JSON.stringify(this.passengerForm.controls.childForm.value.childtickets));
-   localStorage.setItem('infantpassengers',JSON.stringify(this.passengerForm.controls.infantForm.value.infanttickets));
-
-  
+   localStorage.setItem('infantpassengers',JSON.stringify(this.passengerForm.controls.infantForm.value.infanttickets));  
    //to retrieve passenger details
    this.passenger= JSON.parse(localStorage.getItem('adultpassengers'));
     console.log(this.passenger[0]);
