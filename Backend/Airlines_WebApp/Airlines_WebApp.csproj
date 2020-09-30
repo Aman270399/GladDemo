@@ -227,6 +227,7 @@
     <Compile Include="Repository\IAccountRepository.cs" />
     <Compile Include="Repository\IAdminAccRepo.cs" />
     <Compile Include="Repository\IDataRepository.cs" />
+    <Compile Include="Repository\TicketRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
