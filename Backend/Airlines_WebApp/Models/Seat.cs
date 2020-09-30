@@ -15,7 +15,7 @@ namespace Airlines_WebApp.Models
     public partial class Seat
     {
         public int SeatId { get; set; }
-        public string seatNo { get; set; }
+        public string SeatNo { get; set; }
         public string @class { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Airlines_WebApp.Models;
+using Airlines_WebApp.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -10,26 +12,31 @@ namespace Airlines_WebApp.Controllers
     [RoutePrefix("api/seats")]
     public class SeatController : ApiController
     {
+        IDataRepository<Ticket> ticketRepository;
+        ISeatRepository<Seat> seatRepository;
         [HttpGet]
         [Route("seatStatus/{FlightId}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
-        public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate, int PassengerCount)
+        public IHttpActionResult SearchFlight(string FlightId, DateTime DepartureDate)
         {
-            List<Ticket> lflight = ticketRepository.GetAll().ToList();
-            List<FlightSchedule> lflightSchedule = flightScheduleRepository.GetAll().ToList();
-            var query = (from s in lflightSchedule
-                         join f in lflight on s.FlightId equals f.FlightId
-                         where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo && (s.AvailableSeats - PassengerCount) > 0
-                         select new Flight
+            List<Ticket> lticket = ticketRepository.GetAll().ToList();
+            List<Seat> lseat = seatRepository.GetAll().ToList();
+            var bookedSeats = (from t in lticket
+                               where t.FlightId == FlightId && t.DateTravel == DepartureDate
+                               select new
+                               {
+                                   SeatNo = t.SeatNo,
+                                   status = "Booked",
+                                   Class = t.Class,
+                               }).ToList();
+            var query = (from s in lseat
+                         join t in bookedSeats on s.SeatNo equals t.SeatNo into seatDetails
+                         from sd in seatDetails.DefaultIfEmpty()
+                         select new
                          {
-                             FlightId = f.FlightId,
-                             SourceId = f.SourceId,
-                             DestinationId = f.DestinationId,
-                             DepartTime = f.DepartTime,
-                             ArrivalTime = f.ArrivalTime,
-                             Duration = f.Duration,
-                             EconomyPrice = f.EconomyPrice,
-                             BusinessPrice = f.BusinessPrice
-                         }).ToList<Flight>();
+                             SeatNo = sd.SeatNo,
+                             status = sd.status,
+                             Class = sd.Class
+                         }).ToList();
             return Ok(query);
         }
     }

@@ -62,7 +62,7 @@
       <EntityTypeMapping TypeName="GladiatorProjectModel.Seat">
         <MappingFragment StoreEntitySet="Seat">
           <ScalarProperty Name="SeatId" ColumnName="SeatId" />
-          <ScalarProperty Name="seatNo" ColumnName="seatNo" />
+          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
           <ScalarProperty Name="class" ColumnName="class" />
         </MappingFragment>
       </EntityTypeMapping>

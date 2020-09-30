@@ -8,10 +8,14 @@ namespace Airlines_WebApp.Repository
 {
     public class BookingRepository : IDataRepository<Booking>
     {
-        public readonly GladiatorProjectEntities1 projectContext2;
+        public readonly GladiatorProjectEntities1 projectContext;
         public BookingRepository(GladiatorProjectEntities1 projectDb)
         {
-            projectContext2 = projectDb;
+            projectContext = projectDb;
+        }
+        public IEnumerable<Booking> GetAll()
+        {
+            return projectContext.Bookings.ToList();
         }
         public void Add(Booking entity)
         {
@@ -22,36 +26,6 @@ namespace Airlines_WebApp.Repository
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<Booking> GetbookingbyID(string id)
-        {
-            IEnumerable<Booking> booking = null;
-            try
-            {
-                var bookingFound = projectContext2.Bookings.Where(f => f.UserEmailId == id);
-                if (bookingFound != null)
-                {
-                    booking = bookingFound.ToList();
-                }
-                else
-                {
-                    booking = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-            return booking;
-
-        }
-
-        public IEnumerable<Booking> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(Booking dbEntity)
         {
             throw new NotImplementedException();

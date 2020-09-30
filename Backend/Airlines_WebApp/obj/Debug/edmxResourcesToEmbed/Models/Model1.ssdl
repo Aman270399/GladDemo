@@ -58,7 +58,7 @@
       <PropertyRef Name="SeatId" />
     </Key>
     <Property Name="SeatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="seatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="SeatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
     <Property Name="class" Type="nvarchar" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="Ticket">
