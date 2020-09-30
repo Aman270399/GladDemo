@@ -14,7 +14,7 @@ namespace Airlines_WebApp.Controllers
         [Route("seatStatus/{FlightId}/{DepartureDate:datetime:regex(\\d{4}-\\d{2}-\\d{2})}")]
         public IHttpActionResult SearchFlight(string FlightFrom, string FlightTo, DateTime DepartureDate, int PassengerCount)
         {
-            List<Flight> lflight = flightRepository.GetAll().ToList();
+            List<Ticket> lflight = ticketRepository.GetAll().ToList();
             List<FlightSchedule> lflightSchedule = flightScheduleRepository.GetAll().ToList();
             var query = (from s in lflightSchedule
                          join f in lflight on s.FlightId equals f.FlightId

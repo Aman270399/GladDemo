@@ -171,7 +171,6 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AirportController.cs" />
-    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\FlightController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SeatController.cs" />
@@ -225,7 +224,6 @@
     <Compile Include="Repository\AccountRepository.cs" />
     <Compile Include="Repository\AdminAccRepo.cs" />
     <Compile Include="Repository\AirportRepository.cs" />
-    <Compile Include="Repository\BookingRepository.cs" />
     <Compile Include="Repository\FlightRepository.cs" />
     <Compile Include="Repository\FlightScheduleRepository.cs" />
     <Compile Include="Repository\IAccountRepository.cs" />
@@ -233,6 +231,7 @@
     <Compile Include="Repository\IDataRepository.cs" />
     <Compile Include="Repository\ISeatRepository.cs" />
     <Compile Include="Repository\SeatRepository.cs" />
+    <Compile Include="Repository\TicketReository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
