@@ -1,6 +1,6 @@
 export class Seat
 {  
-seatNo:string;
+SeatNo:string;
 status:string;
 class:string;
 }
