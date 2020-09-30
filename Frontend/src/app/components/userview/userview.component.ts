@@ -1,5 +1,5 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {BookingserviceService} from '../../services/bookingservice.service'
@@ -18,23 +18,24 @@ export class UserviewComponent implements OnInit {
     "TotalPrice": 23500.00,
     "TotalPassenger": 4,
     "BookStatus": "Confirmed"*/
-  constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) { }
+    myDate = new Date();
+  constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) {}
+    
 
   ngOnInit(): void {
-    this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)})
+    this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)});
+    
   }
-
-  tickets:any;
-  trial:any;
-  check: boolean =false;
-
-
-  details(id){
-this.trial=id;
-
-
-this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
-  this.check=!this.check;
+  tickets:any;  //to store subscribed values
+  trial:any;  //to store booking id of a user
+  check: boolean =false;  //to put condition to display details
+ status:any="confirmed";
+  details(id)
+  {
+     this.trial=id;
+     this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
+      this.check=!this.check;
+      console.log(this.tickets.DateTravel);
   }
   
 }

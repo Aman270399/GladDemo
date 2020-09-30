@@ -40,4 +40,5 @@ namespace Airlines_WebApp.Controllers
             return Ok(query);
         }
     }
+}
 
