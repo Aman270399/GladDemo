@@ -45,8 +45,6 @@ export class UserloginComponent implements OnInit {
     }, (error) => {
       console.log(error);
       alert("Email Id or Password is wrong!!")
-    });
-    
+    });  
   }
-
 }
