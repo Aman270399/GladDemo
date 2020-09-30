@@ -9,53 +9,42 @@ namespace Airlines_WebApp.Repository
 {
     public class TicketRepository : IDataRepository<Ticket>
     {
-        public readonly GladiatorProjectEntities1 projectContext;
+        public readonly GladiatorProjectEntities1 projectContext3;
         public TicketRepository(GladiatorProjectEntities1 projectDb)
         {
-            projectContext = projectDb;
+            projectContext3 = projectDb;
+        }
+
+        public void Delete(string id)
+        {
+            throw new NotImplementedException();
+
         }
         public IEnumerable<Ticket> GetAll()
         {
-            return projectContext.Tickets.ToList();
+            return projectContext3.Tickets.ToList();
         }
         public void Add(Ticket newTicket)
         {
-            projectContext.Tickets.Add(newTicket);
-            projectContext.SaveChanges();
+            projectContext3.Tickets.Add(newTicket);
+            projectContext3.SaveChanges();
         }
 
         public Ticket Get(string id)
         {
-            Ticket ticket = null;
-            try
-            {
-                var ticketFound = projectContext.Tickets.Where(u => u.TicketId == id).SingleOrDefault();
-                if (ticketFound != null)
-                {
-                    ticket = ticketFound;
-                }
-                else
-                {
-                   ticket = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-            return ticket;
+            throw new NotImplementedException();
         }
+
+    
+
+     
 
         public void Update(Ticket ticket)
         {
-            projectContext.Entry(ticket).State = EntityState.Modified;
-            projectContext.SaveChanges();
+            projectContext3.Entry(ticket).State = EntityState.Modified;
+            projectContext3.SaveChanges();
         }
 
-        public void Delete(string entity)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }

@@ -13,14 +13,20 @@ namespace Airlines_WebApp.Controllers
     public class BookingController : ApiController
     {
         IDataRepository<Booking> dataRepository;
+        IDataRepository<Ticket> ticketRepo;  
         public BookingController()
         {
             this.dataRepository = new BookingRepository(new GladiatorProjectEntities1());
+            this.ticketRepo = new TicketRepository(new GladiatorProjectEntities1());
         }
         [HttpGet]
         [Route("")]
         public IHttpActionResult GetBooking(string id)
         {
+           
+           
+        
+
             List<Booking> lBooking = dataRepository.GetAll().ToList();
             var query = (from b in lBooking
                         where b.UserEmailId == id
@@ -36,6 +42,39 @@ namespace Airlines_WebApp.Controllers
                         }).ToList();
             return Ok(query);
         }
+        [HttpGet]
+        [Route("tickets/{id}")]
+        public IHttpActionResult Gettickets(string id)
+        {
+           
 
-    }
+
+
+            List<Ticket> ticket = ticketRepo.GetAll().ToList();
+            var query = (from b in ticket
+                         where b.BookingId == id
+                         select new Ticket
+                         {
+                             TicketId = b.TicketId,
+                             FlightId = b.FlightId,
+                             Title = b.Title,
+                             FirstName = b.FirstName,
+                             LastName = b.LastName,
+                             AgeGroup = b.AgeGroup,
+                             SourceId = b.SourceId,
+                             DestinationId = b.DestinationId,
+                             DepartTime = b.DepartTime,
+                             ArrivalTime = b.ArrivalTime,
+                             Duration = b.Duration,
+                             SeatNo = b.SeatNo,
+                             DateTravel = b.DateTravel,
+                             Class = b.Class,
+                             Price = b.Price,
+                             BookingId = b.BookingId,
+                             DateCancellation = b.DateCancellation
+                      }).ToList();
+            return Ok(query);
+        }
+
+    }  
 }

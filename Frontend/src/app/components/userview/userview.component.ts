@@ -27,11 +27,15 @@ export class UserviewComponent implements OnInit {
 
   tickets:any;
   trial:any;
+  check: boolean =false;
+
+
   details(id){
   this.trial=id;
 
-//this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
 
+this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;})
+  this.check=!this.check;
   }
   
 }

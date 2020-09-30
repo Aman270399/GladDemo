@@ -19,7 +19,7 @@ export class BookingserviceService {
   }
     ticketDetails(bookid)
     {
-      return this.http.get<any>(this.baseUrl+"/Get"+bookid);
+      return this.http.get<any>(this.baseUrl+"/tickets/"+bookid);
     }
   
 
