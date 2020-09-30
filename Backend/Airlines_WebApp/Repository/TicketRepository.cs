@@ -14,27 +14,20 @@ namespace Airlines_WebApp.Repository
         {
             projectContext3 = projectDb;
         }
-        public void Add(Ticket entity)
-        {
-            throw new NotImplementedException();
-        }
 
         public void Delete(string id)
         {
             throw new NotImplementedException();
-        public readonly GladiatorProjectEntities1 projectContext;
-        public TicketRepository(GladiatorProjectEntities1 projectDb)
-        {
-            projectContext = projectDb;
+
         }
         public IEnumerable<Ticket> GetAll()
         {
-            return projectContext.Tickets.ToList();
+            return projectContext3.Tickets.ToList();
         }
         public void Add(Ticket newTicket)
         {
-            projectContext.Tickets.Add(newTicket);
-            projectContext.SaveChanges();
+            projectContext3.Tickets.Add(newTicket);
+            projectContext3.SaveChanges();
         }
 
         public Ticket Get(string id)
@@ -42,55 +35,16 @@ namespace Airlines_WebApp.Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Ticket> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+    
 
-        public IEnumerable<Ticket> GetbookingbyID(string id)
-        {
-
-            IEnumerable<Ticket> ticket = null;
-            try
-            {
-                var bookingFound = projectContext3.Tickets.Where(f => f.BookingId == id);
-                if (bookingFound != null)
-                {
-                    ticket = bookingFound.ToList();
-                }
-                else
-                {
-                    ticket = null;
-            Ticket ticket = null;
-            try
-            {
-                var ticketFound = projectContext.Tickets.Where(u => u.TicketId == id).SingleOrDefault();
-                if (ticketFound != null)
-                {
-                    ticket = ticketFound;
-                }
-                else
-                {
-                   ticket = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-
-            }
-            return ticket;
-        }
+     
 
         public void Update(Ticket ticket)
         {
-            projectContext.Entry(ticket).State = EntityState.Modified;
-            projectContext.SaveChanges();
+            projectContext3.Entry(ticket).State = EntityState.Modified;
+            projectContext3.SaveChanges();
         }
 
-        public void Delete(string entity)
-        {
-            throw new NotImplementedException();
-        }
+     
     }
 }
