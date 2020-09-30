@@ -28,7 +28,8 @@ export class HomeComponent implements OnInit {
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
       console.log(this.airports); });
-   
+    localStorage.removeItem('departdate');
+    localStorage.removeItem('returndate');
     this.SearchForm = this.formbulider.group({  
       flighttype:['',Validators.required], 
       source:['',Validators.required],    
@@ -40,11 +41,12 @@ export class HomeComponent implements OnInit {
       infantpassengercount:['',Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
-   
   }
+
   DisableReturn(){
       this.SearchForm.controls['returndate'].disable();
   }
+
   EnableReturn()
   {
     this.SearchForm.controls['returndate'].enable();

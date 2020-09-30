@@ -34,7 +34,7 @@ namespace Airlines_WebApp.Controllers
             var query = (from s in lflightSchedule
                         join f in lflight on s.FlightId equals f.FlightId
                         where s.DateFlight == DepartureDate && f.SourceId == FlightFrom && f.DestinationId == FlightTo && (s.AvailableSeats-PassengerCount)>0
-                        select new Flight
+                        select new
                         {
                             FlightId = f.FlightId,
                             SourceId = f.SourceId,
@@ -42,9 +42,10 @@ namespace Airlines_WebApp.Controllers
                             DepartTime = f.DepartTime,
                             ArrivalTime = f.ArrivalTime,
                             Duration = f.Duration,
+                            AvailableSeats=s.AvailableSeats,
                             EconomyPrice = f.EconomyPrice,
                             BusinessPrice = f.BusinessPrice
-                        }).ToList<Flight>();
+                        }).ToList();
                 return Ok(query);
             }
             [HttpGet]
