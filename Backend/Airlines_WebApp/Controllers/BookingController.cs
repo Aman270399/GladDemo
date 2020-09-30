@@ -13,14 +13,18 @@ namespace Airlines_WebApp.Controllers
     public class BookingController : ApiController
     {
         IDataRepository<Booking> dataRepository;
+        public BookingController()
+        {
+            this.dataRepository = new BookingRepository(new GladiatorProjectEntities1());
+        }
         [HttpGet]
-        [Route("{id}")]
+        [Route("")]
         public IHttpActionResult GetUser(string id)
         {
-            Booking booking = null;
+            IEnumerable<Booking> booking = null;
             try
             {
-                booking = dataRepository.Get(id);
+                booking = dataRepository.GetbookingbyID(id);
                 if (booking == null)
                 {
                     return NotFound();

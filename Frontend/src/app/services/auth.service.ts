@@ -35,6 +35,7 @@ export class AuthService {
     if (sessionStorage.getItem('userData'))
     {
       sessionStorage.removeItem('userData');
+      sessionStorage.removeItem('useremail');
     }
     if(sessionStorage.getItem('adminData'))
     {

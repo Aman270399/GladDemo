@@ -23,15 +23,15 @@ namespace Airlines_WebApp.Repository
             throw new NotImplementedException();
         }
 
-        public Booking Get(string id)
+        public IEnumerable<Booking> GetbookingbyID(string id)
         {
-            Booking booking = null;
+            IEnumerable<Booking> booking = null;
             try
             {
-                var bookingFound = projectContext2.Bookings.Where(f => f.UserEmailId == id).SingleOrDefault();
+                var bookingFound = projectContext2.Bookings.Where(f => f.UserEmailId == id);
                 if (bookingFound != null)
                 {
-                    booking = bookingFound;
+                    booking = bookingFound.ToList();
                 }
                 else
                 {
@@ -53,6 +53,11 @@ namespace Airlines_WebApp.Repository
         }
 
         public void Update(Booking dbEntity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Booking Get(string id)
         {
             throw new NotImplementedException();
         }
