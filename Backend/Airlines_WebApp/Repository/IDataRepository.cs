@@ -15,6 +15,5 @@ namespace Airlines_WebApp.Repository
         void Update(TEntity dbEntity);
         void Delete(string id);
 
-        IEnumerable<TEntity> GetbookingbyID(string id);
     }
 }

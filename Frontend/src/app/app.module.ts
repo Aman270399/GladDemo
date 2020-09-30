@@ -20,7 +20,6 @@ import { AdminviewComponent } from './components/adminview/adminview.component';
 import { PassengerdetailsComponent } from './components/passengerdetails/passengerdetails.component';
 import { SeatselectComponent } from './components/seatselect/seatselect.component';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 
 
@@ -42,7 +41,6 @@ import { PaymentgatewayComponent } from './components/paymentgateway/paymentgate
     PassengerdetailsComponent,
     SeatselectComponent,
     ResetpasswordComponent,
-    UserviewComponent,
     PaymentgatewayComponent
   ],
   imports: [
