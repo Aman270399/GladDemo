@@ -2,6 +2,7 @@
 using Airlines_WebApp.Repository;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -85,6 +86,40 @@ namespace Airlines_WebApp.Controllers
             try
             {
                 client.Send(msg);
+                return otp.ToString();
+            }
+            catch (Exception ex)
+            {
+                return "error:" + ex.ToString();
+            }
+        }
+        [HttpPost]
+        [AllowAnonymous]
+        [Route("sendmsg")]
+        public string postsendmsg([FromBody] UserTable user)
+        {
+            Random rnd = new Random();
+            int otp = rnd.Next(1000, 9999);
+            string number = user.MobileNumber;
+            string msg = "your otp is : " + otp.ToString();
+            string result;
+            string msg1 = System.Web.HttpUtility.UrlEncode(msg);
+            //write query
+            using (var wb = new WebClient())
+            {
+                byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
+                {
+                    {"apikey" , "N0SUbhWsKwQ-JlfqARPwZeh1ZC47zXY52IxPdc3jVX" },
+                    {"numbers", number},
+                    {"message", msg1 },
+                    {"sender", "txtlcl" }
+
+                });
+                result = System.Text.Encoding.UTF8.GetString(response);
+            }
+            try
+            {
+
                 return otp.ToString();
             }
             catch (Exception ex)

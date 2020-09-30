@@ -48,7 +48,7 @@ export class AuthService {
   forgotUserPassword(email){
     return this.http.post<any>(this.API_URI+"/sendMail",JSON.stringify(email),this.httpOptions)
   }
-  otpverfiy(mobileno){
-    return this.http.post<Number>(this.API_URI+'/sendMsg/',JSON.stringify(mobileno))
+  otpverfiy(mobilenumber){
+    return this.http.post<Number>(this.API_URI+'/sendMsg/',JSON.stringify(mobilenumber))
   }
 }
