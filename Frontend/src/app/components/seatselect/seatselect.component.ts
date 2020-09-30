@@ -11,13 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SeatselectComponent implements OnInit {
 
   constructor(private _router: Router, private _seatService: SeatqueryService, private activatedRoute: ActivatedRoute) { }
-  seats: Seat[] = [{seatNo:"A1",status:"booked",class:"economy"},{seatNo:"A2",status:"available",class:"economy"},{seatNo:"A3",status:"available",class:"economy"},
-  {seatNo:"A4",status:"available",class:"economy"},{seatNo:"A5",status:"available",class:"economy"},{seatNo:"A6",status:"available",class:"economy"},{seatNo:"A7",status:"available",class:"economy"}
-  ,{seatNo:"A8",status:"available",class:"economy"},{seatNo:"B1",status:"available",class:"economy"},{seatNo:"B2",status:"available",class:"economy"},{seatNo:"B3",status:"available",class:"economy"},
-  {seatNo:"B4",status:"available",class:"economy"},{seatNo:"B5",status:"booked",class:"economy"},{seatNo:"B6",status:"available",class:"economy"},{seatNo:"B7",status:"available",class:"economy"},{seatNo:"B8",status:"available",class:"economy"},
-  {seatNo:"C1",status:"available",class:"economy"},{seatNo:"C2",status:"available",class:"economy"},{seatNo:"C3",status:"available",class:"economy"}, {seatNo:"C4",status:"available",class:"economy"},{seatNo:"C5",status:"booked",class:"economy"},{seatNo:"C6",status:"available",class:"economy"},{seatNo:"C7",status:"available",class:"economy"},{seatNo:"C8",status:"available",class:"economy"}
-  ,{seatNo:"D1",status:"available",class:"economy"},{seatNo:"D2",status:"booked",class:"economy"},{seatNo:"D3",status:"available",class:"economy"},{seatNo:"D4",status:"available",class:"economy"},{seatNo:"D5",status:"available",class:"economy"},
-  {seatNo:"D1",status:"available",class:"economy"},{seatNo:"D2",status:"booked",class:"economy"},{seatNo:"D3",status:"available",class:"economy"},{seatNo:"D4",status:"available",class:"economy"},{seatNo:"D5",status:"available",class:"economy"}];
+  seats: Seat[];
   flightId: string;
   departDate: string;
 
@@ -40,20 +34,20 @@ export class SeatselectComponent implements OnInit {
 
   seatnum: string[] = [];
 
-  selectSeat(seatNo: string) {  
-    let index = this.seatnum.indexOf(seatNo);
+  selectSeat(SeatNo: string) {  
+    let index = this.seatnum.indexOf(SeatNo);
     if (index === -1) {
       //alert('You Selected : ' + seatNo)
-      this.seatnum.push(seatNo);
+      this.seatnum.push(SeatNo);
       this.seats.forEach((item) => {
-        if (item.seatNo === seatNo) {
+        if (item.SeatNo === SeatNo) {
           item.status = "myselection";
         }
       });
     }else{
       this.seatnum.splice(index,1);
       this.seats.forEach((item) => {
-        if (item.seatNo === seatNo) {
+        if (item.SeatNo === SeatNo) {
           item.status = "available";
         }
       });

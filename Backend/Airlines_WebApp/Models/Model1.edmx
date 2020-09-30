@@ -63,7 +63,7 @@
             <PropertyRef Name="SeatId" />
           </Key>
           <Property Name="SeatId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="seatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="SeatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="class" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="Ticket">
@@ -269,7 +269,7 @@
             <PropertyRef Name="SeatId" />
           </Key>
           <Property Name="SeatId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="seatNo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeatNo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="class" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
         <EntityType Name="Ticket">
@@ -473,7 +473,7 @@
             <EntityTypeMapping TypeName="GladiatorProjectModel.Seat">
               <MappingFragment StoreEntitySet="Seat">
                 <ScalarProperty Name="SeatId" ColumnName="SeatId" />
-                <ScalarProperty Name="seatNo" ColumnName="seatNo" />
+                <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
                 <ScalarProperty Name="class" ColumnName="class" />
               </MappingFragment>
             </EntityTypeMapping>
