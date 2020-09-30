@@ -30,7 +30,7 @@ namespace Airlines_WebApp.Repository
             UserTable user = null;
             try
             {
-                var userFound = projectContext.UserTables.Where(u => u.UserEmailId == id).SingleOrDefault();
+               var userFound = projectContext.UserTables.Where(u => u.UserEmailId == id).SingleOrDefault();
                 if (userFound != null)
                 {
                     user = userFound;
@@ -55,6 +55,11 @@ namespace Airlines_WebApp.Repository
         }
 
         public void Delete(string entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserTable> GetbookingbyID(string id)
         {
             throw new NotImplementedException();
         }
