@@ -58,6 +58,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Seats">
+      <EntityTypeMapping TypeName="GladiatorProjectModel.Seat">
+        <MappingFragment StoreEntitySet="Seat">
+          <ScalarProperty Name="SeatId" ColumnName="SeatId" />
+          <ScalarProperty Name="SeatNo" ColumnName="SeatNo" />
+          <ScalarProperty Name="class" ColumnName="class" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Tickets">
       <EntityTypeMapping TypeName="GladiatorProjectModel.Ticket">
         <MappingFragment StoreEntitySet="Ticket">

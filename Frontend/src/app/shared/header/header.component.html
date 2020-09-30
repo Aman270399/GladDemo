@@ -3,6 +3,7 @@
         <a routerLink="home" class="navbar-brand">Flight Reservation System</a>  		
         <div class="navbar-nav ml-auto" >
                 <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action" *ngIf="!isLoggedIn"><b>Login/Signup</b></a>
+                
             <div class="dropdown" *ngIf="isLoggedIn">
                 <a href data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><b>{{userName}}</b><b class="caret"></b></a>
                 <div class="dropdown-menu dropdown-menu-right">

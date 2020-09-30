@@ -20,7 +20,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <select class="form-control"  formControlName="source">
+                                    <select class="form-control"  formControlName="source" [(ngModel)]="source">
                                         <option value="" selected disabled hidden>Fying from</option>
                                         <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
                                     </select>
@@ -36,12 +36,12 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying to</span>
-                                    <select class="form-control"  formControlName="destination">
+                                    <select class="form-control"  formControlName="destination" [(ngModel)]="destination">
                                         <option value="" selected disabled hidden>Fying To</option>
                                         <ng-container *ngFor="let airport of airports">
                                             <option value="" selected disabled hidden>Fying To</option>
                                             <option [value]="airport.AirportId" *ngIf="airport.AirportId != source" >
-                                              {{ airport.AirportId }}({{airport.CityName}})
+                                              {{airport.CityName}}({{ airport.AirportId }})
                                             </option>
                                         </ng-container>
                                         </select>
@@ -136,8 +136,8 @@
                                     <span class="form-label">Travel class</span>
                                     <select class="form-control"  formControlName="seatclass" >
                                         <option value="" selected disabled hidden>Select class</option>
-                                        <option selected>Economy class</option>
-                                        <option>Business class</option>
+                                        <option selected>Economy</option>
+                                        <option>Business</option>
                                     </select>
                                     <span class="select-arrow"></span>
                                     <div *ngIf="SearchForm.get('seatclass').touched">

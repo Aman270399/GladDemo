@@ -6,44 +6,37 @@ using System.Web;
 
 namespace Airlines_WebApp.Repository
 {
-    public class AirportRepository: IDataRepository<Airport>
+
+    public class BookingRepository:IDataRepository<Booking>
     {
         public readonly GladiatorProjectEntities1 projectContext;
-        public AirportRepository(GladiatorProjectEntities1 projectDb)
+        public BookingRepository(GladiatorProjectEntities1 projectDb)
         {
             projectContext = projectDb;
         }
-
-        public void Add(Airport entity)
+        public IEnumerable<Booking> GetAll()
+        {
+            return projectContext.Bookings.ToList();
+        }
+        public void Add(Booking entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(string entity)
+        public void Delete(string id)
+        {
+            throw new NotImplementedException();
+        }
+        public void Update(Booking dbEntity)
         {
             throw new NotImplementedException();
         }
 
-        public Airport Get(string id)
+        public Booking Get(string id)
         {
             throw new NotImplementedException();
         }
 
-      
-
-        public IEnumerable<Airport> GetAll()
-        {
-            return projectContext.Airports.ToList();
-        }
-
-        public IEnumerable<Airport> GetbookingbyID(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(Airport dbEntity)
-        {
-            throw new NotImplementedException();
-        }
+    
     }
 }

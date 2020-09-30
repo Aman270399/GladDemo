@@ -61,7 +61,7 @@ namespace Airlines_WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("sendMail")]
-        public string PostSendGmail([FromBody] string user)
+        public string PostSendGmail([FromBody] UserTable user)
         {
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
@@ -79,7 +79,7 @@ namespace Airlines_WebApp.Controllers
             //can be obtained from your model
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("gladiatorflight.noreply@gmail.com");
-            msg.To.Add(new MailAddress(user));
+            msg.To.Add(new MailAddress(user.MobileNumber));
             msg.Subject = "OTP to reset your password";
             msg.IsBodyHtml = true;
             msg.Body = string.Format("<html><head></head><body><b>Dear user, Your OTP to reset password is:</b></body>"+otp);
@@ -109,7 +109,7 @@ namespace Airlines_WebApp.Controllers
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "N0SUbhWsKwQ-ovOAtPJBpVBa4Gc79OXBj85cEgIfcc" },
+                    {"apikey" , "9tRG/GpG4rc-tvycnCVLTA11GMaP8BHMIGgiIwANMZ" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "txtlcl" }

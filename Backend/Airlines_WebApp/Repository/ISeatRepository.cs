@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace Airlines_WebApp.Repository
 {
-    interface IDataRepository<TEntity>
+    interface ISeatRepository<TEntity>
     {
         IEnumerable<TEntity> GetAll();
         //TEntity Get(int id);
-        TEntity Get(string id);
+        TEntity Get(int id);
         void Add(TEntity entity);
         void Update(TEntity dbEntity);
-        void Delete(string id);
-      
+        void Delete(int id);
     }
 }

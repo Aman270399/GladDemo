@@ -30,6 +30,7 @@ namespace Airlines_WebApp.Models
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<Flight> Flights { get; set; }
         public virtual DbSet<FlightSchedule> FlightSchedules { get; set; }
+        public virtual DbSet<Seat> Seats { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
         public virtual DbSet<UserTable> UserTables { get; set; }
     }

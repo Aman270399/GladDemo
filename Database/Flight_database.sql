@@ -14,6 +14,14 @@ Constraint Admin_Email_C CHECK (AdminEmailId LIKE '%_@__%.__%')
 
 drop table Admin;
 
+create table Seat
+(
+SeatId int IDENTITY(1,1),
+SeatNo nvarchar(3) UNIQUE NOT NULL,
+class nvarchar(20) NOT NULL,
+Constraint Seat_PK PRIMARY KEY(SeatId)
+)
+drop table Seat
 create table Airport
 (
 AirportId varchar(3),
@@ -94,7 +102,7 @@ DestinationId varchar(3) NOT NULL,
 DepartTime Time(0) NOT NULL,
 ArrivalTime Time(0) NOT NULL,
 Duration Time(0) NOT NULL,
-SeatNo nvarchar(2) NOT NULL,
+SeatNo nvarchar(3) NOT NULL,
 DateTravel Date NOT NULL,
 Class nvarchar(15) NOT NULL,
 Price numeric(10,2) NOT NULL,
@@ -131,14 +139,27 @@ INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Durati
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA707','DEL','BOM','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA607','BBI','CCJ','2:30:00','04:45:00','02:15:00',3489.00,14678.00);
 
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',200);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',200);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA607',200);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA807',200);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA707',200);
-
-
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA607',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA807',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA707',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA807',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA707',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA607',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-27-2020','AA807',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-27-2020','AA707',150);
 
 
 select * from Flight;
 
+INSERT INTO Seat Values('A1','Business'),('A2','Business'),('A3','Business'),('A4','Business'),('A5','Economy'),('A6','Economy'),('A7','Economy'),('A8','Economy'),
+                       ('B1','Business'),('B2','Business'),('B3','Business'),('B4','Business'),('B5','Economy'),('B6','Economy'),('B7','Economy'),('B8','Economy'),
+					   ('C1','Business'),('C2','Business'),('C3','Business'),('C4','Business'),('C5','Economy'),('C6','Economy'),('C7','Economy'),('C8','Economy'),
+					   ('D1','Business'),('D2','Business'),('D3','Business'),('D4','Business'),('D5','Economy'),('D6','Economy'),('D7','Economy'),('D8','Economy'),
+					   ('E1','Business'),('E2','Business'),('E3','Business'),('E4','Business'),('E5','Economy'),('E6','Economy'),('E7','Economy'),('E8','Economy'),
+					   ('F1','Business'),('F2','Business'),('F3','Business'),('F4','Business'),('F5','Economy'),('F6','Economy'),('F7','Economy'),('F8','Economy');
+
+INSERT INTO Ticket (TicketId,FlightId,Title,FirstName,LastName,AgeGroup,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,SeatNo,DateTravel,Class ,Price,BookingId)Values('T01','AA807','Mr','Arhan','Das','Adult','BOM','DEL','12:00:00','02:00:00','02:00:00','C5','10-26-2020','Economy',7689.00,'B30OCL');
+INSERT INTO Ticket (TicketId,FlightId,Title,FirstName,LastName,AgeGroup,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,SeatNo,DateTravel,Class ,Price,BookingId)Values('T03','AA807','Mr','Aman','Singh','Adult','BOM','DEL','12:00:00','02:00:00','02:00:00','C6','10-26-2020','Economy',7689.00,'B30OCL');
+INSERT INTO Ticket (TicketId,FlightId,Title,FirstName,LastName,AgeGroup,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,SeatNo,DateTravel,Class ,Price,BookingId)Values('T02','AA807','Mr','Arhan','Das','Adult','BOM','DEL','12:00:00','02:00:00','02:00:00','A1','10-26-2020','Business',24678.00,'C30RTE');

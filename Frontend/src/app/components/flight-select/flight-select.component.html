@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div class="list-group">
-                <div *ngFor="let flight of Flights">
+                <div *ngFor="let flight of flights">
                   <button type="button" class="list-group-item list-group-item-action" (click)="selectFlight(flight)">
                     <div class="row gutter-row">
                     <div class="col gutter-col ">
@@ -46,8 +46,8 @@
                 </div>
             </div>
             <div class="list-group">
-                <div *ngFor="let flight of ReturnFlights">
-                  <button type="button" class="list-group-item list-group-item-action" (click)="selectFlight(flight)">
+                <div *ngFor="let flight of returnFlights">
+                  <button type="button" class="list-group-item list-group-item-action" (click)="selectReturnFlight(flight)">
                     <div class="row gutter-row">
                     <div class="col gutter-col ">
                         <div class="d-flex w-100 justify-content-between">
