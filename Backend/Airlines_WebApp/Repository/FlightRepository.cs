@@ -77,9 +77,5 @@ namespace Airlines_WebApp.Repository
             projectContext.SaveChanges();
         }
 
-        public IEnumerable<Flight> GetbookingbyID(string id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

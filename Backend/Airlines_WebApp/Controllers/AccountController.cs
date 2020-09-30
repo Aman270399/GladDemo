@@ -2,7 +2,6 @@
 using Airlines_WebApp.Repository;
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -61,7 +60,7 @@ namespace Airlines_WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("sendMail")]
-        public string PostSendGmail([FromBody] UserTable user)
+        public string PostSendGmail([FromBody] string user)
         {
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
@@ -79,47 +78,13 @@ namespace Airlines_WebApp.Controllers
             //can be obtained from your model
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("gladiatorflight.noreply@gmail.com");
-            msg.To.Add(new MailAddress(user.MobileNumber));
+            msg.To.Add(new MailAddress(user));
             msg.Subject = "OTP to reset your password";
             msg.IsBodyHtml = true;
             msg.Body = string.Format("<html><head></head><body><b>Dear user, Your OTP to reset password is:</b></body>"+otp);
             try
             {
                 client.Send(msg);
-                return otp.ToString();
-            }
-            catch (Exception ex)
-            {
-                return "error:" + ex.ToString();
-            }
-        }
-        [HttpPost]
-        [AllowAnonymous]
-        [Route("sendmsg")]
-        public string postsendmsg([FromBody] string user)
-        {
-            Random rnd = new Random();
-            int otp = rnd.Next(1000, 9999);
-            string number = user;
-            string msg = "your otp is : " + otp.ToString();
-            string result;
-            string msg1 = System.Web.HttpUtility.UrlEncode(msg);
-            //write query
-            using (var wb = new WebClient())
-            {
-                byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
-                {
-                    {"apikey" , "9tRG/GpG4rc-tvycnCVLTA11GMaP8BHMIGgiIwANMZ" },
-                    {"numbers", number},
-                    {"message", msg1 },
-                    {"sender", "txtlcl" }
-
-                });
-                result = System.Text.Encoding.UTF8.GetString(response);
-            }
-            try
-            {
-
                 return otp.ToString();
             }
             catch (Exception ex)
