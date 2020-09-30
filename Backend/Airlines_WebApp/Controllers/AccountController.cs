@@ -96,11 +96,11 @@ namespace Airlines_WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("sendmsg")]
-        public string postsendmsg([FromBody] UserTable user)
+        public string postsendmsg([FromBody] string user)
         {
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
-            string number = user.MobileNumber;
+            string number = user;
             string msg = "your otp is : " + otp.ToString();
             string result;
             string msg1 = System.Web.HttpUtility.UrlEncode(msg);
@@ -109,7 +109,7 @@ namespace Airlines_WebApp.Controllers
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "N0SUbhWsKwQ-JlfqARPwZeh1ZC47zXY52IxPdc3jVX" },
+                    {"apikey" , "N0SUbhWsKwQ-ovOAtPJBpVBa4Gc79OXBj85cEgIfcc" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "txtlcl" }

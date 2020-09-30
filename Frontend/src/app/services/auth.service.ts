@@ -49,6 +49,6 @@ export class AuthService {
     return this.http.post<any>(this.API_URI+"/sendMail",JSON.stringify(email),this.httpOptions)
   }
   otpverfiy(mobilenumber){
-    return this.http.post<Number>(this.API_URI+'/sendMsg/',JSON.stringify(mobilenumber))
+    return this.http.post<Number>(this.API_URI+'/sendmsg/',JSON.stringify(mobilenumber),this.httpOptions)
   }
 }
