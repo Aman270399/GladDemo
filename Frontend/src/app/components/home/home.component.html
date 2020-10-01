@@ -5,16 +5,14 @@
                     <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
                         <div class="form-group">
                             <div class="form-checkbox">
+                                <label for="oneway">
+                                    <input type="radio" id="oneway" name="flighttype"  value="oneway" formControlName="flighttype" (change)="DisableReturn()">
+                                    <span></span>One way
+                                </label>
                                 <label for="roundtrip">
                                     <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype" (change)="EnableReturn()">
                                     <span></span>Roundtrip
-                                </label>
-                                <label for="one-way">
-                                    <input type="radio" id="one-way" name="flighttype"  value="oneway" formControlName="flighttype" (change)="DisableReturn()">
-                                    <span></span>One way
-                                </label>
-                                
-                                		
+                                </label>   		
                             </div>
                         </div>
                         <div class="row">
