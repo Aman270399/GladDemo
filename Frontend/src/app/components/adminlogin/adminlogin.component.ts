@@ -28,7 +28,6 @@ export class AdminloginComponent implements OnInit {
         console.log(this.loginForm.value);
         this.adminService.getLoggedInName.next(result.FirstName);
         sessionStorage.setItem('adminData',JSON.stringify(result.AdminEmailId));
-        //this.router.navigate(['/']);
         alert('Logged in as Admin');
         this.router.navigate(['adminview']);  
       }, (error) => {

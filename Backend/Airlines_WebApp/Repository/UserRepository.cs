@@ -58,12 +58,5 @@ namespace Airlines_WebApp.Repository
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<UserTable> GetbookingbyID(string id)
-        {
-            throw new NotImplementedException();
-        }
-
-       
     }
 }

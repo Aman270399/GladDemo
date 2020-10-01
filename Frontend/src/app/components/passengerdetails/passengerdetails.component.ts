@@ -23,6 +23,9 @@ export class PassengerdetailsComponent implements OnInit {
     this.adultpassengercount=+localStorage.getItem('adultpassengercount');
     this.childpassengercount=+localStorage.getItem('childpassengercount');
     this.infantpassengercount=+localStorage.getItem('infantpassengercount');
+    sessionStorage.removeItem('adultpassengers');
+    sessionStorage.removeItem('childpassengers');
+    sessionStorage.removeItem('infantpassengers');
     //console.log(this.childpassengercount);
     //console.log(this.adultpassengercount);
      this.passengerForm=this.formBuilder.group
@@ -80,7 +83,7 @@ export class PassengerdetailsComponent implements OnInit {
   submit(){
     //console.log(this.dynamicForm.value.tickets);
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.passengerForm.controls.adultForm.value, null, 4));
-   console.log(JSON.stringify(this.passengerForm.controls.adultForm.value.adulttickets[0].title));
+   console.log(JSON.stringify(this.passengerForm.controls.adultForm.value));
    console.log(JSON.stringify(this.passengerForm.controls.childForm.value));
    console.log(JSON.stringify(this.passengerForm.controls.infantForm.value));
 
