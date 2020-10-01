@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Booking } from 'src/app/models/Booking';
 import { AuthService } from 'src/app/services/auth.service';
+import { BookingserviceService } from 'src/app/services/bookingservice.service';
+import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
   selector: 'app-paymentgateway',
@@ -23,7 +26,7 @@ export class PaymentgatewayComponent implements OnInit {
   makepayment:boolean=false;
   
   
-  constructor(private formBuilder: FormBuilder ,private auth_service: AuthService) {}
+  constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private ticketservice:TicketService,private bookingservice:BookingserviceService) {}
   ngOnInit() {
     //console.log(this.card[0]);
     this.detailsForm = this.formBuilder.group({
@@ -68,7 +71,25 @@ onSubmit3(form){
   try{
     if(this.current === form.value.otp){
       alert("Payment Successfull!");
-      
+      let bookingId= JSON.stringify(Date.now()).substr(7,6);
+      let totalPrice=0.0;
+      let totalPassengers=+localStorage.getItem('adultpassengercount')+(+localStorage.getItem('childpassengercount'))+(+localStorage.getItem('infantpassengercount'));
+      for(let i=0;i<this.ticketservice.tickets.length;i++)
+      {
+        this.ticketservice.tickets[i].BookingId=bookingId;
+        totalPrice=totalPrice+this.ticketservice.tickets[i].Price;
+      }
+      this.ticketservice.addTickets();
+      let booking={ BookingId: bookingId,
+                    UserEmailId:null,
+                    DateBooking:new Date().toISOString().slice(0,10),
+                    TransactionId:JSON.stringify(this.detailsForm.controls.bank).concat(JSON.stringify(Date.now()).substr(7,6)),
+                    TotalPrice:totalPrice,
+                    TotalPassenger:totalPassengers,
+                    BookStatus:'Confirmed'
+                  }
+      this.bookingservice.addBooking(booking).subscribe(data=>{
+      });
       this.makepayment = true;
     }
     else{

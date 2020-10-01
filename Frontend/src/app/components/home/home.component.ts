@@ -21,13 +21,15 @@ export class HomeComponent implements OnInit {
   source: string;
   destination: string;
   todayShort = new Date().toISOString().slice(0,10);
-  constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) { }
-
-  ngOnInit(): void {
-   // localStorage.clear();
+  constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) {
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
       console.log(this.airports); });
+   }
+
+  ngOnInit(): void {
+   // localStorage.clear();
+
     localStorage.removeItem('departdate');
     localStorage.removeItem('returndate');
     this.SearchForm = this.formbulider.group({  
