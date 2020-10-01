@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
 import{Ticket} from 'src/app/models/Ticket';
 import{ Passenger} from 'src/app/models/Passenger';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-passengerdetails',
   templateUrl: './passengerdetails.component.html',
@@ -15,13 +16,16 @@ export class PassengerdetailsComponent implements OnInit {
   childForm:FormGroup;
   infantForm:FormGroup;
   submitted = false;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,private router:Router) { }
 
   ngOnInit(): void
    {
     this.adultpassengercount=+localStorage.getItem('adultpassengercount');
     this.childpassengercount=+localStorage.getItem('childpassengercount');
     this.infantpassengercount=+localStorage.getItem('infantpassengercount');
+    sessionStorage.removeItem('adultpassengers');
+    sessionStorage.removeItem('childpassengers');
+    sessionStorage.removeItem('infantpassengers');
     //console.log(this.childpassengercount);
     //console.log(this.adultpassengercount);
      this.passengerForm=this.formBuilder.group
@@ -76,8 +80,6 @@ export class PassengerdetailsComponent implements OnInit {
   }
   }
 
-  passenger:Passenger[];
-
   submit(){
     //console.log(this.dynamicForm.value.tickets);
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.passengerForm.controls.adultForm.value, null, 4));
@@ -85,14 +87,12 @@ export class PassengerdetailsComponent implements OnInit {
    console.log(JSON.stringify(this.passengerForm.controls.childForm.value));
    console.log(JSON.stringify(this.passengerForm.controls.infantForm.value));
 
-   localStorage.setItem('adultpassengers',JSON.stringify(this.passengerForm.controls.adultForm.value.adulttickets));
-   localStorage.setItem('childpassengers',JSON.stringify(this.passengerForm.controls.childForm.value.childtickets));
-   localStorage.setItem('infantpassengers',JSON.stringify(this.passengerForm.controls.infantForm.value.infanttickets));  
+   sessionStorage.setItem('adultpassengers',JSON.stringify(this.passengerForm.controls.adultForm.value.adulttickets));
+   sessionStorage.setItem('childpassengers',JSON.stringify(this.passengerForm.controls.childForm.value.childtickets));
+   sessionStorage.setItem('infantpassengers',JSON.stringify(this.passengerForm.controls.infantForm.value.infanttickets));  
+   this.router.navigate(['/seatselect']);
    //to retrieve passenger details
-   this.passenger= JSON.parse(localStorage.getItem('adultpassengers'));
-    console.log(this.passenger[0]);
-
   }
 
-    
+  
 }

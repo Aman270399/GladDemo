@@ -29,12 +29,13 @@ namespace Airlines_WebApp.Repository
         }
         public void Update(Booking dbEntity)
         {
-            throw new NotImplementedException();
+            projectContext.Entry(dbEntity).State = System.Data.Entity.EntityState.Modified;
+            projectContext.SaveChanges();
         }
 
         public Booking Get(string id)
         {
-            throw new NotImplementedException();
+            return projectContext.Bookings.Find(id);
         }
 
     

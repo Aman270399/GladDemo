@@ -26,6 +26,11 @@ export class BookingserviceService {
      let id2=ticket.FlightId;
       return this.http.put<any>(this.baseUrl+"/cancelticket/"+id1+"/"+id2,JSON.stringify(ticket),this.httpOptions);
     }
+
+    updatebooking(booking){
+      let id1=booking.BookingId;
+      return this.http.put<any>(this.baseUrl+"/"+id1,JSON.stringify(booking),this.httpOptions);
+    }
   
 
 }

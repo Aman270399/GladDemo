@@ -7,9 +7,6 @@ import { Ticket } from '../models/Ticket';
 export class TicketService {
 
   constructor() { }
-  tickets:Ticket[];
-  addTicket(ticketObj:Ticket)
-  {
-    this.tickets.push(ticketObj);
-  }
+  public tickets:Ticket[]=[];
+
 }

@@ -9,6 +9,7 @@
   padding:3%;
   text-align: center;
 }
+
 .main .wrapper {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -29,6 +30,7 @@
   margin: 10px;
   border-radius: 20px;
 }
+
 
 .available {
   width: 40px;
@@ -75,10 +77,9 @@
   text-align: center;
 }
 
-h2 {
- color: black;
+h1 {
+ color:purple;
 }
-
-.well {
-  border-radius: 20px;
+h2{
+  color:green
 }

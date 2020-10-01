@@ -13,11 +13,13 @@ namespace Airlines_WebApp.Controllers
     public class BookingController : ApiController
     {
         IDataRepository<Booking> dataRepository;
-        IDataRepository<Ticket> ticketRepo;  
+        IDataRepository<Ticket> ticketRepo;
+        IDataRepository<FlightSchedule> fligtschrepo;
         public BookingController()
         {
             this.dataRepository = new BookingRepository(new GladiatorProjectEntities1());
             this.ticketRepo = new TicketRepository(new GladiatorProjectEntities1());
+            this.fligtschrepo = new FlightScheduleRepository(new GladiatorProjectEntities1());
         }
         [HttpGet]
         [Route("")]
@@ -25,17 +27,17 @@ namespace Airlines_WebApp.Controllers
         {
             List<Booking> lBooking = dataRepository.GetAll().ToList();
             var query = (from b in lBooking
-                        where b.UserEmailId == id
-                        select new Booking
-                        {
-                            BookingId = b.BookingId,
-                            UserEmailId = b.UserEmailId,
-                            DateBooking = b.DateBooking,
-                            TransactionId = b.TransactionId,
-                            TotalPrice = b.TotalPrice,
-                            TotalPassenger = b.TotalPassenger,
-                            BookStatus = b.BookStatus
-                        }).ToList();
+                         where b.UserEmailId == id
+                         select new Booking
+                         {
+                             BookingId = b.BookingId,
+                             UserEmailId = b.UserEmailId,
+                             DateBooking = b.DateBooking,
+                             TransactionId = b.TransactionId,
+                             TotalPrice = b.TotalPrice,
+                             TotalPassenger = b.TotalPassenger,
+                             BookStatus = b.BookStatus
+                         }).ToList();
             return Ok(query);
         }
         [HttpGet]
@@ -64,12 +66,12 @@ namespace Airlines_WebApp.Controllers
                              Price = b.Price,
                              BookingId = b.BookingId,
                              DateCancellation = b.DateCancellation
-                      }).ToList();
+                         }).ToList();
             return Ok(query);
         }
         [HttpPut]
         [Route("cancelticket/{id1}/{id2}")]
-        public IHttpActionResult updatetickets(string id1,string id2,[FromBody] Ticket ticket)
+        public IHttpActionResult updatetickets(string id1, string id2, [FromBody] Ticket ticket)
         {
             if (!ModelState.IsValid)
             {
@@ -79,7 +81,7 @@ namespace Airlines_WebApp.Controllers
             {
                 return BadRequest("User is null");
             }
-            if (id1 != ticket.TicketId && id2 !=ticket.FlightId)
+            if (id1 != ticket.TicketId && id2 != ticket.FlightId)
             {
                 return BadRequest();
             }
@@ -90,5 +92,69 @@ namespace Airlines_WebApp.Controllers
             return Ok(ticket);
         }
 
+      /*  [HttpPut]
+        [Route("updatefs/{Departure:datetime:regex(\\d{4}-\\d{2}-\\d{2})}/{id2}")]
+        public IHttpActionResult updatefs(DateTime Depart, string id2, [FromBody] FlightSchedule fs)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (fs == null)
+            {
+                return BadRequest("User is null");
+            }
+            if (Depart != fs.DateFlight && id2 != fs.FlightId)
+            {
+                return BadRequest();
+            }
+
+
+            flightschrepo.Update(fs);
+
+            return Ok(fs);
+        }*/
+
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult GetBookingbyID(string id)
+        {
+            Booking booking = null;
+            try
+            {
+                booking = dataRepository.Get(id);
+                if(booking==null)
+                {
+                    return NotFound();
+
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            return Ok(booking);
+        }
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult UpdateBooking(string id,[FromBody] Booking booking)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (booking == null)
+            {
+                return BadRequest("User is Null");
+            }
+            if(id !=booking.BookingId)
+            {
+                return BadRequest();
+            }
+            dataRepository.Update(booking);
+            return Ok(booking);
+        }
+   
     }
 }
+

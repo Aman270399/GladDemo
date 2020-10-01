@@ -11,13 +11,7 @@ import {BookingserviceService} from '../../services/bookingservice.service'
 })
 export class UserviewComponent implements OnInit {
   bookings : any; 
-  /*"BookingId": "12345",
-    "UserEmailId": "aman27399@gmail.com",
-    "DateBooking": "2020-12-12T00:00:00",
-    "TransactionId": "21345",
-    "TotalPrice": 23500.00,
-    "TotalPassenger": 4,
-    "BookStatus": "Confirmed"*/
+ 
     myDate = new Date();
   constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) {}
     
@@ -32,14 +26,16 @@ export class UserviewComponent implements OnInit {
   trial:any;  //to store booking id of a user
   check: boolean =false;  //to put condition to display details
  status:any="confirmed";
-
-  details(id)
+ booktable:any;
+  details(id,booking)
   {
      this.trial=id;
+     this.booktable=booking;
      this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;console.log(this.tickets.DateTravel>this.todayShort);})
       this.check=!this.check;     
   }
   tickter:any;
+
   idpass(tickets){
     this.tickter=tickets;
     console.log(this.tickter);
@@ -47,7 +43,11 @@ export class UserviewComponent implements OnInit {
   ondelete(ticket){
     ticket.DateCancellation=this.todayShort;
     console.log(ticket);
-    this.bookingdetail.deleteticket(ticket).subscribe(data=>{console.log(data)})
+    this.bookingdetail.deleteticket(ticket).subscribe(data=>{
+      console.log(data)});
+     this.booktable.TotalPassenger-=1;
+      this.bookingdetail.updatebooking(this.booktable).subscribe(data=>{});
+
     
   }
   
