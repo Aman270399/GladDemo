@@ -43,6 +43,9 @@ export class HomeComponent implements OnInit {
       infantpassengercount:['',Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
+    console.log('107'+JSON.stringify(Date.now()).substr(3,10));
+    console.log('107'+JSON.stringify(Date.now()).substr(3,10));
+    console.log(JSON.stringify(Date.now()));
     localStorage.removeItem('type');
     localStorage.removeItem('source');
     localStorage.removeItem('destination');

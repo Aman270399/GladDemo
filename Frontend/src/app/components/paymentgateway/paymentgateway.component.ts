@@ -73,14 +73,17 @@ onSubmit3(form){
     if(this.current === form.value.otp){
       alert("Payment Successfull!");
       let bookingId= JSON.stringify(Date.now()).substr(7,6);
+      console.log(bookingId);
       let totalPrice=0.0;
       let totalPassengers=+localStorage.getItem('adultpassengercount')+(+localStorage.getItem('childpassengercount'))+(+localStorage.getItem('infantpassengercount'));
+      console.log(totalPassengers)
       for(let i=0;i<this.ticketservice.tickets.length;i++)
       {
         this.ticketservice.tickets[i].BookingId=bookingId;
         totalPrice=totalPrice+this.ticketservice.tickets[i].Price;
       }
-      this.ticketservice.addTickets();
+      console.log(this.ticketservice.tickets);
+      console.log(totalPrice);
       let booking={ BookingId: bookingId,
                     UserEmailId:null,
                     DateBooking:new Date().toISOString().slice(0,10),
@@ -89,9 +92,13 @@ onSubmit3(form){
                     TotalPassenger:totalPassengers,
                     BookStatus:'Confirmed'
                   }
-      this.bookingservice.addBooking(booking).subscribe(data=>{
-      });
+                  console.log(booking);
+      this.bookingservice.addBooking(booking).subscribe(data=>{console.log(data)
+      
+      }); 
+      this.ticketservice.addTickets();
       this.makepayment = true;
+      this.router.navigate(['showticket']);
       
     }
     else{
@@ -100,8 +107,6 @@ onSubmit3(form){
   }
   catch{ }
 }
- submit(){
-  this.router.navigate(['showticket']);
- }
+
 
 }

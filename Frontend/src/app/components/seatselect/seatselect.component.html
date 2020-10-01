@@ -32,7 +32,7 @@
         <h4 class="panel-header"><b>Return Flight</b></h4>
         <div class="wrapper" >
           <div *ngFor="let seat of returnSeats; let i = index">
-            <button style="outline:0;" (click)="selectReturnSeat(seat.SeatNo)" [disabled]="this.class==seat.class">{{seat.SeatNo}}</button>
+            <button style="outline:0;" (click)="selectReturnSeat(seat.SeatNo)" [ngClass]="seat.status" [disabled]="this.class==seat.class">{{seat.SeatNo}}</button>
           </div>
         </div>
       </div>
