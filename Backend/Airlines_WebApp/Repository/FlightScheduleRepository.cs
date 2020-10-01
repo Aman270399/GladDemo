@@ -1,6 +1,7 @@
 ﻿using Airlines_WebApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -29,9 +30,10 @@ namespace Airlines_WebApp.Repository
             return projectContext.FlightSchedules.Find(id);
         }
 
-        public void Update(FlightSchedule dbEntity)
+        public void Update(FlightSchedule fs)
         {
-            throw new NotImplementedException();
+            projectContext.Entry(fs).State = EntityState.Modified;
+            projectContext.SaveChanges();
         }
 
         public void Delete(string entity)

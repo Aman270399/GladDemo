@@ -22,6 +22,7 @@ import { SeatselectComponent } from './components/seatselect/seatselect.componen
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
+import { ShowticketComponent } from './components/showticket/showticket.component';
 
 
 
@@ -43,7 +44,8 @@ import { PaymentgatewayComponent } from './components/paymentgateway/paymentgate
     SeatselectComponent,
     ResetpasswordComponent,
     UserviewComponent,
-    PaymentgatewayComponent
+    PaymentgatewayComponent,
+    ShowticketComponent
   ],
   imports: [
     BrowserModule,

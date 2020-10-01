@@ -14,10 +14,12 @@ namespace Airlines_WebApp.Controllers
     {
         IDataRepository<Booking> dataRepository;
         IDataRepository<Ticket> ticketRepo;
+        IDataRepository<FlightSchedule> fligtschrepo;
         public BookingController()
         {
             this.dataRepository = new BookingRepository(new GladiatorProjectEntities1());
             this.ticketRepo = new TicketRepository(new GladiatorProjectEntities1());
+            this.fligtschrepo = new FlightScheduleRepository(new GladiatorProjectEntities1());
         }
         [HttpGet]
         [Route("")]
@@ -113,6 +115,30 @@ namespace Airlines_WebApp.Controllers
 
             return Ok(ticket);
         }
+
+      /*  [HttpPut]
+        [Route("updatefs/{Departure:datetime:regex(\\d{4}-\\d{2}-\\d{2})}/{id2}")]
+        public IHttpActionResult updatefs(DateTime Depart, string id2, [FromBody] FlightSchedule fs)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (fs == null)
+            {
+                return BadRequest("User is null");
+            }
+            if (Depart != fs.DateFlight && id2 != fs.FlightId)
+            {
+                return BadRequest();
+            }
+
+
+            flightschrepo.Update(fs);
+
+            return Ok(fs);
+        }*/
+
         [HttpGet]
         [Route("{id}")]
         public IHttpActionResult GetBookingbyID(string id)

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Booking } from 'src/app/models/Booking';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { BookingserviceService } from 'src/app/services/bookingservice.service';
 import { TicketService } from 'src/app/services/ticket.service';
@@ -26,7 +27,7 @@ export class PaymentgatewayComponent implements OnInit {
   makepayment:boolean=false;
   
   
-  constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private ticketservice:TicketService,private bookingservice:BookingserviceService) {}
+  constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private ticketservice:TicketService,private bookingservice:BookingserviceService,private router:Router) {}
   ngOnInit() {
     //console.log(this.card[0]);
     this.detailsForm = this.formBuilder.group({
@@ -91,13 +92,16 @@ onSubmit3(form){
       this.bookingservice.addBooking(booking).subscribe(data=>{
       });
       this.makepayment = true;
+      
     }
     else{
     alert("Incorrect OTP");
   }
-  }catch{
-    
   }
+  catch{ }
 }
+ submit(){
+  this.router.navigate(['showticket']);
+ }
 
 }

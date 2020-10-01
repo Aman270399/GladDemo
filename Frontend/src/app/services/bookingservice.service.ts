@@ -31,4 +31,10 @@ export class BookingserviceService {
     return this.http.post<Booking>(this.baseUrl,JSON.stringify(booking),this.httpOptions);
   }
 
+    updatebooking(booking){
+      let id1=booking.BookingId;
+      return this.http.put<any>(this.baseUrl+"/"+id1,JSON.stringify(booking),this.httpOptions);
+    }
+  
+
 }
