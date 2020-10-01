@@ -30,6 +30,13 @@ export class AuthService {
     }
     return false;
   }
+  isLoggedUser() {
+    if (sessionStorage.getItem('userData')) {
+      return true;
+    }
+    return false;
+  }
+
   Logout()
   {
     if (sessionStorage.getItem('userData'))
