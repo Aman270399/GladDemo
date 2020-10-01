@@ -3,7 +3,7 @@ export class Ticket{
     FlightId:string;
     Title:String;
     FirstName:string;
-    LastName:string
+    LastName:string;
     AgeGroup:string;
     SourceId:String;
     DestinationId:string;
@@ -16,4 +16,34 @@ export class Ticket{
     Price:number;
     BookingId:string;
     DateCancellation:Date;   
+    constructor(TicketId,FlightId,Title,FirstName,LastName,AgeGroup,
+        SourceId,
+        DestinationId,
+        DepartTime,
+        ArrivalTime,
+        Duration,
+        SeatNo,
+        DateTravel,
+        Class,
+        Price,
+        BookingId)
+        {
+            this.TicketId=TicketId;
+            this.FlightId=FlightId;
+            this.Title=Title;
+            this.FirstName=FirstName;
+            this.LastName=LastName;
+            this.AgeGroup=AgeGroup;
+            this.SourceId=SourceId;
+            this.DestinationId=DestinationId;
+            this.DepartTime=DepartTime;
+            this.ArrivalTime=ArrivalTime;
+            this.Duration=Duration;
+            this.SeatNo=SeatNo;
+            this.DateTravel=DateTravel;
+            this.Class=Class;
+            this.Price=Price;
+            this.BookingId=BookingId;
+            this.DateCancellation=null;
+        }
 }

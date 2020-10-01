@@ -17,6 +17,8 @@ export class FlightSelectComponent implements OnInit {
   flights:flight1[];
   passengerCount:number;
   returnFlights:flight1[];
+  selected:boolean=false;
+  returnSelected:boolean=false;
   constructor(private flightlistservice:FlightlistService,public router:Router,private authservice:AuthService) { }
   isReturn:boolean;
   ngOnInit(): void {
@@ -47,12 +49,14 @@ export class FlightSelectComponent implements OnInit {
     else
        this.router.navigate(['/passengerdetail']);
   }
+  selectReturnFlight(returnFlight:flight1)
+{
+  this.returnSelected=true;
+ sessionStorage.setItem('returnflight',JSON.stringify(returnFlight));
+}
   selectFlight(flight:flight)
   {
+    this.selected=true;
     sessionStorage.setItem('flight',JSON.stringify(flight));
-  }
-  selectedReturnFlight(returnFlight:flight)
-  {
-    sessionStorage.setItem('returnflight',JSON.stringify(returnFlight));
   }
 }

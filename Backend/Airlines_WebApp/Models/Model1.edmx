@@ -82,7 +82,7 @@
           <Property Name="DepartTime" Type="time" Precision="0" Nullable="false" />
           <Property Name="ArrivalTime" Type="time" Precision="0" Nullable="false" />
           <Property Name="Duration" Type="time" Precision="0" Nullable="false" />
-          <Property Name="SeatNo" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="SeatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
           <Property Name="DateTravel" Type="date" Nullable="false" />
           <Property Name="Class" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
@@ -288,7 +288,7 @@
           <Property Name="DepartTime" Type="Time" Nullable="false" Precision="0" />
           <Property Name="ArrivalTime" Type="Time" Nullable="false" Precision="0" />
           <Property Name="Duration" Type="Time" Nullable="false" Precision="0" />
-          <Property Name="SeatNo" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SeatNo" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="DateTravel" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Class" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Price" Type="Decimal" Precision="10" Scale="2" Nullable="false" />

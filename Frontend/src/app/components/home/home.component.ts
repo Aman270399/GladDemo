@@ -41,6 +41,15 @@ export class HomeComponent implements OnInit {
       infantpassengercount:['',Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
+    localStorage.removeItem('type');
+    localStorage.removeItem('source');
+    localStorage.removeItem('destination');
+    localStorage.removeItem('departdate');
+    localStorage.removeItem('returndate');
+    localStorage.removeItem('adultpassengercount');
+    localStorage.removeItem('childpassengercount');
+    localStorage.removeItem('infantpassengercount');
+    localStorage.removeItem('class');
   }
 
   DisableReturn(){
@@ -55,6 +64,7 @@ export class HomeComponent implements OnInit {
   submitted:any=true;
   onSubmit(form){
     console.log(form.source);  
+    
     localStorage.setItem('type',form.flighttype);
     localStorage.setItem('source', form.source);
     localStorage.setItem('destination',form.destination);
@@ -63,6 +73,7 @@ export class HomeComponent implements OnInit {
     localStorage.setItem('adultpassengercount',form.adultpassengercount);
     localStorage.setItem('childpassengercount',form.childpassengercount);
     localStorage.setItem('infantpassengercount',form.infantpassengercount);
+    localStorage.setItem('class',form.seatclass);
     //console.log(this.SearchForm.valid);
    this.router.navigate(['flightSelect']);
     }
