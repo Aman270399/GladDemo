@@ -41,11 +41,14 @@ export class SeatselectComponent implements OnInit {
     this.adultpassengercount=+localStorage.getItem("adultpassengercount");
     this.childpassengercount=+localStorage.getItem("childpassengercount");
     this.infantpassengercount=+localStorage.getItem("infantpassengercount");
+    console.log(this.adultpassengercount);
+    console.log(this.childpassengercount);
+    console.log(this.infantpassengercount);
   
     this.adultpassengers=JSON.parse(sessionStorage.getItem("adultpassengers"));
     this.childpassengers=JSON.parse(sessionStorage.getItem("childpassengers"));
     this.infantpassengers=JSON.parse(sessionStorage.getItem("infantpassengers"));
-    console.log(this.adultpassengers);
+
     this.class=localStorage.getItem("class");
 
     this.isReturn=localStorage.getItem("type")=="roundtrip"?true:false;
@@ -96,10 +99,11 @@ export class SeatselectComponent implements OnInit {
 
   selectSeat(seatNo: string) {  
     let index = this.seatnum.indexOf(seatNo);
-    if(this.seatnum.length<=(this.adultpassengercount+this.childpassengercount))
+    if(this.seatnum.length>=(this.adultpassengercount+this.childpassengercount) && index === -1){
+      alert('Selected seats for all passengers');
+    }
+    else if (index === -1) 
     {
-      console.log(this.adultpassengercount+this.childpassengercount);
-    if (index === -1 ) {
       alert('You Selected : ' + seatNo)
       this.seatnum.push(seatNo);
       this.seats.forEach((item) => {
@@ -107,7 +111,8 @@ export class SeatselectComponent implements OnInit {
           item.status = "myselection";
         }
       });
-    }else{
+    }
+    else{
       this.seatnum.splice(index,1);
       this.seats.forEach((item) => {
         if (item.SeatNo === seatNo) {
@@ -115,16 +120,16 @@ export class SeatselectComponent implements OnInit {
         }
       });
     }
-  }
-  else
-      alert('Selected seats for all passengers');
     console.log(this.seatnum);
+    console.log(this.seatnum.length);
   }
+
   selectReturnSeat(seatNo: string) {  
     let index = this.retSeatnum.indexOf(seatNo);
-    if(this.retSeatnum.length<=(this.adultpassengercount+this.childpassengercount))
-    {
-    if (index === -1 ) {
+    if (index === -1 && this.retSeatnum.length>=(this.adultpassengercount+this.childpassengercount)) {
+      alert('Selected seats for all passengers');
+    }
+    else if(index === -1) {
       alert('You Selected : ' + seatNo)
       this.retSeatnum.push(seatNo);
       this.returnSeats.forEach((item) => {
@@ -140,11 +145,10 @@ export class SeatselectComponent implements OnInit {
         }
       });
     }
-  }
-  else
-      alert('Selected seats for all passengers');
     console.log(this.retSeatnum);
   }
+
+    
 
 
   onClick1() {
