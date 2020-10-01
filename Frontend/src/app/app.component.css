@@ -1,13 +1,14 @@
 .container-fluid
 {
-    padding-top: 9%;
+    padding-top: 7%;
     padding-bottom: 3%;
-    min-height:89.7%;
+    min-height:87.6%;
     background-image: url('../assets/images/background.jpg');
     background-size: cover;
     background-position: center;
+    font-family:'Muli', sans-serif;
 }
 html,body{
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Muli', sans-serif;
     height: 100%;
 }
