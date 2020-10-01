@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="e143686db6474f9dbca2f82b65a3be2c" Name="Diagram1">
+      <Diagram DiagramId="ec7768ea98f540ba94da08bd00aa11b2" Name="Diagram1">
         <EntityTypeShape EntityType="GladiatorProjectModel.Admin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.Airport" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="GladiatorProjectModel.Booking" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
