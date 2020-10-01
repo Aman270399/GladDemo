@@ -80,7 +80,7 @@ export class PassengerdetailsComponent implements OnInit {
   submit(){
     //console.log(this.dynamicForm.value.tickets);
     //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.passengerForm.controls.adultForm.value, null, 4));
-   console.log(JSON.stringify(this.passengerForm.controls.adultForm.value.adulttickets[0].title));
+   console.log(JSON.stringify(this.passengerForm.controls.adultForm.value));
    console.log(JSON.stringify(this.passengerForm.controls.childForm.value));
    console.log(JSON.stringify(this.passengerForm.controls.infantForm.value));
 

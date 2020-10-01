@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor(private authService:AuthService,private router:Router) { }
   ngOnInit(){
     this.authService.getLoggedInName.subscribe(name => this.userName = name);
+    console.log( this.authService.getLoggedInName);
+    
   }
   get isLoggedIn(){return this.authService.isLoggedIn()};
   Logout()

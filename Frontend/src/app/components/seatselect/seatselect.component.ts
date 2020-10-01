@@ -195,8 +195,8 @@ export class SeatselectComponent implements OnInit {
                           null,this.returnDate,this.class,this.returnPrice*0.35,null));
       }
     }
-    console.log(this.tickets);
     this.ticketservice.tickets=this.tickets;
+    console.log(this.ticketservice.tickets);
     this._router.navigate(['paymentgateway']);
   }
 }
