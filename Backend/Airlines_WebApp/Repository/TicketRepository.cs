@@ -35,16 +35,12 @@ namespace Airlines_WebApp.Repository
             throw new NotImplementedException();
         }
 
-    
-
-     
-
         public void Update(Ticket ticket)
         {
             projectContext3.Entry(ticket).State = EntityState.Modified;
             projectContext3.SaveChanges();
         }
 
-     
+       
     }
 }
