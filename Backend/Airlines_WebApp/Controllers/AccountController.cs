@@ -96,11 +96,11 @@ namespace Airlines_WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("sendmsg")]
-        public string postsendmsg([FromBody] UserTable user)
+        public string postsendmsg([FromBody] string user)
         {
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
-            string number = user.MobileNumber;
+            string number = user;
             string msg = "your otp is : " + otp.ToString();
             string result;
             string msg1 = System.Web.HttpUtility.UrlEncode(msg);
