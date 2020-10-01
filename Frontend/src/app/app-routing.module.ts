@@ -27,13 +27,13 @@ const routes: Routes = [
   {path: "register",component: RegisterComponent,canActivate:[UnauthorizedGuard]},
   {path: "addflight",component: AddflightComponent,canActivate:[AuthenticationGuard]},
   {path: "deleteflight",component: DeleteflightComponent,canActivate:[AuthenticationGuard]},
-  {path: "adminview", component: AdminviewComponent},
-  {path: "passengerdetail",component:PassengerdetailsComponent},
-  {path: "seatselect", component: SeatselectComponent},
+  {path: "adminview", component: AdminviewComponent,canActivate:[AuthenticationGuard]},
+  {path: "passengerdetail",component:PassengerdetailsComponent,canActivate:[AuthenticationUserGuard]},
+  {path: "seatselect", component: SeatselectComponent,canActivate:[AuthenticationUserGuard]},
   {path: "resetpassword", component: ResetpasswordComponent},
-  {path:"userview",component:UserviewComponent},
-  {path: "paymentgateway", component: PaymentgatewayComponent},
-  {path:"showticket",component:ShowticketComponent},
+  {path:"userview",component:UserviewComponent,canActivate:[AuthenticationUserGuard]},
+  {path: "paymentgateway", component: PaymentgatewayComponent,canActivate:[AuthenticationUserGuard]},
+  {path:"showticket",component:ShowticketComponent,canActivate:[AuthenticationUserGuard]},
 ]
 
 
