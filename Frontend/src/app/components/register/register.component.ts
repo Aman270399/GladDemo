@@ -34,16 +34,22 @@ export class RegisterComponent implements OnInit {
    return pass === confirmPass ? null : { notSame: true }     
   }
 
+  get f() { return this.addUser.controls; }
+     submitted:boolean=false;
+age:any;
   onSubmit(form : User){
+    this.submitted = true;
+    const today = new Date();
+    const birthDate = new Date(form.DateOFBirth);
+    form.Age = 21;
+    let age=today.getFullYear() - birthDate.getFullYear();
     console.log(form);
+    console.log(age);
     
     this.service.addUser(form).subscribe(data=>{
       console.log(data)
-     
       alert("User Registered Successfully");
-      this.route.navigate(["userlogin"]);
-    },(error) => {
-      console.log(error);
+      this.route.navigate(["userlogin"]); },(error) => {console.log(error);
       if(error=="Email already exists")
        alert("Email already exists!!");
       else
