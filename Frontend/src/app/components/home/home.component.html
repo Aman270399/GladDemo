@@ -97,13 +97,7 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <span class="form-label">Children (3-17)</span>
-                                    <input class="form-control" type="text" placeholder="count"  formControlName="childpassengercount" list="count">
-                                    <datalist id="count">  
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    </datalist>
-                                    <span class="select-arrow"></span>
+                                    <input type="number" class="form-control" formControlName="childpassengercount" placeholder="0" min="0" max="9" step="1"/>
                                     <div *ngIf="SearchForm.get('childpassengercount').touched">
                                         <div class="alert text-danger" *ngIf="SearchForm.get('childpassengercount').hasError('pattern')">
                                             Please enter a number
@@ -113,14 +107,8 @@
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <span class="form-label">Infant(0-3)</span>
-                                    <input class="form-control" type="text" placeholder="count"  formControlName="infantpassengercount" list="count">
-                                    <datalist id="count">  
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    </datalist>
-                                    <span class="select-arrow"></span>
+                                    <span class="form-label">Infant (0-3)</span>
+                                    <input type="number" class="form-control" formControlName="infantpassengercount" placeholder="0" min="0" max="9" step="1"/>
                                     <div *ngIf="SearchForm.get('infantpassengercount').touched">
                                         <div class="alert text-danger" *ngIf="SearchForm.get('infantpassengercount').hasError('pattern')">
                                             Please enter a number
