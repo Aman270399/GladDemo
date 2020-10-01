@@ -3,7 +3,8 @@
         <a routerLink="home" class="navbar-brand">Domestic Glide</a>  		
         <div class="navbar-nav ml-auto" >
                 <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action" *ngIf="!isLoggedIn"><b>Login/Signup</b></a>
-    
+                <a routerLink='userview' class = "nav-item ml-auto nav-link user-action" *ngIf="isLoggedIn && isLoggedUser"><b>User View</b></a>
+                
             <div class="dropdown" *ngIf="isLoggedIn">
                 <a href data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><b>{{userName}}</b><b class="caret"></b></a>
                 <div class="dropdown-menu dropdown-menu-right">

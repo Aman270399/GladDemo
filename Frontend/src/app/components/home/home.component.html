@@ -21,7 +21,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <select class="form-control"  formControlName="source" >
+                                    <select class="form-control"  formControlName="source" [(ngModel)]="source">
                                         <option value="" selected disabled hidden>Fying from</option>
                                         <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
                                     </select>
