@@ -42,9 +42,9 @@ export class SeatselectComponent implements OnInit {
     this.childpassengercount=+localStorage.getItem("childpassengercount");
     this.infantpassengercount=+localStorage.getItem("infantpassengercount");
   
-    this.adultpassengers=JSON.parse(localStorage.getItem("adultpassengers"));
-    this.childpassengers=JSON.parse(localStorage.getItem("childpassengers"));
-    this.infantpassengers=JSON.parse(localStorage.getItem("infantpassengers"));
+    this.adultpassengers=JSON.parse(sessionStorage.getItem("adultpassengers"));
+    this.childpassengers=JSON.parse(sessionStorage.getItem("childpassengers"));
+    this.infantpassengers=JSON.parse(sessionStorage.getItem("infantpassengers"));
     console.log(this.adultpassengers);
     this.class=localStorage.getItem("class");
 

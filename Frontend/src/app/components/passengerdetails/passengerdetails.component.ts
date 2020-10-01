@@ -23,6 +23,9 @@ export class PassengerdetailsComponent implements OnInit {
     this.adultpassengercount=+localStorage.getItem('adultpassengercount');
     this.childpassengercount=+localStorage.getItem('childpassengercount');
     this.infantpassengercount=+localStorage.getItem('infantpassengercount');
+    sessionStorage.removeItem('adultpassengers');
+    sessionStorage.removeItem('childpassengers');
+    sessionStorage.removeItem('infantpassengers');
     //console.log(this.childpassengercount);
     //console.log(this.adultpassengercount);
      this.passengerForm=this.formBuilder.group
