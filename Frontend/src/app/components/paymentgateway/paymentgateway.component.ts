@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Booking } from 'src/app/models/Booking';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { BookingserviceService } from 'src/app/services/bookingservice.service';
+import { TicketService } from 'src/app/services/ticket.service';
 
 @Component({
   selector: 'app-paymentgateway',
@@ -24,7 +27,7 @@ export class PaymentgatewayComponent implements OnInit {
   makepayment:boolean=false;
   
   
-  constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private router:Router) {}
+  constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private ticketservice:TicketService,private bookingservice:BookingserviceService,private router:Router) {}
   ngOnInit() {
     //console.log(this.card[0]);
     this.detailsForm = this.formBuilder.group({
@@ -33,9 +36,9 @@ export class PaymentgatewayComponent implements OnInit {
     })
     this.carddetailsForm = this.formBuilder.group({
       cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]*$")]],
-      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]*$")]],
+      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]{3}*$")]],
       cardHolderName:['',[Validators.required,Validators.pattern("[A-Za-z]+")]],
-      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("^[0-9]*$")]]
+      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("^[0-9]{11}*$")]]
      })
      
     this.OtpForm = this.formBuilder.group({
@@ -47,7 +50,7 @@ export class PaymentgatewayComponent implements OnInit {
   }
   get f2(){
     return this.carddetailsForm.controls;
-  }
+  } 
   
   get f3(){
     return this.OtpForm.controls;
@@ -69,7 +72,33 @@ onSubmit3(form){
   try{
     if(this.current === form.value.otp){
       alert("Payment Successfull!");
+      let bookingId= JSON.stringify(Date.now()).substr(7,6);
+      console.log(bookingId);
+      let totalPrice=0.0;
+      let totalPassengers=+localStorage.getItem('adultpassengercount')+(+localStorage.getItem('childpassengercount'))+(+localStorage.getItem('infantpassengercount'));
+      console.log(totalPassengers)
+      for(let i=0;i<this.ticketservice.tickets.length;i++)
+      {
+        this.ticketservice.tickets[i].BookingId=bookingId;
+        totalPrice=totalPrice+this.ticketservice.tickets[i].Price;
+      }
+      console.log(this.ticketservice.tickets);
+      console.log(totalPrice);
+      let booking={ BookingId: bookingId,
+                    UserEmailId:null,
+                    DateBooking:new Date().toISOString().slice(0,10),
+                    TransactionId:JSON.stringify(this.detailsForm.controls.bank).concat(JSON.stringify(Date.now()).substr(7,4)),
+                    TotalPrice:totalPrice,
+                    TotalPassenger:totalPassengers,
+                    BookStatus:'Confirmed'
+                  }
+                  console.log(booking);
+      this.bookingservice.addBooking(booking).subscribe(data=>{console.log(data)
+      
+      }); 
+      this.ticketservice.addTickets();
       this.makepayment = true;
+      this.router.navigate(['showticket']);
       
     }
     else{
@@ -78,8 +107,6 @@ onSubmit3(form){
   }
   catch{ }
 }
- submit(){
-  this.router.navigate(['showticket']);
- }
+
 
 }

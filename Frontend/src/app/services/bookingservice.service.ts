@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {Booking} from 'src/app/models/Booking';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,9 @@ export class BookingserviceService {
      let id2=ticket.FlightId;
       return this.http.put<any>(this.baseUrl+"/cancelticket/"+id1+"/"+id2,JSON.stringify(ticket),this.httpOptions);
     }
+  addBooking(booking:Booking){
+    return this.http.post<Booking>(this.baseUrl,JSON.stringify(booking),this.httpOptions);
+  }
 
     updatebooking(booking){
       let id1=booking.BookingId;

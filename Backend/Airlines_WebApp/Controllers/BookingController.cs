@@ -40,6 +40,30 @@ namespace Airlines_WebApp.Controllers
                          }).ToList();
             return Ok(query);
         }
+        [HttpPost]
+        [Route("")]
+        public IHttpActionResult addBooking([FromBody] Booking booking)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                if (booking == dataRepository.Get(booking.BookingId))
+                {
+                    return BadRequest("booking already exists");
+                }
+
+                dataRepository.Add(booking);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return Ok(booking);
+
+        }
         [HttpGet]
         [Route("tickets/{id}")]
         public IHttpActionResult Gettickets(string id)

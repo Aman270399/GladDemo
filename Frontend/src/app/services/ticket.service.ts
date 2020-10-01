@@ -1,3 +1,4 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ticket } from '../models/Ticket';
 
@@ -5,8 +6,19 @@ import { Ticket } from '../models/Ticket';
   providedIn: 'root'
 })
 export class TicketService {
-
-  constructor() { }
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
   public tickets:Ticket[]=[];
 
+  constructor(private http:HttpClient) { }
+
+  baseUrl : string = "https://localhost:44374/api/tickets";
+  addTickets(){
+    this.tickets.forEach(ticket => {
+      return this.http.post<Ticket>(this.baseUrl,JSON.stringify(ticket),this.httpOptions);
+    });
+  }
 }

@@ -59,7 +59,13 @@
                                         <div class="input-group">
                                                 <i class="fa fa-credit-card icon"></i>
                                                 <input type="text" class="form-control" placeholder="1111-2222-3333-4444"  formControlName="cardNumber" #cardNumber >
-                                                
+                                                <div *ngIf="f2.cardNumber.hasError('required') && f2.cardNumber.touched" class="alert alert-danger">
+                                                    Card Number is required
+                                                </div>
+                                                <div *ngIf="f2.cardNumber.hasError('pattern')" class="alert alert-danger">
+                                                    Only digits are allowed
+                                                </div>
+                                                <div *ngIf="f2.cardNumber.errors.maxlength">Card Number should be of 16 digits.</div>
                                             </div>
                         
                                         </div>
@@ -71,6 +77,13 @@
                                             
                                             <label>CVV CODE</label>
                                             <input type="text" class="form-control" placeholder="352"  formControlName="cardCvv" #cardCvv >
+                                            <div *ngIf="f2.cardCvv.hasError('required') && f2.cardCvv.touched" class="alert alert-danger">
+                                                CVV is required
+                                            </div>
+                                            
+                                            <div *ngIf="f2.cardCvv.errors.maxlength">CVV should be of 3 digits.</div>
+                                            
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -82,7 +95,12 @@
                                                 <i class="fa fa-user icon"></i>
                                             </div>
                                             <input type="text" class="form-control" placeholder="Enter Name"  formControlName="cardHolderName" #cardHolderName >
-                                            
+                                            <div *ngIf="f2.cardHolderName.hasError('required') && f2.cardHolderName.touched" class="alert alert-danger">
+                                                Card Holder Name is required
+                                            </div>
+                                            <div *ngIf="f2.cardHolderName.hasError('pattern')" class="alert alert-danger">
+                                                Only alphabets
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -92,6 +110,14 @@
                                             <label>MOBILE NUMBER</label>
                                             <i class="fa fa-mobile icon"></i>
                                             <input type="text" class="form-control" placeholder="Enter Mobile No.."  formControlName="mobilenumber" #mobilenumber >
+                                            <div *ngIf="f2.mobilenumber.hasError('required')&& f2.mobilenumber.touched" class="text-danger">
+                                                Mobile Number is required
+                                            </div> 
+                                            <div *ngIf="f2.mobilenumber.hasError('pattern')" class="text-danger">
+                                                Please enter valid mobile number
+                                            </div>
+                                            <div *ngIf="f2.mobilenumber.errors.maxlength">mobile number should be of 11 digits.</div>
+                                        
                                         </div>
                                     </div>
                                 </div>
@@ -123,7 +149,7 @@
                                         <div *ngIf="f3.otp.errors.pattern">Enter only numbers.</div>
                                     </div>
                                 </div>
-                                <button class="btn btn-success" type="submit" (click)="submit()" [disabled]="!OtpForm.valid">Pay</button>
+                                <button class="btn btn-success" type="submit"  [disabled]="!OtpForm.valid">Pay</button>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
                                 <button class="btn btn-primary" routerLink="/"> Back</button>
                                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

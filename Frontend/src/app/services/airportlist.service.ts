@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {airportlist} from '../models/airportlist';
 
 @Injectable({
@@ -14,7 +14,7 @@ export class AirportlistService {
   baseUrl : string="https://localhost:44374/api/airport/GetAll";
   constructor(private http:HttpClient) { }
   getallairports(){
-    return this.http.get(this.baseUrl);
+    return this.http.get<airportlist[]>(this.baseUrl,this.httpOptions);
    }
    
   
