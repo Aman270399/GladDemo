@@ -15,7 +15,7 @@ export class TicketService {
 
   constructor(private http:HttpClient) { }
 
-  baseUrl : string = "https://localhost:44374/api/booking";
+  baseUrl : string = "https://localhost:44374/api/tickets";
   addTickets(){
     this.tickets.forEach(ticket => {
       return this.http.post<Ticket>(this.baseUrl,JSON.stringify(ticket),this.httpOptions);

@@ -158,7 +158,7 @@ export class SeatselectComponent implements OnInit {
     }
     for(let i=0;i<this.adultpassengercount;i++)
     {
-      let TicketId=this.flightId.substr(2,3).concat(this.returnFlightId.substr(2,3)).concat(this.departDate.replace(/-/g,""));
+      let TicketId='107'+JSON.stringify(Date.now()).substr(3,10);
       this.tickets.push(new Ticket(TicketId,this.flightId,this.adultpassengers[i].title,this.adultpassengers[i].firstname,this.adultpassengers[i].lastname,"Adult",
                          this.flight.SourceId,this.flight.DestinationId,this.flight.DepartTime,this.flight.ArrivalTime,this.flight.Duration,
                          this.seatnum[i],this.departDate,this.class,this.price,null));
@@ -173,7 +173,7 @@ export class SeatselectComponent implements OnInit {
     }
     for(let i=0;i<this.childpassengercount;i++)
     {
-      let TicketId=this.flightId.substr(2,3).concat(this.returnFlightId.substr(2,3)).concat(this.departDate.replace(/-/g,""));
+      let TicketId='107'+JSON.stringify(Date.now()).substr(3,10);
       this.tickets.push(new Ticket(TicketId,this.flightId,this.childpassengers[i].title,this.childpassengers[i].firstname,this.childpassengers[i].lastname,"Child",
                          this.flight.SourceId,this.flight.DestinationId,this.flight.DepartTime,this.flight.ArrivalTime,this.flight.Duration,
                          this.seatnum[i],this.departDate,this.class,this.price*0.65,null));
@@ -188,7 +188,7 @@ export class SeatselectComponent implements OnInit {
     }
     for(let i=0;i<this.infantpassengercount;i++)
     {
-      let TicketId=this.flightId.substr(2,3).concat(this.returnFlightId.substr(2,3)).concat(this.departDate.replace(/-/g,""));
+      let TicketId='107'+JSON.stringify(Date.now()).substr(3,10);
       this.tickets.push(new Ticket(TicketId,this.flightId,this.infantpassengers[i].title,this.infantpassengers[i].firstname,this.infantpassengers[i].lastname,"Infant",
                          this.flight.SourceId,this.flight.DestinationId,this.flight.DepartTime,this.flight.ArrivalTime,this.flight.Duration,
                          null,this.departDate,this.class,this.price*0.35,null));

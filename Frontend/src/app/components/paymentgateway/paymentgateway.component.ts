@@ -83,7 +83,7 @@ onSubmit3(form){
       let booking={ BookingId: bookingId,
                     UserEmailId:null,
                     DateBooking:new Date().toISOString().slice(0,10),
-                    TransactionId:JSON.stringify(this.detailsForm.controls.bank).concat(JSON.stringify(Date.now()).substr(7,6)),
+                    TransactionId:JSON.stringify(this.detailsForm.controls.bank).concat(JSON.stringify(Date.now()).substr(7,4)),
                     TotalPrice:totalPrice,
                     TotalPassenger:totalPassengers,
                     BookStatus:'Confirmed'
