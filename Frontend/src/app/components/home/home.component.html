@@ -76,13 +76,7 @@
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <span class="form-label">Adults (18+)</span>
-                                        <input class="form-control" type="text" placeholder="count" formControlName="adultpassengercount" list="count">
-                                        <datalist id="count">  
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        </datalist>
-                                    <span class="select-arrow"></span>
+                                    <input type="number" class="form-control" formControlName="adultpassengercount" placeholder="0" min="1" max="9" step="1"/>
                                     <div *ngIf="SearchForm.get('adultpassengercount').touched">
                                         <div class="alert text-danger" *ngIf="SearchForm.get('adultpassengercount').hasError('required')">
                                             Minimum 1 adult is required.
