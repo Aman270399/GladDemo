@@ -1,9 +1,7 @@
-
-
-<button (click)="redirectaddflight()">Add Flight</button>
-<button (click)="redirectdeleteflight()">Delete Flight</button>
-
-<table>
+<div class="main">
+  <div class="table-responsive">      
+    <table style="color: rgb(243, 242, 225);" id="mytable" class="table table-bordred table-striped">
+      <h1><b>Flights</b></h1>
     <tr>
         
         <th>Flight Number</th>
@@ -21,9 +19,14 @@
        <td>{{flight.DestinationId}}</td>
        <td>{{flight.DepartTime}}</td>
        <td>{{flight.ArrivalTime}}</td>
-       <td>{{flight.EconomyPrice}}</td>
-        <td>{{flight.BusinessPrice}}</td>
+       <td>{{flight.EconomyPrice |currency:'INR'}}</td>
+        <td>{{flight.BusinessPrice |currency:'INR'}}</td>
         <!-- pipe for date format -->
       <!--  <td>{{flight.DepartureDate | date:'mediumDate'}}</td>-->
     </tr>
+    
+
 </table>
+<button class="btn btn-primary"  (click)="redirectaddflight()">Add Flight</button>&nbsp; &nbsp;
+<button class="btn btn-danger" (click)="redirectdeleteflight()">Delete Flight</button>
+</div>

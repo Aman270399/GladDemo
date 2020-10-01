@@ -13,7 +13,7 @@ namespace Airlines_WebApp.Controllers
     public class BookingController : ApiController
     {
         IDataRepository<Booking> dataRepository;
-        IDataRepository<Ticket> ticketRepo;  
+        IDataRepository<Ticket> ticketRepo;
         public BookingController()
         {
             this.dataRepository = new BookingRepository(new GladiatorProjectEntities1());
@@ -25,17 +25,17 @@ namespace Airlines_WebApp.Controllers
         {
             List<Booking> lBooking = dataRepository.GetAll().ToList();
             var query = (from b in lBooking
-                        where b.UserEmailId == id
-                        select new Booking
-                        {
-                            BookingId = b.BookingId,
-                            UserEmailId = b.UserEmailId,
-                            DateBooking = b.DateBooking,
-                            TransactionId = b.TransactionId,
-                            TotalPrice = b.TotalPrice,
-                            TotalPassenger = b.TotalPassenger,
-                            BookStatus = b.BookStatus
-                        }).ToList();
+                         where b.UserEmailId == id
+                         select new Booking
+                         {
+                             BookingId = b.BookingId,
+                             UserEmailId = b.UserEmailId,
+                             DateBooking = b.DateBooking,
+                             TransactionId = b.TransactionId,
+                             TotalPrice = b.TotalPrice,
+                             TotalPassenger = b.TotalPassenger,
+                             BookStatus = b.BookStatus
+                         }).ToList();
             return Ok(query);
         }
         [HttpGet]
@@ -64,12 +64,12 @@ namespace Airlines_WebApp.Controllers
                              Price = b.Price,
                              BookingId = b.BookingId,
                              DateCancellation = b.DateCancellation
-                      }).ToList();
+                         }).ToList();
             return Ok(query);
         }
         [HttpPut]
         [Route("cancelticket/{id1}/{id2}")]
-        public IHttpActionResult updatetickets(string id1,string id2,[FromBody] Ticket ticket)
+        public IHttpActionResult updatetickets(string id1, string id2, [FromBody] Ticket ticket)
         {
             if (!ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Airlines_WebApp.Controllers
             {
                 return BadRequest("User is null");
             }
-            if (id1 != ticket.TicketId && id2 !=ticket.FlightId)
+            if (id1 != ticket.TicketId && id2 != ticket.FlightId)
             {
                 return BadRequest();
             }
@@ -89,6 +89,46 @@ namespace Airlines_WebApp.Controllers
 
             return Ok(ticket);
         }
+        [HttpGet]
+        [Route("{id}")]
+        public IHttpActionResult GetBookingbyID(string id)
+        {
+            Booking booking = null;
+            try
+            {
+                booking = dataRepository.Get(id);
+                if(booking==null)
+                {
+                    return NotFound();
 
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            return Ok(booking);
+        }
+        [HttpPut]
+        [Route("{id}")]
+        public IHttpActionResult UpdateBooking(string id,[FromBody] Booking booking)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (booking == null)
+            {
+                return BadRequest("User is Null");
+            }
+            if(id !=booking.BookingId)
+            {
+                return BadRequest();
+            }
+            dataRepository.Update(booking);
+            return Ok(booking);
+        }
+   
     }
 }
+

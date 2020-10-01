@@ -11,13 +11,7 @@ import {BookingserviceService} from '../../services/bookingservice.service'
 })
 export class UserviewComponent implements OnInit {
   bookings : any; 
-  /*"BookingId": "12345",
-    "UserEmailId": "aman27399@gmail.com",
-    "DateBooking": "2020-12-12T00:00:00",
-    "TransactionId": "21345",
-    "TotalPrice": 23500.00,
-    "TotalPassenger": 4,
-    "BookStatus": "Confirmed"*/
+ 
     myDate = new Date();
   constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) {}
     

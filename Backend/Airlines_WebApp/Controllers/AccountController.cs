@@ -61,7 +61,7 @@ namespace Airlines_WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("sendMail")]
-        public string PostSendGmail([FromBody] UserTable user)
+        public string PostSendGmail([FromBody] string user)
         {
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
@@ -79,7 +79,7 @@ namespace Airlines_WebApp.Controllers
             //can be obtained from your model
             MailMessage msg = new MailMessage();
             msg.From = new MailAddress("gladiatorflight.noreply@gmail.com");
-            msg.To.Add(new MailAddress(user.MobileNumber));
+            msg.To.Add(new MailAddress(user));
             msg.Subject = "OTP to reset your password";
             msg.IsBodyHtml = true;
             msg.Body = string.Format("<html><head></head><body><b>Dear user, Your OTP to reset password is:</b></body>"+otp);
@@ -96,11 +96,11 @@ namespace Airlines_WebApp.Controllers
         [HttpPost]
         [AllowAnonymous]
         [Route("sendmsg")]
-        public string postsendmsg([FromBody] string user)
+        public string postsendmsg([FromBody] UserTable user)
         {
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
-            string number = user;
+            string number = user.MobileNumber;
             string msg = "your otp is : " + otp.ToString();
             string result;
             string msg1 = System.Web.HttpUtility.UrlEncode(msg);
