@@ -123,6 +123,46 @@ namespace Airlines_WebApp.Controllers
                 throw ex;
             }
             return Ok(flightObj);
+        } 
+        [HttpGet]
+        [Route("flightschedule/{id}")]
+        public IHttpActionResult GetSchedulebyID(string id)
+        {
+            FlightSchedule flightSchedule = null;
+            try
+            {
+                flightSchedule = flightScheduleRepository.Get(id);
+                if(flightSchedule == null)
+                {
+                    return NotFound();
+                }
+                
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+            return Ok(flightSchedule);
+
+        }
+        [HttpPut]
+        [Route("flightschedule/{id}")]
+        public IHttpActionResult UpdateSchedule(string id,[FromBody] FlightSchedule flightSchedule)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if(flightSchedule== null)
+            {
+                return BadRequest("Schedule is null");
+            }
+            if(id != flightSchedule.FlightId)
+            {
+                return BadRequest();
+            }
+            flightScheduleRepository.Update(flightSchedule);
+            return Ok(flightSchedule);
         }
     }
 }
