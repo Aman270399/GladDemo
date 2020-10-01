@@ -21,9 +21,9 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span class="form-label">Flying from</span>
-                                    <select class="form-control"  formControlName="source" >
+                                    <select class="form-control"  formControlName="source">
                                         <option value="" selected disabled hidden>Fying from</option>
-                                        <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
+                                        <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</option>
                                     </select>
                                     <div *ngIf="SearchForm.get('source').touched">
                                         <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
@@ -158,3 +158,4 @@
                     </form>
                 </div>
             </div>
+            

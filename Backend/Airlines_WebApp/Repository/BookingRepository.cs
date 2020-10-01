@@ -18,9 +18,10 @@ namespace Airlines_WebApp.Repository
         {
             return projectContext.Bookings.ToList();
         }
-        public void Add(Booking entity)
+        public void Add(Booking newbooking)
         {
-            throw new NotImplementedException();
+            projectContext.Bookings.Add(newbooking);
+            projectContext.SaveChanges();
         }
 
         public void Delete(string id)

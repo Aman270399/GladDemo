@@ -156,13 +156,15 @@ export class SeatselectComponent implements OnInit {
     {
       alert("Please select a seat");
     }
+    let j = 0;
     for(let i=0;i<this.adultpassengercount;i++)
     {
-      let TicketId=this.flightId.substr(2,3).concat(this.returnFlightId.substr(2,3)).concat(this.departDate.replace(/-/g,""));
+      let TicketId='107'+JSON.stringify(Date.now()).substr(4,9)+j;
       this.tickets.push(new Ticket(TicketId,this.flightId,this.adultpassengers[i].title,this.adultpassengers[i].firstname,this.adultpassengers[i].lastname,"Adult",
                          this.flight.SourceId,this.flight.DestinationId,this.flight.DepartTime,this.flight.ArrivalTime,this.flight.Duration,
                          this.seatnum[i],this.departDate,this.class,this.price,null));
       this.seatnum.splice(0,1);
+      
       if(this.isReturn)
       {
         this.tickets.push(new Ticket(TicketId,this.returnFlightId,this.adultpassengers[i].title,this.adultpassengers[i].firstname,this.adultpassengers[i].lastname,"Adult",
@@ -170,10 +172,11 @@ export class SeatselectComponent implements OnInit {
                           this.retSeatnum[i],this.returnDate,this.class,this.returnPrice,null));
         this.retSeatnum.splice(0,1);
       }
+      j++;
     }
     for(let i=0;i<this.childpassengercount;i++)
     {
-      let TicketId=this.flightId.substr(2,3).concat(this.returnFlightId.substr(2,3)).concat(this.departDate.replace(/-/g,""));
+      let TicketId='107'+JSON.stringify(Date.now()).substr(4,9)+j;
       this.tickets.push(new Ticket(TicketId,this.flightId,this.childpassengers[i].title,this.childpassengers[i].firstname,this.childpassengers[i].lastname,"Child",
                          this.flight.SourceId,this.flight.DestinationId,this.flight.DepartTime,this.flight.ArrivalTime,this.flight.Duration,
                          this.seatnum[i],this.departDate,this.class,this.price*0.65,null));
@@ -185,10 +188,11 @@ export class SeatselectComponent implements OnInit {
                           this.retSeatnum[i],this.returnDate,this.class,this.returnPrice*0.65,null));
                           this.retSeatnum.splice(0,1);
       }
+      j++;
     }
     for(let i=0;i<this.infantpassengercount;i++)
     {
-      let TicketId=this.flightId.substr(2,3).concat(this.returnFlightId.substr(2,3)).concat(this.departDate.replace(/-/g,""));
+      let TicketId='107'+JSON.stringify(Date.now()).substr(4,9)+j;
       this.tickets.push(new Ticket(TicketId,this.flightId,this.infantpassengers[i].title,this.infantpassengers[i].firstname,this.infantpassengers[i].lastname,"Infant",
                          this.flight.SourceId,this.flight.DestinationId,this.flight.DepartTime,this.flight.ArrivalTime,this.flight.Duration,
                          null,this.departDate,this.class,this.price*0.35,null));
@@ -198,6 +202,7 @@ export class SeatselectComponent implements OnInit {
                           this.returnFlight.SourceId,this.returnFlight.DestinationId,this.returnFlight.DepartTime,this.returnFlight.ArrivalTime,this.returnFlight.Duration,
                           null,this.returnDate,this.class,this.returnPrice*0.35,null));
       }
+      j++;
     }
     this.ticketservice.tickets=this.tickets;
     console.log(this.ticketservice.tickets);
