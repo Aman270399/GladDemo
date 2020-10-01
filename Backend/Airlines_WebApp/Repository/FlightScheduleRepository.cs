@@ -26,7 +26,7 @@ namespace Airlines_WebApp.Repository
 
         public FlightSchedule Get(string id)
         {
-            throw new NotImplementedException();
+            return projectContext.FlightSchedules.Find(id);
         }
 
         public void Update(FlightSchedule dbEntity)

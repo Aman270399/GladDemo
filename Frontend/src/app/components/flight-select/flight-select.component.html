@@ -47,7 +47,7 @@
             </div>
             <div class="list-group">
                 <div *ngFor="let flight of returnFlights">
-                  <button type="button" class="list-group-item list-group-item-action" (click)="selectReturnFlight(flight)">
+                  <button type="button" class="list-group-item list-group-item-action"(click)="selectReturnFlight(flight)">
                     <div class="row gutter-row">
                     <div class="col gutter-col ">
                         <div class="d-flex w-100 justify-content-between">
@@ -67,7 +67,7 @@
                 </div>
             </div>  
         </div>
-        <button mat-raised-button color="accent" class="continue" (click)= "continue()" >Continue</button>
+        <button mat-raised-button color="accent" class="continue" (click)= "continue()" *ngIf="selected || (isReturn && returnSelected)" >Continue</button>
 </div>
 
 

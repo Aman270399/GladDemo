@@ -1,52 +1,153 @@
-<form [formGroup]="detailsForm" (ngSubmit)="onSubmit(detailsForm)" class="form-signin" *ngIf="!requestSent">
-    <div class="form-Group">
-        <select label="cardtype" formControlName = "card">
-            <option *ngFor="let cards of card">{{cards}}</option>
-        </select>
-        <select label="banktype" formControlName = "bank">
-            <option *ngFor="let banks of bank">{{banks}}</option>
-        </select>
-    </div>
-    <button class="btn btn-success" type="submit" >Proceed</button>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-     <button class="btn btn-primary" routerLink="/"> Back</button>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-danger" type="reset"> Cancel</button>
-</form>
-<form [formGroup]="carddetailsForm" (ngSubmit)="onSubmit2(carddetailsForm)" class="form-signin" *ngIf="requestSent && !makepayment" >
-    <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter Card Number"  formControlName="cardNumber" #cardNumber >
-        <input type="text" class="form-control" placeholder="Enter Card CVV"  formControlName="cardCvv" #cardCvv >
-        <input type="text" class="form-control" placeholder="Enter Card Holder Name"  formControlName="cardHolderName" #cardHolderName >
-        <input type="text" class="form-control" placeholder="Enter Card Holder Mobile Number"  formControlName="mobilenumber" #mobilenumber >
-        
-
-    </div>
-    <button class="btn btn-success" type="submit" >Get OTP</button>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-     <button class="btn btn-primary" routerLink="/"> Back</button>
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-danger" type="reset"> Cancel</button>
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     
-</form>
-<form [formGroup]="OtpForm" (ngSubmit)="onSubmit3(OtpForm)" class="form-signin" *ngIf="makepayment" >
-    <div class="form-group">
-        <label for="otp" class="font-weight-bold">
-            Enter OTP:
-        </label>
-        <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
-        <div *ngIf="f3.otp.touched && f3.otp.invalid" class="alert alert-danger">
-            <div *ngIf="f3.otp.errors.required">OTP is required.</div>
-            <div *ngIf="f3.otp.errors.minlength">OTP should be of 4 digits.</div>
-            <div *ngIf="f3.otp.errors.maxlength">OTP should be of 4 digits.</div>
-            <div *ngIf="f3.otp.errors.pattern">Enter only numbers.</div>
+</head>
+<!-- <div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4 offset-md-4">
+            <div class="card ">
+                <div class="card-header">
+                    <div class="row">
+                        <h3 class="text-center login-title text-blue font-weight-bold">Payment Details</h3>
+                         <img class="img-fluid cc-img" src="http://prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="bgpic">
+        <div class="container">
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
+                    <h3 class="text-center login-title text-blue font-weight-bold">Payment Form</h3>
+                    <div class="account-wall">
+                        <form [formGroup]="detailsForm" (ngSubmit)="onSubmit(detailsForm)" class="form-signin" *ngIf="!requestSent">
+                            <div class="main">
+                                <!-- <img class="img-fluid cc-img" src="http://prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> -->
+                                <img src="https://i.imgur.com/28akQFX.jpg" width="450px" height="60px">
+                                <br/>
+                                <br/><br/>
+                                <div class="form-Group">
+                                    <div id=myForm align= "center">
+                                        <select label="cardtype" formControlName = "card">
+                                            <option *ngFor="let cards of card">{{cards}}</option>
+                                        </select>
+                                        <select label="banktype" formControlName = "bank">
+                                            <option *ngFor="let banks of bank">{{banks}}</option>
+                                        </select>
+                                    </div><br/>
+                                </div>
+                                <button class="btn btn-success" type="submit" >Proceed</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                <button class="btn btn-primary" routerLink="/"> Back</button>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-danger" type="reset"> Cancel</button>
+                            </div>
+                        </form>
+                        <form [formGroup]="carddetailsForm" (ngSubmit)="onSubmit2(carddetailsForm)" class="form-signin" *ngIf="requestSent && !makepayment" >
+                            <div class="main">
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label>CARD NUMBER</label>
+                                        <div class="input-group">
+                                                <i class="fa fa-credit-card icon"></i>
+                                                <input type="text" class="form-control" placeholder="1111-2222-3333-4444"  formControlName="cardNumber" #cardNumber >
+                                                
+                                            </div>
+                        
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5 col-md-5 float-xs-right">
+                                        <div class="form-group">
+                                            
+                                            <label>CVV CODE</label>
+                                            <input type="text" class="form-control" placeholder="352"  formControlName="cardCvv" #cardCvv >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div class="form-group">
+                                            <label>CARD HOLDER NAME</label>
+                                            <div class="input-group-prepend">
+                                                <i class="fa fa-user icon"></i>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="Enter Name"  formControlName="cardHolderName" #cardHolderName >
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-5 col-md-5 float-xs-right">
+                                        <div class="form-group">
+                                            <label>MOBILE NUMBER</label>
+                                            <i class="fa fa-mobile icon"></i>
+                                            <input type="text" class="form-control" placeholder="Enter Mobile No.."  formControlName="mobilenumber" #mobilenumber >
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <button class="btn btn-success" type="submit" >Get OTP</button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                            <button class="btn btn-primary" routerLink="/"> Back</button>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <button class="btn btn-danger" type="reset"> Cancel</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form [formGroup]="OtpForm" (ngSubmit)="onSubmit3(OtpForm)" class="form-signin" *ngIf="makepayment" >
+                            <div class="main">
+                                <div class="form-group">
+                                    <label for="otp" class="font-weight-bold">
+                                        Enter OTP:
+                                    </label>
+                                    <i class="fa fa-lock icon"></i>
+                                    <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+                                    <div *ngIf="f3.otp.touched && f3.otp.invalid" class="alert alert-danger">
+                                        <div *ngIf="f3.otp.errors.required">OTP is required.</div>
+                                        <div *ngIf="f3.otp.errors.minlength">OTP should be of 4 digits.</div>
+                                        <div *ngIf="f3.otp.errors.maxlength">OTP should be of 4 digits.</div>
+                                        <div *ngIf="f3.otp.errors.pattern">Enter only numbers.</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" type="submit" [disabled]="!OtpForm.valid">Pay</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                <button class="btn btn-primary" routerLink="/"> Back</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-danger" type="reset"> Cancel</button>
+                            </div>
+                        </form>
+                        <div class="single-bottom">
+                            <ul>
+                                <li>
+                                    <input type="checkbox"  id="brand" value="">
+                                    <label for="brand"><span></span>By checking this box, I agree to the Terms & Conditions & Privacy Policy.</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <button class="btn btn-success" type="submit" [disabled]="!OtpForm.valid">Proceed</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-    <button class="btn btn-primary" routerLink="/"> Back</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-danger" type="reset"> Cancel</button>
 
-</form>
+
+    
         
+    
+        
+   
+    

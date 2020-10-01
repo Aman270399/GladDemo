@@ -77,7 +77,7 @@
     <Property Name="DepartTime" Type="time" Precision="0" Nullable="false" />
     <Property Name="ArrivalTime" Type="time" Precision="0" Nullable="false" />
     <Property Name="Duration" Type="time" Precision="0" Nullable="false" />
-    <Property Name="SeatNo" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="SeatNo" Type="nvarchar" MaxLength="3" Nullable="false" />
     <Property Name="DateTravel" Type="date" Nullable="false" />
     <Property Name="Class" Type="nvarchar" MaxLength="15" Nullable="false" />
     <Property Name="Price" Type="numeric" Precision="10" Scale="2" Nullable="false" />
