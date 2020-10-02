@@ -16,7 +16,7 @@
                   <button type="button" class="list-group-item list-group-item-action" (click)="selectFlight(flight)">
                     <div class="row gutter-row">
                     <div class="col gutter-col ">
-                        <div class="d-flex w-100 justify-content-between">
+                        <div class="flight-details d-flex w-100 justify-content-between">
                              <h5 class="mb-1"><b>{{flight.DepartTime| timeTransform: flight.DepartTime}}-{{flight.ArrivalTime| timeTransform:flight.ArrivalTime}}</b></h5>
                              <h5 class="mb-1"><b>{{flight.FlightId}}</b></h5>
                         </div>
@@ -34,9 +34,9 @@
             </div>  
         </div>
         <div class="col" *ngIf="isReturn">
-            <div class="row gutter-row d-flex w-100 justify-content-between">
+            <div class="title row gutter-row d-flex w-100 justify-content-between">
                 <div class="col gutter-col">
-                    <div class="title ml-1">Return Flight Details</div>
+                    <div class="title ml-1">Flight Details</div>
                 </div>
                 <div class=" subcol col no-gutters">
                     <div class="title">Economy</div>
@@ -47,7 +47,7 @@
             </div>
             <div class="list-group">
                 <div *ngFor="let flight of returnFlights">
-                  <button type="button" class="list-group-item list-group-item-action"(click)="selectReturnFlight(flight)">
+                  <button type="button" class="list-group-item list-group-item-action"(click)="btn.classList.toggle('selected');selectReturnFlight(flight)">
                     <div class="row gutter-row">
                     <div class="col gutter-col ">
                         <div class="d-flex w-100 justify-content-between">
