@@ -36,9 +36,9 @@ export class PaymentgatewayComponent implements OnInit {
     })
     this.carddetailsForm = this.formBuilder.group({
       cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]*$")]],
-      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]*$")]],
+      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]{3}*$")]],
       cardHolderName:['',[Validators.required,Validators.pattern("[A-Za-z]+")]],
-      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("^[0-9]*$")]]
+      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("^[0-9]{11}*$")]]
      })
      
     this.OtpForm = this.formBuilder.group({
@@ -50,7 +50,7 @@ export class PaymentgatewayComponent implements OnInit {
   }
   get f2(){
     return this.carddetailsForm.controls;
-  }
+  } 
   
   get f3(){
     return this.OtpForm.controls;

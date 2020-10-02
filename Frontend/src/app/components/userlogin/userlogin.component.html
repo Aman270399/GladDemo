@@ -1,27 +1,69 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div class="main"> 
-      <nav class="navbar navbar-inverse">
-        
-        <ul  class="nav nav-tabs" align="center">
-            <li style="margin-left : 60px"><a [routerLink]="['/userlogin']" class="nav-item ml-auto nav-link user-action"><b>User Login</b> </a></li>
-            
-            <li style="margin-right : 60px"><a [routerLink]="['/adminlogin']"  class="nav-item ml-auto nav-link user-action"><b>Admin Login</b></a></li>  
-        </ul>
-      </nav>
+<head>
+  <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+</head>
   
-      <p class="sign" align="center">User Login</p>
-       
-      <form class="form1" [formGroup]="loginForm"  > 
-        <div align="center"><img src="../../../assets/images/UserLogin.jpg" height="200px" width="200px" ></div>
-       
-        <input class="un " type="text" align="center" placeholder="Email"  formControlName="email">
-        <div *ngIf="submitted && loginForm.controls.email.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">Email is required.  </div>  </div>
-        <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password">
-        <div *ngIf="submitted && loginForm.controls.password.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors.required">Password is required.  </div>  </div>
-        <a type="submit" class="submit" align="center" (click)="doLogin()" >Sign in</a>
-        <p class="forgot" align="center"><a [routerLink]="['/resetpassword']">Forgot Password?</a></p>
-        <p style="padding-bottom: 2rem;" align="center"><a  class="new"  [routerLink]="['/register']">New User?</a>  </p>
-      </form>      
-    </div>
+      <div class="container">    
+          <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+              <div class="panel panel-info" >
+                <nav class="navbar navbar-inverse">       
+                  <ul  class="nav nav-tabs" align="center">
+                      <li style="margin-left : 60px"><a [routerLink]="['/userlogin']" class="nav-item ml-auto nav-link user-action"><b>User Login</b> </a></li>                      
+                      <li style="margin-right : 60px"><a [routerLink]="['/adminlogin']"  class="nav-item ml-auto nav-link user-action"><b>Admin Login</b></a></li>  
+                  </ul>
+                </nav>
+                      <div class="panel-heading">
+                          <div class="panel-title">Sign In</div>
+                             <div style="float:right; font-size: 80%; position: relative; top:-10px"><a [routerLink]="['/resetpassword']">Forgot password?</a>
+                             </div>
+                          </div>     
+  
+                <div style="padding-top:30px" class="panel-body" > 
+                  <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>                   
+                  <form [formGroup]="loginForm" id="loginform" class="form-horizontal" role="form">                   
+                    <div style="margin-bottom: 25px" class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <input id="email" type="text" class="form-control" formControlName="email"  placeholder="email">  
+                      <div *ngIf="submitted && loginForm.controls.email.errors"> 
+                        <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">
+                            Email is required. 
+                         </div> 
+                      </div>
+                    </div>                                      
+                                      
+                           <div style="margin-bottom: 25px" class="input-group">
+                                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                          <input id="login-password" type="password" class="form-control" formControlName="password" placeholder="password">
+                                          <div *ngIf="submitted && loginForm.controls.password.errors"> 
+                                              <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors.required">
+                                                Password is required. 
+                                               </div>  
+                                              </div>
+                                        </div>
+  
+  
+                                  <div style="margin-top:10px" class="form-group">
+                                      <div class="col-sm-12 controls">        
+                                        <button type="submit" class="btn btn-success" (click)="doLogin()" >Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        
+                                        <button class="btn btn-warning" [routerLink]="['/resetpassword']">Forgot Password?</button>
+                                      </div>
+                                  </div>
 
-  
+                                        <div class="form-group">
+                                          <div class="col-md-12 control">
+                                              <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                                  Don't have an account! 
+                                                  <p style="padding-bottom: 2rem;" align="center"><a  class="new"  [routerLink]="['/register']">New User? Register here</a>  </p>
+                                              </div>
+                                          </div>
+                                      </div>    
+                                  </form>     
+      
+      
+      
+                              </div>                     
+                          </div>  
+              </div>
+        
+
+         
