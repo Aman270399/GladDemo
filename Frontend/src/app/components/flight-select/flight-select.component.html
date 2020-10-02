@@ -1,13 +1,13 @@
-<div class="container">
+<div class="container d-flex w-100 justify-content-around">
         <div class="col">
-            <div class="row gutter-row ">
+            <div class="row gutter-row d-flex w-100 justify-content-between">
                 <div class="col gutter-col">
                     <div class="title ml-1">Flight Details</div>
                 </div>
-                <div class="col no-gutters  subcol ">
+                <div class=" subcol col no-gutters">
                     <div class="title">Economy</div>
                 </div>
-                <div class="col no-gutters subcol">
+                <div class="subcol col no-gutters">
                     <div class="title">Business</div>
                 </div>
             </div>
@@ -16,7 +16,7 @@
                   <button type="button" class="list-group-item list-group-item-action" (click)="selectFlight(flight)">
                     <div class="row gutter-row">
                     <div class="col gutter-col ">
-                        <div class="flight-details d-flex w-100 justify-content-between">
+                        <div class="d-flex w-100 justify-content-between">
                              <h5 class="mb-1"><b>{{flight.DepartTime| timeTransform: flight.DepartTime}}-{{flight.ArrivalTime| timeTransform:flight.ArrivalTime}}</b></h5>
                              <h5 class="mb-1"><b>{{flight.FlightId}}</b></h5>
                         </div>
@@ -34,7 +34,7 @@
             </div>  
         </div>
         <div class="col" *ngIf="isReturn">
-            <div class="title row gutter-row d-flex w-100 justify-content-between">
+            <div class="row gutter-row d-flex w-100 justify-content-between">
                 <div class="col gutter-col">
                     <div class="title ml-1">Flight Details</div>
                 </div>
