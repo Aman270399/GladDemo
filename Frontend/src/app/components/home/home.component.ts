@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
   destination: string;
   todayShort = new Date().toISOString().slice(0,10);
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) {
-    this.airportservice.getallairports().subscribe(data=>{
-      this.airports=data;
-      console.log(this.airports); });
    }
 
   ngOnInit(): void {
+    this.airportservice.getallairports().subscribe(data=>{
+      this.airports=data;
+      console.log(this.airports); });
     localStorage.clear();
     this.SearchForm = this.formbulider.group({  
       flighttype:['',Validators.required], 
