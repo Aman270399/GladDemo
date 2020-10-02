@@ -14,12 +14,15 @@ export class UserloginComponent implements OnInit {
   loginForm: FormGroup;
   user:User;
   fromFlightSelect:boolean;
+  hide:boolean= false;
   
   constructor(private formBuilder: FormBuilder,private userService: AuthService,private router: Router,private route:ActivatedRoute,private location:Location) {
+   
    }
    
-  
   ngOnInit(): void {
+
+    
     this.loginForm = this.formBuilder.group({
 			email: ['', [Validators.required]],
 			password: ['', [Validators.required]]
