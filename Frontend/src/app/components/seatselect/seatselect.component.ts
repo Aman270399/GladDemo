@@ -205,6 +205,7 @@ export class SeatselectComponent implements OnInit {
       j++;
     }
     this.ticketservice.tickets=this.tickets;
+    console.log(this.tickets);
     console.log(this.ticketservice.tickets);
     this._router.navigate(['paymentgateway']);
   }

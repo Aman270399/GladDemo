@@ -11,14 +11,12 @@ export class TicketService {
       'Content-Type': 'application/json'
     })
   }
-  public tickets:Ticket[]=[];
+  public tickets:Ticket[];
 
   constructor(private http:HttpClient) { }
 
   baseUrl : string = "https://localhost:44374/api/tickets";
   addTickets(){
-    this.tickets.forEach(ticket => {
-      return this.http.post<Ticket>(this.baseUrl,JSON.stringify(ticket),this.httpOptions);
-    });
+      return this.http.post<Ticket[]>(this.baseUrl,JSON.stringify(this.tickets),this.httpOptions);
   }
 }
