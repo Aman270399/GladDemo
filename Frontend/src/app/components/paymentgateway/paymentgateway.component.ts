@@ -25,6 +25,7 @@ export class PaymentgatewayComponent implements OnInit {
   current: Number;
   getdetailsform: any;
   makepayment:boolean=false;
+  booking:Booking;
   
   
   constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private ticketservice:TicketService,private bookingservice:BookingserviceService,private router:Router) {}
@@ -36,9 +37,9 @@ export class PaymentgatewayComponent implements OnInit {
     })
     this.carddetailsForm = this.formBuilder.group({
       cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]*$")]],
-      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]{3}*$")]],
+      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]{3}")]],
       cardHolderName:['',[Validators.required,Validators.pattern("[A-Za-z]+")]],
-      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("^[0-9]{11}*$")]]
+      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("[7-9][0-9]{9}")]]
      })
      
     this.OtpForm = this.formBuilder.group({
@@ -84,7 +85,7 @@ onSubmit3(form){
       }
       console.log(this.ticketservice.tickets);
       console.log(totalPrice);
-      let booking={ BookingId: bookingId,
+      this.booking={ BookingId: bookingId,
                     UserEmailId:null,
                     DateBooking:new Date().toISOString().slice(0,10),
                     TransactionId:JSON.stringify(this.detailsForm.controls.bank).concat(JSON.stringify(Date.now()).substr(7,4)),
@@ -92,9 +93,8 @@ onSubmit3(form){
                     TotalPassenger:totalPassengers,
                     BookStatus:'Confirmed'
                   }
-                  console.log(booking);
-      this.bookingservice.addBooking(booking).subscribe(data=>{console.log(data)
-      
+                  console.log(this.booking);
+      this.bookingservice.addBooking(this.booking).subscribe(data=>{console.log(data) 
       }); 
       this.ticketservice.addTickets();
       this.makepayment = true;

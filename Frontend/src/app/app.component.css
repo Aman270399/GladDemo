@@ -6,9 +6,9 @@
     background-image: url('../assets/images/background.jpg');
     background-size: cover;
     background-position: center;
-    font-family:'Muli', sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 html,body{
-    font-family: 'Muli', sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     height: 100%;
 }
