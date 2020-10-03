@@ -67,7 +67,7 @@
                 </div>
             </div>  
         </div>
-        <button mat-raised-button color="accent" class="continue" (click)= "continue()" *ngIf="selected || (isReturn && returnSelected)" >Continue</button>
+        <button mat-raised-button color="accent" class="continue" (click)= "continue()" *ngIf="selected && (returnSelected || (!returnSelected&&!isReturn))" >Continue</button>
 </div>
 
 
