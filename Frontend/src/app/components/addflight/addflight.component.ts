@@ -45,17 +45,25 @@ export class AddflightComponent implements OnInit {
    console.log(form.SourceId);
    this.FSI = form.FlightId ; 
    this.seats = 60; 
+   this.service.Addflight(form).subscribe(data=>{
+    // console.log(data);
+     
+     alert("Flight Added Successfully"); 
+    
    this.flightschedule= new FlightSchedule(this.flightdate,this.FSI,this.seats);
    this.service.addflightschedule(this.flightschedule).subscribe(data=>{});
    console.log(this.flightschedule);
-    this.service.Addflight(form).subscribe(data=>{
-     // console.log(data);
-      
-      alert("Flight Added Successfully"); 
-      this.route.navigate(['adminview']);
+   this.route.navigate(['adminview']);
     },(error) => {
       console.log(error);
-      alert("Please Enter valid details!!")
+     
+      if(error.error.Message=="Flight already Exists"){
+        alert("Flight already Exists!!")
+      }
+      else{
+        alert("Please enter valid details");
+      }
+      
     });
   
  }

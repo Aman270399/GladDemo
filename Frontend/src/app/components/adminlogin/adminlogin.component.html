@@ -1,27 +1,20 @@
 <head>
   <title>Admin Login</title>
 </head>
-
-  <div id="admin" class="section">
-  <div class="main">
+<form class="loginform" [formGroup]="loginform" id="loginform" >
     <nav style="color: aliceblue;" class="navbar navbar-inverse">
- 
       <ul  class="nav nav-tabs" align="center">
         <li style="margin-left : 60px"><a [routerLink]="['/userlogin']" class="nav-item ml-auto nav-link user-action"><b>User Login</b> </a></li>
-        
         <li style="margin-right : 60px"><a [routerLink]="['/adminlogin']"  class="nav-item ml-auto nav-link user-action"><b>Admin Login</b></a></li>
     </ul>
     </nav>
-    <p class="sign" align="center">Admin Login</p>
-    
-    <form class="form1" [formGroup]="loginForm" >
-      
+
       <div class="form-group"><h1>Sign In</h1></div>
       <div class="input-group">
         <mat-form-field appearance="outline"> 
           <mat-label >Enter your email</mat-label>
           <input matInput placeholder="admin@example.com" formControlName="email" required>
-          <mat-error *ngIf="loginForm.controls.email.invalid">Please enter valid email</mat-error>
+          <mat-error *ngIf="loginform.controls.email.invalid">Please enter valid email</mat-error>
         </mat-form-field>
       </div>
      
@@ -38,8 +31,7 @@
        <button type="submit" mat-raised-button class="btn-success" align="center" (click)="doAdminLogin()">Login</button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </div>
       </form>                   
-    </div>
-  </div>
+  
 
      
 

@@ -1,16 +1,18 @@
 <div class="main">
-  <div class="table-responsive">      
-    <table style="color: rgb(243, 242, 225);" id="mytable" class="table table-bordred table-striped">
-      <h1><b>Flights</b></h1>
+  <div class="table-responsive">     
+  
+    <table  id="mytable" class="table table-bordred table-striped">
+      <p><b>List of Flights</b></p>
+      
     <tr>
         
-        <th>Flight Number</th>
+        <th >Flight Number</th>
         <th>Flight From</th>
         <th>Flight To</th>
         <th> Departure Time</th>
         <th> Arrival Time</th>
-        <th>Amount Adult Economy </th>
-        <th>Amount Adult Business </th>
+        <th>Economy Price </th>
+        <th>Business Price </th>
        <!-- <th> Departure Date</th>-->
     </tr>
     <tr *ngFor = "let flight of  flights">
