@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
       console.log(this.airports); });

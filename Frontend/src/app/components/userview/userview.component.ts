@@ -19,7 +19,8 @@ export class UserviewComponent implements OnInit {
   presenttime=new Date().getTime();
   ngOnInit(): void {
     this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)});
-
+    console.log( new Date().getHours());
+    console.log( new Date().getMinutes());
     console.log(this.todayShort);
   }
   tickets:any;  //to store subscribed values
@@ -31,7 +32,7 @@ export class UserviewComponent implements OnInit {
   {
      this.trial=id;
      this.booktable=booking;
-     this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;console.log(this.tickets.DateTravel>this.todayShort);})
+     this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;console.log(this.tickets[0].DepartTime);})
       this.check=!this.check;     
   }
   tickter:any;
@@ -42,7 +43,6 @@ export class UserviewComponent implements OnInit {
   }
   ondelete(ticket){
     ticket.DateCancellation=this.todayShort;
-    console.log(ticket);
     this.bookingdetail.deleteticket(ticket).subscribe(data=>{
       console.log(data)});
      this.booktable.TotalPassenger-=1;
