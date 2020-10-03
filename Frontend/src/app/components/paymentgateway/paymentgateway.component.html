@@ -1,56 +1,121 @@
-<head>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     
-</head>
-<!-- <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-md-4 offset-md-4">
-            <div class="card ">
-                <div class="card-header">
-                    <div class="row">
-                        <h3 class="text-center login-title text-blue font-weight-bold">Payment Details</h3>
-                         <img class="img-fluid cc-img" src="http://prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-    <div class="bgpic">
-        <div class="container">
-            <br/>
-            <br/>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 container justify-content-center">
-                    <h3 class="text-center login-title text-blue font-weight-bold">Payment Form</h3>
-                    <div class="account-wall">
-                        <form [formGroup]="detailsForm" (ngSubmit)="onSubmit(detailsForm)" class="form-signin" *ngIf="!requestSent">
-                            <div class="main">
-                                <!-- <img class="img-fluid cc-img" src="http://prepbootstrap.com/Content/images/shared/misc/creditcardicons.png"> -->
-                                <img src="https://i.imgur.com/28akQFX.jpg" width="450px" height="60px">
+<!-- <div align="center" class="main">
+    <form [formGroup]="flight"  >
+      <mat-form-field>
+      <input matInput [matDatepicker]="dateF" required placeholder="Flight Date" formControlName="flightdate" [min]="today" [(ngModel)]="flightdate" >
+    <mat-datepicker-toggle matSuffix [for]="dateF"></mat-datepicker-toggle>
+     <mat-datepicker #dateF></mat-datepicker>
+    </mat-form-field>
+    </form>
+    <form color="primary" [formGroup]="addFlight" >
+  <mat-form-field appearance="outline" >
+    <mat-label>Flight ID</mat-label>
+    <input matInput required placeholder="Enter Flight ID" formControlName="FlightId"><br>
+  </mat-form-field><br>
+  <mat-form-field appearance="outline" >
+    <mat-label>Source ID</mat-label>
+    <mat-select required formControlName="SourceId">
+     
+      <mat-option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</mat-option>
+    </mat-select>
+  </mat-form-field> &nbsp;&nbsp; -->
+                
+                        <form [formGroup]="detailsForm" (ngSubmit)="onSubmit(detailsForm)"  *ngIf="!requestSent">
+                            <div style="align-items: center;" class="main">
+                               
+                                <img  src="https://i.imgur.com/28akQFX.jpg" width="100%" height="80px">
                                 <br/>
-                                <br/><br/>
-                                <div class="form-Group">
+                                <h2>Total amount:{{totalPrice|currency:"INR"}}</h2>
+                                <br/>
+                                <div  class="form-Group">
                                     <div id=myForm align= "center">
-                                        <select label="cardtype" formControlName = "card">
-                                            <option *ngFor="let cards of card">{{cards}}</option>
-                                        </select>
-                                        <select label="banktype" formControlName = "bank">
-                                            <option *ngFor="let banks of bank">{{banks}}</option>
-                                        </select>
-                                    </div><br/>
+                                        <mat-form-field appearance="outline"> 
+                                            <mat-label>Type of Card</mat-label>
+                                        <mat-select required  formControlName = "card">
+                                            <mat-option *ngFor="let cards of card" [value]="cards">{{cards}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Bank Name</mat-label>
+                                        <mat-select  required formControlName = "bank">
+                                        <mat-option *ngFor="let banks of bank" [value]="banks">{{banks}}</mat-option>
+                                        </mat-select>
+                                    </mat-form-field> <br>
+                                    <button mat-raised-button type="submit" color="primary">Proceed</button> &nbsp;&nbsp;
+                                    <button mat-raised-button  [routerLink]="['paymentgateway']" color="accent">Cancel</button>
+                                    </div>
                                 </div>
-                                <button class="btn btn-success" type="submit" >Proceed</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
-                                <button class="btn btn-primary" [routerLink]="['paymentgateway']"> Back</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <button class="btn btn-danger" type="reset"> Cancel</button>
                             </div>
                         </form>
+                          
                         <form [formGroup]="carddetailsForm" (ngSubmit)="onSubmit2(carddetailsForm)" class="form-signin" *ngIf="requestSent && !makepayment" >
+                            <div style="align-items: center;" class="main"> 
+                                <div class="form-group"> 
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Card No</mat-label>
+                                        <input type="number"matInput required placeholder="1111-2222-3333-4444" formControlName="cardNumber">
+                                      </mat-form-field><br>
+                                      <mat-form-field appearance="outline" >
+                                        <mat-label>CVV</mat-label>
+                                        <input type="number" matInput required placeholder="123" formControlName="cardCvv">
+                                      </mat-form-field><br> 
+                                      <mat-form-field appearance="outline" >
+                                        <mat-label>Card Holder Name</mat-label>
+                                        <input matInput required placeholder="Full Name" formControlName="cardHolderName">
+                                      </mat-form-field><br>
+                                      <mat-form-field appearance="outline" >
+                                        <mat-label>Mobile linked to Card</mat-label>
+                                        <input matInput required placeholder="Mobile" value="mobilenumber" formControlName="mobilenumber">
+                                      </mat-form-field><br>
+                                      <mat-form-field appearance="outline" >
+                                        <mat-label>Card Expiry</mat-label>
+                                        <input matInput required placeholder="MM/YY" value="cardExpiry" formControlName="cardExpiry">
+                                      </mat-form-field><br>
+                                      <button mat-raised-button color="primary"  type="submit" >Get OTP</button>                             
+                                <button mat-raised-button color="secondary"  routerLink="/"> Back</button>
+                                 <button  mat-raised-button color="accent"  type="reset"> Cancel</button>
+                                </div>
+                                
+                                </div>
+                        </form>  
+                        <form [formGroup]="OtpForm" (ngSubmit)="onSubmit3(OtpForm)" class="form-signin" *ngIf="makepayment" >
+                            <div style="align-items: center;" class="main">
+                                <div class="form-group"> 
+                                    <mat-form-field appearance="outline" >
+                                        <mat-label>Enter OTP</mat-label>
+                                        <input matInput required placeholder="xxxx" value="otp" formControlName="otp">
+                                      </mat-form-field><br> 
+                                      <button mat-raised-button color="primary"  type="submit" >Pay</button>                            
+                                 <button  mat-raised-button color="accent" routerLink="/"> Cancel</button> 
+                                </div>
+                            </div>
+                        </form>
+                           <!--   <form [formGroup]="OtpForm" (ngSubmit)="onSubmit3(OtpForm)" class="form-signin" *ngIf="makepayment" >
+                            <div class="main">
+                                <div class="form-group">
+                                    <label for="otp" class="font-weight-bold">
+                                        Enter OTP:
+                                    </label>
+                                    <i class="fa fa-lock icon"></i>
+                                    <input type="text" class="form-control" placeholder="Enter OTP"  formControlName="otp" #otp >
+                                    <div *ngIf="f3.otp.touched && f3.otp.invalid" class="alert alert-danger">
+                                        <div *ngIf="f3.otp.errors.required">OTP is required.</div>
+                                        <div *ngIf="f3.otp.errors.minlength">OTP should be of 4 digits.</div>
+                                        <div *ngIf="f3.otp.errors.maxlength">OTP should be of 4 digits.</div>
+                                        <div *ngIf="f3.otp.errors.pattern">Enter only numbers.</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-success" type="submit"  [disabled]="!OtpForm.valid">Pay</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                <button class="btn btn-primary" routerLink="/"> Back</button>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button class="btn btn-danger" type="reset"> Cancel</button>
+                            </div>
+                        </form>         
+                                  
+                        </form> -->
+                        <!-- <form [formGroup]="carddetailsForm" (ngSubmit)="onSubmit2(carddetailsForm)" class="form-signin" *ngIf="requestSent && !makepayment" >
                             <div class="main">
                                 <div class="row">
                                     <div class="col-xs-12">
@@ -156,19 +221,8 @@
                                 <button class="btn btn-danger" type="reset"> Cancel</button>
                             </div>
                         </form>
-                        <div class="single-bottom">
-                            <ul>
-                                <li>
-                                    <input type="checkbox"  id="brand" value="">
-                                    <label for="brand"><span></span>By checking this box, I agree to the Terms & Conditions & Privacy Policy.</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+     -->
+   
 
 
     
