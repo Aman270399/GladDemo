@@ -15,8 +15,8 @@ import {TicketService} from 'src/app/services/ticket.service';
 export class SeatselectComponent implements OnInit {
 
   constructor(private _router: Router, private _seatService: SeatqueryService, private activatedRoute: ActivatedRoute,private ticketservice:TicketService) { }
-  seats: Seat[];
-  returnSeats:Seat[];
+  seats: Seat[]=[];
+  returnSeats:Seat[]=[];
   flight:flight;
   returnFlight:flight;
   flightId: string;
@@ -30,11 +30,11 @@ export class SeatselectComponent implements OnInit {
   childpassengers:Passenger[];
   infantpassengers:Passenger[];
   isReturn:boolean=false;
-  class:string;
-  tickets:Ticket[];
-  price:number;
-  returnPrice:number;
-  TotalPrice:number;
+  class:string="";
+  tickets:Ticket[]=[];
+  price:number=0.0;
+  returnPrice:number=0.0;
+  TotalPrice:number=0.0;
   ngOnInit() {
     console.log(this.class);
     this.adultpassengercount=+localStorage.getItem("adultpassengercount");
