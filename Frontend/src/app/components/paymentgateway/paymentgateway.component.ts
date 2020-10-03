@@ -12,7 +12,7 @@ import { TicketService } from 'src/app/services/ticket.service';
   styleUrls: ['./paymentgateway.component.css']
 })
 export class PaymentgatewayComponent implements OnInit {
-  
+  totalPrice = sessionStorage.getItem("TotalPrice");
   carddetailsForm: FormGroup;
   detailsForm: FormGroup;
   paymentForm: FormGroup;
@@ -37,7 +37,8 @@ export class PaymentgatewayComponent implements OnInit {
       cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]{16}")]],
       cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("[0-9]{3}")]],
       cardHolderName:['',[Validators.required,Validators.pattern("[A-Za-z]+")]],
-      mobilenumber:['',[Validators.required,Validators.max(10),Validators.pattern("[7-9][0-9]{9}")]]
+      mobilenumber:['',[Validators.required,Validators.max(10),Validators.pattern("[7-9][0-9]{9}")]],
+      cardExpiry:['',[Validators.required]]
      })
      
     this.OtpForm = this.formBuilder.group({
@@ -57,6 +58,7 @@ export class PaymentgatewayComponent implements OnInit {
   onSubmit(form)
 {
   this.requestSent = true;
+  console.log(form)
 }
 onSubmit2(form){
   this.makepayment = true;
