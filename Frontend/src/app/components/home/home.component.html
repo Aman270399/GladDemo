@@ -25,7 +25,7 @@
                                     </select>
                                     <div *ngIf="SearchForm.get('source').touched">
                                         <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
-                                            <b>Error: </b>Source is required
+                                             <b>Source</b> is required
                                         </div>
                                      </div>
                                 </div>
@@ -39,14 +39,14 @@
                                         <option value="" selected disabled hidden>Flying To</option>
                                         <ng-container *ngFor="let airport of airports">
                                             <option value="" selected disabled hidden>Fying To</option>
-                                            <option [value]="airport.AirportId" *ngIf="airport.AirportId != source" >
+                                            <option [value]="airport.AirportId" *ngIf="airport.AirportId != SearchForm.controls.source.value" >
                                               {{airport.CityName}}({{ airport.AirportId }})
                                             </option>
                                         </ng-container>
                                         </select>
                                         <div *ngIf="SearchForm.get('destination').touched">
                                             <div class="alert text-danger" *ngIf="SearchForm.get('destination').hasError('required')">
-                                                <b>Error: </b>Destination is required
+                                                <b>Destination</b> is required
                                             </div>
                                          </div>
                                 </div>
@@ -69,7 +69,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <span class="form-label">Returning</span>
-                                    <input class="form-control" type="date" id="returndate" [min]="departdate" formControlName="returndate">
+                                    <input class="form-control" type="date" id="returndate" [min]="SearchForm.controls.departdate.value" formControlName="returndate">
                                 </div>
                             </div>
                             <div class="col">

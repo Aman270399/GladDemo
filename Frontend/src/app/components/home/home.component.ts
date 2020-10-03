@@ -33,9 +33,9 @@ export class HomeComponent implements OnInit {
       destination:['' ,Validators.required],    
       departdate:['',Validators.required],   
       returndate:[''], 
-      adultpassengercount:['',[Validators.required,Validators.pattern("[0-9]+")]],
-      childpassengercount:['',Validators.pattern("[0-9]*")],
-      infantpassengercount:['',Validators.pattern("[0-9]*")],
+      adultpassengercount:[0,[Validators.required,Validators.pattern("[1-9]+")]],
+      childpassengercount:[0,Validators.pattern("[0-9]*")],
+      infantpassengercount:[0,Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
     console.log('107'+JSON.stringify(Date.now()).substr(3,10));
