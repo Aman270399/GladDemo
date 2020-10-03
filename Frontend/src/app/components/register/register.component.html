@@ -1,3 +1,7 @@
+<!-- <head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+</head> -->
+    <!-- <div  class="container"> 
 
      <div  class="container"> 
         <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
@@ -8,36 +12,14 @@
                     <label class="col-md-4 control-label">Title:</label>   
                     <div class="col-md-4 selectContainer">
                         <div class="input-group"> 
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                    <select  formControlName="Title" id="Title"  class="form-control selectpicker" required [ngClass]="{ 'is-invalid': submitted && f.Title.errors }" >
-                        <option type="text"  value="Mr">Mr</option>
-                        <option type="text" value="Mrs">Mrs</option>
-                        <option type="text" value="Miss">Miss</option>
-                    </select>
-                        </div>
-                        <div class="text-danger" *ngIf="addUser.get('Title').hasError('required')&& addUser.get('Title').touched" >
-                            Title is required
-                            </div>
-                    </div>
+                    
                 </div>
 
                 <div [formGroup]="addUser">
                 <div  align="center"  class="form-group" >
                     <label class="col-md-4 control-label">First Name</label>
                     <div class="col-md-4 inputGroupContainer">
-                        <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input  formControlName="FirstName" placeholder="First Name" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" >                      
-                       
-                        </div>
-                </div>  
-                <br><br>  
-                <div class="text-danger" *ngIf="addUser.get('FirstName').hasError('required')&& addUser.get('FirstName').touched" >
-                    First name is required
-                    </div>
-                    <div *ngIf="addUser.get('FirstName').hasError('pattern')" class="text-danger">
-                        Please enter only alphabets
-                  </div>    
+
             </div> 
                 </div> 
 
@@ -80,21 +62,25 @@
 
            <div [formGroup]="addUser">   
             <div  align="center"  class="form-group" >
-                <label class="col-md-4 control-label">E-Mail</label>  
                     <div class="col-md-4 inputGroupContainer">
                         <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input formControlName="UserEmailId" id="email" placeholder="E-Mail Address" class="form-control"  type="text" [ngClass]="{ 'is-invalid': submitted && f.UserEmailId.errors }">        
+                        <span class="input-group-addon"><mat-icon>email</mat-icon></span>
+                        <mat-form-field appearance="fill"> 
+                            <mat-label >Enter your email</mat-label>
+                            <input matInput placeholder="user@example.com" class="form-control" formControlName="UserEmailId" required >
+                            <mat-error *ngIf="addUser.controls.UserEmailId.invalid">Please enter valid email</mat-error>
+                          </mat-form-field>       
                         </div>
                     </div>
                     <br><br>
-                    <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('required')&& addUser.get('UserEmailId').touched">
+                    <!-- <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('required')&& addUser.get('UserEmailId').touched">
                         Email Id is required
                         </div>
                         <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('email')">
                            Please enter correct email id
                         </div> 
-                </div>
+                </div> 
+           </div>
            </div>
 
            <div [formGroup]="addUser">
@@ -149,6 +135,7 @@
                     <div class="text-danger" *ngIf="addUser.hasError('notSame')">
                         Passwords do not match
                     </div> 
+                    
                   </div>
                 </div>
                   
@@ -161,7 +148,79 @@
                 </div>
             </fieldset>
         </form>
-    </div>
+    </div>                        <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  formControlName="FirstName" placeholder="First Name" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" >                      
+                       
+                        </div>
+                </div>  
+                <br><br>  
+                <div class="text-danger" *ngIf="addUser.get('FirstName').hasError('required')&& addUser.get('FirstName').touched" >
+                    First name is required
+                    </div>
+                    <div *ngIf="addUser.get('FirstName').hasError('pattern')" class="text-danger">
+                        Please enter only alphabets
+                  </div>    
 
 
-                   
+                    -->
+
+<mat-card class="my-card">
+    <mat-toolbar>
+        <span>Registration</span>
+    </mat-toolbar>
+    <form class="my-form" method="post" (ngSubmit)="(onSubmit(addUser.value))" id="addUser" [formGroup]="addUser">
+        <mat-card-content>
+            <mat-form-field class="full-width">
+                <mat-label>Title</mat-label>
+                <mat-select formControlName="Title" required>
+                    <mat-option value="Mr">Mr</mat-option>
+                    <mat-option value="Mrs">Mrs</mat-option>
+                    <mat-option value="Miss">Miss</mat-option>
+                </mat-select>
+                <mat-error *ngIf="addUser.controls.Title.hasError('required')">Please choose a Title</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>First Name</mat-label>
+                <input  matInput  placeholder="First name"  name="fname"  required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Last Name</mat-label>
+                <input  matInput  placeholder="Last Name" name="lname"  required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label >Email</mat-label>
+                <input matInput placeholder="user@example.com" formControlName="UserEmailId" required>
+                <mat-error *ngIf="addUser.controls.UserEmailId.invalid">Please enter valid email</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+               <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+                <button mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="addUser.controls.Password.dirty && addUser.controls.Password.invalid">Password must contain a combination of atleast one uppercase,lowercase,special character and a digit.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Confirm password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPass" required [errorStateMatcher]="errorMatcher">
+                <button mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="addUser.hasError('notSame')">Password does not match</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [errorStateMatcher]="errorMatcher" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="addUser.get('DateOfBirth').hasError('required')&& addUser.get('DateOfBirth').touched" class="text-danger">DOB is required</mat-error>
+                <mat-error *ngIf="addUser.hasError('InvalidAge')">Age cannot be less than 18</mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+                 <button mat-raised-button type="submit" color="primary">REGISTER</button>
+                 <button  mat-raised-button color="warn" (click)="this.route.navigate(['userlogin'])" >CANCEL</button>
+        </mat-card-actions>
+    </form>
+</mat-card>
