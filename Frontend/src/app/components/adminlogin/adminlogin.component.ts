@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AdminloginComponent implements OnInit { 
   loginForm: FormGroup; 
-  
+  hide:boolean= true;
   constructor(private formBuilder: FormBuilder,private router: Router,private adminService: AuthService) { }
    
   ngOnInit(): void {

@@ -47,6 +47,7 @@ age:any;
     console.log(age);
     
     this.service.addUser(form).subscribe(data=>{
+
       console.log(data)
       alert("User Registered Successfully");
       this.route.navigate(["userlogin"]); },(error) => {console.log(error.error.Message);
