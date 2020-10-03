@@ -86,11 +86,12 @@ onSubmit3(form){
       let booking={ BookingId: bookingId,
                     UserEmailId:sessionStorage.getItem('useremail'),
                     DateBooking:new Date().toISOString().slice(0,10),
-                    TransactionId:JSON.stringify(this.detailsForm.controls.bank.value).concat(JSON.stringify(Date.now()).substr(7,4)),
+                    TransactionId:(this.detailsForm.controls.bank.value).concat(JSON.stringify(Date.now()).substr(7,4)),
                     TotalPrice:totalPrice,
                     TotalPassenger:totalPassengers,
                     BookStatus:'Confirmed'
                   }
+                  console.log(booking.TransactionId)
                   sessionStorage.setItem('boo',JSON.stringify(booking));
                   console.log(booking);
       this.bookingservice.addBooking(booking).subscribe(data=>{

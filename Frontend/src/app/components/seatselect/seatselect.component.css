@@ -15,7 +15,7 @@
   grid-template-columns: repeat(20, 1fr);
   grid-template-rows:auto auto 10vh auto auto auto;
   overflow: auto;
-  padding:3%
+  margin:3%
 }
 button:disabled,
 button[disabled]{

@@ -57,6 +57,7 @@ import { ShowticketComponent } from './components/showticket/showticket.componen
     AngularMaterialModule,
     FormsModule,
     BrowserAnimationsModule,
+    
   ],
   providers:[],
   // providers: [{
