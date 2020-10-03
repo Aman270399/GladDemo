@@ -13,7 +13,7 @@
                     <mat-option value="Miss">Miss</mat-option>
                 </mat-select>
                 <mat-icon matPrefix>view_list</mat-icon>
-                <mat-error *ngIf="addUser.get('FirstName').touched && addUser.controls.Title.hasError('required')">Please choose a title</mat-error>
+                <mat-error *ngIf="addUser.get('Title').touched && addUser.controls.Title.hasError('required')">Please choose a title</mat-error>
             </mat-form-field>
         </div>
             <div class="form-group">

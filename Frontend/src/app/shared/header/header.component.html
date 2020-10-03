@@ -4,12 +4,10 @@
         <div class="navbar-nav ml-auto" >
                 <a routerLink="userlogin"class="nav-item ml-auto nav-link user-action" *ngIf="!isLoggedIn"><b>Login/Signup</b></a>
                 <a routerLink='userview' class = "nav-item ml-auto nav-link user-action" *ngIf="isLoggedIn && isLoggedUser"><b>Booking History</b></a>
-                
+                <a routerLink='adminview' class = "nav-item ml-auto nav-link user-action" *ngIf="isLoggedAdmin"><b>Flight List</b></a>
             <div class="dropdown" *ngIf="isLoggedIn">
                 <a href data-toggle="dropdown" class="nav-item nav-link dropdown-toggle user-action"><b>{{userName}}</b><b class="caret"></b></a>
                 <div class="dropdown-menu dropdown-menu-right">
-                    <a href class="dropdown-item"><i class="material-icons">person</i>Profile</a>
-                    <div class="divider dropdown-divider"></div>
                     <a href (click)="Logout()" class="dropdown-item"><i class="material-icons">&#xE8AC;</i>Logout</a>
                 </div>
             </div>

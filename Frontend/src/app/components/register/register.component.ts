@@ -72,7 +72,7 @@ age:any;
       }
       if(error.error.Message=="Age cannot be less than 18")
       {
-        alert()
+        alert("Age cannot be less than 18!")
       }
       else
        alert("Please Enter valid details!!");
