@@ -54,7 +54,7 @@ namespace Airlines_WebApp.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-                if(userObj== dataRepository.Get(userObj.UserEmailId))
+                if(dataRepository.Get(userObj.UserEmailId)==null)
                 {
                     return BadRequest("Email already exists");
                 }
