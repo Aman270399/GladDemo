@@ -19,6 +19,7 @@ export class AddflightComponent implements OnInit {
   FSI:any;
   seats:any; 
   flightdate: any;
+  today = new Date();
   constructor(private builder : FormBuilder, private service: FlightlistService,public route:Router,private airportservice:AirportlistService) { }
 
   ngOnInit(): void {

@@ -23,6 +23,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 import { ShowticketComponent } from './components/showticket/showticket.component';
+import { MatNativeDateModule } from '@angular/material/core';
 // import { HttpErrorInterceptor } from './http-error.interceptor';
 
 
@@ -57,6 +58,7 @@ import { ShowticketComponent } from './components/showticket/showticket.componen
     AngularMaterialModule,
     FormsModule,
     BrowserAnimationsModule,
+    MatNativeDateModule,
     
   ],
   providers:[],
