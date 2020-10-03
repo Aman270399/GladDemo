@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { UserloginComponent } from './components/userlogin/userlogin.component';
 import { FlightSelectComponent } from './components/flight-select/flight-select.component';
 import { TimeTransformPipe } from './pipes/time-transform.pipe';
@@ -23,6 +23,7 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 import { ShowticketComponent } from './components/showticket/showticket.component';
+// import { HttpErrorInterceptor } from './http-error.interceptor';
 
 
 
@@ -58,7 +59,16 @@ import { ShowticketComponent } from './components/showticket/showticket.componen
     BrowserAnimationsModule,
     
   ],
-  providers: [],
+  providers:[],
+  // providers: [{
+
+  //   provide: HTTP_INTERCEPTORS,
+
+  //   useClass: HttpErrorInterceptor,
+
+  //   multi: true
+
+  // }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

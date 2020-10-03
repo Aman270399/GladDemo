@@ -123,7 +123,7 @@ drop table Flight;
 drop table Airport;
 
 
-
+delete from Flight
 delete from Airport
 delete from UserTable;
 delete from FlightSchedule;

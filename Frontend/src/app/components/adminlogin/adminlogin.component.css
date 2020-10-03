@@ -1,4 +1,10 @@
-
+.mat-form-field {
+    width: 76%;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    margin-bottom: 50px;
+    margin:auto;   
+}
 .main {
     background-color: #FFFFFF;
 

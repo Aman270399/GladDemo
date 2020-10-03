@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class AdminloginComponent implements OnInit { 
   loginForm: FormGroup; 
-  
+  hide:boolean= true;
   constructor(private formBuilder: FormBuilder,private router: Router,private adminService: AuthService) { }
    
   ngOnInit(): void {
@@ -26,8 +26,10 @@ export class AdminloginComponent implements OnInit {
       this.submitted = true;
       this.adminService.doAdminLogin(this.loginForm.value).subscribe(result => {
         console.log(this.loginForm.value);
-        this.adminService.getLoggedInName.next(result.FirstName);
-        sessionStorage.setItem('adminData',JSON.stringify(result.AdminEmailId));
+        sessionStorage.setItem('username',result.FirstName+" "+result.LastName);
+        this.adminService.getLoggedInName.next(result.FirstName+" "+result.LastName);
+        sessionStorage.setItem('adminData',JSON.stringify(result.Password));
+        sessionStorage.setItem('useremail',result.AdminEmailId.toString());
         alert('Logged in as Admin');
         this.router.navigate(['adminview']);  
       }, (error) => {

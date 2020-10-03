@@ -1,11 +1,11 @@
 .container{
     padding-top: 5%;
     display:flex;
+    min-width: 20cm;
 }
 .list-group{
     padding-top: 2rem;
   }
-
  .title {
     font-weight: 600;
     text-transform: uppercase;
