@@ -1,49 +1,64 @@
 
-<head>
 
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-    <title>Add Flight</title>
-  </head>
-
-    <div class="main"> 
-        <p class="sign" align="center">Add Flight</p>
-        <form [formGroup]="flight" class="form1" >
-        <input class="un" type="date"  id="flightdate" formControlName="flightdate" label="flightdate" [(ngModel)]="flightdate" >
-        </form>
-        <form class="form1" [formGroup]="addFlight"  > 
-            <label style="margin-left: 1rem;" for="FlightId">Enter Flight ID:</label>
-            <input class="un " type="text" align="center" placeholder="Flight Id"  formControlName="FlightId" label="FlightId"><br>
-            <label style="margin-left: 1rem;" for="SourceId">Select Source id:</label>
-            <select class="un"  formControlName="SourceId" >
-                <option value="" selected disabled hidden>Fying from</option>
-                <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
-            </select><br>
-            <label style="margin-left: 1rem;"for="DestinationId">Select Destination id:</label>
-            <select class="un"  formControlName="DestinationId" >
-                <option value="" selected disabled hidden>Fying To</option>
-                <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}}) </option>
-            </select><br>
-            <label style="margin-left: 1rem;" for="DepartTime">Departure Time:</label>
-            <input class="un " type="time" align="center" placeholder="Departure Time"  formControlName="DepartTime"><br>
-            <label style="margin-left: 1rem;" for="ArrivalTime">Arrival Time:</label>
-            <input class="un " type="time" align="center" placeholder=" Arrival Time"  formControlName="ArrivalTime"><br>
-            <label style="margin-left: 1rem;" for="Duration">Duration:</label>
-            <input class="un " type="time" align="center" placeholder=" Duration"  formControlName="Duration"><br>
-            <label style="margin-left: 1rem;" for="EconomyPrice">Economy Seat Price:</label>
-            <input class="un " type="number" align="center" placeholder=" Economy seat Price"  formControlName="EconomyPrice"><br>
-            <label style="margin-left: 1rem;" for="BusinessPrice">Business Seat Price:</label>
-            <input class="un " type="number" align="center" placeholder=" Business seat Price"  formControlName="BusinessPrice"><br>
-
-        <!-- <div *ngIf="submitted && loginForm.controls.email.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">Email is required.  </div>  </div> -->
-        <div align="center">
-        <button type="submit" class="submit"  (click)="onSubmit(addFlight.value)" >Add Flight</button>&nbsp;
-        <button type="button" class="cancel"  (click)="this.route.navigate(['adminview'])" >Cancel</button> 
-      </div>
+<div align="center" class="main">
+  <form [formGroup]="flight"  >
+    <mat-form-field>
+    <input matInput [matDatepicker]="dateF" required placeholder="Flight Date" formControlName="flightdate" [min]="today" [(ngModel)]="flightdate" >
+  <mat-datepicker-toggle matSuffix [for]="dateF"></mat-datepicker-toggle>
+   <mat-datepicker #dateF></mat-datepicker>
+  </mat-form-field>
+  </form>
+  <form color="primary" [formGroup]="addFlight" >
+<mat-form-field appearance="outline" >
+  <mat-label>Flight ID</mat-label>
+  <input matInput required placeholder="Enter Flight ID" formControlName="FlightId"><br>
+</mat-form-field><br>
+<mat-form-field appearance="outline" >
+  <mat-label>Source ID</mat-label>
+  <mat-select required formControlName="SourceId">
+   
+    <mat-option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</mat-option>
+  </mat-select>
+</mat-form-field> &nbsp;&nbsp;
+<mat-form-field appearance="outline" >
+  <mat-label>Destination ID</mat-label>
+  <mat-select required formControlName="DestinationId">
     
+    <mat-option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</mat-option><br>
+  </mat-select>
+</mat-form-field><br>
+<mat-form-field appearance="outline" >
+  <mat-label>Departure Time</mat-label>
+  <input matInput type="time" required  formControlName="DepartTime">
+</mat-form-field>&nbsp;&nbsp;
+<mat-form-field appearance="outline" >
+  <mat-label>Arrival Time</mat-label>
+  <input matInput type="time" required  formControlName="ArrivalTime"><br>
+</mat-form-field><br>
+<mat-form-field appearance="outline" >
+  <mat-label>Duration</mat-label>
+  <input matInput type="time" required  formControlName="Duration"><br>
+</mat-form-field><br>
+<mat-form-field appearance="outline" >
+  <mat-label>Economy Price:</mat-label>
+  <input matInput type="number" required  formControlName="EconomyPrice">
+</mat-form-field>&nbsp;&nbsp;
+<mat-form-field appearance="outline" >
+  <mat-label>Business Price:</mat-label>
+  <input matInput type="number" required  formControlName="BusinessPrice"><br>
+</mat-form-field><br>
+
+      <div align="center">
+        
+      <button mat-raised-button type="submit" color="primary" (click)="onSubmit(addFlight.value)" >Add Flight</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button mat-raised-button type="submit" color="accent" type="button" (click)="this.route.navigate(['adminview'])" >Cancel</button> 
     
-      </form>      
-                
     </div>
+  </form>
+</div>
   
+  
+    
+              
+ 
+
