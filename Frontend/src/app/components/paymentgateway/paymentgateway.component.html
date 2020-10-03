@@ -1,11 +1,4 @@
-<head>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    
-</head>
+
 <!-- <div class="container">
     <div class="row">
         <div class="col-xs-12 col-md-4 offset-md-4">
@@ -37,16 +30,16 @@
                                     <div id=myForm align= "center">
                                         <select label="cardtype" formControlName = "card">
                                             <option *ngFor="let cards of card">{{cards}}</option>
-                                        </select>
+                                        </select>&nbsp;&nbsp;
                                         <select label="banktype" formControlName = "bank">
                                             <option *ngFor="let banks of bank">{{banks}}</option>
                                         </select>
                                     </div><br/>
                                 </div>
                                 <button class="btn btn-success" type="submit" >Proceed</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  
+                                &nbsp;&nbsp;  
                                 <button class="btn btn-primary" [routerLink]="['paymentgateway']"> Back</button>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;
                                 <button class="btn btn-danger" type="reset"> Cancel</button>
                             </div>
                         </form>
