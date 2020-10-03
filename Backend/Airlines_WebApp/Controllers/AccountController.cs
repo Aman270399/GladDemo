@@ -36,6 +36,7 @@ namespace Airlines_WebApp.Controllers
             {
                 throw ex;
             }
+            user.Password = user.GetHashCode().ToString();
             return Ok(user);
         }
         [HttpPost]
@@ -54,6 +55,7 @@ namespace Airlines_WebApp.Controllers
             {
                 throw e;
             }
+            admin.Password = admin.GetHashCode().ToString();
             return Ok(admin);
 
 

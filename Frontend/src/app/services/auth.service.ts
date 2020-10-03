@@ -43,10 +43,13 @@ export class AuthService {
     {
       sessionStorage.removeItem('userData');
       sessionStorage.removeItem('useremail');
+      sessionStorage.removeItem('username');
     }
     if(sessionStorage.getItem('adminData'))
     {
       sessionStorage.removeItem('adminData');
+      sessionStorage.removeItem('username');
+      sessionStorage.removeItem('useremail');
     }
   }
 

@@ -39,7 +39,7 @@
                                         <option value="" selected disabled hidden>Flying To</option>
                                         <ng-container *ngFor="let airport of airports">
                                             <option value="" selected disabled hidden>Fying To</option>
-                                            <option [value]="airport.AirportId" *ngIf="airport.AirportId != source" >
+                                            <option [value]="airport.AirportId" *ngIf="airport.AirportId != SearchForm.controls.source.value" >
                                               {{airport.CityName}}({{ airport.AirportId }})
                                             </option>
                                         </ng-container>

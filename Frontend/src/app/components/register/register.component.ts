@@ -49,9 +49,12 @@ age:any;
     this.service.addUser(form).subscribe(data=>{
       console.log(data)
       alert("User Registered Successfully");
-      this.route.navigate(["userlogin"]); },(error) => {console.log(error);
-      if(error=="Email already exists")
-       alert("Email already exists!!");
+      this.route.navigate(["userlogin"]); },(error) => {console.log(error.error.Message);
+      if(error.error.Message=="Email already exists")
+      {
+        console.log(error.Message);
+        alert("Email already exists");
+      }
       else
        alert("Please Enter valid details!!");
     });
