@@ -36,6 +36,12 @@ export class AuthService {
     }
     return false;
   }
+  isLoggedAdmin(){
+    if(sessionStorage.getItem('adminData')){
+      return true;
+    }
+    return false;
+  }
 
   Logout()
   {

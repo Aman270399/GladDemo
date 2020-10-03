@@ -1,24 +1,17 @@
 
-<head>
-
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-  
-    <title>Delete Flight</title>
-  </head>
-   <div class="main"> 
-        <p class="sign" align="center">Delete Flight</p>
+   <div align="center" class="main"> 
+        
         <form class="form1" [formGroup]="Deleteflight"  > 
-
-          <label style="margin-left: 1rem;" for="FlightId">Select Flight:</label>
-          <select class="un"  formControlName="FlightId" align="center" >
-              <option value="" selected disabled hidden>Flight id</option>
-              <option *ngFor="let flight of flights" value="{{flight.FlightId}}">{{flight.FlightId}}({{flight.SourceId}}-{{flight.DestinationId}})</option>
-          </select>
-            
+        <mat-form-field appearance="fill">
+          <mat-label >Select Flight:</mat-label>
+          <mat-select  required formControlName="FlightId"  >
+     
+              <mat-option *ngFor="let flight of flights" value="{{flight.FlightId}}">{{flight.FlightId}}({{flight.SourceId}}-{{flight.DestinationId}})</mat-option>
+          </mat-select>
+        </mat-form-field> 
             <div align="center">
-            <button type="delete" class="delete"  (click)="onSubmit(Deleteflight.value)" >Delete Flight</button>&nbsp;
-            <button type="submit" class="cancel"  (click)="this.route.navigate(['adminview'])" >Cancel</button>
+            <button mat-raised-button color="primary"  type="delete"   (click)="onSubmit(Deleteflight.value)" >Delete Flight</button>&nbsp;
+            <button mat-raised-button color="accent"   type="submit"   (click)="this.route.navigate(['adminview'])" >Cancel</button>
           </div>
           </form>
     </div>
