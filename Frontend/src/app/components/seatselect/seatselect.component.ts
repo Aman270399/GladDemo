@@ -53,7 +53,6 @@ export class SeatselectComponent implements OnInit {
     this.flightId =this.flight.FlightId;
     this.departDate =localStorage.getItem('departdate');
     this.getSeatsFromService();
-    
     if(this.isReturn)
     {
       this.returnFlight=JSON.parse(sessionStorage.getItem("returnflight"));
@@ -152,9 +151,10 @@ export class SeatselectComponent implements OnInit {
 
 
   onClick1() {
-    if(this.seatnum.length==0)
+    if(this.seatnum.length==0 || (this.isReturn && this.retSeatnum.length==0))
     {
-      alert("Please select a seat");
+      alert("Please select all seats");
+      return;
     }
     let j = 0;
     for(let i=0;i<this.adultpassengercount;i++)

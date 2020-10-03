@@ -59,7 +59,10 @@ namespace Airlines_WebApp.Controllers
                 {
                     return BadRequest("Email already exists");
                 }
-
+                if(userObj.Age<18)
+                {
+                    return BadRequest("Age cannot be less than 18");
+                }
                 dataRepository.Add(userObj);
             }
             catch (Exception ex)
