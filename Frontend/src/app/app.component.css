@@ -3,11 +3,12 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    min-height:87.6%;
+    width: 100%;
     background-image: url('../assets/images/BG3.jpg');
     background-size: cover;
     background-position: center;
     font-family: Roboto, "Helvetica Neue", sans-serif;
+    min-height: calc(100vh - 130px);
 }
 html,body{
     font-family: Roboto, "Helvetica Neue", sans-serif;

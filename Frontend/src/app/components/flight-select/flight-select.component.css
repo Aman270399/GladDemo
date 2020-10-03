@@ -1,11 +1,28 @@
-.container{
-    padding-top: 5%;
-    display:flex;
-    min-width: 20cm;
+.main{
+
+    font-size: large;
+    width: auto;
+    height:auto;
+}
+
+.row
+{
+    margin-top: 5%;
+    justify-content: space-around;
+}
+.heading{
+   color: #fff;
+    display: flex;
+    background-color: orangered;
+    justify-content: center;
+    padding: 3%;
 }
 .list-group{
-    padding-top: 2rem;
+    min-width: 50%;
+    border-radius: 1.5em;
+    box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
   }
+
  .title {
     font-weight: 600;
     text-transform: uppercase;
