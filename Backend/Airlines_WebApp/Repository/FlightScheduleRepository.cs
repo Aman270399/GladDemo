@@ -25,9 +25,27 @@ namespace Airlines_WebApp.Repository
             projectContext.SaveChanges();
         }
 
-        public FlightSchedule Get(string id)
+        public FlightSchedule Get(string id1)
         {
-            return projectContext.FlightSchedules.Find(id);
+            FlightSchedule flights = null;
+            try
+            {
+                var flightFound = projectContext.FlightSchedules.Where(f => (f.FlightId == id1)).SingleOrDefault();
+                if (flightFound != null)
+                {
+                    flights = flightFound;
+                }
+                else
+                {
+                    flights = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            return flights;
         }
 
         public void Update(FlightSchedule fs)

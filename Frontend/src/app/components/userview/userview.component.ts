@@ -47,6 +47,7 @@ export class UserviewComponent implements OnInit {
       console.log(data)});
      this.booktable.TotalPassenger-=1;
       this.bookingdetail.updatebooking(this.booktable).subscribe(data=>{});
+      alert("Your ticket has been cancelled and a refund has been generated!!")
 
     
   }

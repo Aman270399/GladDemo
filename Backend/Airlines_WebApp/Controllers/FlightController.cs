@@ -71,12 +71,19 @@ namespace Airlines_WebApp.Controllers
             [Route("")]
             public IHttpActionResult CreateFlight([FromBody] Flight flightObj)
             {
-                try
+            Flight existingflight = flightRepository.Get(flightObj.FlightId);
+            try
+            {
+                if (!ModelState.IsValid)
                 {
-                    if (!ModelState.IsValid)
-                    {
-                        return BadRequest(ModelState);
-                    }
+                    return BadRequest(ModelState);
+
+                }
+                if (existingflight != null)
+                {
+                    return BadRequest("Flight already Exists");
+                }
+                                   
  
                     flightRepository.Add(flightObj);
                 }
@@ -109,11 +116,18 @@ namespace Airlines_WebApp.Controllers
         [Route("flightschedule")]
         public IHttpActionResult addFlightschedule([FromBody] FlightSchedule flightObj)
         {
+            List<FlightSchedule> lflightSchedule = flightScheduleRepository.GetAll().ToList();
+            var query = (from s in lflightSchedule where s.DateFlight == flightObj.DateFlight && s.FlightId == flightObj.FlightId select s).SingleOrDefault();
+                      
             try
             {
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
+                }
+                if(query != null)
+                {
+                    return BadRequest("Flight already scheduled!");
                 }
 
                 flightScheduleRepository.Add(flightObj);
