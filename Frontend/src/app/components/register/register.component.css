@@ -1,10 +1,35 @@
-.container{
-    width: fit-content(20em);
+.my-card{
+    height:400px;
+    padding: 0% !important;
+    display: flex;
+    width: 700px;
     height: auto;
-    margin: 0em auto;
-    color: black; 
-    font-size: large;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
     border-radius: 1.5em;
-    position: relative;
+    -webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+    -moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+    box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
 }
 
+.date-width {
+    width: 100%;
+  }
+.mat-form-field {
+    width: 100%;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    margin:20px auto;   
+}
+
+mat-toolbar{
+    color: #fff;
+    background-color: #e91e63;
+    text-align: center;
+    padding: 1%;
+    margin-bottom:5%;
+-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+}
