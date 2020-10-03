@@ -1,95 +1,226 @@
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title >Register new User</title>
-  </head>
-    <div id="adduser" class="section">
-        <div class="main ">  
-            <p class="sign" align="center">Register new User</p>
-            <form [formGroup]="addUser" (ngSubmit)="(onSubmit(addUser.value))">
-                    <div align="center" class="form-group" >
-                        <label for="Title" >Title:    </label>     
-                        <select class ="un" name="Title" id="Title" formControlName="Title">
-                            <option  type="text"  value="Mr">Mr</option>
-                            <option   type="text" value="Mrs">Mrs</option></select>
-                        <!--<input class="un "  align="center"  type="text" formControlName="Title" id="Title"placeholder="Mr/Mrs" /> -->
+<!-- <head>
+    <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+</head> -->
+    <!-- <div  class="container"> 
+
+     <div  class="container"> 
+        <link data-require="bootstrap-css@3.3.6" data-semver="3.3.6" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css" />
+        <form class="form-horizontal"  method="post" (ngSubmit)="(onSubmit(addUser.value))" id="addUser" [formGroup]="addUser">
+            <fieldset>
+                <h3  align="center">Register yourself</h3>
+                <div align="center" class="form-group" >
+                    <label class="col-md-4 control-label">Title:</label>   
+                    <div class="col-md-4 selectContainer">
+                        <div class="input-group"> 
+                    
+                </div>
+
+                <div [formGroup]="addUser">
+                <div  align="center"  class="form-group" >
+                    <label class="col-md-4 control-label">First Name</label>
+                    <div class="col-md-4 inputGroupContainer">
+
+            </div> 
+                </div> 
+
+                <div [formGroup]="addUser">
+            <div  align="center" class="form-group" >
+            <label class="col-md-4 control-label" >Last Name</label> 
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input formControlName="LastName" placeholder="Last Name" class="form-control"  type="text" [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }">
+                       
                     </div>
-                    <div  align="center"  class="form-group" >
-                        <label for="FirstName">First Name: </label>
-                        <input class="un "  align="center"  type="text" formControlName="FirstName" id="FirstName" placeholder="First Name" />
-                        <div *ngIf="addUser.get('FirstName').hasError('required')&& addUser.get('FirstName').touched" class="text-danger">
-                            First name is required
-                        </div> 
-                        <div *ngIf="addUser.get('FirstName').hasError('pattern')" class="text-danger">
-                            Please enter only alphabets
+                </div>
+                <br><br>
+                <div *ngIf="addUser.get('LastName').hasError('required')&& addUser.get('LastName').touched" class="text-danger" >
+                    Last name is required
+       </div> 
+      <div *ngIf="addUser.get('LastName').hasError('pattern')" class="text-danger">
+             Please enter only alphabets
+       </div>   
+            </div>
+                </div>
+
+           <div [formGroup]="addUser">
+            <div align="center" class="form-group" >
+                <label class="col-md-4 control-label">Date Of Birth</label>
+                <div class="col-md-4 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                        <input type="date" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth" [ngClass]="{ 'is-invalid': submitted && f.DateOfBirth.errors }">
+                       
+                    </div>
+                </div>
+                <br><br>
+                <div *ngIf="addUser.get('DateOfBirth').hasError('required')&& addUser.get('DateOfBirth').touched" class="text-danger" >
+                    DOB is required
+                </div> 
+            </div>
+           </div>
+
+           <div [formGroup]="addUser">   
+            <div  align="center"  class="form-group" >
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                        <span class="input-group-addon"><mat-icon>email</mat-icon></span>
+                        <mat-form-field appearance="fill"> 
+                            <mat-label >Enter your email</mat-label>
+                            <input matInput placeholder="user@example.com" class="form-control" formControlName="UserEmailId" required >
+                            <mat-error *ngIf="addUser.controls.UserEmailId.invalid">Please enter valid email</mat-error>
+                          </mat-form-field>       
                         </div>
                     </div>
-                    <div  align="center" class="form-group" >
-                        <label for="LastName">Last Name: </label>
-                        <input class="un "  align="center"  type="text"  formControlName="LastName" id="LastName" placeholder="Last Name"/>
-                        <div *ngIf="addUser.get('LastName').hasError('required')&& addUser.get('LastName').touched" class="text-danger">
-                            Last name is required
-                        </div> 
-                        <div *ngIf="addUser.get('LastName').hasError('pattern')" class="text-danger">
-                            Please enter only alphabets
-                        </div>
-                    </div>
-                    <div  align="center" class="form-group">
-                        <label for="Age">Age :</label>
-                        <input class="un "  align="center"  type="number"  formControlName="Age" id="Age" placeholder="Age in years" />
-                    </div>
-                    <!-- <div *ngIf="addUser.get('Age').hasError('required')&& addUser.get('Age').touched" class="text-danger">
-                        Age required
-                    </div> 
-                    <div *ngIf="addUser.get('Age').hasError('value')" class="text-danger">
-                        Minimum age is 18
-                    </div>  -->
-                    <div  align="center"  class="form-group" >
-                        <label for="email">Email ID: </label>
-                        <input class="un "  align="center"  type="text" formControlName="UserEmailId" id="email" placeholder="Email Id" />
-                        <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('required')&& addUser.get('UserEmailId').touched">
-                             Email Id is required
+                    <br><br>
+                    <!-- <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('required')&& addUser.get('UserEmailId').touched">
+                        Email Id is required
                         </div>
                         <div class="text-danger" *ngIf="addUser.get('UserEmailId').hasError('email')">
-                            Please enter correct email id
-                        </div>
-                    </div>
-                    <div  align="center"  class="form-group" >
-                        <label for="password">Password:</label>
-                        <input class="un "  align="center" type="password"  formControlName="Password" id="Password"placeholder="password" />
-                        <div *ngIf="addUser.get('Password').hasError('required')&& addUser.get('Password').touched" class="text-danger">
-                            Password is required
+                           Please enter correct email id
                         </div> 
-                        <div *ngIf="addUser.get('Password').hasError('pattern')" class="text-danger">
-                            Password must contain atleast one lower case alphabet, one upper case alphabet, one digit, one special character
+                </div> 
+           </div>
+           </div>
+
+           <div [formGroup]="addUser">
+                <div  align="center"  class="form-group" >
+                <label class="col-md-4 control-label">Phone</label>  
+                    <div class="col-md-4 inputGroupContainer">
+                        <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                        <input formControlName="MobileNumber" placeholder="(845)555-1212" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.MobileNumber.errors }">
+                           
                         </div>
-                        <div *ngIf="addUser.get('Password').hasError('minlength')" class="text-danger">Password must be at least 8 characters</div>
-                    </div>
-                    <div  align="center"  class="form-group" >
-                        <label for="confirmPass">Confirm Password:</label>
-                        <input class="un "  align="center" type="password"  formControlName="confirmPass" id="confirmPass" placeholder="Confirm password" />
-                        <div class="text-danger" *ngIf="addUser.hasError('notSame')">
-                            Passwords do not match
-                        </div>  
-                    </div>
-                    <div  align="center"  class="form-group" >
-                        <label for="MobileNumber"> Mobile Number : </label>
-                        <input class="un "  align="center"  type="number"  formControlName="MobileNumber" id="MobileNumber" placeholder="Mobile Number"/>
-                        <div *ngIf="addUser.get('MobileNumber').hasError('required')&& addUser.get('MobileNumber').touched" class="text-danger">
-                            Mobile Number is required
+                    </div><br><br>
+                    <div *ngIf="addUser.get('MobileNumber').hasError('required')&& addUser.get('MobileNumber').touched" class="text-danger">
+                        Mobile Number is required
                         </div> 
                         <div *ngIf="addUser.get('MobileNumber').hasError('pattern')" class="text-danger">
-                            Please enter valid mobile number
+                        Please enter valid mobile number
+                        </div> 
+                </div>
+           </div>
+
+           <div [formGroup]="addUser">
+                <div class="form-group" align="center" >
+                    <label class="col-md-4 control-label" >Password</label> 
+                      <div class="col-md-4 inputGroupContainer">
+                      <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input formControlName="Password" placeholder="Password" class="form-control"  type="password" [ngClass]="{ 'is-invalid': submitted && f.Password.errors }">
+                    </div>
+                      </div><br><br>
+                      <div *ngIf="addUser.get('Password').hasError('required')&& addUser.get('Password').touched" class="text-danger">
+                        Password is required
+                    </div> 
+                    <div *ngIf="addUser.get('Password').hasError('pattern')" class="text-danger">
+                        Password must contain atleast one lower case alphabet, one upper case alphabet, one digit, one special character
+                    </div>
+                    <div *ngIf="addUser.get('Password').hasError('minlength')" class="text-danger">Password must be at least 8 characters</div>
+                   
+                </div>
+           </div>
+                  
+           <div [formGroup]="addUser">
+                  <div class="form-group" align="center" >
+                    <label class="col-md-4 control-label" >Confirm Password</label> 
+                      <div class="col-md-4 inputGroupContainer">
+                      <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input formControlName="confirmPass" placeholder="Confirm Password" class="form-control"  type="password"  [ngClass]="{ 'is-invalid': submitted && f.confirmPass.errors }">
+                  
+                      </div>
+                    </div><br><br>
+                    <div class="text-danger" *ngIf="addUser.hasError('notSame')">
+                        Passwords do not match
+                    </div> 
+                    
+                  </div>
+                </div>
+                  
+                <div class="form-group" align="center">
+                <label class="col-md-4 control-label"></label>
+                    <div class="col-md-4">
+                    <button class="submit" type="submit" class="btn btn-warning" >Register <span class="glyphicon glyphicon-send"></span></button>&nbsp;&nbsp; &nbsp;&nbsp;
+                    <button  class="btn btn-danger" align="center" (click)="this.route.navigate(['userlogin'])" >Cancel</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>                        <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  formControlName="FirstName" placeholder="First Name" class="form-control" type="text" [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" >                      
+                       
                         </div>
+                </div>  
+                <br><br>  
+                <div class="text-danger" *ngIf="addUser.get('FirstName').hasError('required')&& addUser.get('FirstName').touched" >
+                    First name is required
                     </div>
-                    <div  align="center"  class="form-group" >
-                        <label for="DateOfBirth">Date Of Birth : </label>
-                        <input class="un "  align="center" type="date"  formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth" />
-                    </div>
-                    <div align="center">
-                        <button  class="submit" type="submit">Register</button> &nbsp;&nbsp; &nbsp;&nbsp;
-                        <button type="submit" class="cancel" align="center" (click)="this.route.navigate(['userlogin'])" >Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+                    <div *ngIf="addUser.get('FirstName').hasError('pattern')" class="text-danger">
+                        Please enter only alphabets
+                  </div>    
+
+
+                    -->
+
+<mat-card class="my-card">
+    <mat-toolbar>
+        <span>Registration</span>
+    </mat-toolbar>
+    <form class="my-form" method="post" (ngSubmit)="(onSubmit(addUser.value))" id="addUser" [formGroup]="addUser">
+        <mat-card-content>
+            <mat-form-field class="full-width">
+                <mat-label>Title</mat-label>
+                <mat-select formControlName="Title" required>
+                    <mat-option value="Mr">Mr</mat-option>
+                    <mat-option value="Mrs">Mrs</mat-option>
+                    <mat-option value="Miss">Miss</mat-option>
+                </mat-select>
+                <mat-error *ngIf="addUser.controls.Title.hasError('required')">Please choose a Title</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>First Name</mat-label>
+                <input  matInput  placeholder="First name"  name="fname"  required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Last Name</mat-label>
+                <input  matInput  placeholder="Last Name" name="lname"  required>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label >Email</mat-label>
+                <input matInput placeholder="user@example.com" formControlName="UserEmailId" required>
+                <mat-error *ngIf="addUser.controls.UserEmailId.invalid">Please enter valid email</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+               <mat-label>Enter your password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" required>
+                <button mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="addUser.controls.Password.dirty && addUser.controls.Password.invalid">Password must contain a combination of atleast one uppercase,lowercase,special character and a digit.</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Confirm password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirmPass" required [errorStateMatcher]="errorMatcher">
+                <button mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="addUser.hasError('notSame')">Password does not match</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" [errorStateMatcher]="errorMatcher" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="Date of Birth">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="addUser.get('DateOfBirth').hasError('required')&& addUser.get('DateOfBirth').touched" class="text-danger">DOB is required</mat-error>
+                <mat-error *ngIf="addUser.hasError('InvalidAge')">Age cannot be less than 18</mat-error>
+            </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+                 <button mat-raised-button type="submit" color="primary">REGISTER</button>
+                 <button  mat-raised-button color="warn" (click)="this.route.navigate(['userlogin'])" >CANCEL</button>
+        </mat-card-actions>
+    </form>
+</mat-card>

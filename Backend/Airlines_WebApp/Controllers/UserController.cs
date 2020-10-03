@@ -48,13 +48,14 @@ namespace Airlines_WebApp.Controllers
         [Route("")]
         public IHttpActionResult CreateUser([FromBody] UserTable userObj)
         {
+            UserTable existingUser = dataRepository.Get(userObj.UserEmailId);
             try
             {
                 if (!ModelState.IsValid)
                 {
                     return BadRequest(ModelState);
                 }
-                if(userObj== dataRepository.Get(userObj.UserEmailId))
+                if(existingUser!=null)
                 {
                     return BadRequest("Email already exists");
                 }

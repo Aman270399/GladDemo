@@ -1,27 +1,50 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div class="main"> 
-      <nav class="navbar navbar-inverse">
-        
-        <ul  class="nav nav-tabs" align="center">
-            <li style="margin-left : 60px"><a [routerLink]="['/userlogin']" class="nav-item ml-auto nav-link user-action"><b>User Login</b> </a></li>
-            
-            <li style="margin-right : 60px"><a [routerLink]="['/adminlogin']"  class="nav-item ml-auto nav-link user-action"><b>Admin Login</b></a></li>  
-        </ul>
-      </nav>
-  
-      <p class="sign" align="center">User Login</p>
-       
-      <form class="form1" [formGroup]="loginForm"  > 
-        <div align="center"><img src="../../../assets/images/UserLogin.jpg" height="200px" width="200px" ></div>
-       
-        <input class="un " type="text" align="center" placeholder="Email"  formControlName="email">
-        <div *ngIf="submitted && loginForm.controls.email.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.email.errors.required">Email is required.  </div>  </div>
-        <input class="pass" type="password" align="center" placeholder="Password"   formControlName="password">
-        <div *ngIf="submitted && loginForm.controls.password.errors">   <div class="alert alert-danger" *ngIf="loginForm.controls.password.errors.required">Password is required.  </div>  </div>
-        <a type="submit" class="submit" align="center" (click)="doLogin()" >Sign in</a>
-        <p class="forgot" align="center"><a [routerLink]="['/resetpassword']">Forgot Password?</a></p>
-        <p style="padding-bottom: 2rem;" align="center"><a  class="new"  [routerLink]="['/register']">New User?</a>  </p>
-      </form>      
-    </div>
+<form class="loginform" [formGroup]="loginForm" id="loginform" role="form">
+    <nav class="navbar navbar-inverse">
+       <ul  class="nav nav-tabs">
+         <li><a [routerLink]="['/userlogin']" class="nav-item  nav-link"><b>User Login</b> </a></li>
+         <li><a [routerLink]="['/adminlogin']"  class="nav-item  nav-link"><b>Admin Login</b></a></li>
+       </ul>
+    </nav>
 
-  
+  <div class="form-group"><h1>Sign In</h1></div>
+  <div class="input-group">
+    <mat-form-field appearance="outline"> 
+      <mat-label >Enter your email</mat-label>
+      <input matInput placeholder="user@example.com" formControlName="email" required>
+      <mat-error *ngIf="loginForm.controls.email.invalid">Please enter valid email</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="input-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+  </div>
+  <div class="form-group">    
+      <button type="submit" mat-raised-button class="btn-success" (click)="doLogin()" >Login</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <button mat-raised-button class="btn btn-warning" [routerLink]="['/resetpassword']">Forgot Password?</button>
+</div>
+<div class="form-group" >
+      <div>
+          Don't have an account!<a [routerLink]="['/register']"> New User? Register here</a>
+      </div>
+</div>    
+</form>     
+
+
+                                    
+                         
+
+
+                                     
+    
+    
+    
+                            
+      
+
+       

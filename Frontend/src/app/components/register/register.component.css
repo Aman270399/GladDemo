@@ -1,75 +1,35 @@
-
-.main {
-    background-color: #FFFFFF;
+.my-card{
+    height:400px;
+    padding: 0% !important;
+    display: flex;
     width: 700px;
     height: auto;
-    margin: 0em auto;
+    flex-direction: column;
+    justify-content: center;
+    background-color: transparent;
     border-radius: 1.5em;
-    box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+    -webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+    -moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+    box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
 }
 
-.sign {
-    padding-top: 40px;
-    color: #0d5170;
-    font-family: 'Ubuntu', sans-serif;
-    font-weight: bold;
-    font-size: 23px;
-}
-.un {
-width: 50%;
-color: rgb(38, 50, 56);
-font-weight: 700;
-font-size: 14px;
-letter-spacing: 1px;
-background: rgba(136, 126, 126, 0.04);
-padding: 10px 20px;
-border: none;
-border-radius: 20px;
-outline: none;
-box-sizing: border-box;
-border: 2px solid rgba(0, 0, 0, 0.02);
-margin-bottom: 50px;
-margin-left: 46px;
-text-align: center;
-margin-bottom: 27px;
-font-family: 'Ubuntu', sans-serif;
-}
-
-.submit {
-  cursor: pointer;
-    border-radius: 5em;
-    color: #fff;
-    background: linear-gradient(to right, #1d608d, #7fc8f8);
-    border: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 10px;
-    padding-top: 10px;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 13px;
-    box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
-} 
-.cancel {
-    cursor: pointer;
-      border-radius: 5em;
-      color: #fff;
-      background: linear-gradient(to right, #eb5223, #f57723);
-      border: 0;
-      padding-left: 40px;
-      padding-right: 40px;
-      padding-bottom: 10px;
-      padding-top: 10px;
-      font-family: 'Ubuntu', sans-serif;
-      margin-left: 35%;
-      font-size: 13px;
-      box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+.date-width {
+    width: 100%;
   }
+.mat-form-field {
+    width: 100%;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    margin:20px auto;   
+}
 
-@media (max-width: 600px) {
-    .main {
-        border-radius: 0px;
-    }
-    
-}  button{
-    margin-bottom: 2rem;
+mat-toolbar{
+    color: #fff;
+    background-color: #e91e63;
+    text-align: center;
+    padding: 1%;
+    margin-bottom:5%;
+-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
 }

@@ -25,8 +25,7 @@ export class PaymentgatewayComponent implements OnInit {
   current: Number;
   getdetailsform: any;
   makepayment:boolean=false;
-  
-  
+
   constructor(private formBuilder: FormBuilder ,private auth_service: AuthService,private ticketservice:TicketService,private bookingservice:BookingserviceService,private router:Router) {}
   ngOnInit() {
     //console.log(this.card[0]);
@@ -35,10 +34,10 @@ export class PaymentgatewayComponent implements OnInit {
       card: new FormControl('', [Validators.required]),
     })
     this.carddetailsForm = this.formBuilder.group({
-      cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]*$")]],
-      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("^[0-9]{3}*$")]],
+      cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]{16}")]],
+      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("[0-9]{3}")]],
       cardHolderName:['',[Validators.required,Validators.pattern("[A-Za-z]+")]],
-      mobilenumber:['',[Validators.required,Validators.max(11),Validators.pattern("^[0-9]{11}*$")]]
+      mobilenumber:['',[Validators.required,Validators.max(10),Validators.pattern("[7-9][0-9]{9}")]]
      })
      
     this.OtpForm = this.formBuilder.group({
@@ -69,7 +68,7 @@ onSubmit2(form){
 }
 
 onSubmit3(form){
-  try{
+
     if(this.current === form.value.otp){
       alert("Payment Successfull!");
       let bookingId= JSON.stringify(Date.now()).substr(7,6);
@@ -85,18 +84,22 @@ onSubmit3(form){
       console.log(this.ticketservice.tickets);
       console.log(totalPrice);
       let booking={ BookingId: bookingId,
-                    UserEmailId:null,
+                    UserEmailId:sessionStorage.getItem('useremail'),
                     DateBooking:new Date().toISOString().slice(0,10),
-                    TransactionId:JSON.stringify(this.detailsForm.controls.bank).concat(JSON.stringify(Date.now()).substr(7,4)),
+                    TransactionId:(this.detailsForm.controls.bank.value).concat(JSON.stringify(Date.now()).substr(7,4)),
                     TotalPrice:totalPrice,
                     TotalPassenger:totalPassengers,
                     BookStatus:'Confirmed'
                   }
+                  console.log(booking.TransactionId)
+                  sessionStorage.setItem('boo',JSON.stringify(booking));
                   console.log(booking);
-      this.bookingservice.addBooking(booking).subscribe(data=>{console.log(data)
-      
+      this.bookingservice.addBooking(booking).subscribe(data=>{
+        console.log(data);
+        this.ticketservice.addTickets().subscribe(data=>{console.log(data) 
+        }); 
       }); 
-      this.ticketservice.addTickets();
+
       this.makepayment = true;
       this.router.navigate(['showticket']);
       
@@ -104,8 +107,6 @@ onSubmit3(form){
     else{
     alert("Incorrect OTP");
   }
-  }
-  catch{ }
 }
 
 

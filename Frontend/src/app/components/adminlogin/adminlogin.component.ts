@@ -9,12 +9,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./adminlogin.component.css']
 })
 export class AdminloginComponent implements OnInit { 
-  loginForm: FormGroup; 
-  
+  loginform: FormGroup; 
+  hide:boolean= true;
   constructor(private formBuilder: FormBuilder,private router: Router,private adminService: AuthService) { }
    
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.loginform = this.formBuilder.group({
 			email: ['', [Validators.required]],
 			password: ['', [Validators.required]]
     });
@@ -24,10 +24,12 @@ export class AdminloginComponent implements OnInit {
     doAdminLogin() { 
       
       this.submitted = true;
-      this.adminService.doAdminLogin(this.loginForm.value).subscribe(result => {
-        console.log(this.loginForm.value);
-        this.adminService.getLoggedInName.next(result.FirstName);
-        sessionStorage.setItem('adminData',JSON.stringify(result.AdminEmailId));
+      this.adminService.doAdminLogin(this.loginform.value).subscribe(result => {
+        console.log(this.loginform.value);
+        sessionStorage.setItem('username',result.FirstName+" "+result.LastName);
+        this.adminService.getLoggedInName.next(result.FirstName+" "+result.LastName);
+        sessionStorage.setItem('adminData',JSON.stringify(result.Password));
+        sessionStorage.setItem('useremail',result.AdminEmailId.toString());
         alert('Logged in as Admin');
         this.router.navigate(['adminview']);  
       }, (error) => {

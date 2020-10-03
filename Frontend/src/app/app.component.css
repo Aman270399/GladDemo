@@ -1,13 +1,15 @@
 .container-fluid
 {
-    padding-top: 9%;
+    padding-top: 7%;
     padding-bottom: 3%;
-    min-height:89.7%;
-    background-image: url('../assets/images/background.jpg');
+    min-height:87.6%;
+    min-width: 75vh;
+    background-image: url('../assets/images/BG3.jpg');
     background-size: cover;
     background-position: center;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 html,body{
-    font-family: 'Ubuntu', sans-serif;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
     height: 100%;
 }

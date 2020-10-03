@@ -9,10 +9,10 @@ namespace Airlines_WebApp.Repository
 {
     public class TicketRepository : IDataRepository<Ticket>
     {
-        public readonly GladiatorProjectEntities1 projectContext3;
+        public readonly GladiatorProjectEntities1 projectContext;
         public TicketRepository(GladiatorProjectEntities1 projectDb)
         {
-            projectContext3 = projectDb;
+            projectContext = projectDb;
         }
 
         public void Delete(string id)
@@ -22,12 +22,12 @@ namespace Airlines_WebApp.Repository
         }
         public IEnumerable<Ticket> GetAll()
         {
-            return projectContext3.Tickets.ToList();
+            return projectContext.Tickets.ToList();
         }
         public void Add(Ticket newTicket)
         {
-            projectContext3.Tickets.Add(newTicket);
-            projectContext3.SaveChanges();
+            projectContext.Tickets.Add(newTicket);
+            projectContext.SaveChanges();
         }
 
         public Ticket Get(string id)
@@ -37,8 +37,8 @@ namespace Airlines_WebApp.Repository
 
         public void Update(Ticket ticket)
         {
-            projectContext3.Entry(ticket).State = EntityState.Modified;
-            projectContext3.SaveChanges();
+            projectContext.Entry(ticket).State = EntityState.Modified;
+            projectContext.SaveChanges();
         }
 
        

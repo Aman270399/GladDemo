@@ -20,12 +20,12 @@ export class HomeComponent implements OnInit {
   destination: string;
   todayShort = new Date().toISOString().slice(0,10);
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) {
-    this.airportservice.getallairports().subscribe(data=>{
-      this.airports=data;
-      console.log(this.airports); });
    }
 
   ngOnInit(): void {
+    this.airportservice.getallairports().subscribe(data=>{
+      this.airports=data;
+      console.log(this.airports); });
     localStorage.clear();
     this.SearchForm = this.formbulider.group({  
       flighttype:['',Validators.required], 
@@ -33,9 +33,9 @@ export class HomeComponent implements OnInit {
       destination:['' ,Validators.required],    
       departdate:['',Validators.required],   
       returndate:[''], 
-      adultpassengercount:['',[Validators.required,Validators.pattern("[0-9]+")]],
-      childpassengercount:['',Validators.pattern("[0-9]*")],
-      infantpassengercount:['',Validators.pattern("[0-9]*")],
+      adultpassengercount:[0,[Validators.required,Validators.pattern("[1-9]+")]],
+      childpassengercount:[0,Validators.pattern("[0-9]*")],
+      infantpassengercount:[0,Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
     console.log('107'+JSON.stringify(Date.now()).substr(3,10));

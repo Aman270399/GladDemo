@@ -21,7 +21,9 @@ SeatNo nvarchar(3) UNIQUE NOT NULL,
 class nvarchar(20) NOT NULL,
 Constraint Seat_PK PRIMARY KEY(SeatId)
 )
-drop table Seat
+
+drop table Seat;
+
 create table Airport
 (
 AirportId varchar(3),
@@ -94,7 +96,7 @@ create table Ticket
 (
 TicketId varchar(13) NOT NULL,
 FlightId nvarchar(5) NOT NULL,
-Title nvarchar(3) NOT NULL,
+Title nvarchar(6) NOT NULL,
 FirstName nvarchar(50) NOT NULL,
 LastName  nvarchar(50) NOT NULL,
 AgeGroup nvarchar(10) NOT NULL,
@@ -113,16 +115,18 @@ Constraint Ticket_PK PRIMARY KEY(TicketId,FlightId),
 Constraint Ticket_Booking_FK FOREIGN KEY(BookingId) references Booking(BookingId) on delete cascade,
 )
 
-drop table UserTable;
-drop table Booking
 drop table Ticket;
+drop table Booking
+drop table UserTable;
 drop table FlightSchedule;
 drop table Flight;
 drop table Airport;
 
 
-
+delete from Flight
 delete from Airport
+delete from UserTable;
+delete from FlightSchedule;
 
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BOM','CS airport','Mumbai','Maharashtra');
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('DEL','IG airport','Delhi','Delhi');
@@ -146,15 +150,14 @@ INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('IXJ','Ja
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('SXR','SUA airport','Srinagar','Jammu & Kashmir');
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('DBD','Dhanbad airport','Dhanbad','Jharkhand');
 INSERT INTO Airport(AirportId, AirportName, CityName,StateName) VALUES('BHO','RB airport','Bhopal','Madhya Pradesh');
-select * from Airport
-delete from UserTable;
 
+select * from Airport;
 
-INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('arhandas1998ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,'7234567891')
 
 INSERT INTO Admin(AdminEmailId, Password, Title, FirstName, LastName) VALUES('arhandas1998ad@gmail.com',12345,'Mr','Arhan','Das')
 INSERT INTO Admin(AdminEmailId, Password, Title, FirstName, LastName) VALUES('aman27399@gmail.com',12345,'Mr','Aman','Das')
-select*from Admin
+
+select*from Admin;
 
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA807','BOM','DEL','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA707','DEL','BOM','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
@@ -177,55 +180,54 @@ INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Durati
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA345','IXJ','SXR','2:30:00','04:45:00','02:15:00',9489.00,14678.00);
 
 
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-05-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-05-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-06-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-06-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-06-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-27-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-27-2020','AA707',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-27-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-05-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-05-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-06-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-06-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-06-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-27-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-27-2020','AA707',120);
 
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-07-2020','AA101',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-11-2020','AA102',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-15-2020','AA103',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-07-2020','AA201',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-08-2020','AA202',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-10-2020','AA203',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-11-2020','AA241',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-19-2020','AA244',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-13-2020','AA273',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-01-2020','AA291',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-07-2020','AA101',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-11-2020','AA102',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-15-2020','AA103',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-07-2020','AA201',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-08-2020','AA202',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-10-2020','AA203',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-11-2020','AA241',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-19-2020','AA244',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-13-2020','AA273',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-01-2020','AA291',120);
 
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-01-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-26-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-27-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-27-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA707',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-26-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-27-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-27-2020','AA707',150);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-01-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-26-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-27-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-27-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA707',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-26-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-27-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-27-2020','AA707',120);
 
-select * from FlightSchedule
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA301',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA345',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-26-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-26-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-26-2020','AA301',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-02-2020','AA607',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-27-2020','AA807',150);
-INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-27-2020','AA707',150);
-INSERT INTO BOOKING values('B30OCL'	,'arhandas1998ad@gmail.com',	'2020-09-30	','12345',	25000.00,	2	,'Confirmed')
+select * from FlightSchedule;
 
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA301',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA345',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-26-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-26-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-26-2020','AA301',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-02-2020','AA607',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-27-2020','AA807',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-27-2020','AA707',120);
 
 INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('arhandas1998ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,'7234567891')
 INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('aman27399@gmail.com',12345,'Mr','Aman','Singh','07/29/1998',22,'7888937062')
@@ -235,16 +237,16 @@ INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfB
 
 
 
-select * from UserTable
+select * from UserTable;
 select * from Flight;
+delete from Seat;
 
-INSERT INTO Seat Values('A1','Business'),('A2','Business'),('A3','Business'),('A4','Business'),('A5','Economy'),('A6','Economy'),('A7','Economy'),('A8','Economy'),
-                       ('B1','Business'),('B2','Business'),('B3','Business'),('B4','Business'),('B5','Economy'),('B6','Economy'),('B7','Economy'),('B8','Economy'),
-					   ('C1','Business'),('C2','Business'),('C3','Business'),('C4','Business'),('C5','Economy'),('C6','Economy'),('C7','Economy'),('C8','Economy'),
-					   ('D1','Business'),('D2','Business'),('D3','Business'),('D4','Business'),('D5','Economy'),('D6','Economy'),('D7','Economy'),('D8','Economy'),
-					   ('E1','Business'),('E2','Business'),('E3','Business'),('E4','Business'),('E5','Economy'),('E6','Economy'),('E7','Economy'),('E8','Economy'),
-					   ('F1','Business'),('F2','Business'),('F3','Business'),('F4','Business'),('F5','Economy'),('F6','Economy'),('F7','Economy'),('F8','Economy');
-
+INSERT INTO Seat Values('A1','Business'),('A2','Business'),('A3','Business'),('A4','Business'),('A5','Business'),('A6','Economy'),('A7','Economy'),('A8','Economy'),('A9','Economy'),('A10','Economy'),('A11','Economy'),('A12','Economy'),('A13','Economy'),('A14','Economy'),('A15','Economy'),('A16','Economy'),('A17','Economy'),('A18','Economy'),('A19','Economy'),('A20','Economy'),
+                       ('B1','Business'),('B2','Business'),('B3','Business'),('B4','Business'),('B5','Business'),('B6','Economy'),('B7','Economy'),('B8','Economy'),('B9','Economy'),('B10','Economy'),('B11','Economy'),('B12','Economy'),('B13','Economy'),('B14','Economy'),('B15','Economy'),('B16','Economy'),('B17','Economy'),('B18','Economy'),('B19','Economy'),('B20','Economy'),
+					   ('C1','Business'),('C2','Business'),('C3','Business'),('C4','Business'),('C5','Business'),('C6','Economy'),('C7','Economy'),('C8','Economy'),('C9','Economy'),('C10','Economy'),('C11','Economy'),('C12','Economy'),('C13','Economy'),('C14','Economy'),('C15','Economy'),('C16','Economy'),('C17','Economy'),('C18','Economy'),('C19','Economy'),('C20','Economy'),
+					   ('D1','Business'),('D2','Business'),('D3','Business'),('D4','Business'),('D5','Business'),('D6','Economy'),('D7','Economy'),('D8','Economy'),('D9','Economy'),('D10','Economy'),('D11','Economy'),('D12','Economy'),('D13','Economy'),('D14','Economy'),('D15','Economy'),('D16','Economy'),('D17','Economy'),('D18','Economy'),('D19','Economy'),('D20','Economy'),
+					   ('E1','Business'),('E2','Business'),('E3','Business'),('E4','Business'),('E5','Business'),('E6','Economy'),('E7','Economy'),('E8','Economy'),('E9','Economy'),('E10','Economy'),('E11','Economy'),('E12','Economy'),('E13','Economy'),('E14','Economy'),('E15','Economy'),('E16','Economy'),('E17','Economy'),('E18','Economy'),('E19','Economy'),('E20','Economy'),
+					   ('F1','Business'),('F2','Business'),('F3','Business'),('F4','Business'),('F5','Business'),('F6','Economy'),('F7','Economy'),('F8','Economy'),('F9','Economy'),('F10','Economy'),('F11','Economy'),('F12','Economy'),('F13','Economy'),('F14','Economy'),('F15','Economy'),('F16','Economy'),('F17','Economy'),('F18','Economy'),('F19','Economy'),('F20','Economy');
 
 
 INSERT INTO Booking (BookingId,UserEmailId,DateBooking,TransactionId,TotalPrice,TotalPassenger,BookStatus) Values('B30OCL', 'arhandas1998ad@gmail.com', '09-26-2020', 'T30CL','8999.00', '1','Confirmed')
@@ -256,3 +258,6 @@ INSERT INTO Booking (BookingId,UserEmailId,DateBooking,TransactionId,TotalPrice,
 select* from Booking
 
 INSERT INTO Ticket (TicketId,FlightId,Title,FirstName,LastName,AgeGroup,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,SeatNo,DateTravel,Class ,Price,BookingId)Values('T01','AA807','Mr','Arhan','Das','Adult','BOM','DEL','12:00:00','02:00:00','02:00:00','C5','10-26-2020','Economy',7689.00,'B30OCL');
+
+delete from Ticket;
+delete from booking;

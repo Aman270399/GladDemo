@@ -1,7 +1,14 @@
-
+<style>
+    @media print {
+        .print-container, .print-container *{
+            visibility: visible;
+        }
+    }
+</style>
+<div class="row print-container">
 <div class="container-fluid" p-3 my-3 bg-dark>
     <div class="main">		
-        <h3><b>Booking History</b></h3>       
+        <h3><b>Ticket </b></h3>       
         <div class="table-responsive">      
               <table style="color: rgb(243, 242, 225);" id="mytable" class="table table-bordred table-striped">
                  <div *ngFor="let ticket of tickets">
@@ -25,3 +32,5 @@
         </div>
     </div>
 </div>
+</div>
+<button class="btn btn-success" onclick="window.print();">Print Tickets</button>

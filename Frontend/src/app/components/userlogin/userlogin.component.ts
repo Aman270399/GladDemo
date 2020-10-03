@@ -14,12 +14,15 @@ export class UserloginComponent implements OnInit {
   loginForm: FormGroup;
   user:User;
   fromFlightSelect:boolean;
+  hide:boolean= true;
   
   constructor(private formBuilder: FormBuilder,private userService: AuthService,private router: Router,private route:ActivatedRoute,private location:Location) {
+   
    }
    
-  
   ngOnInit(): void {
+
+    
     this.loginForm = this.formBuilder.group({
 			email: ['', [Validators.required]],
 			password: ['', [Validators.required]]
@@ -32,8 +35,9 @@ export class UserloginComponent implements OnInit {
     this.submitted = true;
     this.userService.doLogin(this.loginForm.value).subscribe(result => {
       console.log(this.loginForm.value);
+      sessionStorage.setItem('username',result.FirstName+" "+result.LastName);
       this.userService.getLoggedInName.next(result.FirstName+" "+result.LastName);
-      sessionStorage.setItem('userData',result.toString());
+      sessionStorage.setItem('userData',result.Password);
       sessionStorage.setItem('useremail',result.UserEmailId.toString());
       if(this.fromFlightSelect)
            this.router.navigate(['/passengerdetail']);

@@ -36,7 +36,7 @@
         <div class="col" *ngIf="isReturn">
             <div class="row gutter-row d-flex w-100 justify-content-between">
                 <div class="col gutter-col">
-                    <div class="title ml-1">Return Flight Details</div>
+                    <div class="title ml-1">Flight Details</div>
                 </div>
                 <div class=" subcol col no-gutters">
                     <div class="title">Economy</div>
@@ -67,7 +67,7 @@
                 </div>
             </div>  
         </div>
-        <button mat-raised-button color="accent" class="continue" (click)= "continue()" *ngIf="selected || (isReturn && returnSelected)" >Continue</button>
+        <button mat-raised-button color="accent" class="continue" (click)= "continue()" *ngIf="selected && (returnSelected || (!returnSelected&&!isReturn))" >Continue</button>
 </div>
 
 

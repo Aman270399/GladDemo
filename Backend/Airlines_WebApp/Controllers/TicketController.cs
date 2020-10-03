@@ -20,26 +20,33 @@ namespace Airlines_WebApp.Controllers
         }
         [HttpPost]
         [Route("")]
-        public IHttpActionResult addTicket([FromBody] Ticket ticket)
+        public IHttpActionResult addTicket([FromBody] Ticket[] tickets)
         {
-            try
+            List<Ticket> lticket = dataRepository.GetAll().ToList();
+            foreach (Ticket ticket in tickets)
             {
-                if (!ModelState.IsValid)
+                try
                 {
-                    return BadRequest(ModelState);
-                }
-                if (ticket == dataRepository.Get(ticket.TicketId))
-                {
-                    return BadRequest("booking already exists");
-                }
+                    if (!ModelState.IsValid)
+                    {
+                        return BadRequest(ModelState);
+                    }
+                    var query = (from t in lticket
+                                 where t.TicketId == ticket.TicketId && t.FlightId == ticket.FlightId
+                                 select t).SingleOrDefault();
+                    if (query!=null)
+                    {
+                        return BadRequest("booking already exists");
+                    }
 
-                dataRepository.Add(ticket);
+                    dataRepository.Add(ticket);
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return Ok(ticket);
+            return Ok(tickets);
 
         }
 
