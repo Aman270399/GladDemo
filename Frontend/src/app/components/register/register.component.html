@@ -49,10 +49,10 @@
             <div class="form-group">
             <mat-form-field appearance="fill">
                 <mat-label>Date of Birth</mat-label>
-                <input matInput [matDatepicker]="picker" [errorStateMatcher]="errorMatcher" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="dd/mm/yyyy" required>
+                <input matInput [matDatepicker]="picker" [errorStateMatcher]="errorMatcher" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="mm/dd/yyyy" required>
                 <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker ></mat-datepicker>
-                <mat-error *ngIf="addUser.get('DateOfBirth').touched && addUser.controls.DateOfBirth.hasError('required')">DOB is required</mat-error>
+                <mat-error *ngIf="addUser.get('DateOfBirth').touched && addUser.controls.DateOfBirth.hasError('required')">DOB(mm/dd/yyyy) is required</mat-error>
                 <mat-error *ngIf="addUser.hasError('InvalidAge')">Age must be (18-80)</mat-error>
             </mat-form-field>
         </div>
@@ -63,7 +63,7 @@
                 <button type="button" mat-icon-button color-white matPrefix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
-                <mat-error *ngIf="addUser.controls.Password.touched && addUser.controls.Password.hasError('required')">Please enter a password</mat-error>
+                <mat-error *ngIf="addUser.controls.Password.hasError('required')">Please enter a password</mat-error>
                 <mat-error *ngIf="addUser.get('Password').touched && addUser.controls.Password.hasError('minlength')">Password must be minimum 8 characters</mat-error>
                 <mat-error *ngIf="!addUser.get('Password').hasError('minlength') && addUser.controls.Password.hasError('pattern')">Must have atleast one uppercase,lowercase,special character and a digit</mat-error>
             </mat-form-field>
