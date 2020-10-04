@@ -34,10 +34,10 @@ export class PaymentgatewayComponent implements OnInit {
       card: new FormControl('', [Validators.required]),
     })
     this.carddetailsForm = this.formBuilder.group({
-      cardNumber:['',[Validators.required, Validators.max(16),Validators.pattern("^[0-9]{16}")]],
-      cardCvv:['',[Validators.required,Validators.max(3),Validators.pattern("[0-9]{3}")]],
-      cardHolderName:['',[Validators.required,Validators.pattern("[A-Za-z]+")]],
-      mobilenumber:['',[Validators.required,Validators.max(10),Validators.pattern("[7-9][0-9]{9}")]],
+      cardNumber:['',[Validators.required,Validators.pattern("^[0-9]{16}")]],
+      cardCvv:['',[Validators.required,Validators.pattern("[0-9]{3}")]],
+      cardHolderName:['',[Validators.required,Validators.pattern("^[A-Za-z]+([ ]{0,1})([A-Za-z]+)?([ ]{0,1})?([A-Za-z]+)")]],
+      mobilenumber:['',[Validators.required,Validators.pattern("[7-9][0-9]{9}")]],
       cardExpiry:['',[Validators.required]]
      })
      
@@ -56,11 +56,20 @@ export class PaymentgatewayComponent implements OnInit {
     return this.OtpForm.controls;
   }
   onSubmit(form)
-{
+{  
+  if(form.invalid){
+    alert("Please Enter Valid details")
+  } 
+  else{
   this.requestSent = true;
-  console.log(form)
+  console.log(form)}
 }
-onSubmit2(form){
+onSubmit2(form){ 
+  if(form.invalid){
+    alert("Please Enter Valid details");
+    return;
+  } 
+  
   this.makepayment = true;
   this.auth_service.otpverfiy(form.value.mobilenumber).subscribe(data => {
     this.requestSent = true;
@@ -70,7 +79,11 @@ onSubmit2(form){
 }
 
 onSubmit3(form){
-
+  if(form.invalid){
+    alert("Please Enter Valid details") ;
+    return ;
+  } 
+  
     if(this.current === form.value.otp){
       alert("Payment Successfull!");
       let bookingId= JSON.stringify(Date.now()).substr(7,6);
