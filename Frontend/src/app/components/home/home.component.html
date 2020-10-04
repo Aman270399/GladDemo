@@ -1,65 +1,62 @@
 <mat-toolbar>
     <span>Ready to Fly??  <mat-icon>flight</mat-icon></span>
 </mat-toolbar>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <div class="container"> 
-            
-                <div class="booking-form"> 
-                    
-                    <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
-                        <div class="form-group">
-                            <div class="form-checkbox">
-                                <label for="oneway">
-                                    <input type="radio" id="oneway" name="flighttype"  value="oneway" formControlName="flighttype" (change)="DisableReturn()">
-                                    <span></span>One way
-                                </label>
-                                <label for="roundtrip">
-                                    <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype" (change)="EnableReturn()">
-                                    <span></span>Round trip
-                                </label>   		
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <span class="form-label">Flying from</span>
-                                    <select class="form-control"  formControlName="source">
-                                        <option value="" selected disabled hidden>Select city</option>
-                                        <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</option>
-                                    </select>
-                                    <div *ngIf="SearchForm.get('source').touched">
-                                        <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
-                                             <b>Source</b> is required
-                                        </div>
-                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <span class="form-label">Flying to</span>
-                                    <select class="form-control"  formControlName="destination">
-                                        <option value="" selected disabled hidden>Flying To</option>
-                                        <ng-container *ngFor="let airport of airports">
-                                            <option value="" selected disabled hidden>Select city</option>
-                                            <option [value]="airport.AirportId" *ngIf="airport.AirportId != SearchForm.controls.source.value" >
-                                              {{airport.CityName}}({{ airport.AirportId }})
-                                            </option>
-                                        </ng-container>
-                                        </select>
-                                        <div *ngIf="SearchForm.get('destination').touched">
-                                            <div class="alert text-danger" *ngIf="SearchForm.get('destination').hasError('required')">
-                                                <b>Destination</b> is required
-                                            </div>
-                                         </div>
-                                </div>
-                            </div>
-                        </div>
+ <div class="container">       
+     <div class="booking-form"> 
+        <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
+        <div class="form-group">
+            <div class="form-checkbox">
+            <label for="oneway">
+            <input type="radio" id="oneway" name="flighttype"  value="oneway" formControlName="flighttype" (change)="DisableReturn()">
+            <span></span>One way
+            </label>
+            <label for="roundtrip">
+            <input   type="radio" id="roundtrip" value="roundtrip" formControlName="flighttype" (change)="EnableReturn()">
+            <span></span>Round trip
+            </label>   		
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+            <span class="form-label">Flying from</span>
+             <select class="form-control"  formControlName="source" required>
+                <option value="" selected disabled hidden>Select city</option>
+                <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</option>
+            </select>
+            <div *ngIf="SearchForm.get('source').touched">
+                <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
+                        <b>Source</b> is required
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+        <span class="form-label">Flying to</span>
+        <select class="form-control"  formControlName="destination">
+            <option value="" selected disabled hidden>Flying To</option>
+            <ng-container *ngFor="let airport of airports">
+            <option value="" selected disabled hidden>Select city</option>
+            <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</option>
+            <option [value]="airport.AirportId" *ngIf="airport.AirportId != SearchForm.controls.source.value" >{{airport.CityName}}({{ airport.AirportId }})
+            </option>
+                </ng-container>
+        </select>
+            <div *ngIf="SearchForm.get('destination').touched">
+                <div class="alert text-danger" *ngIf="SearchForm.get('destination').hasError('required')">
+                     <b>Destination</b> is required
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                         
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
+<div class="row">
+    <div class="col-md-3">
+        <div class="form-group">
                                     <span class="form-label">Departing</span>
                                     <input class="form-control" type="date"   [min]="todayShort" formControlName="departdate">
                                     <div *ngIf="SearchForm.get('departdate').touched">
@@ -145,7 +142,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-btn">
-                                    <button mat-raised-button color="priimary" class="submit-btn" type="submit" >Show flights</button>
+                                    <button mat-raised-button color="primary" class="submit-btn" type="submit" [disabled]="SearchForm.invalid" >Show flights</button>
                                 </div>
                             </div>
                         </div>
