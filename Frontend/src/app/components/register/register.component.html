@@ -49,10 +49,10 @@
             <div class="form-group">
             <mat-form-field appearance="fill">
                 <mat-label>Date of Birth</mat-label>
-                <input matInput [matDatepicker]="picker" [errorStateMatcher]="errorMatcher" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="01/01/2020" required>
+                <input matInput [matDatepicker]="picker" [errorStateMatcher]="errorMatcher" value="DateOfBirth|Date" class="form-control" formControlName="DateOfBirth" [max]="todayShort" id="DateOfBirth" placeholder="dd/mm/yyyy" required>
                 <mat-datepicker-toggle matPrefix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker ></mat-datepicker>
-                <mat-error *ngIf="addUser.get('DateOfBirth').touched && addUser.get('DateOfBirth').hasError('required')">DOB is required</mat-error>
+                <mat-error *ngIf="addUser.get('DateOfBirth').touched && addUser.controls.DateOfBirth.hasError('required')">DOB is required</mat-error>
                 <mat-error *ngIf="addUser.hasError('InvalidAge')">Age must be (18-80)</mat-error>
             </mat-form-field>
         </div>

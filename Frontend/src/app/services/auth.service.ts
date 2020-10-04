@@ -20,7 +20,6 @@ export class AuthService {
   public getLoggedInName = new Subject();
   
   constructor(private http: HttpClient) { 
-  this.getLoggedInName.next(sessionStorage.getItem('username'))
   }
   doLogin(data) {
     console.log(data);
