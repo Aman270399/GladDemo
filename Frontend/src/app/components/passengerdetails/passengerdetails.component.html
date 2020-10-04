@@ -132,7 +132,7 @@
     </div>
 
     <div class="card-footer text-center">
-        <button type="submit" class="btn btn-primary mr-1">Select Seat(s)</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!passengerForm.valid" >Select Seat(s)</button>
     </div>
 
 </form>
