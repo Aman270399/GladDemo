@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import * as moment from 'moment';
 import {BookingserviceService} from '../../services/bookingservice.service'
 
+
 @Component({
   selector: 'app-userview',
   templateUrl: './userview.component.html',
