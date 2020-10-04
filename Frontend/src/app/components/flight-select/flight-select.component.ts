@@ -39,7 +39,9 @@ export class FlightSelectComponent implements OnInit {
     {
       this.flightlistservice.searchFlight(this.destination,this.source,this.returnDate,this.passengerCount).subscribe(data=>{
         this.returnFlights=data;
-         console.log(this.returnFlights); });
+         console.log(this.returnFlights); },(error)=>{
+           alert("Failed to fetch data from server.");
+         });
 
     }
   }
