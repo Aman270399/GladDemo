@@ -85,6 +85,8 @@ export class SeatselectComponent implements OnInit {
     this._seatService.getSeats(this.flightId, this.departDate).subscribe((res: any) => {
     this.seats = res;
     console.log(this.seats);
+      },(error)=>{
+        alert("Failed to fetch data from server.");
       });
   }
     getReturnSeatsFromService(){
@@ -92,6 +94,8 @@ export class SeatselectComponent implements OnInit {
       this._seatService.getSeats(this.returnFlightId, this.returnDate).subscribe((res: any) => {
         this.returnSeats = res;
         console.log(this.returnSeats);
+      },(error)=>{
+        alert("Failed to fetch data from server.");
       });
     }
 

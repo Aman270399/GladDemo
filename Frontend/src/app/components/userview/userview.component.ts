@@ -20,7 +20,9 @@ export class UserviewComponent implements OnInit {
   todayShort:Date = new Date(moment(Date.now()).format("YYYY:MM:DD"));
 
   ngOnInit(): void {
-    this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)});
+    this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)},(error)=>{
+      alert("Failed to fetch data from server.");
+    });
     console.log( new Date().getHours());
     console.log( new Date().getMinutes());
     console.log(this.todayShort);
@@ -35,6 +37,8 @@ export class UserviewComponent implements OnInit {
      this.trial=id;
      this.booktable=booking;
      this.bookingdetail.ticketDetails(id).subscribe(data=>{this.tickets=data;
+    },(error)=>{
+      alert("Failed to fetch data from server.");
     })
       this.check=!this.check;     
       

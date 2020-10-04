@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
     
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
-      console.log(this.airports); });
+      console.log(this.airports); },(error)=>{
+        alert("Failed to fetch data from server.");
+      });
     localStorage.clear();
     this.SearchForm = this.formbulider.group({  
       flighttype:['',Validators.required], 

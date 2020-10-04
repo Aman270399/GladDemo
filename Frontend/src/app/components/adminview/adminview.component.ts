@@ -25,7 +25,9 @@ flightschedule : FlightSchedule ;
     this.service.getallflights().subscribe(data=>{
       this.flights=data;
      console.log(this.flights);
-     }); 
+     },(error)=>{
+      alert("Failed to fetch data from server.");
+    }); 
      this.flight= this.builder.group({
       FlightId:["",Validators.required],
       ScheduleDate:["",Validators.required],   
@@ -43,7 +45,9 @@ flightschedule : FlightSchedule ;
     console.log(form.ScheduleDate);
     this.seats = 120; 
     this.flightschedule= new FlightSchedule(form.ScheduleDate,form.FlightId,this.seats);
-    this.service.addflightschedule(this.flightschedule).subscribe(data=>{});
+    this.service.addflightschedule(this.flightschedule).subscribe(data=>{},(error)=>{
+      alert("Invalid Entry");
+    });
     console.log(this.flightschedule);
    }
 

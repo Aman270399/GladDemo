@@ -47,7 +47,9 @@ export class FlightSelectComponent implements OnInit {
     this.isReturn=localStorage.getItem("type")=="roundtrip"?true:false;
     this.flightlistservice.searchFlight(this.source,this.destination,this.departDate,this.passengerCount).subscribe(data=>{
       this.flights=data;
-       console.log(this.flights); });
+       console.log(this.flights); },(error)=>{
+        alert("Failed to fetch data from server.");
+      });
     if(this.isReturn)
     {
       this.flightlistservice.searchFlight(this.destination,this.source,this.returnDate,this.passengerCount).subscribe(data=>{

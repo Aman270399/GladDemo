@@ -23,7 +23,9 @@ export class AddflightComponent implements OnInit {
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
      console.log(this.airports);
-     });
+     },(error)=>{
+      alert("Failed to fetch data from server.");
+    });
 
     this.addFlight= this.builder.group({
       FlightId:["",Validators.required],
