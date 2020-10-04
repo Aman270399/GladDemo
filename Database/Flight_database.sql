@@ -164,6 +164,7 @@ INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Durati
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA607','BBI','CCJ','2:30:00','04:45:00','02:15:00',3489.00,14678.00);
 
 
+
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA101','BOM','GAU','12:00:00','02:00:00','02:00:00',7899.00,25678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA102','GAU','BOM','12:00:00','02:00:00','02:00:00',8989.00,28978.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA103','BBI','DEL','2:30:00','04:45:00','02:15:00',4889.00,14678.00);
@@ -178,7 +179,7 @@ INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Durati
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA291','BHJ','DEL','3:00:00','4:00:00','01:00:00',4689.00,14678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA301','SXR','IXJ','12:00:00','01:00:00','01:00:00',5689.00,14678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA345','IXJ','SXR','2:30:00','04:45:00','02:15:00',9489.00,14678.00);
-
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA808','BOM','DEL','2:30:00','04:45:00','02:15:00',6689.00,14678.00);
 
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',120);
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA707',120);
