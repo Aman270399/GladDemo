@@ -21,7 +21,12 @@ html,body{
     width:100%;
     min-height: calc(100vh - 30px);
     position:fixed;
-	z-index:-1;
+}
+#mycarousel .carousel-indicators
+{
+    margin-bottom: 18%;
+    overflow: hidden;
+    z-index: 0;
 }
 .carousel,
 .carousel-inner {
