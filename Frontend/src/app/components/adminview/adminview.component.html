@@ -1,11 +1,24 @@
 <div class="main">
-  <div class="table-responsive">     
-  
+  <div class="table-responsive">   
     <table  id="mytable" class="table table-bordred table-striped">
-      <p><b>List of Flights</b>&nbsp;&nbsp;&nbsp;  <button data-toggle="modal" data-target="#myModal" mat-raised-button color="primary" >Schedule a Flight</button></p>
-      
+      <thead class="thead-dark">
+        <th colspan="2">
+          <b>List of Flights</b>
+        </th>
+        <th>
+          <input type="text" [(ngModel)]="query" placeholder="Search..">
+        </th>
+        <th colspan="2">
+          <button data-toggle="modal" data-target="#myModal" mat-raised-button color="primary" >Schedule a Flight</button>
+        </th> 
+        <th>
+          <button mat-raised-button class="btn-success"  (click)="redirectaddflight()">Add Flight</button>
+        </th>
+        <th>
+          <button mat-raised-button color="warn" (click)="redirectdeleteflight()">Delete Flight</button>
+        </th>
+        </thead>
     <tr>
-        
         <th >Flight Number</th>
         <th>Flight From</th>
         <th>Flight To</th>
@@ -15,7 +28,7 @@
         <th>Business Price </th>
        <!-- <th> Departure Date</th>-->
     </tr>
-    <tr *ngFor = "let flight of  flights">
+    <tr *ngFor ="let flight of  flights| search:'FlightId,SourceId':query">
        <td>{{flight.FlightId}}</td>
        <td>{{flight.SourceId}}</td>
        <td>{{flight.DestinationId}}</td>
@@ -27,9 +40,6 @@
       <!--  <td>{{flight.DepartureDate | date:'mediumDate'}}</td>-->
     </tr>
 </table>
-<button mat-raised-button class="btn btn-primary"  (click)="redirectaddflight()">Add Flight</button>&nbsp; &nbsp;
-<button mat-raised-button class="btn btn-danger" (click)="redirectdeleteflight()">Delete Flight</button>
-
 </div>  
 
 

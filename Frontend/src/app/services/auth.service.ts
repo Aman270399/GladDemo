@@ -20,12 +20,15 @@ export class AuthService {
   public getLoggedInName = new Subject();
   
   constructor(private http: HttpClient) { 
+  this.getLoggedInName.next(sessionStorage.getItem('username'))
   }
   doLogin(data) {
     console.log(data);
     return this.http.post<User>(this.API_URI+"/userlogin", data);  
   }
   isLoggedIn() {
+    this.getLoggedInName.next(sessionStorage.getItem('username'))
+
     if (sessionStorage.getItem('userData') || sessionStorage.getItem('adminData')) {
       return true;
     }
@@ -61,6 +64,7 @@ export class AuthService {
   }
 
   doAdminLogin(data) {
+    this.getLoggedInName.next(sessionStorage.getItem('username'))
     console.log(data);
     return this.http.post<Admin>(this.API_URI+"/adminlogin", data);
   }

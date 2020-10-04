@@ -40,9 +40,7 @@ export class HomeComponent implements OnInit {
       infantpassengercount:[0,Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
-    console.log('107'+JSON.stringify(Date.now()).substr(3,10));
-    console.log('107'+JSON.stringify(Date.now()).substr(3,10));
-    console.log(JSON.stringify(Date.now()));
+    this.SearchForm.controls['returndate'].disable();
   }
 
   DisableReturn(){

@@ -24,6 +24,8 @@ import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 import { ShowticketComponent } from './components/showticket/showticket.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { OrderModule } from 'ngx-order-pipe';
+import { SearchPipe } from './pipes/search.pipe';
 // import { HttpErrorInterceptor } from './http-error.interceptor';
 
 
@@ -47,7 +49,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     ResetpasswordComponent,
     UserviewComponent,
     PaymentgatewayComponent,
-    ShowticketComponent
+    ShowticketComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     FormsModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
-    
+    OrderModule,
   ],
   providers:[],
   // providers: [{

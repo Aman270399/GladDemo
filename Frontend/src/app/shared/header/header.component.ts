@@ -12,7 +12,7 @@ export class HeaderComponent implements OnInit {
   userName:any;
   constructor(private authService:AuthService,private router:Router) { }
   ngOnInit(){
-    this.userName=sessionStorage.getItem('username');
+    this.authService.getLoggedInName.subscribe(name => this.userName = name);
     console.log( this.authService.getLoggedInName);
     
   }

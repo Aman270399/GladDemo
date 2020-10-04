@@ -32,8 +32,8 @@
                         </div>
                     </button>
                 </div>
-                <div class="col-md-12" *ngIf="flights.length==0">
-                    No flights found!
+                <div class="row" *ngIf="flights.length==0">
+                    <div class="title ml-1">NO FLIGHTS FOUND</div>
                 </div>
             </div>
         </div>
@@ -69,7 +69,7 @@
                         </div>
                     </button>
                 </div>
-                <div class="col-md-12" *ngIf="returnFlights.length==0">No Return flights found<button type="button" disabled="true"></button>
+                <div class="row" *ngIf="returnFlights.length==0"><div class="title ml-1">NO RETURN FLIGHTS FOUND</div>
                 </div>
             </div>  
             
