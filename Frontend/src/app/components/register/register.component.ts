@@ -7,8 +7,9 @@ import { User } from 'src/app/models/User';
 import { UserService } from 'src/app/services/user.service';
 
 class CrossFieldErrorMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-      return control.dirty && form.invalid;
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {console.log(control.dirty && form.invalid);
+      return !!(control.dirty && (form.hasError('notSame')||form.hasError('InvalidAge')));
+      
     }
   }
 
@@ -31,7 +32,7 @@ export class RegisterComponent implements OnInit {
       FirstName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       LastName:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],
       UserEmailId:["",[Validators.required,Validators.email]],
-      Age : ["",[Validators.required,Validators.min(18)]],
+      Age : [""],
       MobileNumber : ["",[Validators.required,Validators.pattern('[7-9][0-9]{9}')]],
       Password : ["",[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{7,}'),Validators.minLength(8)]],
       DateOfBirth:["",[Validators.required]],
@@ -43,12 +44,12 @@ export class RegisterComponent implements OnInit {
   console.log(pass);
   let confirmPass = group.get('confirmPass').value;
   console.log(confirmPass);
-   return pass === confirmPass ? null : { notSame: true }     
+   return (pass === confirmPass) ? null : { notSame: true };   
   }
   checkAge(group:FormGroup)
   {
-    let Age=moment().diff(group.get('DateOfBirth').value, 'years');
-    return Age<18?{InvalidAge:true}:null;
+    let Age=group.get('Age').value;
+    return (Age>=18 || Age<=80)?null:{InvalidAge:true};
   }
   get f() { return this.addUser.controls; }
      submitted:boolean=false;
@@ -71,7 +72,7 @@ age:any;
       }
       if(error.error.Message=="Age cannot be less than 18")
       {
-        alert()
+        alert("Age cannot be less than 18!")
       }
       else
        alert("Please Enter valid details!!");

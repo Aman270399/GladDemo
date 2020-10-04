@@ -33,9 +33,6 @@ export class ResetpasswordComponent implements OnInit {
         confirmloginpwd: new FormControl('',Validators.required)}, { 
           validators: this.confirmedValidator('loginpwd', 'confirmloginpwd') 
       });
-			
-		// 	password: ['', [Validators.required]]
-    // });
    }
   
 

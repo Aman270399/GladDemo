@@ -2,6 +2,8 @@
     @media print {
         .print-container, .print-container *{
             visibility: visible;
+            font-weight: bold;
+            color: black;
         }
     }
 </style>
@@ -24,7 +26,7 @@
                           <td>Seat No:<br>{{ticket.SeatNo}}</td>
                           <td>Date of Travel:<br>{{ticket.DateTravel}}</td>
                           <td>Class:<br>{{ticket.Class}}</td>
-                          <td>Price:<br>{{ticket.Price}}</td>
+                          <td>Price:<br>{{ticket.Price|currency:"INR"}}</td>
                           <td>Booking Id:<br>{{ticket.BookingId}}</td>
                           <td>Date of Cancellation:<br>{{ticket.DateCancellation}}</td>
                          </div>
@@ -34,3 +36,4 @@
 </div>
 </div>
 <button class="btn btn-success" onclick="window.print();">Print Tickets</button>
+

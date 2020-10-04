@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { flight, flight1 } from 'src/app/models/flight';
 import { AuthService } from 'src/app/services/auth.service';
 import { FlightlistService } from 'src/app/services/flightlist.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-flight-select',
@@ -14,11 +15,13 @@ export class FlightSelectComponent implements OnInit {
   destination:string;
   departDate:string;
   returnDate:String;
-  flights:flight1[];
+  flights:flight1[]=[];
   passengerCount:number;
-  returnFlights:flight1[];
+  returnFlights:flight1[]=[];
   selected:boolean=false;
   returnSelected:boolean=false;
+  flightSelected:flight=null;
+  returnFlightSelected:flight=null;
   constructor(private flightlistservice:FlightlistService,public router:Router,private authservice:AuthService) { }
   isReturn:boolean;
   ngOnInit(): void {
@@ -37,26 +40,39 @@ export class FlightSelectComponent implements OnInit {
     {
       this.flightlistservice.searchFlight(this.destination,this.source,this.returnDate,this.passengerCount).subscribe(data=>{
         this.returnFlights=data;
-         console.log(this.returnFlights); });
+         console.log(this.returnFlights); },(error)=>{
+           alert("Failed to fetch data from server.");
+         });
 
     }
   }
   get isLoggedIn(){return this.authservice.isLoggedIn()};
+ 
+  selectReturnFlight(returnFlight:flight1)
+{
+  this.returnSelected=true;
+  this.returnFlightSelected=returnFlight;
+ sessionStorage.setItem('returnflight',JSON.stringify(returnFlight));
+}
+
+  selectFlight(flight:flight)
+  {
+    this.selected=true;
+    this.flightSelected=flight;
+    sessionStorage.setItem('flight',JSON.stringify(flight));
+  }
   continue()
   {
+    console.log("yes");
+    //var startTime = moment(this.flightSelected.ArrivalTime, "HH:mm:ss ");
+//var endTime = moment(this.returnFlightSelected.DepartTime, "HH:mm:ss ");
+// calculate total duration
+//var duration = moment.duration(endTime.diff(startTime));
+// duration in hours
+//var hours = parseInt(duration.asHours());
     if(this.isLoggedIn==false)
        this.router.navigate(['/userlogin',{flightSelect:true}]);
     else
        this.router.navigate(['/passengerdetail']);
-  }
-  selectReturnFlight(returnFlight:flight1)
-{
-  this.returnSelected=true;
- sessionStorage.setItem('returnflight',JSON.stringify(returnFlight));
-}
-  selectFlight(flight:flight)
-  {
-    this.selected=true;
-    sessionStorage.setItem('flight',JSON.stringify(flight));
   }
 }

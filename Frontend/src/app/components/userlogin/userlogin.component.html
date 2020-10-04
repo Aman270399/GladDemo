@@ -8,17 +8,17 @@
 
   <div class="form-group"><h1>Sign In</h1></div>
   <div class="input-group">
-    <mat-form-field appearance="outline"> 
+    <mat-form-field appearance="fill"> 
       <mat-label >Enter your email</mat-label>
       <input matInput placeholder="user@example.com" formControlName="email" required>
       <mat-error *ngIf="loginForm.controls.email.invalid">Please enter valid email</mat-error>
     </mat-form-field>
   </div>
   <div class="input-group">
-      <mat-form-field appearance="outline">
+      <mat-form-field appearance="fill">
         <mat-label>Enter your password</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-        <button mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <button type="button" mat-icon-button color-white matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
@@ -30,7 +30,7 @@
 </div>
 <div class="form-group" >
       <div>
-          Don't have an account!<a [routerLink]="['/register']"> New User? Register here</a>
+          Don't have an account!<a style="color:orangered" [routerLink]="['/register']"> New User? Register here</a>
       </div>
 </div>    
 </form>     

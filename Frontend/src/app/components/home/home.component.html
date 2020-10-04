@@ -74,7 +74,7 @@
                             </div>
                             <div class="col">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <span class="form-label">Adults (18+)</span>
                                             <input type="number" class="form-control" formControlName="adultpassengercount" placeholder="0" value="" min="1" max="9" step="1"/>
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <span class="form-label">Children (3-17)</span>
                                             <input type="number" class="form-control" formControlName="childpassengercount" placeholder="0" value="0" min="0" max="8" step="1"/>
@@ -100,7 +100,7 @@
                                              </div>
                                         </div>
                                     </div>
-                                    <div class="col">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <span class="form-label">Infant (0-3)</span>
                                             <input type="number" class="form-control" formControlName="infantpassengercount" placeholder="0" value="0" min="0" max="4" step="1"/>
@@ -141,7 +141,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-btn">
-                                    <button class="submit-btn" type="submit" [disabled]='!SearchForm.valid'>Show flights</button>
+                                    <button mat-raised-button color="priimary" class="submit-btn" type="submit" [disabled]='!SearchForm.valid'>Show flights</button>
                                 </div>
                             </div>
                         </div>
