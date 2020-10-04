@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery'
+import { AuthService } from './services/auth.service';
+declare var $:any;
 
 @Component({
   selector: 'app-root',
@@ -8,20 +10,18 @@ import * as $ from 'jquery'
 })
 export class AppComponent implements OnInit{
   title = 'Domestic Glide';
-  constructor()
+  
+  constructor(private authservice:AuthService)
   {
-    
-    
-
-    // Initialize carousel
   }
   ngOnInit(): void {
     var $myCarousel = $('#mycarousel');
     $myCarousel.carousel(
       {
-        interval:1000,pause: 'none'
+        interval:5000,pause: 'none'
       }
     );
   }
+
 }
 

@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 
 class CrossFieldErrorMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {console.log(control.dirty && form.invalid);
-      return !!(control.dirty && (form.hasError('notSame')||form.hasError('InvalidAge')));
+      return (control.dirty && form.invalid);
       
     }
   }
