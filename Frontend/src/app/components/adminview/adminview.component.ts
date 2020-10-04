@@ -30,7 +30,6 @@ flightschedule : FlightSchedule ;
       FlightId:["",Validators.required],
       ScheduleDate:["",Validators.required],   
     });
-     console.log(this.query);
   }
   redirectaddflight(){
     this.route.navigate(['addflight'])

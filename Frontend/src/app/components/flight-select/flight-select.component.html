@@ -3,17 +3,17 @@
         <div class="col">
             <div class="list-group">
                 <div class="heading">
-                    <div class="col gutter-col">
-                        <div class="title ml-1">Flight Details</div>
+                    <div class="col gutter-col" [class.active]="order === 'EconomyPrice'" (click)="setOrder('DepartTime')">
+                        <div class="title ml-1">Flight Details<span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></div>
                     </div>
-                    <div class=" subcol col no-gutters">
-                        <div class="title">Economy</div>
+                    <div class=" subcol col no-gutters" [class.active]="order === 'EconomyPrice'" (click)="setOrder('EconomyPrice')">
+                        <div class="title">Economy<span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></div>
                     </div>
-                    <div class="subcol col no-gutters">
-                        <div class="title">Business</div>
+                    <div class="subcol col no-gutters" [class.active]="order === 'EconomyPrice'" (click)="setOrder('BusinessPrice')">
+                        <div class="title">Business<span [hidden]="reverse">▼</span><span [hidden]="!reverse">▲</span></div>
                     </div>
                 </div>
-                <div *ngFor="let flight of flights">
+                <div *ngFor="let flight of flights|orderBy: order:reverse">
                     <button type="button" class="list-group-item list-group-item-action" (click)="selectFlight(flight)">
                         <div class="row gutter-row">
                             <div class="col gutter-col ">
@@ -40,17 +40,17 @@
         <div class="col" *ngIf="isReturn">
             <div class="list-group">
                 <div class="heading">
-                    <div class="col gutter-col">
-                        <div class="title ml-1">Flight Details</div>
+                    <div class="col gutter-col" [class.active]="order2 === 'EconomyPrice'" (click)="setOrder2('DepartTime')">
+                        <div class="title ml-1">Flight Details<span [hidden]="reverse2">▼</span><span [hidden]="!reverse2">▲</span></div>
                     </div>
-                    <div class=" subcol col no-gutters">
-                        <div class="title">Economy</div>
+                    <div class=" subcol col no-gutters" [class.active]="order2 === 'EconomyPrice'" (click)="setOrder2('EconomyPrice')">
+                        <div class="title">Economy<span [hidden]="reverse2">▼</span><span [hidden]="!reverse2">▲</span></div>
                     </div>
-                    <div class="subcol col no-gutters">
-                        <div class="title">Business</div>
+                    <div class="subcol col no-gutters" [class.active]="order2 === 'EconomyPrice'" (click)="setOrder2('BusinessPrice')">
+                        <div class="title">Business<span [hidden]="reverse2">▼</span><span [hidden]="!reverse2">▲</span></div>
                     </div>
                 </div>
-                <div *ngFor="let flight of returnFlights">
+                <div *ngFor="let flight of returnFlights|orderBy: order2:reverse2">
                     <button type="button" class="list-group-item list-group-item-action"(click)="selectReturnFlight(flight)">
                         <div class="row gutter-row">
                             <div class="col gutter-col ">
