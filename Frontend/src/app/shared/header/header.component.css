@@ -18,7 +18,8 @@
 	color: #efe5ff;
 	padding-left: 0;
 	padding-right: 50px;
-	font-size: 30px;		
+	font-size: 30px;	
+	font-family: Verdana, Geneva, Tahoma, sans-serif;	
 }
 .navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
 	color: #fff;
