@@ -1,6 +1,7 @@
 .navbar {
-	color: #fff;
-	/* background: #926dde !important; */
+	background-color: blueviolet;
+    color: #fff;
+	height:100px;
 	padding:20px 20px;
 	border-radius: 0;
 	border: none;
