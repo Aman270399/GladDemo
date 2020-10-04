@@ -13,12 +13,9 @@ import {FlightSchedule} from '../../models/FlightSchedule'
 })
 export class AddflightComponent implements OnInit {
   addFlight: FormGroup
-  flight:FormGroup; 
-  flightschedule : FlightSchedule ;
+
   airports:any;
-  FSI:any;
-  seats:any; 
-  flightdate: any;
+ 
   today = new Date();
   constructor(private builder : FormBuilder, private service: FlightlistService,public route:Router,private airportservice:AirportlistService) { }
 
@@ -38,22 +35,17 @@ export class AddflightComponent implements OnInit {
       EconomyPrice:["",[Validators.required]],
       BusinessPrice:["",[Validators.required]]
     });
-    this.flight= this.builder.group({
-      flightdate:[""],
-    })
+ 
   }
  onSubmit(form:any){
    console.log(form.SourceId);
-   this.FSI = form.FlightId ; 
-   this.seats = 60; 
+   
    this.service.Addflight(form).subscribe(data=>{
     // console.log(data);
      
      alert("Flight Added Successfully"); 
     
-   this.flightschedule= new FlightSchedule(this.flightdate,this.FSI,this.seats);
-   this.service.addflightschedule(this.flightschedule).subscribe(data=>{});
-   console.log(this.flightschedule);
+  
    this.route.navigate(['adminview']);
     },(error) => {
       console.log(error);
@@ -68,6 +60,7 @@ export class AddflightComponent implements OnInit {
     });
   
  }
+
    
 
 }

@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
   source: string;
   destination: string;
   todayShort = new Date().toISOString().slice(0,10);
+  submitted:boolean=false;
   constructor(private formbulider: FormBuilder,private airportservice:AirportlistService,private router:Router) {
    }
 
@@ -53,10 +54,13 @@ export class HomeComponent implements OnInit {
     this.SearchForm.controls['returndate'].enable();
   }
 
-  submitted:any=true;
+  
   onSubmit(form){
+    if(form.invalid){
+      alert("Please enter all requiured details");
+      return;
+    }
     console.log(form.source);  
-    
     localStorage.setItem('type',form.flighttype);
     localStorage.setItem('source', form.source);
     localStorage.setItem('destination',form.destination);
@@ -69,6 +73,6 @@ export class HomeComponent implements OnInit {
     //console.log(this.SearchForm.valid);
    this.router.navigate(['flightSelect']);
     }
+  }
 
 
-}

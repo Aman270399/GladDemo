@@ -2,7 +2,7 @@
   <div class="table-responsive">     
   
     <table  id="mytable" class="table table-bordred table-striped">
-      <p><b>List of Flights</b></p>
+      <p><b>List of Flights</b>&nbsp;&nbsp;&nbsp;  <button data-toggle="modal" data-target="#myModal" mat-raised-button color="primary" >Schedule a Flight</button></p>
       
     <tr>
         
@@ -26,9 +26,52 @@
         <!-- pipe for date format -->
       <!--  <td>{{flight.DepartureDate | date:'mediumDate'}}</td>-->
     </tr>
-    
-
 </table>
-<button class="btn btn-primary"  (click)="redirectaddflight()">Add Flight</button>&nbsp; &nbsp;
-<button class="btn btn-danger" (click)="redirectdeleteflight()">Delete Flight</button>
+<button mat-raised-button class="btn btn-primary"  (click)="redirectaddflight()">Add Flight</button>&nbsp; &nbsp;
+<button mat-raised-button class="btn btn-danger" (click)="redirectdeleteflight()">Delete Flight</button>
+
+</div>  
+
+
+<div align="center" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+  <div class="modal-dialog">
+<div class="modal-content">
+      <div class="modal-header">  
+        
+        <mat-toolbar>
+          <span>Schedule a Flight</span>
+      </mat-toolbar>
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+    
+  </div> 
+  <form [formGroup]="flight" Submit="onSubmit(flight.value)" >
+      <div class="modal-body">
+        <label for="ScheduleDate" >Select Date:</label>&nbsp;&nbsp;
+        <input formControlName="ScheduleDate" value="ScheduleDate" type="date">  
+        <div *ngIf="flight.get('ScheduleDate').touched">
+          <div class="alert text-danger" *ngIf="flight.get('ScheduleDate').hasError('required')">
+               Please enter a date!
+          </div>
+       </div>  
+      <br><br>
+        
+        <select class="form-control"  formControlName="FlightId">
+              <option value="" selected disabled hidden>Select Flight</option>
+              <option *ngFor="let flight of flights" value="{{flight.FlightId}}">{{flight.FlightId}}</option>
+          </select>
+          <div *ngIf="flight.get('FlightId').touched">
+              <div class="alert text-danger" *ngIf="flight.get('FlightId').hasError('required')">
+                   <b>Flight ID</b> is required
+              </div>
+           </div>
+  </div>
+  <div class="modal-footer ">
+    <button  class="btn btn-success" data-dismiss="modal" type="button" (click)="onSubmit(flight.value)" *ngIf="flight.valid">Add Schedule</button> &nbsp;&nbsp;&nbsp;
+    <button  class="btn btn-danger" data-dismiss="modal">Cancel</button>
+  </div>
+</form>
+    </div>
+  </div> 
 </div>
+  
+    
