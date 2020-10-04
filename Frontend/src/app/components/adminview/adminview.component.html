@@ -33,7 +33,7 @@
 </div>  
 
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+<div align="center" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
   <div class="modal-dialog">
 <div class="modal-content">
       <div class="modal-header">  
@@ -46,14 +46,16 @@
   </div> 
   <form [formGroup]="flight" Submit="onSubmit(flight.value)" >
       <div class="modal-body">
-        
+        <label for="ScheduleDate" >Select Date:</label>&nbsp;&nbsp;
         <input formControlName="ScheduleDate" value="ScheduleDate" type="date">  
         <div *ngIf="flight.get('ScheduleDate').touched">
           <div class="alert text-danger" *ngIf="flight.get('ScheduleDate').hasError('required')">
                Please enter a date!
           </div>
        </div>  
-          <select class="form-control"  formControlName="FlightId">
+      <br><br>
+        
+        <select class="form-control"  formControlName="FlightId">
               <option value="" selected disabled hidden>Select Flight</option>
               <option *ngFor="let flight of flights" value="{{flight.FlightId}}">{{flight.FlightId}}</option>
           </select>
