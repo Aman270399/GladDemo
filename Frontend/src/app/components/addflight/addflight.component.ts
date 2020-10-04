@@ -31,13 +31,21 @@ export class AddflightComponent implements OnInit {
       DestinationId:["",[Validators.required]],
       DepartTime: ["",[Validators.required]],
       ArrivalTime : ["",[Validators.required]],
-      Duration : ["",[Validators.required]],
+      Duration : [""],
       EconomyPrice:["",[Validators.required]],
       BusinessPrice:["",[Validators.required]]
     });
  
   }
  onSubmit(form:any){
+   let hours=(+form.ArrivalTime.substr(0,2))-(+form.DepartTime.substr(0,2));
+   let minutes=(+form.ArrivalTime.substr(3,2))-(+form.DepartTime.substr(3,2));
+   if(minutes<0){
+     hours-=1;
+     minutes+=60;
+   }
+   form.Duration=hours+':'+minutes+':00';
+   console.log(form.Duration)
    console.log(form.SourceId);
    
    this.service.Addflight(form).subscribe(data=>{

@@ -19,8 +19,9 @@ export class ShowticketComponent implements OnInit {
    console.log(this.showser.tickets);
    console.log(this.tickets);
   }
-  PrintNav(){
-    
-    this.route.navigate[('userview')]
+  Print(){
+    window.print();
+    this.route.navigate(['/userview'])
   }
+
 }
