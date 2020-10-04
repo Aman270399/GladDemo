@@ -171,4 +171,15 @@
 .booking-form .submit-btn:hover,
 .booking-form .submit-btn:focus {
 	opacity: 0.9;
+} 
+mat-toolbar{
+	background-color: rgb(5, 47, 75);
+	min-width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+   
+-webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+-moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
 }

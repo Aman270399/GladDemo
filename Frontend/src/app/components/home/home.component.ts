@@ -57,10 +57,9 @@ export class HomeComponent implements OnInit {
   
   onSubmit(form){
     if(form.invalid){
-      this.submitted=true;
-      return 
+      alert("Please enter all requiured details");
+      return;
     }
-    else{
     console.log(form.source);  
     localStorage.setItem('type',form.flighttype);
     localStorage.setItem('source', form.source);

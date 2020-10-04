@@ -161,26 +161,40 @@ select*from Admin;
 
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA207','BOM','DEL','12:00:00','14:00:00','02:00:00',7689.00,24678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA707','DEL','BOM','12:00:00','02:00:00','02:00:00',7689.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA807','BOM','DEL','12:00:00','14:00:00','02:00:00',7689.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA707','DEL','BOM','04:00:00','06:00:00','02:00:00',7689.00,24678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA607','BBI','CCJ','2:30:00','04:45:00','02:15:00',3489.00,14678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA907','BOM','DEL','15:00:00','17:00:00','02:00:00',7689.00,24678.00);
 
 
 
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA101','BOM','GAU','12:00:00','02:00:00','02:00:00',7899.00,25678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA102','GAU','BOM','12:00:00','02:00:00','02:00:00',8989.00,28978.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA101','BOM','GAU','12:00:00','14:00:00','02:00:00',7899.00,25678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA102','GAU','BOM','3:00:00','05:00:00','02:00:00',8989.00,28978.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA103','BBI','DEL','2:30:00','04:45:00','02:15:00',4889.00,14678.00);
 
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA201','MZU','PAT','3:00:00','4:00:00','01:00:00',4689.00,14678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA202','PAT','MZU','12:00:00','01:00:00','01:00:00',5689.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA202','PAT','MZU','12:00:00','13:00:00','01:00:00',5689.00,14678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA203','SLV','DEL','2:30:00','04:45:00','02:15:00',9489.00,14678.00);
 
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA241','DEL','SLV','5:00:00','07:00:00','02:00:00',4989.00,15678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA244','AMD','BBI','12:00:00','03:00:00','03:00:00',7899.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA244','AMD','BBI','12:00:00','15:00:00','03:00:00',7899.00,24678.00);
 INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA273','DEL','BHJ','2:30:00','04:45:00','02:15:00',9489.00,14678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA291','BHJ','DEL','3:00:00','4:00:00','01:00:00',4689.00,14678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA301','SXR','IXJ','12:00:00','01:00:00','01:00:00',5689.00,14678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA345','IXJ','SXR','2:30:00','04:45:00','02:15:00',9489.00,14678.00);
-INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA808','BOM','DEL','2:30:00','04:45:00','02:15:00',6689.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA291','BHJ','DEL','12:30:00','14:45:00','02:15:00',4689.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA301','SXR','IXJ','12:00:00','13:00:00','01:00:00',5689.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA345','IXJ','SXR','3:30:00','04:30:00','01:00:00',9489.00,14678.00);
+
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA501','BOM','SXR','10:00:00','12:00:00','02:00:00',7689.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA502','SXR','BOM','05:00:00','07:00:00','02:00:00',7689.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA503','DEL','CCJ','2:30:00','04:45:00','02:15:00',3489.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA504','CCJ','DEL','7:30:00','09:45:00','02:15:00',3499.00,14678.00);
+
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA505','DEL','AMD','5:00:00','07:00:00','02:00:00',6989.00,15678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA506','AMD','DEL','12:00:00','14:00:00','02:00:00',5899.00,24678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA507','BOM','IXJ','2:30:00','04:45:00','02:15:00',9489.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA508','IXJ','BOM','6:00:00','8:15:00','02:15:00',8689.00,14678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA509','SXR','AMD','12:00:00','15:00:00','03:00:00',7689.00,15678.00);
+INSERT INTO Flight(FlightId,SourceId,DestinationId,DepartTime,ArrivalTime,Duration,EconomyPrice,BusinessPrice) VALUES('AA510','AMD','SXR','4:30:00','07:30:00','03:00:00',9489.00,14678.00);
+
 
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('09-26-2020','AA807',120);
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA907',120);
@@ -233,6 +247,30 @@ INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-02-202
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-27-2020','AA807',120);
 INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-27-2020','AA707',120);
 
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA501',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('10-26-2020','AA502',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-26-2020','AA503',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-26-2020','AA504',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-26-2020','AA505',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-02-2020','AA506',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-27-2020','AA507',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-27-2020','AA508',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-27-2020','AA509',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-27-2020','AA510',120);
+
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('11-26-2020','AA501',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('12-26-2020','AA502',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-29-2020','AA503',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-20-2020','AA504',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-15-2020','AA505',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('01-22-2020','AA506',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-20-2020','AA507',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-29-2020','AA508',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('02-02-2020','AA509',120);
+INSERT INTO FlightSchedule(DateFlight,FlightId,AvailableSeats) VALUES('03-26-2020','AA510',120);
+
+
+
 INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('arhandas1998ad@gmail.com',12345,'Mr','Arhan','Das','07/27/1998',22,'7234567891')
 INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('aman27399@gmail.com',12345,'Mr','Aman','Singh','07/29/1998',22,'7888937062')
 INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfBirth, Age, MobileNumber) VALUES('khushimishra1104@gmail.com',12345,'Ms','Khushi','Mishra','07/28/1998',22,'8979859441')
@@ -244,6 +282,7 @@ INSERT INTO UserTable(UserEmailId, Password, Title, FirstName, LastName, DateOfB
 select * from UserTable;
 select * from Flight;
 delete from Seat;
+delete from Flight
 
 INSERT INTO Seat Values('A1','Business'),('A2','Business'),('A3','Business'),('A4','Business'),('A5','Business'),('A6','Economy'),('A7','Economy'),('A8','Economy'),('A9','Economy'),('A10','Economy'),('A11','Economy'),('A12','Economy'),('A13','Economy'),('A14','Economy'),('A15','Economy'),('A16','Economy'),('A17','Economy'),('A18','Economy'),('A19','Economy'),('A20','Economy'),
                        ('B1','Business'),('B2','Business'),('B3','Business'),('B4','Business'),('B5','Business'),('B6','Economy'),('B7','Economy'),('B8','Economy'),('B9','Economy'),('B10','Economy'),('B11','Economy'),('B12','Economy'),('B13','Economy'),('B14','Economy'),('B15','Economy'),('B16','Economy'),('B17','Economy'),('B18','Economy'),('B19','Economy'),('B20','Economy'),

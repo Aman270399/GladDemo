@@ -1,8 +1,12 @@
-
+<mat-toolbar>
+    <span>Ready to Fly??</span>
+</mat-toolbar>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <div class="container">
-                <div class="booking-form">
-                    <form [formGroup]="SearchForm"   (submit)="(onSubmit(SearchForm.value))">
+        <div class="container"> 
+            
+                <div class="booking-form"> 
+                    
+                    <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
                         <div class="form-group">
                             <div class="form-checkbox">
                                 <label for="oneway">
