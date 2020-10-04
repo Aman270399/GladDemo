@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import * as moment from 'moment';
 import {BookingserviceService} from '../../services/bookingservice.service'
 
 @Component({
@@ -43,6 +44,10 @@ export class UserviewComponent implements OnInit {
   }
   ondelete(ticket){
     ticket.DateCancellation=this.todayShort;
+    var timeNow=moment(Date.now(),"HH:mm:ss");
+    var departTime=moment(ticket.DepartTime,"HH:mm:ss")
+    var timeDiff=moment.duration(timeNow.diff(departTime));
+    console.log(timeDiff);
     this.bookingdetail.deleteticket(ticket).subscribe(data=>{
       console.log(data)});
      this.booktable.TotalPassenger-=1;
