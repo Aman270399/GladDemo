@@ -1,16 +1,9 @@
 
 
-<div class="main" align="center">
-  <form [formGroup]="flight" >
-    <mat-toolbar>
-      <span>Add Flight</span>
-  </mat-toolbar>
-    <mat-form-field>
-    <input matInput [matDatepicker]="dateF" required placeholder="Flight Date" formControlName="flightdate" [min]="today" [(ngModel)]="flightdate" >
-  <mat-datepicker-toggle matSuffix [for]="dateF"></mat-datepicker-toggle>
-   <mat-datepicker #dateF></mat-datepicker>
-  </mat-form-field>
-  </form>
+<div class="main" align="center"> 
+  <mat-toolbar>
+    <span>Add Flight</span>
+</mat-toolbar>
   <form color="primary" [formGroup]="addFlight">
 <mat-form-field appearance="fill" >
   <mat-label>Flight ID</mat-label>
@@ -18,8 +11,7 @@
 </mat-form-field><br>
 <mat-form-field appearance="fill" >
   <mat-label>Source ID</mat-label>
-  <mat-select required formControlName="SourceId">
-   
+  <mat-select required formControlName="SourceId"> 
     <mat-option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</mat-option>
   </mat-select>
 </mat-form-field> &nbsp;&nbsp;
@@ -60,9 +52,7 @@
   </form>
 </div>
 
-  
-  
-    
+
               
  
 
