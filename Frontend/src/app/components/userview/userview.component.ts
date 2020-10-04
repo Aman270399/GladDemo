@@ -79,7 +79,7 @@ export class UserviewComponent implements OnInit {
     }
   }
   ondelete(ticket){
-    ticket.DateCancellation=this.todayShort;
+    ticket.DateCancellation=this.myDate;
     this.bookingdetail.deleteticket(ticket).subscribe(data=>{
       console.log(data)});
      this.booktable.TotalPassenger-=1;
