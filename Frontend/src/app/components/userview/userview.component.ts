@@ -16,7 +16,7 @@ export class UserviewComponent implements OnInit {
     myDate = new Date();
   constructor(private bookingdetail :BookingserviceService,private http : HttpClient, private route: Router) {}
     
-  todayShort = new Date().toISOString().slice(0,10);
+  todayShort:Date = new Date(moment(Date.now()).format("YYYY:MM:DD"));
 
   ngOnInit(): void {
     this.bookingdetail.bookingDetails().subscribe(data=>{this.bookings=data;console.log(this.bookings)});
@@ -46,24 +46,36 @@ export class UserviewComponent implements OnInit {
   }
   canCancel(ticket)
   {
+    let hours=0;
     let presentHours=new Date().getHours();
     let presentMinutes=new Date().getMinutes();
     console.log(presentMinutes)
+    console.log(presentHours);
     console.log(+ticket.DepartTime.substr(0,2));
-    var hours=+ticket.DepartTime.substr(0,2)-presentHours;
+     hours=+ticket.DepartTime.substr(0,2)-presentHours;
     console.log(hours);
-    hours=hours+(+ticket.DepartTime.substr(3,2)+(presentMinutes)%60);
+    hours=hours+(+ticket.DepartTime.substr(3,2)-(presentMinutes)%60);
     console.log(+ticket.DepartTime.substr(3,2));
     console.log(hours);
-    if(ticket.DateTravel>=this.todayShort&&ticket.DateCancellation==null)
+    console.log(ticket.DateTravel>this.todayShort);
+    let d= new Date(moment(ticket.DateTravel).format("YYYY:MM:DD"));
+    if(d>this.todayShort&&ticket.DateCancellation==null)
     {
+      
+      console.log(this.todayShort)
+      console.log(ticket.DateCancellation)
       return true;
     }
     else if(hours>3)
     {
+      console.log('hello');
       return true;
+      
     }
+    else{
+      console.log(false)
     return false;
+    }
   }
   ondelete(ticket){
     ticket.DateCancellation=this.todayShort;
