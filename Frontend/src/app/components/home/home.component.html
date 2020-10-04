@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <div class="container">
                 <div class="booking-form">
-                    <form [formGroup]="SearchForm"  (ngSubmit)="(onSubmit(SearchForm.value))">
+                    <form [formGroup]="SearchForm"   (submit)="(onSubmit(SearchForm.value))">
                         <div class="form-group">
                             <div class="form-checkbox">
                                 <label for="oneway">
@@ -23,11 +23,10 @@
                                         <option value="" selected disabled hidden>Select city</option>
                                         <option *ngFor="let airport of airports" value="{{airport.AirportId}}">{{airport.CityName}}({{airport.AirportId}})</option>
                                     </select>
-                                    <div *ngIf="SearchForm.get('source').touched">
-                                        <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')">
+                                
+                                        <div class="alert text-danger" *ngIf="SearchForm.get('source').hasError('required')&&submitted">
                                              <b>Source</b> is required
-                                        </div>
-                                     </div>
+                                         </div>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +140,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-btn">
-                                    <button mat-raised-button color="priimary" class="submit-btn" type="submit" [disabled]='!SearchForm.valid'>Show flights</button>
+                                    <button mat-raised-button color="primary" class="submit-btn" type="submit" >Show flights</button>
                                 </div>
                             </div>
                         </div>
