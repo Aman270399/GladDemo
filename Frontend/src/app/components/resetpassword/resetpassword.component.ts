@@ -53,6 +53,10 @@ export class ResetpasswordComponent implements OnInit {
 {
   this.currentUserEmailId = form.value.email;
   this.auth_service.forgotUserPassword(form.value.email).subscribe(data => {
+      if(data=="User Not Found"){
+        alert("User does not exist");
+        return;
+      }
       this.requestSent = true;
       this.current = data;
   })

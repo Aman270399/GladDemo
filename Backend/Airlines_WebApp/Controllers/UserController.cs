@@ -82,7 +82,7 @@ namespace Airlines_WebApp.Controllers
             }
             if (userObj == null)
             {
-                return BadRequest("User is null");
+                return BadRequest("User not found");
             }
             if (id != userObj.UserEmailId)
             {

@@ -14,12 +14,15 @@ namespace Airlines_WebApp.Controllers
     [RoutePrefix("api/accounts")]
     public class AccountController : ApiController
     {
+        private IDataRepository<UserTable> dataRepository;
         private IAccountRepository _accountRepository;
         private IAdminAccRepo _adminAccRepo;
+        
         public AccountController()
         {
             this._accountRepository = new AccountRepository(new GladiatorProjectEntities1());
             this._adminAccRepo = new AdminAccRepo(new GladiatorProjectEntities1());
+            this.dataRepository = new UserRepository(new GladiatorProjectEntities1());
         }
         [HttpPost]
         [Route("userlogin")]
@@ -65,7 +68,16 @@ namespace Airlines_WebApp.Controllers
         [Route("sendMail")]
         public string PostSendGmail([FromBody] string user)
         {
-            Random rnd = new Random();
+
+            UserTable existingUser = dataRepository.Get(user);
+           
+                if (existingUser==null)
+                {
+                return ("User Not Found");
+                }
+              
+           
+                Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
 
             SmtpClient client = new SmtpClient();
@@ -111,7 +123,7 @@ namespace Airlines_WebApp.Controllers
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "9tRG/GpG4rc-tvycnCVLTA11GMaP8BHMIGgiIwANMZ" },
+                    {"apikey" , "jjjN2BjuUAI-bX4URpflXBxJiwQAklIevNOmkHrUAn" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "txtlcl" }
