@@ -57,8 +57,8 @@ age:any;
   onSubmit(form : User){
     this.submitted = true;
     const today = new Date();
-    const birthDate = new Date(form.DateOFBirth);
-    form.Age= moment().diff(form.DateOFBirth , 'years');
+    const birthDate = new Date(form.DateOfBirth);
+    form.Age= moment().diff(form.DateOfBirth , 'years');
     console.log(form);
     console.log(form.Age);
     this.service.addUser(form).subscribe(data=>{

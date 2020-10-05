@@ -28,7 +28,7 @@ export class UserService {
       Title: user.Title,
       FirstName:user.FirstName,
       LastName: user.LastName,
-      DateOfBirth: user.DateOFBirth,
+      DateOfBirth: user.DateOfBirth,
       Age:user.Age,
       MobileNumber: user.MobileNumber
     }
