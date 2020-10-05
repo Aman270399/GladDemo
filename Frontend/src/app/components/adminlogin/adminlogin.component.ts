@@ -25,7 +25,6 @@ export class AdminloginComponent implements OnInit {
       
       this.submitted = true;
       this.adminService.doAdminLogin(this.loginform.value).subscribe(result => {
-        console.log(this.loginform.value);
         sessionStorage.setItem('username',result.FirstName+" "+result.LastName);
         sessionStorage.setItem('adminData',JSON.stringify(result.AdminEmailId));
         sessionStorage.setItem('useremail',result.AdminEmailId.toString());

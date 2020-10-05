@@ -4,6 +4,7 @@ import { flight, flight1 } from 'src/app/models/flight';
 import { AuthService } from 'src/app/services/auth.service';
 import { FlightlistService } from 'src/app/services/flightlist.service';
 import * as moment from 'moment';
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-flight-select',
@@ -22,7 +23,18 @@ export class FlightSelectComponent implements OnInit {
   returnSelected:boolean=false;
   flightSelected:flight=null;
   returnFlightSelected:flight=null;
-  constructor(private flightlistservice:FlightlistService,public router:Router,private authservice:AuthService) { }
+  order: string = 'DepartTime';
+  order2:string='DepartTime';
+  reverse2:boolean=false;
+  reverse: boolean = false;
+  sortedFlights: any[];
+  sortedReturn: any[];
+  constructor(private flightlistservice:FlightlistService,public router:Router,private authservice:AuthService,private orderPipe: OrderPipe) { 
+    this.sortedFlights= orderPipe.transform(this.flights,'');
+    console.log(this.sortedFlights);
+    this.sortedReturn= orderPipe.transform(this.returnFlights, '');
+    console.log(this.sortedReturn);
+  }
   isReturn:boolean;
   ngOnInit(): void {
     sessionStorage.removeItem('flight');
@@ -35,7 +47,9 @@ export class FlightSelectComponent implements OnInit {
     this.isReturn=localStorage.getItem("type")=="roundtrip"?true:false;
     this.flightlistservice.searchFlight(this.source,this.destination,this.departDate,this.passengerCount).subscribe(data=>{
       this.flights=data;
-       console.log(this.flights); });
+       console.log(this.flights); },(error)=>{
+        alert("Failed to fetch data from server.");
+      });
     if(this.isReturn)
     {
       this.flightlistservice.searchFlight(this.destination,this.source,this.returnDate,this.passengerCount).subscribe(data=>{
@@ -46,7 +60,8 @@ export class FlightSelectComponent implements OnInit {
 
     }
   }
-  get isLoggedIn(){return this.authservice.isLoggedIn()};
+  get isLoggedInUser(){return this.authservice. isLoggedUser()};
+  get isLoggedInAdmin(){return this.authservice.isLoggedAdmin()};
  
   selectReturnFlight(returnFlight:flight1)
 {
@@ -70,9 +85,27 @@ export class FlightSelectComponent implements OnInit {
 //var duration = moment.duration(endTime.diff(startTime));
 // duration in hours
 //var hours = parseInt(duration.asHours());
-    if(this.isLoggedIn==false)
+    if(this.isLoggedInAdmin==true)
+    {
+      alert("You are logged in as Admin. Redirecting to Admin View")
+      this.router.navigate(['/adminview']);
+    }
+    else if(this.isLoggedInUser==false)
        this.router.navigate(['/userlogin',{flightSelect:true}]);
-    else
+    else 
        this.router.navigate(['/passengerdetail']);
+  }
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
+  setOrder2(value:string)
+  {
+    if (this.order2 === value) {
+      this.reverse2 = !this.reverse2;
+    }
+    this.order2 = value;
   }
 }

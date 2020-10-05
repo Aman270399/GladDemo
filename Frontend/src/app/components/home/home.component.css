@@ -1,14 +1,12 @@
 .container{
 
-	width: fit-content(20em);
+	width: fit-content;
     height: auto;
-    margin: 0em auto;
-    color: black; 
+	margin: 0em auto;
     font-size: large;
-    border-radius: 1.5em;
+    border-radius: 0 0 1.5em 1.5em;
 	position: relative;
 	box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-	
 }
 .booking-form {
 
@@ -28,7 +26,6 @@
 	border: none;
 	font-size: 16px;
 	font-weight: 400;
-	-webkit-box-shadow: none;
 	box-shadow: none;
 	border-radius: 40px;
 	padding: 0px 25px;
@@ -174,12 +171,8 @@
 } 
 mat-toolbar{
 	background-color: rgb(5, 47, 75);
-	min-width: 100%;
-    color: #fff;
+	color: #fff;
     display: flex;
+    box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
     justify-content: center;
-   
--webkit-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
--moz-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
-box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
 }

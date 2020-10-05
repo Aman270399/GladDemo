@@ -9,7 +9,7 @@ declare var $:any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title = 'Domestic Glide';
+  title = 'AirBook';
   
   constructor(private authservice:AuthService)
   {

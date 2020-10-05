@@ -18,7 +18,9 @@ export class DeleteflightComponent implements OnInit {
     this.service.getallflights().subscribe(data=>{
       this.flights=data;
      console.log(this.flights);
-     });
+     },(error)=>{
+      alert("Failed to fetch data from server.");
+    });
     this.Deleteflight= this.builder.group({
       FlightId:["",Validators.required]
     })

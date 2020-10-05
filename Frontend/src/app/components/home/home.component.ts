@@ -27,7 +27,9 @@ export class HomeComponent implements OnInit {
     
     this.airportservice.getallairports().subscribe(data=>{
       this.airports=data;
-      console.log(this.airports); });
+      console.log(this.airports); },(error)=>{
+        alert("Failed to fetch data from server.");
+      });
     localStorage.clear();
     this.SearchForm = this.formbulider.group({  
       flighttype:['',Validators.required], 
@@ -40,9 +42,7 @@ export class HomeComponent implements OnInit {
       infantpassengercount:[0,Validators.pattern("[0-9]*")],
       seatclass:['',Validators.required],
     }); 
-    console.log('107'+JSON.stringify(Date.now()).substr(3,10));
-    console.log('107'+JSON.stringify(Date.now()).substr(3,10));
-    console.log(JSON.stringify(Date.now()));
+    this.SearchForm.controls['returndate'].disable();
   }
 
   DisableReturn(){
