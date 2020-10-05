@@ -115,7 +115,7 @@ namespace Airlines_WebApp.Controllers
             Random rnd = new Random();
             int otp = rnd.Next(1000, 9999);
             string number = user;
-            string msg = "your otp is : " + otp.ToString();
+            string msg = "your otp for payment on AirBook is: " + otp.ToString();
             string result;
             string msg1 = System.Web.HttpUtility.UrlEncode(msg);
             //write query
@@ -123,7 +123,8 @@ namespace Airlines_WebApp.Controllers
             {
                 byte[] response = wb.UploadValues("https://api.textlocal.in/send/", new NameValueCollection()
                 {
-                    {"apikey" , "jjjN2BjuUAI-bX4URpflXBxJiwQAklIevNOmkHrUAn" },
+                    {"apikey","u+yDoLUKYko-KZvegKcqUS2LLotimX337tsdoo3QEz"},
+                 //   {"apikey" , "jjjN2BjuUAI-bX4URpflXBxJiwQAklIevNOmkHrUAn" },
                     {"numbers", number},
                     {"message", msg1 },
                     {"sender", "txtlcl" }

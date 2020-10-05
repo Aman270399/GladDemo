@@ -11,12 +11,12 @@ import { TicketService } from 'src/app/services/ticket.service';
 export class ShowticketComponent implements OnInit {
   ticketcount:any;
   tickets:Ticket[];
-  constructor(private showser:TicketService,private route: Router) { }
+  constructor(private showuser:TicketService,private route: Router) { }
 
   ngOnInit(): void {
-   this.tickets= this.showser.tickets;
+   this.tickets= this.showuser.tickets;
    this.ticketcount=this.tickets.length;
-   console.log(this.showser.tickets);
+   console.log(this.showuser.tickets);
    console.log(this.tickets);
   }
   Print(){
