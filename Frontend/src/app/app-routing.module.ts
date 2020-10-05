@@ -17,6 +17,7 @@ import {ResetpasswordComponent} from './components/resetpassword/resetpassword.c
 import { UserviewComponent } from './components/userview/userview.component';
 import { PaymentgatewayComponent } from './components/paymentgateway/paymentgateway.component';
 import { ShowticketComponent } from './components/showticket/showticket.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
   {path:"",redirectTo: '/home', pathMatch: 'full'},
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:"userview",component:UserviewComponent,canActivate:[AuthenticationUserGuard]},
   {path: "paymentgateway", component: PaymentgatewayComponent,canActivate:[AuthenticationUserGuard]},
   {path:"showticket",component:ShowticketComponent,canActivate:[AuthenticationUserGuard]},
+  { path: '**', component: PagenotfoundComponent }
 ]
 
 

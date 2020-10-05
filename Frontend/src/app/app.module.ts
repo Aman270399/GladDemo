@@ -26,6 +26,7 @@ import { ShowticketComponent } from './components/showticket/showticket.componen
 import { MatNativeDateModule } from '@angular/material/core';
 import { OrderModule } from 'ngx-order-pipe';
 import { SearchPipe } from './pipes/search.pipe';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 // import { HttpErrorInterceptor } from './http-error.interceptor';
 
 
@@ -50,7 +51,8 @@ import { SearchPipe } from './pipes/search.pipe';
     UserviewComponent,
     PaymentgatewayComponent,
     ShowticketComponent,
-    SearchPipe
+    SearchPipe,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

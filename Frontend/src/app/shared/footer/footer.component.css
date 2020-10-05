@@ -7,9 +7,10 @@
 }
 footer{
     background-color:rgb(48, 63, 159);
-    box-shadow: 2px 4px 58px -20px rgba(0,0,0,1);
+    box-shadow: 2px 4px 58px 10px rgba(0,0,0,1);
     min-width: 100%;
     flex-shrink: 0;
     min-height:30px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;	
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    	
 }
