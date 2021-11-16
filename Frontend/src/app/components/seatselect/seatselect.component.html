@@ -13,11 +13,11 @@
     <div class="pass-details col-md-2">
       <h2 class="panel-header">Passenger Details</h2>
       <h4 class="panel-header"><b>Adult</b></h4>
-      <ul class="list-group" *ngFor="let passenger of adultpassengers">
+      <ul class="list-group" *ngFor="let passenger of adultpassengers;let i=index">
         <li class="list-group-item">{{passenger.title}} {{passenger.firstname}} {{passenger.lastname}}</li>
       </ul>
       <h4 class="panel-header"  *ngIf="childpassengercount>0"><b>Child</b></h4>
-      <ul class="list-group" *ngFor="let passenger of childpassengers">
+      <ul class="list-group" *ngFor="let passenger of childpassengers;let i=index">
         <li class="list-group-item">{{passenger.title}} {{passenger.firstname}} {{passenger.lastname}}</li>
       </ul>
     </div>
